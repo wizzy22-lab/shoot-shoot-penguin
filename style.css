@@ -1,0 +1,1517 @@
+/* ============================================================
+   Shoot Shoot Penguin — Portfolio
+   Pixel-faithful reproduction of Figma "Shoot Shoot Layout V1 - EN"
+   Design frame: 1920 x 12065 px
+   Strategy: fixed 1920px stage; each section is a fixed-size block;
+   children are absolutely positioned from Figma coordinates.
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---- Design tokens (palette refined per-section against Figma exports) ---- */
+:root {
+  --bg: #0a0e0f;            /* page background (near-black, per Figma) */
+  --bg-elev: #161310;       /* elevated card background */
+  --bg-card: #1a1714;       /* generic card / panel (other sections) */
+  --border: #2a2620;        /* hairline borders */
+  --accent: #f2691f;        /* primary orange accent */
+  --accent-bright: #ff7a1a; /* bright pill / button orange */
+  --text: #ffffff;
+  --text-muted: #9a948c;    /* muted gray body */
+  --text-dim: #6f6a63;      /* dimmer labels */
+
+  /* Hero-specific tokens (values read from high-res Figma exports) */
+  --text-body: #c7c3bd;     /* hero paragraph copy */
+  --logo: #e8e5e0;          /* wizzy wordmark */
+  --thumb-bg: #16130f;      /* hero thumbnail card (distinct from --bg-card) */
+  --pill-from: #f2a878;     /* nav pill gradient top */
+  --pill-to: #ec9a66;       /* nav pill gradient bottom */
+  --pill-active: #2a201b;   /* active toggle chip */
+  --hairline: rgba(255, 255, 255, 0.12); /* role column top divider */
+  --tag-border: rgba(255, 255, 255, 0.35); /* thumbnail tag outline */
+
+  /* Role & Collaboration section tokens */
+  --card-role: #0f1215;            /* elevated dark card */
+  --teal: #2dd4c8;                 /* My Role accent */
+  --tag-bg: rgba(255, 255, 255, 0.10);      /* neutral tag pill */
+  --tag-teal-bg: rgba(45, 212, 200, 0.12);  /* teal tag pill */
+  --quote-bar: rgba(255, 255, 255, 0.28);   /* neutral blockquote bar */
+  --step-bg: rgba(242, 105, 31, 0.12);      /* orange pipeline pill / tag */
+  --card-before: #14161b;          /* workflow (Before the product) card */
+  --red: #e5484d;                  /* Players accent (The Chaos) */
+  --tag-red-bg: rgba(229, 72, 77, 0.12);    /* red tag pill */
+  --card-survey-media: #1a1e24;    /* survey chart placeholder (cool dark) */
+
+  /* Font families */
+  --font-display: "Sora", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+/* ---- Stage / section: fluid by default, fixed 1920 canvas on desktop ---- */
+.stage {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+.section {
+  position: relative;
+  width: 100%;
+}
+
+/* Absolutely-positioned layer helper: coordinates are relative to section. */
+.abs {
+  position: absolute;
+}
+
+/* Text nodes reset to exact Figma metrics via inline styles where needed. */
+.t {
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================
+   HERO SECTION  —  Figma "Hero section" (1:52)
+   Mobile-first flow layout; two breakpoints reflow it:
+     base   (<768px)   1-column stack, scrollable nav pill
+     768px  (tablet)   2-column role grid, larger type
+     992px  (desktop)  exact Figma absolute layout (1920x1379) + scale-to-fit
+   Shared visual tokens (colour, font, radius) live in the base rules;
+   only layout/size is overridden per breakpoint.
+   ============================================================ */
+.hero {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 28px 20px 56px;
+}
+
+/* ---- Ambient orange glows (corner-anchored on small screens) ---- */
+.hero-glow {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(242, 105, 31, 0.55) 0%,
+    rgba(242, 105, 31, 0) 72%
+  );
+  filter: blur(50px);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-glow--tr { right: -160px; top: 20px; }
+.hero-glow--bl { left: -180px; bottom: 100px; }
+
+/* Content sits above the glows */
+.topnav, .navpill, .hero-title, .hero-body, .thumb, .role-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Top navigation bar ---- */
+.topnav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+.logo-name {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: var(--logo);
+}
+.logo-sub {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.4px;
+  color: var(--text-muted);
+}
+.topnav-links {
+  order: 3;
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.topnav-links a {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16.8px;
+  letter-spacing: 0.35px;
+  color: var(--text-muted);
+}
+.topnav-links a.is-active {
+  color: #ffffff;
+  border-bottom: 1px solid var(--accent);
+}
+.lang {
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.lang span {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14.4px;
+  letter-spacing: 0.3px;
+  color: var(--text-dim);
+}
+.lang .is-active { color: #ffffff; }
+
+/* ---- Pill navigation: horizontal-scroll on narrow screens ---- */
+.navpill {
+  width: 100%;
+  max-width: 1280px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--pill-from) 0%, var(--pill-to) 100%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.navpill::-webkit-scrollbar { display: none; }
+.toggle {
+  flex: none;
+  padding: 8px 12px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 21.6px;
+  color: #ffffff;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.toggle--active {
+  background: var(--pill-active);
+  color: #ffffff;
+}
+
+/* ---- Heading + body copy ---- */
+.hero-title {
+  width: 100%;
+  max-width: 640px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.18;
+  letter-spacing: -1.4px;
+  text-align: center;
+  color: #ffffff;
+  white-space: normal;
+}
+.hero-title .acc { color: var(--accent); }
+.hero-body {
+  width: 100%;
+  max-width: 560px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55;
+  text-align: center;
+  color: var(--text-body);
+  white-space: normal;
+}
+
+/* ---- Hero thumbnail card ---- */
+.thumb {
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 1200 / 675;
+  border-radius: 16px;
+  background: var(--thumb-bg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 20px;
+}
+.thumb-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -1.4px;
+  text-align: center;
+  color: #ffffff;
+}
+.tagrow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.tag {
+  flex: none;
+  padding: 4px 12px;
+  border: 1px solid var(--tag-border);
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 16.8px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* ---- Role / meta columns ---- */
+.role-grid {
+  width: 100%;
+  max-width: 560px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.rolecol {
+  border-top: 1px solid var(--hairline);
+  padding-top: 16px;
+}
+.role-label {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.4px;
+  color: var(--accent);
+}
+.role-value {
+  margin-top: 12px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.8px;
+  color: #ffffff;
+  white-space: pre-line;
+}
+
+/* ============================================================
+   TABLET  (>= 768px): 2-column role grid, larger type, wider gaps
+   ============================================================ */
+@media (min-width: 768px) {
+  .hero { gap: 56px; padding: 40px 40px 72px; }
+  .topnav-links { order: 0; flex-basis: auto; gap: 28px; }
+  .hero-title { max-width: 760px; font-size: 48px; letter-spacing: -2.2px; }
+  .hero-body { max-width: 780px; font-size: 15px; }
+  .thumb-title { font-size: 40px; letter-spacing: -2px; }
+  .role-grid { max-width: 720px; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
+}
+
+/* ============================================================
+   DESKTOP  (>= 992px): exact Figma layout on a centred 1280 content column.
+   Coordinates are the Figma 1920-frame values rebased by -320 (the frame's
+   left gutter), so the content column is 1280 wide and centred. --scale keeps
+   it at natural size >=1280px and shrinks it to fit between 992-1279px.
+   ============================================================ */
+@media (min-width: 992px) {
+  .stage { width: 1280px; zoom: var(--scale, 1); }
+  .section { width: 1280px; }
+
+  .hero {
+    display: block;
+    height: 1379px;
+    padding: 0;
+    gap: 0;
+  }
+
+  /* Text nodes: exact Figma line breaks */
+  .t { white-space: pre; }
+
+  /* Glows restored to Figma ellipse size; positioned to peek from the content
+     corners (rebased; the left glow's off-column part is clipped). */
+  .hero-glow { width: 839px; height: 821px; filter: blur(60px); }
+  .hero-glow--tr { left: 943px; right: auto; top: 77px; bottom: auto; }
+  .hero-glow--bl { left: -500px; right: auto; top: 713px; bottom: auto; }
+
+  .hero-title {
+    position: absolute;
+    left: 258px; top: 232px;
+    width: 765px; max-width: none;
+    font-size: 62px; line-height: 74.4px; letter-spacing: -3.1px;
+  }
+  .hero-body {
+    position: absolute;
+    left: 197px; top: 406px;
+    width: 887px; max-width: none;
+    font-size: 16px; line-height: 24px;
+  }
+
+  .navpill {
+    position: absolute;
+    left: 0; top: 92px;
+    width: 1280px; max-width: none; height: 60px;
+    justify-content: center;
+    gap: 24px; padding: 0 24px;
+    overflow: visible;
+  }
+  .toggle { padding: 12px; font-size: 18px; }
+
+  .topnav {
+    position: absolute;
+    left: 0; top: 0;
+    width: 1280px; height: 80px;
+    display: block;
+  }
+  .logo { position: absolute; left: 0; top: 20px; }
+  .logo-name { font-size: 24px; line-height: 28.8px; letter-spacing: -1.2px; }
+  .topnav-links {
+    position: absolute;
+    left: 783px; top: 18px;
+    width: 330px; height: 36px;
+    gap: 12px;
+  }
+  .topnav-links a { flex: 1; justify-content: center; font-size: 14px; }
+  .lang {
+    position: absolute;
+    left: 1219px; top: 19px;
+    width: 61px; height: 34px; padding: 0;
+  }
+
+  .thumb {
+    position: absolute;
+    left: 40px; top: 542px;
+    width: 1200px; max-width: none; height: 675px;
+    aspect-ratio: auto;
+    display: block; padding: 0;
+  }
+  .thumb-title {
+    position: absolute;
+    left: 361px; top: 312px;
+    width: 479px;
+    font-size: 48px; line-height: 57.6px; letter-spacing: -2.4px;
+  }
+  .tagrow {
+    position: absolute;
+    left: 398px; top: 383px;
+    width: 404px; height: 25px;
+    flex-wrap: nowrap; gap: 12px;
+  }
+
+  .role-grid {
+    display: block;
+    width: auto; max-width: none;
+  }
+  .rolecol {
+    position: absolute;
+    top: 1241px;
+    width: 320.25px; height: 125px;
+    padding-top: 24px;
+  }
+  .rolecol:nth-child(1) { left: 0; }
+  .rolecol:nth-child(2) { left: 320.2px; }
+  .rolecol:nth-child(3) { left: 640.5px; }
+  .rolecol:nth-child(4) { left: 960.8px; }
+}
+
+/* ============================================================
+   ROLE AND COLLABORATION SECTION  —  Figma (41:70)
+   Eyebrow + heading, then 3 cards: two half-width (My Role / teal,
+   Collaboration / neutral) and a full-width Design Scope pipeline.
+   Same 3-tier responsive model as the hero.
+   ============================================================ */
+.role-collab {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  padding: 48px 20px 56px;
+  gap: 20px;
+}
+.rc-eyebrow {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.8px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.rc-heading {
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.9px;
+  color: #ffffff;
+}
+.rc-heading .acc { color: var(--accent); }
+
+/* ---- Cards ---- */
+.rc-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.rc-card {
+  position: relative;
+  background: var(--card-role);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+/* Category tag pill */
+.rc-tag {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  background: var(--tag-bg);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.4px;
+  color: #e8e5e0;
+  white-space: nowrap;
+}
+.rc-tag--teal { background: var(--tag-teal-bg); color: var(--teal); }
+.rc-tag--center { align-self: center; }
+
+/* Blockquote body */
+.rc-quote {
+  margin: 20px 0 0;
+  border-left: 2px solid var(--quote-bar);
+  padding-left: 12px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #eceae6;
+}
+.rc-quote--teal { border-left-color: var(--teal); }
+.rc-card--myrole .rc-quote { font-weight: 300; color: #d8d5d0; }
+
+/* Design Scope pipeline */
+.rc-card--scope { display: flex; flex-direction: column; gap: 24px; }
+.rc-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+}
+.rc-step {
+  flex: none;
+  padding: 9px 14px;
+  border-radius: 9999px;
+  background: var(--step-bg);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14.4px;
+  line-height: 17.28px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.rc-arrow {
+  flex: none;
+  display: inline-flex;
+  color: #ffffff;
+}
+.rc-arrow svg {
+  width: 28.8px;
+  height: 28.8px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---- TABLET (>=768px): two top cards side by side ---- */
+@media (min-width: 768px) {
+  .role-collab { padding: 64px 40px 72px; gap: 24px; }
+  .rc-heading { font-size: 36px; }
+  .rc-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 21px;
+  }
+  .rc-card--scope { grid-column: 1 / -1; }
+}
+
+/* ---- DESKTOP (>=992px): exact Figma absolute layout (1920x638) ---- */
+@media (min-width: 992px) {
+  .role-collab { display: block; height: 638px; padding: 0; }
+
+  .rc-eyebrow { position: absolute; left: 0; top: 80px; }
+  .rc-heading {
+    position: absolute;
+    left: 0; top: 117px;
+    width: 1008px; margin: 0;
+    font-size: 36px; line-height: 43.2px;
+  }
+
+  .rc-cards { display: block; }
+  .rc-card { position: absolute; padding: 0; }
+  .rc-card--myrole { left: 0; top: 180px; width: 628px; height: 176px; }
+  .rc-card--collab { left: 652px; top: 180px; width: 628px; height: 176px; }
+  .rc-card--scope  { left: 0; top: 381px; width: 1278px; height: 176px; }
+
+  /* tag + blockquote positioned to Figma coords inside each half-card */
+  .rc-card--myrole .rc-tag,
+  .rc-card--collab .rc-tag { position: absolute; left: 12px; top: 24px; }
+  .rc-card--myrole .rc-quote,
+  .rc-card--collab .rc-quote {
+    position: absolute;
+    left: 12px; top: 78px; width: 602px;
+    margin: 0;
+  }
+
+  /* Design Scope: centred tag + centred pipeline */
+  .rc-card--scope { display: block; }
+  .rc-card--scope .rc-tag {
+    position: absolute;
+    left: 50%; top: 46px;
+    transform: translateX(-50%);
+  }
+  .rc-pipeline {
+    position: absolute;
+    left: 0; right: 0; top: 100px;
+    flex-wrap: nowrap;
+    gap: 14.4px;
+  }
+  .rc-step { padding: 9.5px 14.4px; }
+}
+
+/* ============================================================
+   BEFORE THE PRODUCT SECTION  —  Figma (1:99)
+   Left-aligned intro (eyebrow + heading + body), then a centred
+   workflow block: tag + 7 numbered cards + caption.
+   3-tier responsive; desktop rebased to the 1280 content column.
+   ============================================================ */
+.before {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 48px 20px 56px;
+}
+.before-eyebrow {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.8px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.before-heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.9px;
+  color: #ffffff;
+  white-space: pre-line;
+}
+.before-body {
+  margin: 0;
+  max-width: 800px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  white-space: pre-line;
+}
+
+/* ---- Workflow block ---- */
+.wf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+}
+.wf-tag {
+  padding: 8px 14px;
+  border-radius: 9999px;
+  background: var(--step-bg);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.4px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.wf-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.wf-card {
+  background: var(--card-before);
+  border-radius: 24px;
+  aspect-ratio: 160 / 180;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+  text-align: center;
+}
+.wf-num {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--accent);
+}
+.wf-label {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.wf-caption {
+  margin: 0;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+.wf-caption .acc { color: var(--accent); }
+
+/* ---- TABLET (>=768px) ---- */
+@media (min-width: 768px) {
+  .before { padding: 64px 40px 72px; gap: 20px; }
+  .before-heading { font-size: 36px; line-height: 43.2px; }
+  .before-body { font-size: 16px; line-height: 24px; }
+  .wf { gap: 24px; margin-top: 40px; }
+  .wf-cards { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .wf-label { font-size: 18px; }
+  .wf-caption { font-size: 16px; }
+}
+
+/* ---- DESKTOP (>=992px): exact Figma layout, 1280 content column ---- */
+@media (min-width: 992px) {
+  .before { display: block; height: 758px; padding: 0; }
+
+  .before-eyebrow { position: absolute; left: 0; top: 40px; }
+  .before-heading {
+    position: absolute;
+    left: 0; top: 81px; width: 663px;
+    font-size: 36px; line-height: 43.2px;
+  }
+  .before-body {
+    position: absolute;
+    left: 0; top: 187px; width: 800px;
+    font-size: 16px; line-height: 24px;
+  }
+
+  .wf { display: block; margin: 0; }
+  .wf-tag {
+    position: absolute;
+    left: 50%; top: 420px;
+    transform: translateX(-50%);
+  }
+  .wf-cards {
+    position: absolute;
+    left: 0; top: 474px;
+    width: 1264px; height: 180px;
+    display: flex; gap: 24px;
+  }
+  .wf-card {
+    width: 160px; height: 180px;
+    aspect-ratio: auto;
+    flex: none;
+    gap: 24px;
+  }
+  .wf-num { font-size: 20px; }
+  .wf-label { font-size: 20px; line-height: 24px; }
+  .wf-caption {
+    position: absolute;
+    left: 0; right: 0; top: 694px;
+  }
+}
+
+/* ============================================================
+   THE CHAOS / CURRENT EXPERIENCE SECTION  —  Figma (1:140)
+   Eyebrow + heading + sub, then 3 accent cards (Team Leads / teal,
+   Players / red, Consequences / orange-highlighted) each with a
+   centred tag and a bulleted list behind a coloured quote bar.
+   ============================================================ */
+.chaos {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 48px 20px 56px;
+}
+.chaos-eyebrow {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.8px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.chaos-heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.9px;
+  color: #ffffff;
+}
+.chaos-heading .acc { color: var(--accent); }
+.chaos-sub {
+  margin: 0;
+  max-width: 787px;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ---- Cards ---- */
+.chaos-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.chaos-card {
+  background: var(--card-role);
+  border: 1px solid transparent;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.chaos-card--consequence {
+  background: color-mix(in srgb, var(--card-role), var(--accent) 8%);
+  border-color: rgba(242, 105, 31, 0.55);
+}
+
+.chaos-tag {
+  align-self: center;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.4px;
+  white-space: nowrap;
+}
+.chaos-card--teal .chaos-tag { background: var(--tag-teal-bg); color: var(--teal); }
+.chaos-card--red  .chaos-tag { background: var(--tag-red-bg);  color: var(--red); }
+.chaos-card--consequence .chaos-tag { background: var(--step-bg); color: var(--accent); }
+
+.chaos-quote {
+  border-left: 2px solid var(--quote-bar);
+  padding-left: 16px;
+}
+.chaos-card--teal .chaos-quote { border-left-color: var(--teal); }
+.chaos-card--red  .chaos-quote { border-left-color: var(--red); }
+.chaos-card--consequence .chaos-quote { border-left-color: var(--accent); }
+
+.chaos-list {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+.chaos-list li {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #eceae6;
+}
+.chaos-list li::marker { color: var(--text-dim); }
+
+/* ---- DESKTOP (>=992px): exact Figma layout, 1280 content column ---- */
+@media (min-width: 992px) {
+  .chaos { display: block; height: 457px; padding: 0; }
+
+  .chaos-eyebrow { position: absolute; left: 0; top: 40px; }
+  .chaos-heading {
+    position: absolute;
+    left: 0; top: 70px; width: 1008px;
+    font-size: 36px; line-height: 43.2px;
+  }
+  .chaos-sub {
+    position: absolute;
+    left: 0; top: 133px; width: 787px;
+    font-size: 16px; line-height: 24px;
+  }
+
+  .chaos-cards { display: block; margin: 0; }
+  .chaos-card {
+    position: absolute;
+    top: 197px;
+    width: 410px; height: 220px;
+    padding: 0;
+    display: block;
+  }
+  .chaos-card--teal        { left: 0; }
+  .chaos-card--red         { left: 434px; }
+  .chaos-card--consequence { left: 870px; }
+
+  .chaos-tag {
+    position: absolute;
+    left: 50%; top: 20px;
+    transform: translateX(-50%);
+  }
+  .chaos-quote {
+    position: absolute;
+    left: 24px; top: 74px; right: 16px;
+  }
+}
+
+/* ============================================================
+   SURVEY RESULT SECTION  —  Figma (1:310)
+   Eyebrow + sub, three staggered stat cards (thin orange figures),
+   a large chart placeholder on the right + captions.
+   ============================================================ */
+.survey {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 48px 20px 56px;
+}
+.survey-eyebrow {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.8px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.survey-sub {
+  margin: 0;
+  max-width: 719px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-muted);
+}
+
+/* ---- Stat cards ---- */
+.survey-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+.stat-card {
+  background: var(--card-before);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.stat-figure {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--accent);
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-weight: 100;
+  font-size: clamp(56px, 13vw, 120px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.stat-unit {
+  font-family: var(--font-display);
+  font-weight: 100;
+  font-size: clamp(16px, 3vw, 24px);
+  line-height: 1;
+}
+.stat-label {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+/* ---- Chart placeholder + caption ---- */
+.survey-media {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.survey-thumb {
+  width: 100%;
+  aspect-ratio: 641 / 481;
+  background: var(--card-survey-media);
+  border-radius: 16px;
+}
+.survey-cap {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14.4px;
+  color: var(--text-muted);
+}
+.survey-note {
+  margin: 8px 0 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ---- TABLET (>=768px): stat cards in a row ---- */
+@media (min-width: 768px) {
+  .survey { padding: 64px 40px 72px; }
+  .survey-stats { grid-template-columns: repeat(3, 1fr); }
+  .survey-note { max-width: 448px; align-self: center; }
+}
+
+/* ---- DESKTOP (>=992px): exact Figma staggered layout, 1280 column ---- */
+@media (min-width: 992px) {
+  .survey { display: block; height: 816px; padding: 0; }
+
+  .survey-eyebrow { position: absolute; left: 0; top: 44px; }
+  .survey-sub {
+    position: absolute;
+    left: 0; top: 84px; width: 719px;
+  }
+
+  .survey-stats { display: block; margin: 0; }
+  .stat-card {
+    position: absolute;
+    width: 300px; height: 196px;
+    padding: 12px 24px;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .stat-card--a { left: 0;   top: 176px; }
+  .stat-card--b { left: 328px; top: 319px; }
+  .stat-card--c { left: 0;   top: 461px; }
+
+  .survey-media { display: block; }
+  .survey-thumb {
+    position: absolute;
+    left: 639px; top: 176px;
+    width: 641px; height: 481px;
+    aspect-ratio: auto;
+  }
+  .survey-cap {
+    position: absolute;
+    left: 784px; top: 674px;
+  }
+
+  .survey-note {
+    position: absolute;
+    left: 416px; top: 728px;
+    width: 448px; max-width: none; margin: 0;
+  }
+}
+
+/* ============================================================
+   THE CORE QUESTION SECTION  —  Figma "Frame 12" (1:224)
+   Warm-tinted (8% orange) dark band; a centred narrative:
+   eyebrow -> question -> body -> second question (accented) ->
+   caption -> a 3-pill diagram (last pill accented).
+   ============================================================ */
+.coreq {
+  position: relative;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 56px 20px 64px;
+}
+/* Full-bleed warm tint: the content column is 1280 on desktop, but the band's
+   background must span the whole viewport width (300% covers any width; body
+   overflow-x:hidden trims the excess). */
+.coreq::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300%;
+  background: color-mix(in srgb, var(--bg), var(--accent) 8%);
+  z-index: -1;
+}
+.coreq-eyebrow {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.8px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.coreq-h1, .coreq-h2 {
+  margin: 0;
+  max-width: 1008px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.9px;
+  color: #ffffff;
+  white-space: pre-line;
+}
+.coreq-h1 .acc, .coreq-h2 .acc { color: var(--accent); }
+.coreq-h2 { margin-top: 32px; }
+.coreq-body, .coreq-caption {
+  margin: 0;
+  max-width: 617px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-muted);
+  white-space: pre-line;
+}
+
+/* ---- Prediction diagram ---- */
+.coreq-diagram {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 24px;
+}
+.coreq-pill {
+  flex: none;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  background: var(--tag-bg);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.8px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.coreq-pill--accent { background: var(--step-bg); color: var(--accent); }
+.coreq-arrow {
+  flex: none;
+  display: inline-flex;
+  color: rgba(255, 255, 255, 0.5);
+}
+.coreq-arrow svg {
+  width: 24px; height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---- TABLET (>=768px) ---- */
+@media (min-width: 768px) {
+  .coreq { padding: 72px 40px 80px; }
+  .coreq-h1, .coreq-h2 { font-size: 36px; line-height: 43.2px; }
+}
+
+/* ---- DESKTOP (>=992px): exact Figma centred layout, 1280 column ---- */
+@media (min-width: 992px) {
+  .coreq { display: block; height: 688px; padding: 0; text-align: center; }
+
+  .coreq-eyebrow,
+  .coreq-h1, .coreq-h2,
+  .coreq-body, .coreq-caption,
+  .coreq-diagram {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+  .coreq-eyebrow { top: 80px; }
+  .coreq-h1 { top: 114px; width: 1008px; max-width: none; }
+  .coreq-body { top: 169px; width: 617px; max-width: none; }
+  .coreq-h2 { top: 385px; width: 1008px; max-width: none; }
+  .coreq-caption { top: 483px; width: 617px; max-width: none; }
+  .coreq-diagram { top: 547px; flex-wrap: nowrap; gap: 24px; }
+}
+
+/* ============================================================
+   ONE SYSTEM, TWO SIDES SECTION  —  Figma "Frame 3096" (26:192)
+   Centred narrative: eyebrow -> heading -> sub -> two need cards
+   (teal / red) -> body -> a colour-coded 6-pill loop pipeline.
+   ============================================================ */
+.onesys {
+  position: relative;
+  background: var(--bg);
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 56px 20px 64px;
+}
+.onesys-eyebrow {
+  margin: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.8px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.onesys-heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.9px;
+  color: #ffffff;
+}
+.onesys-sub, .onesys-body {
+  margin: 0;
+  max-width: 710px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-muted);
+}
+.onesys-body { max-width: 980px; white-space: pre-line; }
+
+/* ---- Need cards ---- */
+.onesys-cards {
+  width: 100%;
+  max-width: 984px;
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.onesys-card {
+  background: var(--card-role);
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  text-align: left;
+}
+.onesys-tag {
+  align-self: center;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.4px;
+  white-space: nowrap;
+}
+.onesys-card--teal .onesys-tag { background: var(--tag-teal-bg); color: var(--teal); }
+.onesys-card--red  .onesys-tag { background: var(--tag-red-bg);  color: var(--red); }
+.onesys-quote {
+  margin: 0;
+  border-left: 2px solid var(--quote-bar);
+  padding-left: 12px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #ffffff;
+}
+.onesys-card--teal .onesys-quote { border-left-color: var(--teal); }
+.onesys-card--red  .onesys-quote { border-left-color: var(--red); font-size: 20px; line-height: 30px; }
+
+/* ---- Loop pipeline ---- */
+.onesys-flow {
+  position: relative;
+  width: 100%;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.onesys-pipe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 16px;
+}
+.os-pill {
+  flex: none;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.4px;
+  white-space: nowrap;
+}
+.os-pill--teal   { background: var(--tag-teal-bg); color: var(--teal); }
+.os-pill--red    { background: var(--tag-red-bg);  color: var(--red); }
+.os-pill--orange { background: var(--step-bg);     color: var(--accent); }
+.os-arrow { flex: none; display: inline-flex; color: rgba(255, 255, 255, 0.55); }
+.os-arrow svg {
+  width: 24px; height: 24px;
+  fill: none; stroke: currentColor; stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+/* Feedback-loop connector: desktop only (the row must be a single line) */
+.onesys-loop { display: none; }
+
+/* ---- TABLET (>=768px) ---- */
+@media (min-width: 768px) {
+  .onesys { padding: 72px 40px 80px; }
+  .onesys-heading { font-size: 36px; line-height: 43.2px; }
+  .onesys-cards { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---- DESKTOP (>=992px): exact Figma centred layout, 1280 column ---- */
+@media (min-width: 992px) {
+  .onesys { display: block; height: 688px; padding: 0; text-align: center; }
+
+  .onesys-eyebrow,
+  .onesys-heading,
+  .onesys-sub,
+  .onesys-cards,
+  .onesys-body,
+  .onesys-flow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+  .onesys-eyebrow { top: 80px; }
+  .onesys-heading { top: 114px; width: 513px; }
+  .onesys-sub { top: 181px; width: 710px; max-width: none; }
+  .onesys-cards { top: 269px; width: 984px; max-width: none; }
+  .onesys-body { top: 437px; width: 980px; max-width: none; }
+  .onesys-flow { top: 549px; width: 1082px; }
+
+  .onesys-card { height: 128px; padding: 20px 12px; }
+  .onesys-pipe { flex-wrap: nowrap; gap: 16px; }
+
+  .onesys-loop {
+    display: block;
+    color: rgba(255, 255, 255, 0.55);
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 946px;
+    height: 44px;
+  }
+}
+
+/* ============================================================
+   SIDE A — FOR TEAM LEADS SECTION  —  Figma "Frame 3115" (26:318)
+   Left: heading/body + 5 numbered step cards (teal numbers).
+   Right: a phone mockup placeholder. Bottom: centred caption.
+   ============================================================ */
+.sidea {
+  position: relative;
+  background: var(--bg);
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 56px 20px 64px;
+}
+.sidea-eyebrow {
+  margin: 0;
+  font-weight: 500; font-size: 14px; line-height: 16.8px;
+  letter-spacing: 0.4px; text-transform: uppercase;
+  color: var(--accent);
+}
+.sidea-heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 28px; line-height: 1.2;
+  letter-spacing: -0.9px;
+  color: #ffffff;
+  white-space: pre-line;
+}
+.sidea-heading .acc { color: var(--accent); }
+.sidea-body {
+  margin: 0;
+  max-width: 764px;
+  font-weight: 400; font-size: 16px; line-height: 24px;
+  color: var(--text-muted);
+}
+.sidea-tag {
+  align-self: flex-start;
+  padding: 8px 12px;
+  border-radius: 9999px;
+  background: var(--tag-teal-bg);
+  color: var(--teal);
+  font-weight: 400; font-size: 12px; line-height: 14.4px;
+  white-space: nowrap;
+}
+
+/* ---- Step cards ---- */
+.sidea-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+.sa-card {
+  position: relative;
+  background: var(--card-role);
+  border-radius: 16px;
+  padding: 20px;
+  padding-top: 44px;
+}
+.sa-card-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.sa-num {
+  flex: none;
+  font-family: var(--font-display);
+  font-weight: 700; font-size: 32px; line-height: 1;
+  letter-spacing: -0.9px;
+  color: var(--teal);
+}
+.sa-card-title {
+  font-weight: 500; font-size: 20px; line-height: 30px;
+  color: #ffffff;
+}
+.sa-card-desc {
+  font-weight: 400; font-size: 16px; line-height: 24px;
+  color: var(--text-muted);
+}
+.sa-card-meta {
+  position: absolute;
+  top: 16px; right: 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.sa-kr { font-size: 16px; line-height: 24px; color: #ffffff; white-space: nowrap; }
+.sa-time { font-size: 16px; line-height: 24px; color: var(--teal); }
+
+/* ---- Phone mockup placeholder ---- */
+.sidea-phone {
+  width: 100%;
+  max-width: 390px;
+  aspect-ratio: 390 / 844;
+  margin: 8px auto 0;
+  background: var(--card-survey-media);
+  border-radius: 24px;
+}
+.sidea-caption {
+  margin: 8px 0 0;
+  font-weight: 400; font-size: 16px; line-height: 24px;
+  text-align: center;
+  color: var(--text-muted);
+  white-space: pre-line;
+}
+
+/* ---- TABLET (>=768px) ---- */
+@media (min-width: 768px) {
+  .sidea { padding: 72px 40px 80px; }
+  .sidea-heading { font-size: 36px; line-height: 43.2px; }
+}
+
+/* ---- DESKTOP (>=992px): exact Figma layout, 1280 column ---- */
+@media (min-width: 992px) {
+  .sidea { display: block; height: 1276px; padding: 0; }
+
+  .sidea-eyebrow { position: absolute; left: 0; top: 81px; }
+  .sidea-heading { position: absolute; left: 0; top: 118px; width: 1008px; }
+  .sidea-body { position: absolute; left: 0; top: 224px; width: 764px; max-width: none; }
+  .sidea-tag { position: absolute; left: 954px; top: 251px; }
+
+  .sidea-cards {
+    position: absolute;
+    left: 0; top: 296px;
+    width: 820px;
+    gap: 24px; margin: 0;
+  }
+  .sa-card {
+    height: 148px;
+    padding: 0 24px 0 48px;
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+  }
+  .sa-card-main { gap: 26px; }
+  .sa-num { font-size: 36px; line-height: 43.2px; }
+  .sa-card-meta { top: 17px; right: 24px; gap: 93px; }
+
+  .sidea-phone {
+    position: absolute;
+    left: 844px; top: 296px;
+    width: 390px; height: 844px;
+    max-width: none; aspect-ratio: auto; margin: 0;
+  }
+  .sidea-caption {
+    position: absolute;
+    left: 50%; top: 1180px;
+    transform: translateX(-50%);
+    width: 597px; margin: 0;
+  }
+}

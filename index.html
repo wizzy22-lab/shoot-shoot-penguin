@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shoot Shoot Penguin — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@100;200;300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stage">
+    <!-- Sections are inserted in vertical order. Each section is a fixed-size
+         block; children are absolutely positioned from Figma coordinates. -->
+
+    <!-- 01 — Hero section (desktop 1920 x 1379; reflows below 992px)
+         DOM order is the mobile/tablet reading order; desktop restores the
+         exact Figma absolute layout via @media (min-width: 992px). -->
+    <section class="section hero">
+      <!-- Ambient orange glows (Ellipse 92 / 93) -->
+      <div class="hero-glow hero-glow--tr"></div>
+      <div class="hero-glow hero-glow--bl"></div>
+
+      <!-- Top navigation bar -->
+      <header class="topnav">
+        <div class="logo">
+          <div class="logo-name">wizzy</div>
+          <div class="logo-sub">Product designer</div>
+        </div>
+        <nav class="topnav-links">
+          <a href="#" class="is-active">PROJECT</a>
+          <a href="#">about me</a>
+          <a href="#">resume</a>
+        </nav>
+        <div class="lang">
+          <span class="is-active">EN</span>
+          <span>KO</span>
+        </div>
+      </header>
+
+      <!-- Pill navigation (horizontal-scroll on narrow screens) -->
+      <nav class="navpill">
+        <span class="toggle">Intro</span>
+        <span class="toggle">Before</span>
+        <span class="toggle toggle--active">Problem</span>
+        <span class="toggle">Question</span>
+        <span class="toggle">System</span>
+        <span class="toggle">For Leads</span>
+        <span class="toggle">For Player</span>
+        <span class="toggle">Decisions</span>
+        <span class="toggle">Role</span>
+        <span class="toggle">Impact</span>
+        <span class="toggle">Reflection</span>
+      </nav>
+
+      <!-- Heading + body copy -->
+      <h1 class="t hero-title">Spend less time recruting,
+<span class="acc">More time playing</span></h1>
+      <p class="t hero-body">For years, recruiting guest players for amateur basketball games relied on a fragmented process across multiple channels
+Messenger, community cafe posts, comments, text messages, and manual payment verification.
+Shoot Shoot Penguin streamlined and systemized this repetitive workflow,
+enabling organizers to manage games more efficiently while helping players discover and join games with ease.</p>
+
+      <!-- Hero thumbnail card -->
+      <div class="thumb">
+        <div class="thumb-title">Shoot Shoot Penguin</div>
+        <div class="tagrow">
+          <span class="tag">AI AGENTS</span>
+          <span class="tag">CRYPTO TRADING</span>
+          <span class="tag">DECISION UX</span>
+          <span class="tag">FINTECH</span>
+        </div>
+      </div>
+
+      <!-- Role / meta columns (1 col mobile → 2 col tablet → 4 col desktop) -->
+      <div class="role-grid">
+        <div class="rolecol">
+          <div class="role-label">ROLE</div>
+          <div class="role-value">Product Designer</div>
+        </div>
+        <div class="rolecol">
+          <div class="role-label">SCOPE</div>
+          <div class="role-value">Research · IA · Visual ·
+Prototype · Usability Test</div>
+        </div>
+        <div class="rolecol">
+          <div class="role-label">Duration</div>
+          <div class="role-value">24 weeks</div>
+        </div>
+        <div class="rolecol">
+          <div class="role-label">Team</div>
+          <div class="role-value">1 Designer · 1 Developer</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — Role and Collaboration (desktop 1920 x 638; reflows below 992px) -->
+    <section class="section role-collab">
+      <p class="rc-eyebrow">[ 01 — Role and Collaboration]</p>
+      <h2 class="rc-heading">Co-planned the product, owned <span class="acc">design end-to-end</span></h2>
+
+      <div class="rc-cards">
+        <!-- My Role (teal accent) -->
+        <article class="rc-card rc-card--myrole">
+          <span class="rc-tag rc-tag--teal">My Role</span>
+          <blockquote class="rc-quote rc-quote--teal">Product Planning · UX Strategy · Information Architecture User Flow Design · Wireframing · UI Design ·  Design System · Prototyping · Developer Handoff</blockquote>
+        </article>
+
+        <!-- Collaboration (neutral) -->
+        <article class="rc-card rc-card--collab">
+          <span class="rc-tag">Collaboration</span>
+          <blockquote class="rc-quote">Collaborated with a developer to define the product direction and core features, while independently leading the end-to-end design process.</blockquote>
+        </article>
+
+        <!-- Design Scope (full width, orange pipeline) -->
+        <article class="rc-card rc-card--scope">
+          <span class="rc-tag rc-tag--center">Design Scope</span>
+          <div class="rc-pipeline">
+            <span class="rc-step">Discovery</span>
+            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="rc-step">Product Planning</span>
+            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="rc-step">UX Strategy</span>
+            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="rc-step">Wireframe</span>
+            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="rc-step">UI Design</span>
+            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="rc-step">Design system</span>
+            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="rc-step">Hand off</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 — Before the product (desktop 1280 content x 758; reflows below 992px) -->
+    <section class="section before">
+      <p class="before-eyebrow">[ 02 — Before the product ]</p>
+      <h2 class="before-heading">Finding players was often harder than
+organizing the game itself.</h2>
+      <div class="before-body">Every weekend, amateur basketball clubs organized games—but securing a court didn't guarantee a match.
+If not enough players signed up, the game couldn't happen at all.
+
+Most clubs managed recruitment through fragmented channels such as KakaoTalk chats and community forums, forcing organizers to repeat the same manual process every week just to fill remaining spots.</div>
+
+      <div class="wf">
+        <span class="wf-tag">Existing Workflow - 7 steps</span>
+        <div class="wf-cards">
+          <div class="wf-card"><span class="wf-num">01</span><span class="wf-label">Attendance Check</span></div>
+          <div class="wf-card"><span class="wf-num">02</span><span class="wf-label">Player shortage</span></div>
+          <div class="wf-card"><span class="wf-num">03</span><span class="wf-label">Recruitment post</span></div>
+          <div class="wf-card"><span class="wf-num">04</span><span class="wf-label">Comment review</span></div>
+          <div class="wf-card"><span class="wf-num">05</span><span class="wf-label">Contact exchange</span></div>
+          <div class="wf-card"><span class="wf-num">06</span><span class="wf-label">Payment confirmation</span></div>
+          <div class="wf-card"><span class="wf-num">07</span><span class="wf-label">Game management</span></div>
+        </div>
+        <p class="wf-caption">Every game relied on the same <span class="acc">repetitive manual workflow.</span></p>
+      </div>
+    </section>
+
+    <!-- 04 — The Chaos / Current Experience (desktop 1280 content x 457) -->
+    <section class="section chaos">
+      <p class="chaos-eyebrow">[03 The Chaos]</p>
+      <h2 class="chaos-heading">Seven manual steps <span class="acc">didn't guarantee</span> a game.</h2>
+      <p class="chaos-sub">The problem wasn't just an inefficient recruitment process , it was affecting the reliability of the game itself.</p>
+
+      <div class="chaos-cards">
+        <article class="chaos-card chaos-card--teal">
+          <span class="chaos-tag">Team Leads</span>
+          <div class="chaos-quote">
+            <ul class="chaos-list">
+              <li>No visibility into guest demand</li>
+              <li>Weekly repetitive recruitment tasks</li>
+              <li>Recruitment status scattered across channels</li>
+              <li>High burden from last-minute dropouts</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="chaos-card chaos-card--red">
+          <span class="chaos-tag">Players</span>
+          <div class="chaos-quote">
+            <ul class="chaos-list">
+              <li>Difficult to find nearby games</li>
+              <li>Difficult to find games that match their skill level</li>
+              <li>Difficult to see which games were actively recruiting in real time</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="chaos-card chaos-card--consequence">
+          <span class="chaos-tag">Consequences</span>
+          <div class="chaos-quote">
+            <ul class="chaos-list">
+              <li>Difficult to find nearby games</li>
+              <li>Difficult to find games that match their skill level</li>
+              <li>Difficult to see which games were actively recruiting in real time</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 05 — Survey Result (desktop 1280 content x 816) -->
+    <section class="section survey">
+      <p class="survey-eyebrow">[ 04 — survey result]</p>
+      <p class="survey-sub">To verify whether these issues were consistently occurring across users, a survey was conducted.</p>
+
+      <div class="survey-stats">
+        <div class="stat-card stat-card--a">
+          <div class="stat-figure"><span class="stat-num">68</span><span class="stat-unit">%</span></div>
+          <span class="stat-label">No-show Rate</span>
+        </div>
+        <div class="stat-card stat-card--b">
+          <div class="stat-figure"><span class="stat-num">42</span><span class="stat-unit">%</span></div>
+          <span class="stat-label">Over- Recruitment Rate</span>
+        </div>
+        <div class="stat-card stat-card--c">
+          <div class="stat-figure"><span class="stat-num">2.5</span><span class="stat-unit">hours</span></div>
+          <span class="stat-label">Averatge time to Recruit</span>
+        </div>
+      </div>
+
+      <figure class="survey-media">
+        <div class="survey-thumb"></div>
+        <figcaption class="survey-cap">[Survey Findings -  User Perception of recruitment workflows]</figcaption>
+      </figure>
+
+      <p class="survey-note">Fragmented recruitment workflows created uncertainty for both organizers and guest players.</p>
+    </section>
+
+    <!-- 06 — The Core Question (desktop 1280 content x 688; warm-tinted band) -->
+    <section class="section coreq">
+      <p class="coreq-eyebrow">[ 05 — the core question]</p>
+      <h2 class="coreq-h1">How might we predict guest player demand in advance?</h2>
+      <p class="coreq-body">The real challenge wasn't simplifying the recruitment process. It was that organizers had to calculate player shortages manually before every game.
+Although attendance data accumulated over time, it was never used to predict future demand or support decision-making.</p>
+
+      <h2 class="coreq-h2">What if attendance data could <span class="acc">predict</span>
+<span class="acc">how many guest players</span> would be needed?</h2>
+      <p class="coreq-caption">That question became the starting point for Shoot Shoot Penguin.</p>
+
+      <div class="coreq-diagram">
+        <span class="coreq-pill">Attendance Patterns</span>
+        <span class="coreq-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+        <span class="coreq-pill">Historical Data</span>
+        <span class="coreq-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+        <span class="coreq-pill coreq-pill--accent">Guest Demand Prediction</span>
+      </div>
+    </section>
+
+    <!-- 07 — One System, Two Sides (desktop 1280 content x 688) -->
+    <section class="section onesys">
+      <p class="onesys-eyebrow">[ 06 — One System, Two sides]</p>
+      <h2 class="onesys-heading">Different Needs, One System</h2>
+      <p class="onesys-sub">Although organizers and guest players had different needs, both stemmed from the same fragmented recruitment process—and could be addressed through one unified system.</p>
+
+      <div class="onesys-cards">
+        <article class="onesys-card onesys-card--teal">
+          <span class="onesys-tag">A. Team Leads  Needs</span>
+          <blockquote class="onesys-quote">"How many guest players will we need for this game?"</blockquote>
+        </article>
+        <article class="onesys-card onesys-card--red">
+          <span class="onesys-tag">B. Players Needs</span>
+          <blockquote class="onesys-quote">"Where can I find a game right now?"</blockquote>
+        </article>
+      </div>
+
+      <p class="onesys-body">Attendance data predicts how many guest players will be needed, and those predictions automatically generate recruitment posts.
+These open games are then displayed on the guest map, making them easy to discover.
+Guest applications flow back into the system, continuously improving the accuracy of future predictions.</p>
+
+      <div class="onesys-flow">
+        <div class="onesys-pipe">
+          <span class="os-pill os-pill--teal">Attendace Data</span>
+          <span class="os-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+          <span class="os-pill os-pill--teal">Guest Prediction</span>
+          <span class="os-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+          <span class="os-pill os-pill--teal">Auto Recruiting</span>
+          <span class="os-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+          <span class="os-pill os-pill--red">Map Exposure</span>
+          <span class="os-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+          <span class="os-pill os-pill--red">Player Application</span>
+          <span class="os-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+          <span class="os-pill os-pill--orange">Prediction Improvement</span>
+        </div>
+        <svg class="onesys-loop" viewBox="0 0 946 44" aria-hidden="true" preserveAspectRatio="none">
+          <path d="M940 0 V32 H6 V12" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <path d="M6 0 L1.5 10 L10.5 10 Z" fill="currentColor" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- 08 — Side A / For Team Leads (desktop 1280 content x 1276) -->
+    <section class="section sidea">
+      <p class="sidea-eyebrow">[ 07. Side A — For Team Leads]</p>
+      <h2 class="sidea-heading"><span class="acc">Set it up once.</span>
+The system prepares the next game.</h2>
+      <p class="sidea-body">Every game required organizers to repeat the same workflow—creating attendance polls, calculating missing players, and posting recruitment notices. Our solution automated this recurring process.</p>
+      <span class="sidea-tag">SIDE A. Team Leads  Needs</span>
+
+      <div class="sidea-cards">
+        <article class="sa-card">
+          <div class="sa-card-main"><span class="sa-num">01.</span>
+            <div class="sa-card-text"><div class="sa-card-title">Recurring Game Schedule</div><div class="sa-card-desc">Register recurring game schedules when creating a team.</div></div>
+          </div>
+          <div class="sa-card-meta"><span class="sa-kr">일정등록</span><span class="sa-time">0:02</span></div>
+        </article>
+        <article class="sa-card">
+          <div class="sa-card-main"><span class="sa-num">02.</span>
+            <div class="sa-card-text"><div class="sa-card-title">Automatic Attendance Polls</div><div class="sa-card-desc">Attendance polls are automatically generated based on the game schedule.</div></div>
+          </div>
+          <div class="sa-card-meta"><span class="sa-kr">자동투표</span><span class="sa-time">0:02</span></div>
+        </article>
+        <article class="sa-card">
+          <div class="sa-card-main"><span class="sa-num">03.</span>
+            <div class="sa-card-text"><div class="sa-card-title">Guest Demand Prediction</div><div class="sa-card-desc">Predict the number of guest players needed based on hisorical attendace data</div></div>
+          </div>
+          <div class="sa-card-meta"><span class="sa-kr">예측 결과</span><span class="sa-time">0:02</span></div>
+        </article>
+        <article class="sa-card">
+          <div class="sa-card-main"><span class="sa-num">04.</span>
+            <div class="sa-card-text"><div class="sa-card-title">Automatic Recruitment Posts</div><div class="sa-card-desc">Recruitment posts are automatically generated from the prediction results</div></div>
+          </div>
+          <div class="sa-card-meta"><span class="sa-kr">자동 모집 생성</span></div>
+        </article>
+        <article class="sa-card">
+          <div class="sa-card-main"><span class="sa-num">05.</span>
+            <div class="sa-card-text"><div class="sa-card-title">Guest Map Visivility</div><div class="sa-card-desc">Open games are automatically displayed on the guest map for nearby players</div></div>
+          </div>
+          <div class="sa-card-meta"><span class="sa-kr">지도 노출</span></div>
+        </article>
+      </div>
+
+      <div class="sidea-phone"></div>
+
+      <p class="sidea-caption">As more games are played, the system learns from accumulated attendance data,
+continuously improving its prediction accuracy.</p>
+    </section>
+
+  </div>
+
+  <!-- The design is a 1920 frame whose content lives in a centred 1280 column
+       (320px side gutters). We treat 1280 as the canvas: at >=1280px the content
+       shows at natural size, centred, with flexible gutters; between 992-1279px
+       it scales down to fit; below 992px the layout reflows via CSS breakpoints
+       (so --scale is pinned to 1). -->
+  <script>
+    (function () {
+      var root = document.documentElement, CONTENT_W = 1280, DESKTOP = 992;
+      function fit() {
+        var w = window.innerWidth;
+        root.style.setProperty('--scale', w >= DESKTOP ? Math.min(w / CONTENT_W, 1) : 1);
+      }
+      addEventListener('resize', fit);
+      fit();
+    })();
+  </script>
+</body>
+</html>
