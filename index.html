@@ -1,362 +1,571 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko" data-lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shoot Shoot Penguin — Portfolio</title>
+  <title>Shoot Shoot Penguin — Case Study</title>
+  <meta name="description" content="Shoot Shoot Penguin — a two-sided platform that predicts guest demand from attendance data, so amateur basketball organizers spend less time recruiting and more time playing." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@100;200;300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="stage">
-    <!-- Sections are inserted in vertical order. Each section is a fixed-size
-         block; children are absolutely positioned from Figma coordinates. -->
 
-    <!-- 01 — Hero section (desktop 1920 x 1379; reflows below 992px)
-         DOM order is the mobile/tablet reading order; desktop restores the
-         exact Figma absolute layout via @media (min-width: 992px). -->
-    <section class="section hero">
-      <!-- Ambient orange glows (Ellipse 92 / 93) -->
-      <div class="hero-glow hero-glow--tr"></div>
-      <div class="hero-glow hero-glow--bl"></div>
+  <!-- ============================================================
+       Site chrome — wordmark, project link, KO/EN toggle.
+       The toggle flips html[data-lang]; every [data-lang-content]
+       block reveals or hides itself from that single attribute.
+       ============================================================ -->
+  <header class="topnav">
+    <a class="logo" href="https://wizzy-s-portfolio.vercel.app/">
+      <span class="logo-name">wizzy</span>
+      <span class="logo-sub">Product designer</span>
+    </a>
+    <nav class="topnav-links" aria-label="Site">
+      <a href="https://wizzy-s-portfolio.vercel.app/" class="is-active">PROJECT</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
+      <button type="button" class="lang-btn is-active" data-lang="ko" aria-label="Korean">KO</button>
+    </div>
+  </header>
 
-      <!-- Top navigation bar -->
-      <header class="topnav">
-        <div class="logo">
-          <div class="logo-name">wizzy</div>
-          <div class="logo-sub">Product designer</div>
-        </div>
-        <nav class="topnav-links">
-          <a href="#" class="is-active">PROJECT</a>
-          <a href="#">about me</a>
-          <a href="#">resume</a>
-        </nav>
-        <div class="lang">
-          <span class="is-active">EN</span>
-          <span>KO</span>
-        </div>
-      </header>
+  <!-- Section navigation — 7 anchors, all resolve to a real section. -->
+  <nav class="navpill" aria-label="Section navigation">
+    <a class="toggle" href="#intro"><span data-lang-content="en">Intro</span><span data-lang-content="ko">개요</span></a>
+    <a class="toggle" href="#problem"><span data-lang-content="en">Problem</span><span data-lang-content="ko">문제</span></a>
+    <a class="toggle" href="#system"><span data-lang-content="en">System</span><span data-lang-content="ko">시스템</span></a>
+    <a class="toggle" href="#leads"><span data-lang-content="en">For Leads</span><span data-lang-content="ko">팀 리드</span></a>
+    <a class="toggle" href="#players"><span data-lang-content="en">For Players</span><span data-lang-content="ko">플레이어</span></a>
+    <a class="toggle" href="#decisions"><span data-lang-content="en">Decisions</span><span data-lang-content="ko">결정</span></a>
+    <a class="toggle" href="#status"><span data-lang-content="en">Status</span><span data-lang-content="ko">현황</span></a>
+  </nav>
 
-      <!-- Pill navigation (horizontal-scroll on narrow screens) -->
-      <nav class="navpill">
-        <span class="toggle">Intro</span>
-        <span class="toggle">Before</span>
-        <span class="toggle toggle--active">Problem</span>
-        <span class="toggle">Question</span>
-        <span class="toggle">System</span>
-        <span class="toggle">For Leads</span>
-        <span class="toggle">For Player</span>
-        <span class="toggle">Decisions</span>
-        <span class="toggle">Role</span>
-        <span class="toggle">Impact</span>
-        <span class="toggle">Reflection</span>
-      </nav>
+  <main class="stage">
 
-      <!-- Heading + body copy -->
-      <h1 class="t hero-title">Spend less time recruting,
-<span class="acc">More time playing</span></h1>
-      <p class="t hero-body">For years, recruiting guest players for amateur basketball games relied on a fragmented process across multiple channels
-Messenger, community cafe posts, comments, text messages, and manual payment verification.
-Shoot Shoot Penguin streamlined and systemized this repetitive workflow,
-enabling organizers to manage games more efficiently while helping players discover and join games with ease.</p>
+    <!-- ============================================================
+         01 — Overview
+         ============================================================ -->
+    <section class="section hero" id="intro">
+      <div class="hero-glow hero-glow--tr" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--bl" aria-hidden="true"></div>
 
-      <!-- Hero thumbnail card -->
-      <div class="thumb">
-        <div class="thumb-title">Shoot Shoot Penguin</div>
-        <div class="tagrow">
-          <span class="tag">AI AGENTS</span>
-          <span class="tag">CRYPTO TRADING</span>
-          <span class="tag">DECISION UX</span>
-          <span class="tag">FINTECH</span>
-        </div>
-      </div>
+      <div class="wrap hero-inner">
+        <p class="eyebrow">[ 01 — Overview ]</p>
 
-      <!-- Role / meta columns (1 col mobile → 2 col tablet → 4 col desktop) -->
-      <div class="role-grid">
-        <div class="rolecol">
-          <div class="role-label">ROLE</div>
-          <div class="role-value">Product Designer</div>
-        </div>
-        <div class="rolecol">
-          <div class="role-label">SCOPE</div>
-          <div class="role-value">Research · IA · Visual ·
-Prototype · Usability Test</div>
-        </div>
-        <div class="rolecol">
-          <div class="role-label">Duration</div>
-          <div class="role-value">24 weeks</div>
-        </div>
-        <div class="rolecol">
-          <div class="role-label">Team</div>
-          <div class="role-value">1 Designer · 1 Developer</div>
-        </div>
-      </div>
-    </section>
+        <h1 class="hero-title">
+          <span data-lang-content="ko">모집은 짧게,<br /><span class="acc">농구는 길게</span></span>
+          <span data-lang-content="en">Spend less time recruiting,<br /><span class="acc">more time playing</span></span>
+        </h1>
 
-    <!-- 02 — Role and Collaboration (desktop 1920 x 638; reflows below 992px) -->
-    <section class="section role-collab">
-      <p class="rc-eyebrow">[ 01 — Role and Collaboration]</p>
-      <h2 class="rc-heading">Co-planned the product, owned <span class="acc">design end-to-end</span></h2>
+        <p class="hero-body" data-lang-content="ko">수년간 아마추어 농구 경기의 게스트 모집은 메신저, 커뮤니티 카페 게시글, 댓글, 문자, 수기 입금 확인으로 흩어진 과정에 의존해 왔습니다. Shoot Shoot Penguin은 이 반복적인 업무를 하나의 시스템으로 묶어, 운영자는 경기를 더 효율적으로 운영하고 플레이어는 참여할 경기를 쉽게 찾을 수 있게 합니다.</p>
+        <p class="hero-body" data-lang-content="en">For years, recruiting guest players for amateur basketball games relied on a fragmented process — Messenger, community cafe posts, comments, texts, and manual payment checks. Shoot Shoot Penguin ties this repetitive workflow into one system, so organizers run games more efficiently and players find games to join with ease.</p>
 
-      <div class="rc-cards">
-        <!-- My Role (teal accent) -->
-        <article class="rc-card rc-card--myrole">
-          <span class="rc-tag rc-tag--teal">My Role</span>
-          <blockquote class="rc-quote rc-quote--teal">Product Planning · UX Strategy · Information Architecture User Flow Design · Wireframing · UI Design ·  Design System · Prototyping · Developer Handoff</blockquote>
-        </article>
-
-        <!-- Collaboration (neutral) -->
-        <article class="rc-card rc-card--collab">
-          <span class="rc-tag">Collaboration</span>
-          <blockquote class="rc-quote">Collaborated with a developer to define the product direction and core features, while independently leading the end-to-end design process.</blockquote>
-        </article>
-
-        <!-- Design Scope (full width, orange pipeline) -->
-        <article class="rc-card rc-card--scope">
-          <span class="rc-tag rc-tag--center">Design Scope</span>
-          <div class="rc-pipeline">
-            <span class="rc-step">Discovery</span>
-            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-            <span class="rc-step">Product Planning</span>
-            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-            <span class="rc-step">UX Strategy</span>
-            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-            <span class="rc-step">Wireframe</span>
-            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-            <span class="rc-step">UI Design</span>
-            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-            <span class="rc-step">Design system</span>
-            <span class="rc-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-            <span class="rc-step">Hand off</span>
+        <!-- Key visual slot (image/video drops in here) -->
+        <div class="thumb">
+          <div class="thumb-title">Shoot Shoot Penguin</div>
+          <div class="tagrow">
+            <span class="tag">TWO-SIDED PLATFORM</span>
+            <span class="tag">PREDICTION UX</span>
+            <span class="tag">MOBILE APP</span>
+            <span class="tag">IN DEVELOPMENT</span>
           </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- 03 — Before the product (desktop 1280 content x 758; reflows below 992px) -->
-    <section class="section before">
-      <p class="before-eyebrow">[ 02 — Before the product ]</p>
-      <h2 class="before-heading">Finding players was often harder than
-organizing the game itself.</h2>
-      <div class="before-body">Every weekend, amateur basketball clubs organized games—but securing a court didn't guarantee a match.
-If not enough players signed up, the game couldn't happen at all.
-
-Most clubs managed recruitment through fragmented channels such as KakaoTalk chats and community forums, forcing organizers to repeat the same manual process every week just to fill remaining spots.</div>
-
-      <div class="wf">
-        <span class="wf-tag">Existing Workflow - 7 steps</span>
-        <div class="wf-cards">
-          <div class="wf-card"><span class="wf-num">01</span><span class="wf-label">Attendance Check</span></div>
-          <div class="wf-card"><span class="wf-num">02</span><span class="wf-label">Player shortage</span></div>
-          <div class="wf-card"><span class="wf-num">03</span><span class="wf-label">Recruitment post</span></div>
-          <div class="wf-card"><span class="wf-num">04</span><span class="wf-label">Comment review</span></div>
-          <div class="wf-card"><span class="wf-num">05</span><span class="wf-label">Contact exchange</span></div>
-          <div class="wf-card"><span class="wf-num">06</span><span class="wf-label">Payment confirmation</span></div>
-          <div class="wf-card"><span class="wf-num">07</span><span class="wf-label">Game management</span></div>
         </div>
-        <p class="wf-caption">Every game relied on the same <span class="acc">repetitive manual workflow.</span></p>
+
+        <div class="role-grid">
+          <div class="rolecol">
+            <div class="role-label">ROLE</div>
+            <div class="role-value">Product Designer</div>
+          </div>
+          <div class="rolecol">
+            <div class="role-label">SCOPE</div>
+            <div class="role-value" data-lang-content="ko">프로덕트 기획 · IA · UX/UI · 프로토타입 · 개발 핸드오프</div>
+            <div class="role-value" data-lang-content="en">Product planning · IA · UX/UI · Prototype · Developer handoff</div>
+          </div>
+          <div class="rolecol">
+            <div class="role-label">DURATION</div>
+            <div class="role-value" data-lang-content="ko">24주 · 개발 진행 중</div>
+            <div class="role-value" data-lang-content="en">24 weeks · in development</div>
+          </div>
+          <div class="rolecol">
+            <div class="role-label">TEAM</div>
+            <div class="role-value">1 Designer · 1 Developer</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- 04 — The Chaos / Current Experience (desktop 1280 content x 457) -->
-    <section class="section chaos">
-      <p class="chaos-eyebrow">[03 The Chaos]</p>
-      <h2 class="chaos-heading">Seven manual steps <span class="acc">didn't guarantee</span> a game.</h2>
-      <p class="chaos-sub">The problem wasn't just an inefficient recruitment process , it was affecting the reliability of the game itself.</p>
+    <!-- ============================================================
+         02 — The Problem  (former "Before the product" + "The Chaos")
+         ============================================================ -->
+    <section class="section problem" id="problem">
+      <div class="wrap">
+        <p class="eyebrow">[ 02 — The Problem ]</p>
 
-      <div class="chaos-cards">
-        <article class="chaos-card chaos-card--teal">
-          <span class="chaos-tag">Team Leads</span>
-          <div class="chaos-quote">
-            <ul class="chaos-list">
+        <h2 class="h2" data-lang-content="ko">경기는 매주 정해져 있었지만,<br /><span class="acc">참가 인원은 정해져 있지 않았습니다.</span></h2>
+        <h2 class="h2" data-lang-content="en">Games were fixed every week.<br /><span class="acc">The players weren't.</span></h2>
+
+        <p class="lead" data-lang-content="ko">함께한 개발자가 농구팀을 운영하며 매주 겪던 문제였습니다. 정기 팀에는 정해진 체육관과 일정이 있지만, 농구는 팀 스포츠라 인원이 채워져야 비로소 경기가 성사됩니다. 그래서 경기 전마다 같은 사이클이 반복됐습니다. 참석 인원을 조사하고, 부족한 인원을 계산하고, 카카오톡 채팅방과 커뮤니티에 게스트 모집글을 올리고, 입금을 하나하나 확인하는 일. 이미 잡혀 있는 경기를 지키기 위해 매주 일곱 단계의 수작업을 거쳐야 했습니다.</p>
+        <p class="lead" data-lang-content="en">This was a problem my developer teammate lived every week while running his basketball team. Regular teams have fixed gyms and schedules — but basketball is a team sport, and a game only happens when the roster is filled. So the same cycle repeated before every game: polling attendance, counting the shortfall, posting guest recruits to KakaoTalk chats and forums, and checking payments by hand. Seven manual steps, every week, just to protect a game that was already scheduled.</p>
+
+        <!-- The seven manual steps -->
+        <div class="wf">
+          <span class="chip chip--orange">
+            <span data-lang-content="ko">기존 워크플로 — 7단계</span>
+            <span data-lang-content="en">Existing workflow — 7 steps</span>
+          </span>
+          <ol class="wf-cards">
+            <li class="wf-card"><span class="wf-num">01</span><span class="wf-label"><span data-lang-content="ko">참석 인원 체크</span><span data-lang-content="en">Attendance check</span></span></li>
+            <li class="wf-card"><span class="wf-num">02</span><span class="wf-label"><span data-lang-content="ko">플레이어 부족</span><span data-lang-content="en">Player shortfall</span></span></li>
+            <li class="wf-card"><span class="wf-num">03</span><span class="wf-label"><span data-lang-content="ko">게스트 모집 공고</span><span data-lang-content="en">Guest recruiting post</span></span></li>
+            <li class="wf-card"><span class="wf-num">04</span><span class="wf-label"><span data-lang-content="ko">댓글·메시지로 참가 받기</span><span data-lang-content="en">Sign-ups via comments &amp; DMs</span></span></li>
+            <li class="wf-card"><span class="wf-num">05</span><span class="wf-label"><span data-lang-content="ko">게스트비 입금 안내</span><span data-lang-content="en">Payment guide</span></span></li>
+            <li class="wf-card"><span class="wf-num">06</span><span class="wf-label"><span data-lang-content="ko">입금 확인</span><span data-lang-content="en">Payment check</span></span></li>
+            <li class="wf-card"><span class="wf-num">07</span><span class="wf-label"><span data-lang-content="ko">경기 관리</span><span data-lang-content="en">Game management</span></span></li>
+          </ol>
+          <p class="wf-caption">
+            <span data-lang-content="ko">모든 경기는 매주 <span class="acc">이 일곱 단계</span>를 거치고 있었습니다.</span>
+            <span data-lang-content="en">Every game went through <span class="acc">these seven steps</span>, every week.</span>
+          </p>
+        </div>
+
+        <!-- Who felt it -->
+        <div class="pain-cards">
+          <article class="pain-card pain-card--teal">
+            <span class="chip chip--teal">
+              <span data-lang-content="ko">팀 리드</span>
+              <span data-lang-content="en">Team Leads</span>
+            </span>
+            <ul class="pain-list" data-lang-content="ko">
+              <li>게스트 수요를 미리 알 수 없음</li>
+              <li>매주 반복되는 모집 업무</li>
+              <li>채널마다 흩어진 모집 현황</li>
+              <li>직전 취소로 인한 높은 부담</li>
+            </ul>
+            <ul class="pain-list" data-lang-content="en">
               <li>No visibility into guest demand</li>
               <li>Weekly repetitive recruitment tasks</li>
               <li>Recruitment status scattered across channels</li>
               <li>High burden from last-minute dropouts</li>
             </ul>
-          </div>
-        </article>
+          </article>
 
-        <article class="chaos-card chaos-card--red">
-          <span class="chaos-tag">Players</span>
-          <div class="chaos-quote">
-            <ul class="chaos-list">
+          <article class="pain-card pain-card--red">
+            <span class="chip chip--red">
+              <span data-lang-content="ko">플레이어</span>
+              <span data-lang-content="en">Players</span>
+            </span>
+            <ul class="pain-list" data-lang-content="ko">
+              <li>주변 경기를 찾기 어려움</li>
+              <li>실력에 맞는 경기를 찾기 어려움</li>
+              <li>지금 모집 중인 경기를 실시간으로 알기 어려움</li>
+            </ul>
+            <ul class="pain-list" data-lang-content="en">
               <li>Difficult to find nearby games</li>
               <li>Difficult to find games that match their skill level</li>
               <li>Difficult to see which games were actively recruiting in real time</li>
             </ul>
-          </div>
-        </article>
-
-        <article class="chaos-card chaos-card--consequence">
-          <span class="chaos-tag">Consequences</span>
-          <div class="chaos-quote">
-            <ul class="chaos-list">
-              <li>Difficult to find nearby games</li>
-              <li>Difficult to find games that match their skill level</li>
-              <li>Difficult to see which games were actively recruiting in real time</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- 05 — Survey Result (desktop 1280 content x 816) -->
-    <section class="section survey">
-      <p class="survey-eyebrow">[ 04 — survey result]</p>
-      <p class="survey-sub">To verify whether these issues were consistently occurring across users, a survey was conducted.</p>
-
-      <div class="survey-stats">
-        <div class="stat-card stat-card--a">
-          <div class="stat-figure"><span class="stat-num">68</span><span class="stat-unit">%</span></div>
-          <span class="stat-label">No-show Rate</span>
-        </div>
-        <div class="stat-card stat-card--b">
-          <div class="stat-figure"><span class="stat-num">42</span><span class="stat-unit">%</span></div>
-          <span class="stat-label">Over- Recruitment Rate</span>
-        </div>
-        <div class="stat-card stat-card--c">
-          <div class="stat-figure"><span class="stat-num">2.5</span><span class="stat-unit">hours</span></div>
-          <span class="stat-label">Averatge time to Recruit</span>
+          </article>
         </div>
       </div>
-
-      <figure class="survey-media">
-        <div class="survey-thumb"></div>
-        <figcaption class="survey-cap">[Survey Findings -  User Perception of recruitment workflows]</figcaption>
-      </figure>
-
-      <p class="survey-note">Fragmented recruitment workflows created uncertainty for both organizers and guest players.</p>
     </section>
 
-    <!-- 06 — The Core Question (desktop 1280 content x 688; warm-tinted band) -->
-    <section class="section coreq">
-      <p class="coreq-eyebrow">[ 05 — the core question]</p>
-      <h2 class="coreq-h1">How might we predict guest player demand in advance?</h2>
-      <p class="coreq-body">The real challenge wasn't simplifying the recruitment process. It was that organizers had to calculate player shortages manually before every game.
-Although attendance data accumulated over time, it was never used to predict future demand or support decision-making.</p>
+    <!-- ============================================================
+         03 — The Core Question
+         ============================================================ -->
+    <section class="section coreq" id="question">
+      <div class="wrap">
+        <p class="eyebrow">[ 03 — The Core Question ]</p>
 
-      <h2 class="coreq-h2">What if attendance data could <span class="acc">predict</span>
-<span class="acc">how many guest players</span> would be needed?</h2>
-      <p class="coreq-caption">That question became the starting point for Shoot Shoot Penguin.</p>
+        <h2 class="h2 h2--center" data-lang-content="ko">경기 출석 데이터로, 게스트가<br /><span class="acc">몇 명 필요할지</span> 미리 알 수 있다면?</h2>
+        <h2 class="h2 h2--center" data-lang-content="en">What if attendance data could<br /><span class="acc">predict how many guests</span> we'd need?</h2>
 
-      <div class="coreq-diagram">
-        <span class="coreq-pill">Attendance Patterns</span>
-        <span class="coreq-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-        <span class="coreq-pill">Historical Data</span>
-        <span class="coreq-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-        <span class="coreq-pill coreq-pill--accent">Guest Demand Prediction</span>
-      </div>
-    </section>
+        <p class="lead lead--center" data-lang-content="ko">진짜 과제는 모집 과정을 단순화하는 것이 아니었습니다. 운영자는 경기 전마다 부족한 인원을 손으로 계산했고, 그동안 출석 데이터는 조용히 쌓이기만 할 뿐 수요를 예측하거나 판단을 돕는 데 한 번도 쓰이지 않았습니다. 이 질문이 Shoot Shoot Penguin의 출발점이 되었습니다.</p>
+        <p class="lead lead--center" data-lang-content="en">The real challenge wasn't simplifying recruitment. Organizers calculated the shortfall by hand before every game — while attendance data quietly piled up, never once used to predict demand or support the decision. That question became the starting point for Shoot Shoot Penguin.</p>
 
-    <!-- 07 — One System, Two Sides (desktop 1280 content x 688) -->
-    <section class="section onesys">
-      <p class="onesys-eyebrow">[ 06 — One System, Two sides]</p>
-      <h2 class="onesys-heading">Different Needs, One System</h2>
-      <p class="onesys-sub">Although organizers and guest players had different needs, both stemmed from the same fragmented recruitment process—and could be addressed through one unified system.</p>
-
-      <div class="onesys-cards">
-        <article class="onesys-card onesys-card--teal">
-          <span class="onesys-tag">A. Team Leads  Needs</span>
-          <blockquote class="onesys-quote">"How many guest players will we need for this game?"</blockquote>
-        </article>
-        <article class="onesys-card onesys-card--red">
-          <span class="onesys-tag">B. Players Needs</span>
-          <blockquote class="onesys-quote">"Where can I find a game right now?"</blockquote>
-        </article>
-      </div>
-
-      <p class="onesys-body">Attendance data predicts how many guest players will be needed, and those predictions automatically generate recruitment posts.
-These open games are then displayed on the guest map, making them easy to discover.
-Guest applications flow back into the system, continuously improving the accuracy of future predictions.</p>
-
-      <div class="onesys-flow">
-        <div class="onesys-pipe">
-          <span class="os-pill os-pill--teal">Attendace Data</span>
-          <span class="os-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-          <span class="os-pill os-pill--teal">Guest Prediction</span>
-          <span class="os-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-          <span class="os-pill os-pill--teal">Auto Recruiting</span>
-          <span class="os-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-          <span class="os-pill os-pill--red">Map Exposure</span>
-          <span class="os-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-          <span class="os-pill os-pill--red">Player Application</span>
-          <span class="os-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-          <span class="os-pill os-pill--orange">Prediction Improvement</span>
+        <div class="flow flow--center">
+          <span class="pill">
+            <span data-lang-content="ko">출석 패턴</span>
+            <span data-lang-content="en">Attendance Patterns</span>
+          </span>
+          <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+          <span class="pill">
+            <span data-lang-content="ko">누적 데이터</span>
+            <span data-lang-content="en">Historical Data</span>
+          </span>
+          <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+          <span class="pill pill--orange">
+            <span data-lang-content="ko">게스트 수요 예측</span>
+            <span data-lang-content="en">Guest Demand Prediction</span>
+          </span>
         </div>
-        <svg class="onesys-loop" viewBox="0 0 946 44" aria-hidden="true" preserveAspectRatio="none">
-          <path d="M940 0 V32 H6 V12" fill="none" stroke="currentColor" stroke-width="1.5" />
-          <path d="M6 0 L1.5 10 L10.5 10 Z" fill="currentColor" />
-        </svg>
       </div>
     </section>
 
-    <!-- 08 — Side A / For Team Leads (desktop 1280 content x 1276) -->
-    <section class="section sidea">
-      <p class="sidea-eyebrow">[ 07. Side A — For Team Leads]</p>
-      <h2 class="sidea-heading"><span class="acc">Set it up once.</span>
-The system prepares the next game.</h2>
-      <p class="sidea-body">Every game required organizers to repeat the same workflow—creating attendance polls, calculating missing players, and posting recruitment notices. Our solution automated this recurring process.</p>
-      <span class="sidea-tag">SIDE A. Team Leads  Needs</span>
+    <!-- ============================================================
+         04 — System Architecture
+         ============================================================ -->
+    <section class="section system" id="system">
+      <div class="wrap">
+        <p class="eyebrow">[ 04 — System Architecture ]</p>
 
-      <div class="sidea-cards">
-        <article class="sa-card">
-          <div class="sa-card-main"><span class="sa-num">01.</span>
-            <div class="sa-card-text"><div class="sa-card-title">Recurring Game Schedule</div><div class="sa-card-desc">Register recurring game schedules when creating a team.</div></div>
+        <p class="lead lead--xl" data-lang-content="ko">출석 데이터가 필요한 게스트 수를 예측하고, 예측 결과는 모집글을 자동으로 생성합니다. 모집 중인 경기는 게스트 지도에 노출되어 쉽게 발견되고, 신청 데이터는 다시 시스템으로 돌아와 다음 예측을 개선합니다.</p>
+        <p class="lead lead--xl" data-lang-content="en">Attendance data predicts how many guests are needed, and predictions auto-generate recruitment posts. Open games surface on the guest map for easy discovery, and applications flow back in — improving the next prediction.</p>
+
+        <!-- Closed loop: the last step feeds the first -->
+        <div class="loop">
+          <div class="flow flow--loop">
+            <span class="pill pill--teal"><span data-lang-content="ko">출석 데이터</span><span data-lang-content="en">Attendance Data</span></span>
+            <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="pill pill--teal"><span data-lang-content="ko">수요 예측</span><span data-lang-content="en">Demand Prediction</span></span>
+            <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="pill pill--teal"><span data-lang-content="ko">자동 모집</span><span data-lang-content="en">Auto Recruiting</span></span>
+            <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="pill pill--red"><span data-lang-content="ko">지도 노출</span><span data-lang-content="en">Map Exposure</span></span>
+            <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="pill pill--red"><span data-lang-content="ko">신청</span><span data-lang-content="en">Application</span></span>
+            <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+            <span class="pill pill--orange"><span data-lang-content="ko">예측 개선</span><span data-lang-content="en">Prediction Improvement</span></span>
           </div>
-          <div class="sa-card-meta"><span class="sa-kr">일정등록</span><span class="sa-time">0:02</span></div>
-        </article>
-        <article class="sa-card">
-          <div class="sa-card-main"><span class="sa-num">02.</span>
-            <div class="sa-card-text"><div class="sa-card-title">Automatic Attendance Polls</div><div class="sa-card-desc">Attendance polls are automatically generated based on the game schedule.</div></div>
-          </div>
-          <div class="sa-card-meta"><span class="sa-kr">자동투표</span><span class="sa-time">0:02</span></div>
-        </article>
-        <article class="sa-card">
-          <div class="sa-card-main"><span class="sa-num">03.</span>
-            <div class="sa-card-text"><div class="sa-card-title">Guest Demand Prediction</div><div class="sa-card-desc">Predict the number of guest players needed based on hisorical attendace data</div></div>
-          </div>
-          <div class="sa-card-meta"><span class="sa-kr">예측 결과</span><span class="sa-time">0:02</span></div>
-        </article>
-        <article class="sa-card">
-          <div class="sa-card-main"><span class="sa-num">04.</span>
-            <div class="sa-card-text"><div class="sa-card-title">Automatic Recruitment Posts</div><div class="sa-card-desc">Recruitment posts are automatically generated from the prediction results</div></div>
-          </div>
-          <div class="sa-card-meta"><span class="sa-kr">자동 모집 생성</span></div>
-        </article>
-        <article class="sa-card">
-          <div class="sa-card-main"><span class="sa-num">05.</span>
-            <div class="sa-card-text"><div class="sa-card-title">Guest Map Visivility</div><div class="sa-card-desc">Open games are automatically displayed on the guest map for nearby players</div></div>
-          </div>
-          <div class="sa-card-meta"><span class="sa-kr">지도 노출</span></div>
-        </article>
+          <svg class="loop-line" viewBox="0 0 1000 44" aria-hidden="true" preserveAspectRatio="none">
+            <path d="M994 0 V32 H6 V12" fill="none" stroke="currentColor" stroke-width="1.5" />
+            <path d="M6 0 L1.5 10 L10.5 10 Z" fill="currentColor" />
+          </svg>
+        </div>
       </div>
-
-      <div class="sidea-phone"></div>
-
-      <p class="sidea-caption">As more games are played, the system learns from accumulated attendance data,
-continuously improving its prediction accuracy.</p>
     </section>
 
-  </div>
+    <!-- ============================================================
+         05 — Side A · For Team Leads
+         ============================================================ -->
+    <section class="section side side--a" id="leads">
+      <div class="wrap">
+        <p class="eyebrow">[ 05 — Side A · For Team Leads ]</p>
 
-  <!-- The design is a 1920 frame whose content lives in a centred 1280 column
-       (320px side gutters). We treat 1280 as the canvas: at >=1280px the content
-       shows at natural size, centred, with flexible gutters; between 992-1279px
-       it scales down to fit; below 992px the layout reflows via CSS breakpoints
-       (so --scale is pinned to 1). -->
+        <div class="side-head">
+          <div>
+            <h2 class="h2" data-lang-content="ko"><span class="acc">한 번만 설정하면,</span><br />시스템이 다음 경기를 준비합니다.</h2>
+            <h2 class="h2" data-lang-content="en"><span class="acc">Set it up once.</span><br />The system prepares the next game.</h2>
+
+            <p class="lead" data-lang-content="ko">경기마다 운영자는 같은 일을 반복해야 했습니다. 출석 투표를 만들고, 부족한 인원을 계산하고, 모집 공고를 올리는 일. 이 반복되는 과정을 자동화했습니다.</p>
+            <p class="lead" data-lang-content="en">Every game required organizers to repeat the same workflow — creating attendance polls, calculating missing players, and posting recruitment notices. Our solution automated this recurring process.</p>
+          </div>
+          <span class="chip chip--teal chip--lg">
+            <span data-lang-content="ko">SIDE A · 팀 리드</span>
+            <span data-lang-content="en">SIDE A · Team Leads</span>
+          </span>
+        </div>
+
+        <div class="side-body">
+          <ol class="feat-cards">
+            <li class="feat-card">
+              <span class="feat-num">01.</span>
+              <div class="feat-text">
+                <div class="feat-title"><span data-lang-content="ko">정기 일정 등록</span><span data-lang-content="en">Recurring Game Schedule</span></div>
+                <div class="feat-desc"><span data-lang-content="ko">팀을 만들 때 정기 경기 일정을 등록합니다.</span><span data-lang-content="en">Register recurring game schedules when creating a team.</span></div>
+              </div>
+              <span class="feat-chip"><span data-lang-content="ko">일정 등록</span><span data-lang-content="en">Schedule</span></span>
+            </li>
+            <li class="feat-card">
+              <span class="feat-num">02.</span>
+              <div class="feat-text">
+                <div class="feat-title"><span data-lang-content="ko">자동 출석 투표</span><span data-lang-content="en">Automatic Attendance Polls</span></div>
+                <div class="feat-desc"><span data-lang-content="ko">경기 일정에 맞춰 출석 투표가 자동으로 생성됩니다.</span><span data-lang-content="en">Attendance polls are generated automatically from the game schedule.</span></div>
+              </div>
+              <span class="feat-chip"><span data-lang-content="ko">자동 투표</span><span data-lang-content="en">Auto Poll</span></span>
+            </li>
+            <li class="feat-card">
+              <span class="feat-num">03.</span>
+              <div class="feat-text">
+                <div class="feat-title"><span data-lang-content="ko">게스트 수요 예측</span><span data-lang-content="en">Guest Demand Prediction</span></div>
+                <div class="feat-desc"><span data-lang-content="ko">누적된 출석 데이터로 필요한 게스트 수를 예측합니다.</span><span data-lang-content="en">Predict how many guests are needed from historical attendance data.</span></div>
+              </div>
+              <span class="feat-chip"><span data-lang-content="ko">예측 결과</span><span data-lang-content="en">Prediction</span></span>
+            </li>
+            <li class="feat-card">
+              <span class="feat-num">04.</span>
+              <div class="feat-text">
+                <div class="feat-title"><span data-lang-content="ko">모집글 자동 생성</span><span data-lang-content="en">Automatic Recruitment Posts</span></div>
+                <div class="feat-desc"><span data-lang-content="ko">예측 결과를 바탕으로 모집글이 자동 생성됩니다.</span><span data-lang-content="en">Recruitment posts are generated automatically from the prediction results.</span></div>
+              </div>
+              <span class="feat-chip"><span data-lang-content="ko">자동 모집</span><span data-lang-content="en">Auto Post</span></span>
+            </li>
+            <li class="feat-card">
+              <span class="feat-num">05.</span>
+              <div class="feat-text">
+                <div class="feat-title"><span data-lang-content="ko">게스트 지도 노출</span><span data-lang-content="en">Guest Map Visibility</span></div>
+                <div class="feat-desc"><span data-lang-content="ko">모집 중인 경기가 주변 플레이어의 지도에 자동으로 노출됩니다.</span><span data-lang-content="en">Open games are displayed on the guest map for nearby players.</span></div>
+              </div>
+              <span class="feat-chip"><span data-lang-content="ko">지도 노출</span><span data-lang-content="en">Map</span></span>
+            </li>
+          </ol>
+
+          <!-- Prototype slot (video drops in here) -->
+          <div class="phone" aria-hidden="true"></div>
+        </div>
+
+        <p class="side-caption" data-lang-content="ko">경기가 쌓일수록 시스템은 누적된 출석 데이터를 학습해 예측 정확도를 계속 높여갑니다.</p>
+        <p class="side-caption" data-lang-content="en">As more games are played, the system learns from accumulated attendance data, continuously improving its prediction accuracy.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         06 — Side B · For Players
+         ============================================================ -->
+    <section class="section side side--b" id="players">
+      <div class="wrap">
+        <p class="eyebrow">[ 06 — Side B · For Players ]</p>
+
+        <div class="side-head">
+          <div>
+            <h2 class="h2" data-lang-content="ko"><span class="acc">지금 바로 뛸 수 있는</span><br />경기를 찾습니다.</h2>
+            <h2 class="h2" data-lang-content="en"><span class="acc">Find games you can join</span><br />right now.</h2>
+
+            <p class="lead" data-lang-content="ko">게스트 플레이어가 원한 것은 경기 목록이 아니었습니다. "오늘 어디서 뛸 수 있지?"라는 질문에 대한 빠른 답이었습니다. 그래서 지도 중심의 경험을 선택했습니다.</p>
+            <p class="lead" data-lang-content="en">Guest players didn't want a list of games — they wanted a fast answer to one question: "Where can I play today?" So we chose a map-first experience.</p>
+          </div>
+          <span class="chip chip--red chip--lg">
+            <span data-lang-content="ko">SIDE B · 플레이어</span>
+            <span data-lang-content="en">SIDE B · Players</span>
+          </span>
+        </div>
+
+        <div class="side-body">
+          <ol class="feat-cards">
+            <li class="feat-card">
+              <span class="feat-num">01.</span>
+              <div class="feat-text">
+                <div class="feat-title"><span data-lang-content="ko">주변 경기 발견</span><span data-lang-content="en">Discover Nearby Games</span></div>
+                <div class="feat-desc"><span data-lang-content="ko">지금 모집 중인 주변 경기를 지도에서 한눈에 확인합니다.</span><span data-lang-content="en">See games recruiting near you at a glance, right on the map.</span></div>
+              </div>
+              <span class="feat-chip"><span data-lang-content="ko">지도 탐색</span><span data-lang-content="en">Map Discovery</span></span>
+            </li>
+            <li class="feat-card">
+              <span class="feat-num">02.</span>
+              <div class="feat-text">
+                <div class="feat-title"><span data-lang-content="ko">조건 필터</span><span data-lang-content="en">Filter by Conditions</span></div>
+                <div class="feat-desc"><span data-lang-content="ko">위치·시간·경기 유형으로 원하는 경기만 걸러냅니다.</span><span data-lang-content="en">Narrow games down by location, time, and game type.</span></div>
+              </div>
+              <span class="feat-chip"><span data-lang-content="ko">조건 필터</span><span data-lang-content="en">Filters</span></span>
+            </li>
+            <li class="feat-card">
+              <span class="feat-num">03.</span>
+              <div class="feat-text">
+                <div class="feat-title"><span data-lang-content="ko">즉시 신청</span><span data-lang-content="en">Instant Application</span></div>
+                <div class="feat-desc"><span data-lang-content="ko">마음에 드는 경기에 바로 신청하고 확정 여부를 확인합니다.</span><span data-lang-content="en">Apply to a game right away and track your confirmation.</span></div>
+              </div>
+              <span class="feat-chip"><span data-lang-content="ko">즉시 신청</span><span data-lang-content="en">Instant Apply</span></span>
+            </li>
+          </ol>
+
+          <!-- Prototype slot (video drops in here) -->
+          <div class="phone" aria-hidden="true"></div>
+        </div>
+
+        <p class="side-caption" data-lang-content="ko">예전에는 커뮤니티 글을 뒤져 경기를 찾았습니다. 이제는 지도 위에서 참여 가능한 주변 경기를 바로 발견합니다.</p>
+        <p class="side-caption" data-lang-content="en">Players used to dig through community posts to find a game. Now they discover joinable games nearby, right on the map.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         07 — Key Decisions & Collaboration
+         ============================================================ -->
+    <section class="section decisions" id="decisions">
+      <div class="wrap">
+        <p class="eyebrow">[ 07 — Key Decisions &amp; Collaboration ]</p>
+
+        <h2 class="h2" data-lang-content="ko">제품을 만들 때 내린 <span class="acc">네 가지 결정</span></h2>
+        <h2 class="h2" data-lang-content="en"><span class="acc">Four decisions</span> that shaped the product</h2>
+
+        <div class="dec-cards">
+          <article class="dec-card">
+            <span class="dec-num">01.</span>
+            <h3 class="dec-title"><span data-lang-content="ko">두 사용자를 하나의 시스템으로</span><span data-lang-content="en">One system, two sides</span></h3>
+            <p class="dec-body" data-lang-content="ko">팀 리드와 플레이어를 각각의 앱으로 나누지 않고 하나의 시스템으로 묶었습니다. 두 니즈가 서로 다른 문제가 아니라 같은 데이터 흐름의 양쪽 끝이라고 판단했기 때문입니다.</p>
+            <p class="dec-body" data-lang-content="en">We judged that team leads and players belonged in one system rather than two separate apps, because their needs aren't different problems — they're two ends of the same data loop.</p>
+          </article>
+
+          <article class="dec-card">
+            <span class="dec-num">02.</span>
+            <h3 class="dec-title"><span data-lang-content="ko">목록이 아니라 지도 먼저</span><span data-lang-content="en">Map before list</span></h3>
+            <p class="dec-body" data-lang-content="ko">플레이어 화면의 기본을 목록이 아닌 지도로 정했습니다. "오늘 어디서 뛸 수 있지?"는 결국 위치에 대한 질문이라고 판단했기 때문입니다.</p>
+            <p class="dec-body" data-lang-content="en">We judged the player's default view should be a map rather than a list, because "where can I play today?" is fundamentally a question about location.</p>
+          </article>
+
+          <article class="dec-card">
+            <span class="dec-num">03.</span>
+            <h3 class="dec-title"><span data-lang-content="ko">예측은 확정이 아니라 제안으로</span><span data-lang-content="en">Prediction as a suggestion, not a decision</span></h3>
+            <p class="dec-body" data-lang-content="ko">예측 결과를 자동으로 확정하지 않고, 운영자가 조정할 수 있는 제안으로 설계했습니다. 초기에는 데이터가 적어 예측이 빗나갈 수 있고, 경기에 대한 최종 책임은 운영자에게 있다고 판단했기 때문입니다.</p>
+            <p class="dec-body" data-lang-content="en">We judged predictions should arrive as an editable suggestion rather than an automatic decision, because early data is sparse and the organizer still owns the final call on the game.</p>
+          </article>
+
+          <article class="dec-card">
+            <span class="dec-num">04.</span>
+            <h3 class="dec-title"><span data-lang-content="ko">기존 채널을 대체하지 않기</span><span data-lang-content="en">Don't replace the channels people already use</span></h3>
+            <p class="dec-body" data-lang-content="ko">카카오톡과 커뮤니티를 대체하는 대신, 생성된 모집글을 그대로 내보낼 수 있게 했습니다. 사용자의 습관을 바꾸는 것보다 기존 흐름 위에 얹는 편이 실제로 쓰일 가능성이 높다고 판단했기 때문입니다.</p>
+            <p class="dec-body" data-lang-content="en">We judged the product should export recruitment posts into KakaoTalk and forums rather than replace them, because riding an existing habit gets adopted faster than asking people to change one.</p>
+          </article>
+        </div>
+
+        <!-- Collaboration — condensed from the former "Role & Collaboration" section -->
+        <article class="collab-card">
+          <span class="chip chip--teal">
+            <span data-lang-content="ko">협업</span>
+            <span data-lang-content="en">Collaboration</span>
+          </span>
+          <p class="collab-body" data-lang-content="ko">개발자와 함께 제품 방향과 핵심 기능을 정의하고, 유저 플로우부터 디자인 시스템, 개발 핸드오프까지 디자인 전 과정을 단독으로 리드했습니다.</p>
+          <p class="collab-body" data-lang-content="en">Collaborated with a developer to define product direction and core features, while independently leading the end-to-end design process — from user flows to design system to developer handoff.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         08 — Where It Stands
+         ============================================================ -->
+    <section class="section status" id="status">
+      <div class="wrap">
+        <p class="eyebrow">[ 08 — Where It Stands ]</p>
+
+        <h2 class="h2" data-lang-content="ko">개발 진행 중 — <span class="acc">측정할 준비</span>까지 설계했습니다</h2>
+        <h2 class="h2" data-lang-content="en">In development — <span class="acc">designed to be measured</span></h2>
+
+        <p class="lead" data-lang-content="ko">백엔드 개발이 진행 중이며, 핵심 플로우와 디자인 시스템은 핸드오프를 마쳤습니다. 첫 클로즈드 베타는 개발자가 소속된 회사에서 시작할 예정입니다.</p>
+        <p class="lead" data-lang-content="en">Backend development is in progress; core flows and the design system are handed off. The first closed beta will start at the developer's company.</p>
+
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-dir">↑</span>
+            <span class="metric-label"><span data-lang-content="ko">수동 모집 없이 성사된 경기 비율</span><span data-lang-content="en">Games filled without manual recruiting</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-dir metric-dir--down">↓</span>
+            <span class="metric-label"><span data-lang-content="ko">모집 소요 시간</span><span data-lang-content="en">Time to recruit</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-dir metric-dir--down">↓</span>
+            <span class="metric-label"><span data-lang-content="ko">노쇼율</span><span data-lang-content="en">No-show rate</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-dir">↑</span>
+            <span class="metric-label"><span data-lang-content="ko">게스트 재신청률</span><span data-lang-content="en">Guest re-application rate</span></span>
+          </div>
+        </div>
+        <p class="metrics-note">
+          <span data-lang-content="ko">베타에서 검증할 지표 — 아직 측정 전입니다.</span>
+          <span data-lang-content="en">Metrics to validate in beta — not yet measured.</span>
+        </p>
+
+        <article class="reflection">
+          <span class="chip chip--orange">
+            <span data-lang-content="ko">회고</span>
+            <span data-lang-content="en">Reflection</span>
+          </span>
+          <p class="reflection-body" data-lang-content="ko">이 프로젝트는 화면이 아니라 시스템을 설계하는 법을 가르쳐줬습니다. 두 사용자의 니즈를 하나의 흐름으로 연결하는 일 — 그리고 그것을 첫날부터 개발자와 함께 하는 일은 디자인 방식 자체를 바꿨습니다. 모든 결정이 구현 가능성의 검증을 통과해야 했기 때문입니다. 검증은 다음 챕터이고, 제품은 측정될 준비가 되어 있습니다.</p>
+          <p class="reflection-body" data-lang-content="en">This project taught me to design a system, not screens. Connecting two users' needs into a single flow — and doing it alongside a developer from day one — changed how I design, because every decision had to survive a feasibility check. Validation is the next chapter; the product is ready to be measured.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         See more projects
+         ============================================================ -->
+    <section class="section seemore">
+      <div class="wrap">
+        <p class="eyebrow">[ See more projects ]</p>
+
+        <div class="proj-cards">
+          <a class="proj-card" href="https://bingx-portfolio.vercel.app/" target="_blank" rel="noopener">
+            <div class="proj-thumb" aria-hidden="true"></div>
+            <div class="proj-meta">
+              <h3 class="proj-title">BingX AI Master</h3>
+              <p class="proj-desc" data-lang-content="ko">첫 투자자가 인상이 아닌 근거로 AI 에이전트를 고를 수 있도록, 트레이딩의 의사결정 구조를 설계한 케이스 스터디.</p>
+              <p class="proj-desc" data-lang-content="en">Designing a decision structure for AI-driven crypto trading — so first-time investors can choose an agent with confidence, not impressions.</p>
+              <div class="tagrow tagrow--sm">
+                <span class="tag">AI AGENTS</span>
+                <span class="tag">CRYPTO TRADING</span>
+                <span class="tag">DECISION UX</span>
+              </div>
+            </div>
+            <span class="proj-go" aria-hidden="true">↗</span>
+          </a>
+
+          <a class="proj-card" href="https://wizzy-s-portfolio.vercel.app/projects/operator.html" target="_blank" rel="noopener">
+            <div class="proj-thumb" aria-hidden="true"></div>
+            <div class="proj-meta">
+              <h3 class="proj-title">Operator</h3>
+              <p class="proj-desc" data-lang-content="ko">자영업자가 비용과 쾌적함을 감이 아닌 기준으로 함께 판단할 수 있게 하는 AI 기반 HVAC 의사결정 시스템.</p>
+              <p class="proj-desc" data-lang-content="en">An AI-powered HVAC decision system that helps small business owners judge cost and comfort together, instead of adjusting by feel.</p>
+              <div class="tagrow tagrow--sm">
+                <span class="tag">DECISION UX</span>
+                <span class="tag">AI</span>
+                <span class="tag">CONCEPT PROJECT</span>
+              </div>
+            </div>
+            <span class="proj-go" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sitefoot">
+    <div class="wrap sitefoot-inner">
+      <a class="sitefoot-mail" href="mailto:hazzysw@gmail.com">hazzysw@gmail.com</a>
+      <span class="sitefoot-copy">© 2026 wizzy</span>
+    </div>
+  </footer>
+
   <script>
+    /* ---- KO / EN toggle -------------------------------------------------
+       One attribute (html[data-lang]) drives every [data-lang-content]
+       block; the choice persists across the portfolio via localStorage. */
     (function () {
-      var root = document.documentElement, CONTENT_W = 1280, DESKTOP = 992;
-      function fit() {
-        var w = window.innerWidth;
-        root.style.setProperty('--scale', w >= DESKTOP ? Math.min(w / CONTENT_W, 1) : 1);
+      var root = document.documentElement;
+      var buttons = document.querySelectorAll('.lang-btn');
+
+      function setLang(lang) {
+        if (lang !== 'en' && lang !== 'ko') return;
+        root.dataset.lang = lang;
+        root.setAttribute('lang', lang);
+        buttons.forEach(function (b) {
+          b.classList.toggle('is-active', b.dataset.lang === lang);
+        });
+        try { localStorage.setItem('ssp-lang', lang); } catch (e) {}
       }
-      addEventListener('resize', fit);
-      fit();
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () { setLang(btn.dataset.lang); });
+      });
+
+      var saved;
+      try { saved = localStorage.getItem('ssp-lang'); } catch (e) {}
+      setLang(saved || root.dataset.lang || 'ko');
+    })();
+
+    /* ---- Section nav scroll-spy ----------------------------------------
+       Nav order matches document order, so the topmost visible section wins. */
+    (function () {
+      var links = [].slice.call(document.querySelectorAll('.navpill .toggle'));
+      var items = links
+        .map(function (link) { return { link: link, el: document.querySelector(link.hash) }; })
+        .filter(function (item) { return item.el; });
+      if (!items.length) return;
+
+      var visible = new Set();
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) visible.add(e.target);
+          else visible.delete(e.target);
+        });
+        var current = items.find(function (item) { return visible.has(item.el); });
+        items.forEach(function (item) {
+          item.link.classList.toggle('toggle--active', item === current);
+        });
+      }, { rootMargin: '-45% 0px -45% 0px' });
+
+      items.forEach(function (item) { io.observe(item.el); });
     })();
   </script>
 </body>
