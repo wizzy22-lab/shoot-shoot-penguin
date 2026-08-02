@@ -498,6 +498,15 @@ html[data-lang="ko"] .proj-title { font-family: var(--font-kr); letter-spacing: 
   border-radius: 28px;
   background: #1a1e24;
   border: 1px solid var(--border);
+  overflow: hidden;
+}
+/* Recordings are 2160x4670 — same 390:844 ratio as the slot, so cover crops
+   nothing; it only absorbs sub-pixel rounding. */
+.phone-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .side-caption {
   margin-top: 40px;
