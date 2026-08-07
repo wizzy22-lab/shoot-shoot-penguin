@@ -339,8 +339,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .ds-anchor:hover,
 .ds-anchor.is-current { color: var(--text); }
 
-/* The chrome is fixed, so the document starts below its 70 + 38px. */
-.stage { padding-top: 108px; }
+/* The chrome is fixed, so the document has to start below it: the 70px
+   nav + the 38px anchor row + the anchor row's own 1px bottom border. */
+.stage { padding-top: 109px; }
 
 /* ============================================================
    01 — OVERVIEW / HERO
