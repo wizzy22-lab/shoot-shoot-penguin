@@ -10,38 +10,65 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Azeret+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="style.css" />
+  <script src="https://t.contentsquare.net/uxa/c15c6a0ad1b24.js" defer></script>
 </head>
 <body>
 
   <!-- ============================================================
-       Site chrome — wordmark, project link, KO/EN toggle.
-       The toggle flips html[data-lang]; every [data-lang-content]
-       block reveals or hides itself from that single attribute.
-       ============================================================ -->
-  <header class="topnav">
-    <a class="logo" href="https://wizzy-s-portfolio.vercel.app/">
-      <span class="logo-name">wizzy</span>
-      <span class="logo-sub">Product designer</span>
-    </a>
-    <nav class="topnav-links" aria-label="Site">
-      <a href="https://wizzy-s-portfolio.vercel.app/" class="is-active">PROJECT</a>
-    </nav>
-    <div class="lang" role="group" aria-label="Language">
-      <button type="button" class="lang-btn" data-lang="en" aria-label="English">EN</button>
-      <button type="button" class="lang-btn is-active" data-lang="ko" aria-label="Korean">KO</button>
-    </div>
-  </header>
+       Global chrome — mirrors the main portfolio's 70px nav, with the
+       case-study anchor row riding directly underneath it on the SAME
+       translucent surface. The blur/background lives on .ds-chrome so
+       the two rows read as one continuous bar with a single bottom
+       edge; neither row draws a rule between them.
 
-  <!-- Section navigation — 7 anchors, all resolve to a real section. -->
-  <nav class="navpill" aria-label="Section navigation">
-    <a class="toggle" href="#intro"><span data-lang-content="en">Intro</span><span data-lang-content="ko">개요</span></a>
-    <a class="toggle" href="#problem"><span data-lang-content="en">Problem</span><span data-lang-content="ko">문제</span></a>
-    <a class="toggle" href="#system"><span data-lang-content="en">System</span><span data-lang-content="ko">시스템</span></a>
-    <a class="toggle" href="#leads"><span data-lang-content="en">For Leads</span><span data-lang-content="ko">팀 리드</span></a>
-    <a class="toggle" href="#players"><span data-lang-content="en">For Players</span><span data-lang-content="ko">플레이어</span></a>
-    <a class="toggle" href="#decisions"><span data-lang-content="en">Decisions</span><span data-lang-content="ko">결정</span></a>
-    <a class="toggle" href="#status"><span data-lang-content="en">Status</span><span data-lang-content="ko">현황</span></a>
-  </nav>
+       Cross-site links carry data-href-ko / data-href-en; setLang()
+       swaps href so the main site opens in the language shown here.
+       ============================================================ -->
+  <div class="ds-chrome">
+    <header class="ds-nav">
+      <div class="ds-container ds-nav__inner">
+        <a class="ds-wordmark"
+           href="https://wizzydesign.space/ko"
+           data-href-ko="https://wizzydesign.space/ko"
+           data-href-en="https://wizzydesign.space/en">wizzy</a>
+
+        <div class="ds-nav__right">
+          <nav class="ds-nav__links" aria-label="Site">
+            <a href="https://wizzydesign.space/ko#project"
+               data-href-ko="https://wizzydesign.space/ko#project"
+               data-href-en="https://wizzydesign.space/en#project"><span data-lang-content="ko">프로젝트</span><span data-lang-content="en">project</span></a>
+            <a href="https://wizzydesign.space/ko#about"
+               data-href-ko="https://wizzydesign.space/ko#about"
+               data-href-en="https://wizzydesign.space/en#about"><span data-lang-content="ko">소개</span><span data-lang-content="en">about</span></a>
+            <a href="https://wizzydesign.space/HaejiWi_ProductDesigner_Resume_KO.pdf"
+               target="_blank" rel="noopener noreferrer"
+               data-href-ko="https://wizzydesign.space/HaejiWi_ProductDesigner_Resume_KO.pdf"
+               data-href-en="https://wizzydesign.space/HaejiWi_ProductDesigner_Resume_EN.pdf"><span data-lang-content="ko">이력서</span><span data-lang-content="en">resume</span></a>
+            <a href="#contact"><span data-lang-content="ko">연락처</span><span data-lang-content="en">contact</span></a>
+          </nav>
+
+          <div class="ds-lang" role="group" aria-label="Language">
+            <button type="button" class="ds-lang__btn" data-lang="en" aria-label="English">EN</button>
+            <span class="ds-lang__sep" aria-hidden="true">/</span>
+            <button type="button" class="ds-lang__btn is-active" data-lang="ko" aria-label="Korean">KO</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Case anchors — 7 links, all resolve to a real section on this page. -->
+    <nav class="ds-subnav" aria-label="Section navigation">
+      <div class="ds-container ds-subnav__inner">
+        <a class="ds-anchor" href="#intro"><span data-lang-content="ko">개요</span><span data-lang-content="en">intro</span></a>
+        <a class="ds-anchor" href="#problem"><span data-lang-content="ko">문제</span><span data-lang-content="en">problem</span></a>
+        <a class="ds-anchor" href="#system"><span data-lang-content="ko">시스템</span><span data-lang-content="en">system</span></a>
+        <a class="ds-anchor" href="#leads"><span data-lang-content="ko">팀 리드</span><span data-lang-content="en">for leads</span></a>
+        <a class="ds-anchor" href="#players"><span data-lang-content="ko">플레이어</span><span data-lang-content="en">for players</span></a>
+        <a class="ds-anchor" href="#decisions"><span data-lang-content="ko">결정</span><span data-lang-content="en">decisions</span></a>
+        <a class="ds-anchor" href="#status"><span data-lang-content="ko">현황</span><span data-lang-content="en">status</span></a>
+      </div>
+    </nav>
+  </div>
 
   <main class="stage">
 
@@ -534,10 +561,48 @@
     </section>
   </main>
 
-  <footer class="sitefoot">
-    <div class="wrap sitefoot-inner">
-      <a class="sitefoot-mail" href="mailto:hazzysw@gmail.com">hazzysw@gmail.com</a>
-      <span class="sitefoot-copy">© 2026 wizzy</span>
+  <!-- ============================================================
+       Footer — closes the page on light, same as the main portfolio.
+       data-theme="light" re-points the colour tokens for this subtree
+       only, so every child keeps using var(--text) / var(--text-dim).
+       Also the target of the nav's `contact` link.
+       ============================================================ -->
+  <footer class="ds-footer" id="contact" data-theme="light">
+    <div class="ds-container ds-footer__inner">
+      <div class="ds-footer__cols">
+        <div class="ds-footer__col">
+          <h2 class="ds-footer__label"><span data-lang-content="ko">연결</span><span data-lang-content="en">Connect</span></h2>
+          <ul class="ds-footer__list">
+            <li><a href="https://www.linkedin.com/in/haeji-wi" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="ds-footer__col">
+          <h2 class="ds-footer__label"><span data-lang-content="ko">연락하기</span><span data-lang-content="en">Get in touch</span></h2>
+          <ul class="ds-footer__list">
+            <li>
+              <a class="ds-copy" href="mailto:hazzysw@gmail.com" aria-label="hazzysw@gmail.com">hazzysw@gmail.com</a>
+              <span class="ds-copy__flag" aria-live="polite"></span>
+            </li>
+            <li>
+              <a href="https://wizzydesign.space/HaejiWi_ProductDesigner_Resume_KO.pdf"
+                 target="_blank" rel="noopener noreferrer"
+                 data-href-ko="https://wizzydesign.space/HaejiWi_ProductDesigner_Resume_KO.pdf"
+                 data-href-en="https://wizzydesign.space/HaejiWi_ProductDesigner_Resume_EN.pdf"><span data-lang-content="ko">이력서</span><span data-lang-content="en">Resume</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="ds-footer__col">
+          <h2 class="ds-footer__label"><span data-lang-content="ko">위치</span><span data-lang-content="en">Location</span></h2>
+          <p class="ds-footer__text"><span data-lang-content="ko">서울, 대한민국</span><span data-lang-content="en">Seoul, South Korea</span></p>
+        </div>
+      </div>
+
+      <div class="ds-footer__brand">
+        <p class="ds-wordmark-display" aria-hidden="true">wizzy</p>
+        <p class="ds-footer__copy">© 2026 wizzy</p>
+      </div>
     </div>
   </footer>
 
@@ -547,14 +612,22 @@
        block; the choice persists across the portfolio via localStorage. */
     (function () {
       var root = document.documentElement;
-      var buttons = document.querySelectorAll('.lang-btn');
+      var buttons = document.querySelectorAll('.ds-lang__btn');
+      /* Cross-site links that exist in a KO and an EN edition. */
+      var localized = document.querySelectorAll('[data-href-ko][data-href-en]');
 
       function setLang(lang) {
         if (lang !== 'en' && lang !== 'ko') return;
         root.dataset.lang = lang;
         root.setAttribute('lang', lang);
         buttons.forEach(function (b) {
-          b.classList.toggle('is-active', b.dataset.lang === lang);
+          var active = b.dataset.lang === lang;
+          b.classList.toggle('is-active', active);
+          if (active) b.setAttribute('aria-current', 'true');
+          else b.removeAttribute('aria-current');
+        });
+        localized.forEach(function (a) {
+          a.setAttribute('href', a.dataset['href' + (lang === 'en' ? 'En' : 'Ko')]);
         });
         try { localStorage.setItem('ssp-lang', lang); } catch (e) {}
       }
@@ -571,7 +644,7 @@
     /* ---- Section nav scroll-spy ----------------------------------------
        Nav order matches document order, so the topmost visible section wins. */
     (function () {
-      var links = [].slice.call(document.querySelectorAll('.navpill .toggle'));
+      var links = [].slice.call(document.querySelectorAll('.ds-subnav .ds-anchor'));
       var items = links
         .map(function (link) { return { link: link, el: document.querySelector(link.hash) }; })
         .filter(function (item) { return item.el; });
@@ -585,11 +658,45 @@
         });
         var current = items.find(function (item) { return visible.has(item.el); });
         items.forEach(function (item) {
-          item.link.classList.toggle('toggle--active', item === current);
+          item.link.classList.toggle('is-current', item === current);
         });
       }, { rootMargin: '-45% 0px -45% 0px' });
 
       items.forEach(function (item) { io.observe(item.el); });
+    })();
+
+    /* ---- Footer email: click to copy ------------------------------------
+       The mailto href stays put so the link still behaves like a link for
+       middle-click / "copy link address"; the click handler intercepts the
+       plain left-click and copies the address instead, flagging "Copied!"
+       for 1.5s through a live region. */
+    (function () {
+      var link = document.querySelector('.ds-copy');
+      if (!link) return;
+      var flag = document.querySelector('.ds-copy__flag');
+      var timer;
+
+      function flash() {
+        if (!flag) return;
+        flag.textContent = 'Copied!';
+        flag.classList.add('is-on');
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          flag.textContent = '';
+          flag.classList.remove('is-on');
+        }, 1500);
+      }
+
+      link.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        var address = link.textContent.trim();
+        e.preventDefault();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(address).then(flash, flash);
+        } else {
+          flash();
+        }
+      });
     })();
   </script>
 </body>

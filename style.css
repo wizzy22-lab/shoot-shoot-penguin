@@ -21,7 +21,8 @@
 
 html, body { margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+/* Clears the fixed chrome (70px nav + 38px anchor row) plus a little air. */
+html { scroll-behavior: smooth; scroll-padding-top: 124px; }
 
 body {
   background: var(--bg);
@@ -116,15 +117,10 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .chip,
 .tag,
 .pill,
-.logo-sub,
-.topnav-links a,
-.lang-btn,
-.toggle,
 .role-label,
 .wf-num,
 .feat-chip,
-.metrics-note,
-.sitefoot-copy {
+.metrics-note {
   font-family: var(--font-mono);
   font-weight: 400;
   font-size: var(--fs-label);
@@ -216,80 +212,135 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 
 /* ============================================================
-   SITE CHROME — wordmark, project link, language toggle
+   SITE CHROME — global nav + case anchor row + footer
+
+   Ported from the main portfolio (wizzydesign.space). Everything in
+   this block is a mirror of what ships there; the case-study body
+   below keeps its own 1280 column.
    ============================================================ */
-.topnav {
+
+/* ---- Shared container ------------------------------------------------
+   The main site's nav and footer sit in a 1920 column whose inline
+   padding steps 24 → 64 → 180 → 360 across its Tailwind breakpoints
+   (md 48rem, xl 80rem, 2xl 96rem). Mirrored exactly, step for step —
+   the 180px inset is a desktop value and must not reach mobile.
+   Only the chrome uses this; .wrap still governs the case content.
+   -------------------------------------------------------------------- */
+.ds-container {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* ---- Global nav ------------------------------------------------------
+   The background and blur live on .ds-chrome, not on the two rows, so
+   the nav and the anchor row share one continuous translucent surface
+   with no seam between them. Only the anchor row draws a bottom edge.
+   -------------------------------------------------------------------- */
+.ds-chrome {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 50;
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.ds-nav__inner {
   display: flex;
+  height: 70px;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  max-width: var(--wrap);
-  margin: 0 auto;
-  padding: 24px var(--gutter) 8px;
 }
-.logo { display: block; }
-.logo-name {
-  display: block;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: var(--fs-mid);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-.logo-sub {
-  display: block;
-  margin-top: 2px;
-}
-.topnav-links { display: flex; align-items: center; gap: 20px; }
-.topnav-links a {
-  transition: color 0.15s ease;
-}
-.topnav-links a:hover,
-.topnav-links a.is-active { color: var(--text); }
 
-.lang {
+.ds-wordmark {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.125rem;          /* 18px */
+  letter-spacing: 0.025em;
+  text-transform: lowercase;
+  color: var(--text);
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+.ds-wordmark:hover { opacity: 0.7; }
+
+/* Nav items and the language toggle share the same 32 → 52px rhythm. */
+.ds-nav__right,
+.ds-nav__links {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px;
-  border: 1px solid var(--border);
-  border-radius: 9999px;
+  gap: 32px;
 }
-.lang-btn {
-  padding: 4px 10px;
-  border-radius: 9999px;
-  transition: color 0.15s ease, background 0.15s ease;
-}
-.lang-btn:hover { color: var(--text); }
-.lang-btn.is-active { color: var(--text); background: var(--surface); }
 
-/* ---- Section navigation (sticky) ---- */
-.navpill {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  display: flex;
-  gap: 4px;
-  padding: 12px var(--gutter);
-  overflow-x: auto;
-  scrollbar-width: none;
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-}
-.navpill::-webkit-scrollbar { display: none; }
-.toggle {
-  flex: none;
-  padding: 8px 14px;
-  border-radius: 9999px;
-  line-height: 1.2;
+.ds-nav__links a {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-body);    /* 16px */
+  line-height: 1.6;
+  text-transform: lowercase;
+  color: var(--text-dim);       /* #8B8B88 */
   white-space: nowrap;
-  transition: color 0.15s ease, background 0.15s ease;
+  transition: color 0.15s ease;
 }
-.toggle:hover { color: var(--text); }
-.toggle--active { color: var(--text); background: var(--surface); }
+.ds-nav__links a:hover { color: var(--text); }
+
+.ds-lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ds-lang__btn {
+  padding: 0;
+  color: var(--text-dim);
+  transition: color 0.15s ease;
+}
+.ds-lang__btn:hover { color: var(--text); }
+.ds-lang__btn.is-active { color: var(--text); }
+.ds-lang__sep { color: var(--text-faint); }
+
+/* ---- Case anchor row -------------------------------------------------
+   38px, riding on the chrome surface. Scrolls sideways on narrow
+   viewports rather than wrapping to a second line.
+   -------------------------------------------------------------------- */
+.ds-subnav { border-bottom: 1px solid var(--border); }
+.ds-subnav__inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 38px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.ds-subnav__inner::-webkit-scrollbar { display: none; }
+
+.ds-anchor {
+  flex: none;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-label);   /* 13px */
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--text-dim);
+  transition: color 0.15s ease;
+}
+.ds-anchor:hover,
+.ds-anchor.is-current { color: var(--text); }
+
+/* The chrome is fixed, so the document starts below its 70 + 38px. */
+.stage { padding-top: 108px; }
 
 /* ============================================================
    01 — OVERVIEW / HERO
@@ -694,33 +745,109 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 
 /* ============================================================
-   FOOTER
+   FOOTER — closes the page on light, mirroring the main portfolio
    ============================================================ */
-.sitefoot {
-  border-top: 1px solid var(--border);
-  padding: 40px 0 56px;
+
+/* Re-point the colour tokens for this subtree only. Children keep
+   referring to var(--text) / var(--text-dim) and land on the light
+   values; no child needs a literal hex. */
+[data-theme="light"] {
+  --bg: #F5F7F2;
+  --surface: #EAECE7;
+  --text: #1E1E1E;
+  --text-dim: #747370;
+  --text-faint: #A3A19E;
+  --border: rgba(0, 0, 0, 0.08);
 }
-.sitefoot-inner {
+
+.ds-footer {
+  width: 100%;
+  padding: 128px 0 64px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+.ds-footer__inner {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
+  gap: 64px;
 }
-.sitefoot-mail {
-  font-size: var(--fs-body);
+
+/* Three label columns + the wordmark block. Two-up on mobile. */
+.ds-footer__cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+  row-gap: 56px;
+}
+.ds-footer__label {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-heading);   /* → 32px at desktop */
+  line-height: 1.25;
+  letter-spacing: -0.02em;
   color: var(--text);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 2px;
-  transition: color 0.15s ease, border-color 0.15s ease;
 }
-.sitefoot-mail:hover { color: var(--text-dim); border-color: var(--text-faint); }
-.sitefoot-copy { color: var(--text-faint); }
+.ds-footer__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+.ds-footer__list a,
+.ds-footer__text {
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-dim);
+  transition: opacity 0.15s ease;
+}
+.ds-footer__list a:hover { opacity: 0.7; }
+.ds-footer__text { margin-top: 24px; }
+
+.ds-copy { cursor: pointer; }
+.ds-copy__flag {
+  display: inline-block;
+  margin-left: 10px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.ds-copy__flag.is-on { opacity: 1; }
+
+.ds-footer__brand { flex: none; }
+.ds-wordmark-display {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-display);   /* → 56px at desktop */
+  line-height: 1;
+  letter-spacing: 0.025em;
+  text-transform: lowercase;
+  color: var(--text);
+}
+.ds-footer__copy {
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-label);     /* 13px */
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);         /* #747370 */
+}
 
 /* ============================================================
    TABLET  (>= 768px)
    ============================================================ */
 @media (min-width: 768px) {
   :root { --gutter: 40px; }
+
+  /* Chrome container — main's `md:px-16`. */
+  .ds-container { padding-inline: 64px; }
+  .ds-nav__right,
+  .ds-nav__links { gap: 52px; }
 
   .section { padding: 96px 0; }
   .coreq { padding: 112px 0; }
@@ -735,7 +862,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .side-head { flex-direction: row; justify-content: space-between; align-items: flex-start; }
   .side-head > div { flex: 1; }
 
-  .sitefoot-inner { flex-direction: row; align-items: center; justify-content: space-between; }
 }
 
 /* ============================================================
@@ -756,10 +882,12 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
      rather than leaving all the slack below. */
   .side-body { grid-template-columns: minmax(0, 1fr) 390px; gap: 56px; }
   .feat-cards { align-self: center; }
-  .phone { max-width: 390px; margin: 0; position: sticky; top: 112px; }
+  .phone { max-width: 390px; margin: 0; position: sticky; top: 132px; }
 
   .feat-card { padding: 28px; padding-top: 28px; align-items: center; }
   .feat-chip { top: 20px; right: 24px; }
+
+  .ds-subnav__inner { gap: 32px; }
 
   /* Feedback loop: pills hold a single row, so draw the return line */
   .flow--loop { flex-wrap: nowrap; }
@@ -770,8 +898,35 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
     color: var(--text-faint);
   }
 
-  .navpill { gap: 8px; padding: 14px var(--gutter); }
-  .toggle { padding: 8px 16px; }
+}
+
+/* ============================================================
+   FOOTER WIDE  (>= 1024px) — main's `lg:` step
+   Label columns go side by side; the wordmark moves out to the right.
+   ============================================================ */
+@media (min-width: 1024px) {
+  .ds-footer__inner {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 48px;
+  }
+  .ds-footer__cols {
+    display: flex;
+    column-gap: 80px;
+  }
+  .ds-footer__brand { text-align: right; }
+}
+
+/* ============================================================
+   CHROME CONTAINER  (>= 1280px / >= 1536px)
+   Main's `xl:px-[180px]` and `2xl:px-[360px]`.
+   ============================================================ */
+@media (min-width: 1280px) {
+  .ds-container { padding-inline: 180px; }
+}
+@media (min-width: 1536px) {
+  .ds-container { padding-inline: 360px; }
 }
 
 /* ============================================================
