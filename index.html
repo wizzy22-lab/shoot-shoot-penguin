@@ -143,26 +143,15 @@
             <span data-lang-content="ko">기존 워크플로 — 7단계</span>
             <span data-lang-content="en">Existing workflow — 7 steps</span>
           </span>
-          <!-- Read as a process, not a list: a numbered spine connects the
-               steps (vertical timeline on narrow screens, arrows between
-               cards from the desktop breakpoint up), and the run closes on
-               a loop marker because the whole thing restarts every week. -->
-          <div class="wf-track">
-            <ol class="wf-steps">
-              <li class="wf-step"><span class="wf-num">01</span><span class="wf-label"><span data-lang-content="ko">참석 인원 체크</span><span data-lang-content="en">Attendance check</span></span></li>
-              <li class="wf-step"><span class="wf-num">02</span><span class="wf-label"><span data-lang-content="ko">플레이어 부족</span><span data-lang-content="en">Player shortfall</span></span></li>
-              <li class="wf-step"><span class="wf-num">03</span><span class="wf-label"><span data-lang-content="ko">게스트 모집 공고</span><span data-lang-content="en">Guest recruiting post</span></span></li>
-              <li class="wf-step"><span class="wf-num">04</span><span class="wf-label"><span data-lang-content="ko">댓글·메시지로 참가 받기</span><span data-lang-content="en">Sign-ups via comments &amp; DMs</span></span></li>
-              <li class="wf-step"><span class="wf-num">05</span><span class="wf-label"><span data-lang-content="ko">게스트비 입금 안내</span><span data-lang-content="en">Payment guide</span></span></li>
-              <li class="wf-step"><span class="wf-num">06</span><span class="wf-label"><span data-lang-content="ko">입금 확인</span><span data-lang-content="en">Payment check</span></span></li>
-              <li class="wf-step"><span class="wf-num">07</span><span class="wf-label"><span data-lang-content="ko">경기 관리</span><span data-lang-content="en">Game management</span></span></li>
-            </ol>
-
-            <div class="wf-loop">
-              <span class="wf-loop__mark" aria-hidden="true">↺</span>
-              <span class="wf-loop__text"><span data-lang-content="ko">매주 반복</span><span data-lang-content="en">Repeats weekly</span></span>
-            </div>
-          </div>
+          <ol class="wf-cards">
+            <li class="wf-card"><span class="wf-num">01</span><span class="wf-label"><span data-lang-content="ko">참석 인원 체크</span><span data-lang-content="en">Attendance check</span></span></li>
+            <li class="wf-card"><span class="wf-num">02</span><span class="wf-label"><span data-lang-content="ko">플레이어 부족</span><span data-lang-content="en">Player shortfall</span></span></li>
+            <li class="wf-card"><span class="wf-num">03</span><span class="wf-label"><span data-lang-content="ko">게스트 모집 공고</span><span data-lang-content="en">Guest recruiting post</span></span></li>
+            <li class="wf-card"><span class="wf-num">04</span><span class="wf-label"><span data-lang-content="ko">댓글·메시지로 참가 받기</span><span data-lang-content="en">Sign-ups via comments &amp; DMs</span></span></li>
+            <li class="wf-card"><span class="wf-num">05</span><span class="wf-label"><span data-lang-content="ko">게스트비 입금 안내</span><span data-lang-content="en">Payment guide</span></span></li>
+            <li class="wf-card"><span class="wf-num">06</span><span class="wf-label"><span data-lang-content="ko">입금 확인</span><span data-lang-content="en">Payment check</span></span></li>
+            <li class="wf-card"><span class="wf-num">07</span><span class="wf-label"><span data-lang-content="ko">경기 관리</span><span data-lang-content="en">Game management</span></span></li>
+          </ol>
           <p class="wf-caption">
             <span data-lang-content="ko">모든 경기는 매주 <span class="acc">이 일곱 단계</span>를 거치고 있었습니다.</span>
             <span data-lang-content="en">Every game went through <span class="acc">these seven steps</span>, every week.</span>
@@ -281,11 +270,6 @@
     <section class="section side side--a" id="leads">
       <div class="wrap">
         <p class="eyebrow">[ 05 — Side A · For Team Leads ]</p>
-        <p class="side-label">For Team Leads</p>
-        <p class="side-switch">
-          <span data-lang-content="ko">여기부터는 경기를 여는 사람의 화면입니다.</span>
-          <span data-lang-content="en">From here on, you're looking at the screen of the person who opens the game.</span>
-        </p>
 
         <div class="side-head">
           <div>
@@ -372,11 +356,6 @@
     <section class="section side side--b" id="players">
       <div class="wrap">
         <p class="eyebrow">[ 06 — Side B · For Players ]</p>
-        <p class="side-label">For Players</p>
-        <p class="side-switch">
-          <span data-lang-content="ko">관점을 바꿉니다 — 이제 경기를 찾는 사람의 화면입니다.</span>
-          <span data-lang-content="en">Switching sides — now you're looking at the screen of the person looking for a game.</span>
-        </p>
 
         <div class="side-head">
           <div>
