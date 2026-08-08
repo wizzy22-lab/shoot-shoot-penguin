@@ -686,66 +686,6 @@
       items.forEach(function (item) { io.observe(item.el); });
     })();
 
-    /* ---- Scroll reveal --------------------------------------------------
-       Section headings and cards fade up once, the first time they come
-       into view, then stop participating entirely: the classes come off on
-       animationend so `transform` reverts to the hover rule, and each
-       element is unobserved so it never replays.
-
-       The .reveal class is added here rather than in the markup — if this
-       script never runs, nothing is hidden. Honours reduced-motion by
-       simply not starting. */
-    (function () {
-      var SELECTOR = [
-        '.h2',
-        '.wf-step', '.pain-card', '.feat-card', '.dec-card',
-        '.collab-card', '.metric', '.reflection', '.proj-card'
-      ].join(',');
-
-      var targets = [].slice.call(document.querySelectorAll(SELECTOR));
-      if (!targets.length) return;
-
-      var still = window.matchMedia('(prefers-reduced-motion: reduce)');
-      if (still.matches || !('IntersectionObserver' in window)) return;
-
-      /* A background tab throttles IntersectionObserver, so hiding the
-         blocks up front there would strand them at opacity 0 until the tab
-         is looked at. Wait for the page to actually be visible before
-         anything is hidden. */
-      if (document.visibilityState === 'hidden') {
-        document.addEventListener('visibilitychange', function onShow() {
-          if (document.visibilityState !== 'visible') return;
-          document.removeEventListener('visibilitychange', onShow);
-          start();
-        });
-      } else {
-        start();
-      }
-
-      function start() {
-        targets.forEach(function (el) { el.classList.add('reveal'); });
-        targets.forEach(function (el) { io.observe(el); });
-      }
-
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (!e.isIntersecting) return;
-          var el = e.target;
-          io.unobserve(el);
-          el.classList.add('is-in');
-
-          var settle = function () {
-            clearTimeout(fallback);
-            el.classList.remove('reveal', 'is-in');
-          };
-          /* If the animation never runs, opacity:0 would strand the block,
-             so clear it on a timer as well as on animationend. */
-          var fallback = setTimeout(settle, 900);
-          el.addEventListener('animationend', settle, { once: true });
-        });
-      }, { rootMargin: '0px 0px -10% 0px' });
-    })();
-
     /* ---- Footer email: click to copy ------------------------------------
        The mailto href stays put so the link still behaves like a link for
        middle-click / "copy link address"; the click handler intercepts the

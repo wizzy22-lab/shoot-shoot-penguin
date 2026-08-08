@@ -812,7 +812,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   background: var(--surface);
   border: 1px solid var(--border);
   overflow: hidden;
+  transition: border-color 0.18s ease, transform 0.18s ease;
 }
+.proj-card:hover { border-color: var(--text-faint); transform: translateY(-2px); }
 .proj-thumb {
   aspect-ratio: 16 / 9;
   background:
@@ -1100,87 +1102,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
 /* ============================================================
    MOTION
-   Two effects only: a one-shot reveal as a block scrolls in, and a
-   lift on card hover. Nothing else animates.
    ============================================================ */
-
-/* ---- Scroll reveal ---------------------------------------------------
-   The .reveal class is applied by script, never in the markup, so a
-   failed or blocked script can't leave the page invisible.
-
-   It runs as an animation rather than a transition, and the script drops
-   both classes on animationend. That hands `transform` back to the hover
-   rule below — a forwards-filled animation would otherwise outrank it in
-   the cascade and pin the card flat.
-   -------------------------------------------------------------------- */
-.reveal { opacity: 0; }
-.reveal.is-in { animation: reveal-in 0.5s ease forwards; }
-
-@keyframes reveal-in {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: none; }
-}
-
-/* ---- Card hover ---------------------------------------------------- */
-.pain-card,
-.feat-card,
-.dec-card,
-.collab-card,
-.metric,
-.reflection,
-.proj-card {
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-@media (hover: hover) {
-  .pain-card:hover,
-  .feat-card:hover,
-  .dec-card:hover,
-  .collab-card:hover,
-  .metric:hover,
-  .reflection:hover,
-  .proj-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--text-faint);
-  }
-  /* Only a card from the desktop breakpoint up; a timeline row below it. */
-  @media (min-width: 992px) {
-    .wf-step { transition: transform 0.3s ease, border-color 0.3s ease; }
-    .wf-step:hover { transform: translateY(-2px); border-color: var(--text-faint); }
-  }
-}
-
-/* ---- Opt out ---------------------------------------------------------
-   No reveal, no lift — content sits in its final state immediately.
-   -------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-
-  .reveal,
-  .reveal.is-in {
-    opacity: 1;
-    animation: none;
-    transform: none;
-  }
-
-  .pain-card,
-  .feat-card,
-  .dec-card,
-  .collab-card,
-  .metric,
-  .reflection,
-  .proj-card,
-  .wf-step {
-    transition: none;
-  }
-  .pain-card:hover,
-  .feat-card:hover,
-  .dec-card:hover,
-  .collab-card:hover,
-  .metric:hover,
-  .reflection:hover,
-  .proj-card:hover,
-  .wf-step:hover {
-    transform: none;
-  }
+  .proj-card { transition: none; }
 }
