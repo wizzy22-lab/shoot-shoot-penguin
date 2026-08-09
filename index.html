@@ -90,15 +90,22 @@
         <p class="hero-body" data-lang-content="ko">수년간 아마추어 농구 경기의 게스트 모집은 메신저, 커뮤니티 카페 게시글, 댓글, 문자, 수기 입금 확인으로 흩어진 과정에 의존해 왔습니다. Shoot Shoot Penguin은 이 반복적인 업무를 하나의 시스템으로 묶어, 운영자는 경기를 더 효율적으로 운영하고 플레이어는 참여할 경기를 쉽게 찾을 수 있게 합니다.</p>
         <p class="hero-body" data-lang-content="en">For years, recruiting guest players for amateur basketball games relied on a fragmented process — Messenger, community cafe posts, comments, texts, and manual payment checks. Shoot Shoot Penguin ties this repetitive workflow into one system, so organizers run games more efficiently and players find games to join with ease.</p>
 
-        <!-- Key visual slot (image/video drops in here) -->
+        <!-- Key visual slot. The media is the frame's only child and fills it
+             edge to edge, so trading the still for a clip later is a one-element
+             swap — <video class="hero-media" autoplay loop muted playsinline>
+             lands on the same rules and keeps the frame, radius and crop. -->
         <div class="thumb">
-          <div class="thumb-title">Shoot Shoot Penguin</div>
-          <div class="tagrow">
-            <span class="tag">TWO-SIDED PLATFORM</span>
-            <span class="tag">PREDICTION UX</span>
-            <span class="tag">MOBILE APP</span>
-            <span class="tag">IN DEVELOPMENT</span>
-          </div>
+          <img class="hero-media"
+               src="assets/img/ssp-thumb.webp"
+               width="1200" height="1200"
+               alt="Shoot Shoot Penguin — the team home screen beside the guest map" />
+        </div>
+
+        <div class="tagrow">
+          <span class="tag">TWO-SIDED PLATFORM</span>
+          <span class="tag">PREDICTION UX</span>
+          <span class="tag">MOBILE APP</span>
+          <span class="tag">IN DEVELOPMENT</span>
         </div>
 
         <div class="role-grid">
@@ -279,10 +286,6 @@
             <p class="lead" data-lang-content="ko">경기마다 운영자는 같은 일을 반복해야 했습니다. 출석 투표를 만들고, 부족한 인원을 계산하고, 모집 공고를 올리는 일. 이 반복되는 과정을 자동화했습니다.</p>
             <p class="lead" data-lang-content="en">Every game required organizers to repeat the same workflow — creating attendance polls, calculating missing players, and posting recruitment notices. Our solution automated this recurring process.</p>
           </div>
-          <span class="chip chip--teal chip--lg">
-            <span data-lang-content="ko">SIDE A · 팀 리드</span>
-            <span data-lang-content="en">SIDE A · Team Leads</span>
-          </span>
         </div>
 
         <div class="side-body">
@@ -329,20 +332,27 @@
             </li>
           </ol>
 
-          <!-- Prototype slot -->
-          <div class="phone">
-            <video
-              class="phone-video"
-              autoplay
-              loop
-              muted
-              playsinline
-              preload="metadata"
-              aria-label="Side A organizer flow prototype"
-            >
-              <source src="assets/video/ssp-flow-01.mp4" type="video/mp4" />
-            </video>
-          </div>
+          <!-- Prototype slot. The caption rides outside .phone — that frame
+               clips to a fixed 390:844 box, so anything inside it is cropped. -->
+          <figure class="proto">
+            <div class="phone">
+              <video
+                class="phone-video"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                aria-label="Side A organizer flow prototype"
+              >
+                <source src="assets/video/ssp-flow-01.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <figcaption class="media-caption">
+              <span data-lang-content="ko">Side A — 팀 리드 콘솔 (백오피스)</span>
+              <span data-lang-content="en">Side A — team-lead console (back-office)</span>
+            </figcaption>
+          </figure>
         </div>
 
         <p class="side-caption" data-lang-content="ko">경기가 쌓일수록 시스템은 누적된 출석 데이터를 학습해 예측 정확도를 계속 높여갑니다.</p>
@@ -399,20 +409,26 @@
             </li>
           </ol>
 
-          <!-- Prototype slot -->
-          <div class="phone">
-            <video
-              class="phone-video"
-              autoplay
-              loop
-              muted
-              playsinline
-              preload="metadata"
-              aria-label="Side B player flow prototype"
-            >
-              <source src="assets/video/ssp-flow-02.mp4" type="video/mp4" />
-            </video>
-          </div>
+          <!-- Prototype slot — same structure as Side A. -->
+          <figure class="proto">
+            <div class="phone">
+              <video
+                class="phone-video"
+                autoplay
+                loop
+                muted
+                playsinline
+                preload="metadata"
+                aria-label="Side B player flow prototype"
+              >
+                <source src="assets/video/ssp-flow-02.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <figcaption class="media-caption">
+              <span data-lang-content="ko">프로토타입 — 인터랙티브 플로우 (Figma)</span>
+              <span data-lang-content="en">Prototype — interactive flow (Figma)</span>
+            </figcaption>
+          </figure>
         </div>
 
         <p class="side-caption" data-lang-content="ko">예전에는 커뮤니티 글을 뒤져 경기를 찾았습니다. 이제는 지도 위에서 참여 가능한 주변 경기를 바로 발견합니다.</p>

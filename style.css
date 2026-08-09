@@ -99,8 +99,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 
 /* Heading */
-.h2,
-.thumb-title {
+.h2 {
   font-family: var(--font-sans);
   font-weight: 400;
   font-size: var(--fs-heading);
@@ -120,7 +119,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .role-label,
 .wf-num,
 .feat-chip,
-.metrics-note {
+.metrics-note,
+.media-caption {
   font-family: var(--font-mono);
   font-weight: 400;
   font-size: var(--fs-label);
@@ -373,27 +373,35 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: var(--text);
 }
 
-/* Key-visual slot */
+/* Key-visual slot. `overflow: hidden` is what unifies the radius: the media
+   inside is square-cornered and gets clipped to the frame's 20px, so a still
+   and a clip round identically without either carrying its own radius. */
 .thumb {
   position: relative;
   margin-top: 48px;
   aspect-ratio: 16 / 9;
   border-radius: 20px;
   border: 1px solid var(--border);
+  overflow: hidden;
   background:
     radial-gradient(circle at 50% 40%,
       color-mix(in srgb, var(--text) 4%, transparent) 0%,
       transparent 60%),
     var(--surface);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 24px;
-  text-align: center;
 }
-.thumb .tagrow { justify-content: center; }
+
+/* One rule for whatever fills the slot — <img> today, <video> later. The
+   source is square and the frame is 16:9, so cover crops it to a band that
+   holds both devices; centre keeps them balanced in it. */
+.hero-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero .tagrow { margin-top: 20px; }
 
 .role-grid {
   display: grid;
@@ -554,12 +562,17 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   white-space: nowrap;
 }
 
-/* Prototype slot */
-.phone {
+/* Prototype slot — .proto owns the width, placement and (at desktop) the
+   sticky, so the caption travels with the device frame instead of being
+   left behind by it. .phone stays a pure clipping frame. */
+.proto {
   width: 100%;
   max-width: 360px;
-  aspect-ratio: 390 / 844;
   margin: 0 auto;
+}
+.phone {
+  width: 100%;
+  aspect-ratio: 390 / 844;
   border-radius: 28px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -572,6 +585,15 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Deliverable captions. Label typography, but not label casing: these name a
+   file and a tool, and uppercasing turns "Figma" into "FIGMA". */
+.media-caption {
+  margin: 14px 0 0;
+  text-align: center;
+  line-height: 1.4;
+  text-transform: none;
 }
 .side-caption {
   margin-top: 40px;
@@ -883,7 +905,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
      rather than leaving all the slack below. */
   .side-body { grid-template-columns: minmax(0, 1fr) 390px; gap: 56px; }
   .feat-cards { align-self: center; }
-  .phone { max-width: 390px; margin: 0; position: sticky; top: 132px; }
+  .proto { max-width: 390px; margin: 0; position: sticky; top: 132px; }
 
   .feat-card { padding: 28px; padding-top: 28px; align-items: center; }
   .feat-chip { top: 20px; right: 24px; }
