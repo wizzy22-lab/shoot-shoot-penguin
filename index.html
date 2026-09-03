@@ -62,6 +62,7 @@
         <a class="ds-anchor" href="#intro"><span data-lang-content="ko">개요</span><span data-lang-content="en">intro</span></a>
         <a class="ds-anchor" href="#ds-problem"><span data-lang-content="ko">왜 시스템인가</span><span data-lang-content="en">why a system</span></a>
         <a class="ds-anchor" href="#ds-principles"><span data-lang-content="ko">원칙</span><span data-lang-content="en">principles</span></a>
+        <a class="ds-anchor" href="#ds-color"><span data-lang-content="ko">색 결정</span><span data-lang-content="en">colour</span></a>
         <a class="ds-anchor" href="#status"><span data-lang-content="ko">현황</span><span data-lang-content="en">status</span></a>
         <a class="ds-anchor" href="#problem"><span data-lang-content="ko">문제</span><span data-lang-content="en">problem</span></a>
         <a class="ds-anchor" href="#system"><span data-lang-content="ko">시스템</span><span data-lang-content="en">system</span></a>
@@ -271,6 +272,69 @@
             </div>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         03 — The colour decision. Two spec sheets are rendered on
+         white, so each one gets a light band rather than a white
+         rectangle dropped on the dark page.
+         ============================================================ -->
+    <section class="section ds-color" id="ds-color">
+      <div class="wrap">
+        <p class="eyebrow">[ The Colour Decision ]</p>
+
+        <h2 class="h2" data-lang-content="ko">무액센트는 취향이 아니었습니다.<br /><span class="acc">이미 일어나고 있던 충돌을 걷어낸 것입니다.</span></h2>
+        <h2 class="h2" data-lang-content="en">Dropping the accent wasn&rsquo;t taste.<br /><span class="acc">It cleared a collision that was already happening.</span></h2>
+
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">기존 화면 18장을 감사했더니 세 개의 색이 각각 조작과 상태를 동시에 맡고 있었습니다. 네이비는 주 CTA이면서 &lsquo;확정&rsquo; 배지였고, 오렌지는 신청 버튼이면서 &lsquo;마감임박&rsquo; 배지였고, 파랑은 링크이면서 모집중 핀이었습니다.</p>
+          <p class="lead" data-lang-content="en">An audit of the 18 existing screens found three colours each doing two jobs at once &mdash; a control and a state. Navy was the primary CTA and the &ldquo;confirmed&rdquo; badge. Orange was the apply button and the &ldquo;closing soon&rdquo; badge. Blue was the link and the recruiting pin.</p>
+
+          <p class="lead" data-lang-content="ko">그래서 이런 화면이 나와 있었습니다. &lsquo;신청 마감&rsquo;이 오렌지 채움 버튼이었습니다 &mdash; 누를 수 없는 상태가 화면에서 가장 강한 요소였습니다. &lsquo;현재 부족인원 2명&rsquo;이 에러 빨강이었습니다 &mdash; 아직 일어나지 않은 추정이 이미 잘못된 일처럼 읽혔습니다.</p>
+          <p class="lead" data-lang-content="en">So screens like this had shipped. &ldquo;Applications closed&rdquo; was a filled orange button &mdash; the one thing you couldn&rsquo;t press was the loudest element on the screen. &ldquo;Short by 2 players&rdquo; was in error red &mdash; an estimate that hadn&rsquo;t happened yet already read as something gone wrong.</p>
+
+          <p class="lead" data-lang-content="ko">액센트를 살리는 쪽도 성실하게 조율해봤습니다. Court Orange를 프라이머리로 놓고 대비를 최대한 확보한 안(#D93B12 · 흰 글자 대비 4.58)과, 잉크만 쓰는 안(#151E28 · 대비 16.82)을 같은 화면으로 나란히 렌더했습니다.</p>
+          <p class="lead" data-lang-content="en">Keeping the accent got an honest attempt too. One option put Court Orange in the primary role and pushed its contrast as far as it would go (#D93B12 · 4.58 against white); the other used ink alone (#151E28 · 16.82). Both were rendered on the same screen, side by side.</p>
+        </div>
+      </div>
+
+      <div class="lightband" data-theme="light">
+        <figure class="lightband-fig">
+          <img src="assets/img/ssp-ds-3a-accent-compare.webp"
+               width="2400" height="1500" loading="lazy" decoding="async"
+               alt="The same guest map screen rendered twice: option A with Court Orange as the primary colour, option B with ink-only controls" />
+          <figcaption class="media-caption">
+            <span data-lang-content="ko">A/B 비교 &mdash; 조작 색만 다르고 나머지는 완전히 동일</span>
+            <span data-lang-content="en">A/B comparison &mdash; only the control colour differs; everything else is identical</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap">
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">액센트 안에서는 선택된 필터 칩과 주 CTA가 상태색과 같은 색 언어를 씁니다. 잉크 안에서는 조작이 전부 무채색으로 물러나고 유채색은 상태에만 남습니다.</p>
+          <p class="lead" data-lang-content="en">In the accent option, the selected filter chip and the primary CTA speak the same colour language as the states. In the ink option, every control steps back to neutral and chromatic colour is left to state alone.</p>
+        </div>
+      </div>
+
+      <div class="lightband" data-theme="light">
+        <figure class="lightband-fig">
+          <img src="assets/img/ssp-ds-3b-status-colors.webp"
+               width="2400" height="1350" loading="lazy" decoding="async"
+               alt="The five status colours — recruiting, closing soon, full, confirmed, cancelled — as labelled swatches with their hex values" />
+          <figcaption class="media-caption">
+            <span data-lang-content="ko">status 5색 체계 &mdash; tint / solid / text 3단</span>
+            <span data-lang-content="en">The five status colours &mdash; three steps each: tint / solid / text</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap">
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">다섯 개는 tint(배경) · solid(핀·점) · text(글자) 세 단으로 나뉩니다. 대비는 WCAG 상대휘도로 계산했고, 판단이 필요한 정보는 7:1을 목표로 잡았습니다. 그리고 status는 색 단독으로 쓰지 않습니다 &mdash; 항상 점이나 텍스트 라벨을 동반합니다.</p>
+          <p class="lead" data-lang-content="en">Each of the five splits into three steps: tint (background), solid (pins and dots) and text. Contrast was computed from WCAG relative luminance, targeting 7:1 wherever the information carries a decision. And status never travels on colour alone &mdash; a dot or a text label always comes with it.</p>
+        </div>
       </div>
     </section>
 

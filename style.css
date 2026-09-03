@@ -537,6 +537,40 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: var(--text-dim);
 }
 
+/* ---- 03 — the colour decision --------------------------------------
+   Prose column, then two spec sheets. The sheets are rendered on white,
+   so each sits in a band that breaks the 1280 column and re-points the
+   colour tokens rather than dropping a white rectangle on a dark page:
+   the caption inside resolves --text-dim against the light ground on
+   its own, with no per-element override.
+
+   The band is a direct child of .section rather than of .wrap, so it
+   runs edge to edge without a 100vw trick and without the scrollbar
+   width leaking into the layout.
+   -------------------------------------------------------------------- */
+.ds-color .ds-prose { margin-top: 28px; }
+
+.lightband {
+  margin: 64px 0;
+  padding: 56px 0;
+  background: var(--bg);
+  color: var(--text);
+}
+.lightband + .wrap .ds-prose { margin-top: 0; }
+
+.lightband-fig {
+  width: 100%;
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+.lightband-fig img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+}
+
 /* ============================================================
    PRODUCT DETAIL — divider
    Marks where the pre-system screens begin. The rule on top is
@@ -1033,6 +1067,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   }
   .prin-num { padding-top: 5px; }
   .prin-title { margin-top: 0; }
+
+  .lightband { margin: 80px 0; padding: 72px 0; }
 
   .wf-cards { grid-template-columns: repeat(2, 1fr); }
   .pain-cards { grid-template-columns: repeat(2, 1fr); }
