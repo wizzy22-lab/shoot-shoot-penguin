@@ -60,12 +60,12 @@
     <nav class="ds-subnav" aria-label="Section navigation">
       <div class="ds-container ds-subnav__inner">
         <a class="ds-anchor" href="#intro"><span data-lang-content="ko">개요</span><span data-lang-content="en">intro</span></a>
+        <a class="ds-anchor" href="#status"><span data-lang-content="ko">현황</span><span data-lang-content="en">status</span></a>
         <a class="ds-anchor" href="#problem"><span data-lang-content="ko">문제</span><span data-lang-content="en">problem</span></a>
         <a class="ds-anchor" href="#system"><span data-lang-content="ko">시스템</span><span data-lang-content="en">system</span></a>
         <a class="ds-anchor" href="#leads"><span data-lang-content="ko">팀 리드</span><span data-lang-content="en">for leads</span></a>
         <a class="ds-anchor" href="#players"><span data-lang-content="ko">플레이어</span><span data-lang-content="en">for players</span></a>
         <a class="ds-anchor" href="#decisions"><span data-lang-content="ko">결정</span><span data-lang-content="en">decisions</span></a>
-        <a class="ds-anchor" href="#status"><span data-lang-content="ko">현황</span><span data-lang-content="en">status</span></a>
       </div>
     </nav>
   </div>
@@ -119,15 +119,142 @@
             <div class="role-value" data-lang-content="en">Product planning · IA · UX/UI · Prototype · Developer handoff</div>
           </div>
           <div class="rolecol">
-            <div class="role-label">DURATION</div>
-            <div class="role-value" data-lang-content="ko">24주 · 개발 진행 중</div>
-            <div class="role-value" data-lang-content="en">24 weeks · in development</div>
+            <div class="role-label">STATUS</div>
+            <div class="role-value" data-lang-content="ko">Design system v1.5.0 · 화면 개편 진행 중</div>
+            <div class="role-value" data-lang-content="en">Design system v1.5.0 · screen redesign in progress</div>
           </div>
           <div class="rolecol">
             <div class="role-label">TEAM</div>
             <div class="role-value">1 Designer · 1 Developer</div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         30-second summary — the whole case in four rows, for a reader
+         who scrolls no further than the hero.
+         ============================================================ -->
+    <section class="section tldr" id="summary">
+      <div class="wrap">
+        <p class="eyebrow">[ 30-Second Summary ]</p>
+
+        <div class="tldr-card">
+          <div class="tldr-row">
+            <div class="tldr-label"><span data-lang-content="ko">제품</span><span data-lang-content="en">Product</span></div>
+            <p class="tldr-value" data-lang-content="ko">아마추어 농구 게스트 모집 앱. 팀 리드는 출석·모집을, 플레이어는 지도에서 오늘 뛸 경기를 찾습니다.</p>
+            <p class="tldr-value" data-lang-content="en">A guest-recruiting app for amateur basketball. Team leads run attendance and recruiting; players find today’s game on a map.</p>
+          </div>
+
+          <div class="tldr-row">
+            <div class="tldr-label"><span data-lang-content="ko">내 역할</span><span data-lang-content="en">My role</span></div>
+            <p class="tldr-value" data-lang-content="ko">기획·IA·UX/UI·디자인 시스템·개발 핸드오프 (개발자와 2인)</p>
+            <p class="tldr-value" data-lang-content="en">Product planning · IA · UX/UI · Design system · Developer handoff (a two-person team with one developer)</p>
+          </div>
+
+          <div class="tldr-row">
+            <div class="tldr-label"><span data-lang-content="ko">이 케이스에서 볼 것</span><span data-lang-content="en">What to look for</span></div>
+            <p class="tldr-value" data-lang-content="ko">색이 무슨 일을 해야 하는지 정의하고, 액센트를 빼는 결정을 감사 데이터로 증명하고, 규칙을 검증 스크립트로 만든 과정</p>
+            <p class="tldr-value" data-lang-content="en">Defining what colour has to do, proving the decision to drop the accent with audit data, and turning the rules into a validation script.</p>
+          </div>
+
+          <div class="tldr-row">
+            <div class="tldr-label"><span data-lang-content="ko">상태</span><span data-lang-content="en">Status</span></div>
+            <p class="tldr-value" data-lang-content="ko">Design system v1.5.0 · 화면 개편 진행 중</p>
+            <p class="tldr-value" data-lang-content="en">Design system v1.5.0 · screen redesign in progress</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         03 — The Core Question
+         ============================================================ -->
+    <section class="section coreq" id="question">
+      <div class="wrap">
+        <p class="eyebrow">[ 03 — The Core Question ]</p>
+
+        <h2 class="h2 h2--center" data-lang-content="ko">경기 출석 데이터로, 게스트가<br /><span class="acc">몇 명 필요할지</span> 미리 알 수 있다면?</h2>
+        <h2 class="h2 h2--center" data-lang-content="en">What if attendance data could<br /><span class="acc">predict how many guests</span> we'd need?</h2>
+
+        <p class="lead lead--center" data-lang-content="ko">진짜 과제는 모집 과정을 단순화하는 것이 아니었습니다. 운영자는 경기 전마다 부족한 인원을 손으로 계산했고, 그동안 출석 데이터는 조용히 쌓이기만 할 뿐 수요를 예측하거나 판단을 돕는 데 한 번도 쓰이지 않았습니다. 이 질문이 Shoot Shoot Penguin의 출발점이 되었습니다.</p>
+        <p class="lead lead--center" data-lang-content="en">The real challenge wasn't simplifying recruitment. Organizers calculated the shortfall by hand before every game — while attendance data quietly piled up, never once used to predict demand or support the decision. That question became the starting point for Shoot Shoot Penguin.</p>
+
+        <div class="flow flow--center">
+          <span class="pill">
+            <span data-lang-content="ko">출석 패턴</span>
+            <span data-lang-content="en">Attendance Patterns</span>
+          </span>
+          <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+          <span class="pill">
+            <span data-lang-content="ko">누적 데이터</span>
+            <span data-lang-content="en">Historical Data</span>
+          </span>
+          <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
+          <span class="pill pill--orange">
+            <span data-lang-content="ko">게스트 수요 예측</span>
+            <span data-lang-content="en">Guest Demand Prediction</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         08 — Where It Stands
+         ============================================================ -->
+    <section class="section status" id="status">
+      <div class="wrap">
+        <p class="eyebrow">[ 08 — Where It Stands ]</p>
+
+        <h2 class="h2" data-lang-content="ko">개발 진행 중 — <span class="acc">측정할 준비</span>까지 설계했습니다</h2>
+        <h2 class="h2" data-lang-content="en">In development — <span class="acc">designed to be measured</span></h2>
+
+        <p class="lead" data-lang-content="ko">백엔드 개발이 진행 중이며, 핵심 플로우와 디자인 시스템은 핸드오프를 마쳤습니다. 첫 클로즈드 베타는 개발자가 소속된 회사에서 시작할 예정입니다.</p>
+        <p class="lead" data-lang-content="en">Backend development is in progress; core flows and the design system are handed off. The first closed beta will start at the developer's company.</p>
+
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-dir">↑</span>
+            <span class="metric-label"><span data-lang-content="ko">수동 모집 없이 성사된 경기 비율</span><span data-lang-content="en">Games filled without manual recruiting</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-dir metric-dir--down">↓</span>
+            <span class="metric-label"><span data-lang-content="ko">모집 소요 시간</span><span data-lang-content="en">Time to recruit</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-dir metric-dir--down">↓</span>
+            <span class="metric-label"><span data-lang-content="ko">노쇼율</span><span data-lang-content="en">No-show rate</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-dir">↑</span>
+            <span class="metric-label"><span data-lang-content="ko">게스트 재신청률</span><span data-lang-content="en">Guest re-application rate</span></span>
+          </div>
+        </div>
+        <p class="metrics-note">
+          <span data-lang-content="ko">베타에서 검증할 지표 — 아직 측정 전입니다.</span>
+          <span data-lang-content="en">Metrics to validate in beta — not yet measured.</span>
+        </p>
+
+        <article class="reflection">
+          <span class="chip chip--orange">
+            <span data-lang-content="ko">회고</span>
+            <span data-lang-content="en">Reflection</span>
+          </span>
+          <p class="reflection-body" data-lang-content="ko">이 프로젝트는 화면이 아니라 시스템을 설계하는 법을 가르쳐줬습니다. 두 사용자의 니즈를 하나의 흐름으로 연결하는 일 — 그리고 그것을 첫날부터 개발자와 함께 하는 일은 디자인 방식 자체를 바꿨습니다. 모든 결정이 구현 가능성의 검증을 통과해야 했기 때문입니다. 검증은 다음 챕터이고, 제품은 측정될 준비가 되어 있습니다.</p>
+          <p class="reflection-body" data-lang-content="en">This project taught me to design a system, not screens. Connecting two users' needs into a single flow — and doing it alongside a developer from day one — changed how I design, because every decision had to survive a feasibility check. Validation is the next chapter; the product is ready to be measured.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Product detail — everything below predates the new system, so it
+         carries one honest label rather than a per-section disclaimer.
+         ============================================================ -->
+    <section class="section detail-divider" id="detail">
+      <div class="wrap">
+        <p class="eyebrow"><span data-lang-content="ko">[ 제품 상세 ]</span><span data-lang-content="en">[ Product Detail ]</span></p>
+        <p class="detail-note" data-lang-content="ko">아래 화면들은 시스템 적용 이전 버전입니다. 현재 새 시스템으로 개편 중이며, 완료되는 대로 교체됩니다.</p>
+        <p class="detail-note" data-lang-content="en">The screens below predate the new system. They&rsquo;re being rebuilt now.</p>
       </div>
     </section>
 
@@ -202,38 +329,6 @@
               <li>Difficult to see which games were actively recruiting in real time</li>
             </ul>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         03 — The Core Question
-         ============================================================ -->
-    <section class="section coreq" id="question">
-      <div class="wrap">
-        <p class="eyebrow">[ 03 — The Core Question ]</p>
-
-        <h2 class="h2 h2--center" data-lang-content="ko">경기 출석 데이터로, 게스트가<br /><span class="acc">몇 명 필요할지</span> 미리 알 수 있다면?</h2>
-        <h2 class="h2 h2--center" data-lang-content="en">What if attendance data could<br /><span class="acc">predict how many guests</span> we'd need?</h2>
-
-        <p class="lead lead--center" data-lang-content="ko">진짜 과제는 모집 과정을 단순화하는 것이 아니었습니다. 운영자는 경기 전마다 부족한 인원을 손으로 계산했고, 그동안 출석 데이터는 조용히 쌓이기만 할 뿐 수요를 예측하거나 판단을 돕는 데 한 번도 쓰이지 않았습니다. 이 질문이 Shoot Shoot Penguin의 출발점이 되었습니다.</p>
-        <p class="lead lead--center" data-lang-content="en">The real challenge wasn't simplifying recruitment. Organizers calculated the shortfall by hand before every game — while attendance data quietly piled up, never once used to predict demand or support the decision. That question became the starting point for Shoot Shoot Penguin.</p>
-
-        <div class="flow flow--center">
-          <span class="pill">
-            <span data-lang-content="ko">출석 패턴</span>
-            <span data-lang-content="en">Attendance Patterns</span>
-          </span>
-          <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-          <span class="pill">
-            <span data-lang-content="ko">누적 데이터</span>
-            <span data-lang-content="en">Historical Data</span>
-          </span>
-          <span class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M11 8l4 4-4 4M8 12h6"/></svg></span>
-          <span class="pill pill--orange">
-            <span data-lang-content="ko">게스트 수요 예측</span>
-            <span data-lang-content="en">Guest Demand Prediction</span>
-          </span>
         </div>
       </div>
     </section>
@@ -484,53 +579,6 @@
           </span>
           <p class="collab-body" data-lang-content="ko">개발자와 함께 제품 방향과 핵심 기능을 정의하고, 유저 플로우부터 디자인 시스템, 개발 핸드오프까지 디자인 전 과정을 단독으로 리드했습니다.</p>
           <p class="collab-body" data-lang-content="en">Collaborated with a developer to define product direction and core features, while independently leading the end-to-end design process — from user flows to design system to developer handoff.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         08 — Where It Stands
-         ============================================================ -->
-    <section class="section status" id="status">
-      <div class="wrap">
-        <p class="eyebrow">[ 08 — Where It Stands ]</p>
-
-        <h2 class="h2" data-lang-content="ko">개발 진행 중 — <span class="acc">측정할 준비</span>까지 설계했습니다</h2>
-        <h2 class="h2" data-lang-content="en">In development — <span class="acc">designed to be measured</span></h2>
-
-        <p class="lead" data-lang-content="ko">백엔드 개발이 진행 중이며, 핵심 플로우와 디자인 시스템은 핸드오프를 마쳤습니다. 첫 클로즈드 베타는 개발자가 소속된 회사에서 시작할 예정입니다.</p>
-        <p class="lead" data-lang-content="en">Backend development is in progress; core flows and the design system are handed off. The first closed beta will start at the developer's company.</p>
-
-        <div class="metrics">
-          <div class="metric">
-            <span class="metric-dir">↑</span>
-            <span class="metric-label"><span data-lang-content="ko">수동 모집 없이 성사된 경기 비율</span><span data-lang-content="en">Games filled without manual recruiting</span></span>
-          </div>
-          <div class="metric">
-            <span class="metric-dir metric-dir--down">↓</span>
-            <span class="metric-label"><span data-lang-content="ko">모집 소요 시간</span><span data-lang-content="en">Time to recruit</span></span>
-          </div>
-          <div class="metric">
-            <span class="metric-dir metric-dir--down">↓</span>
-            <span class="metric-label"><span data-lang-content="ko">노쇼율</span><span data-lang-content="en">No-show rate</span></span>
-          </div>
-          <div class="metric">
-            <span class="metric-dir">↑</span>
-            <span class="metric-label"><span data-lang-content="ko">게스트 재신청률</span><span data-lang-content="en">Guest re-application rate</span></span>
-          </div>
-        </div>
-        <p class="metrics-note">
-          <span data-lang-content="ko">베타에서 검증할 지표 — 아직 측정 전입니다.</span>
-          <span data-lang-content="en">Metrics to validate in beta — not yet measured.</span>
-        </p>
-
-        <article class="reflection">
-          <span class="chip chip--orange">
-            <span data-lang-content="ko">회고</span>
-            <span data-lang-content="en">Reflection</span>
-          </span>
-          <p class="reflection-body" data-lang-content="ko">이 프로젝트는 화면이 아니라 시스템을 설계하는 법을 가르쳐줬습니다. 두 사용자의 니즈를 하나의 흐름으로 연결하는 일 — 그리고 그것을 첫날부터 개발자와 함께 하는 일은 디자인 방식 자체를 바꿨습니다. 모든 결정이 구현 가능성의 검증을 통과해야 했기 때문입니다. 검증은 다음 챕터이고, 제품은 측정될 준비가 되어 있습니다.</p>
-          <p class="reflection-body" data-lang-content="en">This project taught me to design a system, not screens. Connecting two users' needs into a single flow — and doing it alongside a developer from day one — changed how I design, because every decision had to survive a feasibility check. Validation is the next chapter; the product is ready to be measured.</p>
         </article>
       </div>
     </section>
