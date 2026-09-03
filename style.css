@@ -452,6 +452,62 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 
 /* ============================================================
+   ACT II — THE DESIGN SYSTEM
+   The case turns here, so the opener takes the display step and the
+   same hairline rule the other dividers use. Its meta row reuses the
+   hero's .role-grid, and the prose runs on the shared .lead steps.
+   ============================================================ */
+.act { border-top: 1px solid var(--border); }
+.act-title {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-display);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.ds-prose { margin-top: 56px; }
+.ds-prose > .lead:first-child { margin-top: 0; }
+.ds-prose > .lead--xl { margin-top: 32px; }
+
+/* ---- Principles — a numbered rail, no imagery ---- */
+.prin-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 44px;
+}
+.prin {
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.prin-num {
+  display: block;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-label);
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+}
+.prin-title {
+  margin-top: 12px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--fs-mid);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.prin-body {
+  margin-top: 10px;
+  max-width: 720px;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+/* ============================================================
    PRODUCT DETAIL — divider
    Marks where the pre-system screens begin. The rule on top is
    the same one .seemore uses to close the page.
@@ -934,6 +990,17 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   }
   .tldr-label { padding-top: 3px; }
   .tldr-value { margin-top: 0; }
+
+  .ds-prose { margin-top: 64px; }
+  .prin-list { gap: 32px; }
+  .prin {
+    display: grid;
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 24px;
+    padding-top: 28px;
+  }
+  .prin-num { padding-top: 5px; }
+  .prin-title { margin-top: 0; }
 
   .wf-cards { grid-template-columns: repeat(2, 1fr); }
   .pain-cards { grid-template-columns: repeat(2, 1fr); }

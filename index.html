@@ -60,6 +60,8 @@
     <nav class="ds-subnav" aria-label="Section navigation">
       <div class="ds-container ds-subnav__inner">
         <a class="ds-anchor" href="#intro"><span data-lang-content="ko">개요</span><span data-lang-content="en">intro</span></a>
+        <a class="ds-anchor" href="#ds-problem"><span data-lang-content="ko">시스템 문제</span><span data-lang-content="en">ds problem</span></a>
+        <a class="ds-anchor" href="#ds-principles"><span data-lang-content="ko">원칙</span><span data-lang-content="en">principles</span></a>
         <a class="ds-anchor" href="#status"><span data-lang-content="ko">현황</span><span data-lang-content="en">status</span></a>
         <a class="ds-anchor" href="#problem"><span data-lang-content="ko">문제</span><span data-lang-content="en">problem</span></a>
         <a class="ds-anchor" href="#system"><span data-lang-content="ko">시스템</span><span data-lang-content="en">system</span></a>
@@ -164,6 +166,111 @@
             <p class="tldr-value" data-lang-content="en">Design system v1.5.0 · screen redesign in progress</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ACT II — the design system. The case turns here, so the
+         opener carries a rule, the display step, and its own meta row.
+         ============================================================ -->
+    <section class="section act" id="ds-problem">
+      <div class="wrap">
+        <p class="eyebrow">[ Design System ]</p>
+
+        <h2 class="act-title" data-lang-content="ko">제품을 만들며 시스템을 세웠습니다</h2>
+        <h2 class="act-title" data-lang-content="en">Building the product, then the system</h2>
+
+        <div class="role-grid">
+          <div class="rolecol">
+            <div class="role-label"><span data-lang-content="ko">역할</span><span data-lang-content="en">Role</span></div>
+            <div class="role-value" data-lang-content="ko">디자인 시스템 설계 · 토큰 · 컴포넌트 · 브랜드 자산</div>
+            <div class="role-value" data-lang-content="en">Design system architecture · Tokens · Components · Brand assets</div>
+          </div>
+          <div class="rolecol">
+            <div class="role-label"><span data-lang-content="ko">산출물</span><span data-lang-content="en">Deliverables</span></div>
+            <div class="role-value" data-lang-content="ko">토큰 v1.5.0 · 컴포넌트 26그룹 92변형 · 화면 12장 · 브랜드 SVG 29개</div>
+            <div class="role-value" data-lang-content="en">Tokens v1.5.0 · 26 component groups, 92 variants · 12 screens · 29 brand SVGs</div>
+          </div>
+          <div class="rolecol">
+            <div class="role-label"><span data-lang-content="ko">도구</span><span data-lang-content="en">Tools</span></div>
+            <div class="role-value" data-lang-content="ko">Figma · HTML/CSS 빌드 · html.to.design · 자체 검증 스크립트</div>
+            <div class="role-value" data-lang-content="en">Figma · HTML/CSS build · html.to.design · a custom validation script</div>
+          </div>
+          <div class="rolecol">
+            <div class="role-label"><span data-lang-content="ko">플랫폼</span><span data-lang-content="en">Platform</span></div>
+            <div class="role-value">iOS / Android · 390&times;844</div>
+          </div>
+        </div>
+
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">SSP는 두 종류의 사용자가 같은 앱을 씁니다. 팀 리드는 정기전을 열고 출석을 관리하고 모자란 인원만큼 게스트를 모집합니다. 플레이어는 지도에서 오늘 뛸 경기를 찾아 신청합니다. 핵심 가치는 출석 데이터로 게스트 수요를 미리 예측하는 것이고, 발견은 지도 위에서 일어납니다.</p>
+          <p class="lead" data-lang-content="en">Two kinds of user share one app. Team leads open a regular game, track attendance, and recruit exactly as many guests as they are short. Players find a game they can play today on the map and apply. The core value is predicting guest demand from attendance data &mdash; and discovery happens on the map.</p>
+
+          <p class="lead" data-lang-content="ko">와이어프레임과 1차 디자인은 이미 있었습니다. 다만 시스템 없이 화면 단위로 만들어져서, 같은 요소가 화면마다 조금씩 다르고 색이 무엇을 뜻하는지 규칙이 없었습니다.</p>
+          <p class="lead" data-lang-content="en">The wireframes and a first design pass already existed. They had been drawn screen by screen without a system, so the same element differed slightly everywhere it appeared, and nothing said what a colour meant.</p>
+
+          <p class="lead" data-lang-content="ko">시스템을 새로 세우면서 첫 질문은 &lsquo;브랜드 색을 무엇으로 할까&rsquo;가 아니라 &lsquo;이 앱에서 색은 무슨 일을 해야 하는가&rsquo;였습니다.</p>
+          <p class="lead" data-lang-content="en">Rebuilding it as a system, the first question wasn&rsquo;t &ldquo;what should the brand colour be?&rdquo; but &ldquo;what does colour have to do in this app?&rdquo;</p>
+
+          <p class="lead lead--xl" data-lang-content="ko">지도 기반 서비스에서 사용자는 3초 안에 판단합니다 &mdash; 지금 갈 수 있는 경기인가. 그 판단을 색이 담당합니다. <span class="acc">그렇다면 색은 상태를 위해 비워둬야 합니다.</span></p>
+          <p class="lead lead--xl" data-lang-content="en">On a map-based service the user decides in three seconds: can I make this game? Colour carries that decision. <span class="acc">Which means colour has to be kept free for state.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Principles — the five rules the rest of the system answers to.
+         ============================================================ -->
+    <section class="section principles" id="ds-principles">
+      <div class="wrap">
+        <p class="eyebrow">[ Principles ]</p>
+
+        <ol class="prin-list">
+          <li class="prin">
+            <span class="prin-num">01</span>
+            <div class="prin-text">
+              <h3 class="prin-title"><span data-lang-content="ko">상태가 색을 독점한다.</span><span data-lang-content="en">State owns colour.</span></h3>
+              <p class="prin-body" data-lang-content="ko">경기 상태는 다섯 개뿐입니다 &mdash; 모집중 · 마감임박 · 마감 · 확정 · 취소. 화면의 유채색은 이 다섯 개가 전부입니다. 여섯 번째 유채색을 만들지 않습니다. 브랜드 개성은 색이 아니라 라운드 · 타이포 · 마스코트 · 카피가 담당합니다.</p>
+              <p class="prin-body" data-lang-content="en">A game has five states &mdash; recruiting · closing soon · closed · confirmed · cancelled. Those five are every chromatic colour on the screen; there is never a sixth. Brand personality comes from radius, type, the mascot, and copy &mdash; not from colour.</p>
+            </div>
+          </li>
+
+          <li class="prin">
+            <span class="prin-num">02</span>
+            <div class="prin-text">
+              <h3 class="prin-title"><span data-lang-content="ko">조작은 무채색이다.</span><span data-lang-content="en">Controls are neutral.</span></h3>
+              <p class="prin-body" data-lang-content="ko">버튼 · 필터 · 탭처럼 내가 눌러서 바꾸는 것은 잉크와 무채색으로만 그립니다. 사용자가 색을 볼 때 &lsquo;내가 바꾼 것&rsquo;인지 &lsquo;경기가 그런 상태&rsquo;인지 헷갈리면 안 됩니다.</p>
+              <p class="prin-body" data-lang-content="en">Anything you press to change something &mdash; buttons, filters, tabs &mdash; is drawn in ink and neutrals only. Seeing a colour, a user should never have to ask whether it means &ldquo;I set this&rdquo; or &ldquo;the game is in this state&rdquo;.</p>
+            </div>
+          </li>
+
+          <li class="prin">
+            <span class="prin-num">03</span>
+            <div class="prin-text">
+              <h3 class="prin-title"><span data-lang-content="ko">예측은 사실이 아니다.</span><span data-lang-content="en">A prediction is not a fact.</span></h3>
+              <p class="prin-body" data-lang-content="ko">게스트 수요 예측은 추정입니다. 확정 데이터와 같은 시각적 무게를 가지면 안 됩니다. 점선 테두리, 확신 인디케이터, 범위 표기로 &lsquo;이건 제안&rsquo;이라고 계속 말합니다.</p>
+              <p class="prin-body" data-lang-content="en">Guest-demand prediction is an estimate, and it must never carry the visual weight of confirmed data. A dashed border, a confidence indicator, and a stated range keep saying: this is a suggestion.</p>
+            </div>
+          </li>
+
+          <li class="prin">
+            <span class="prin-num">04</span>
+            <div class="prin-text">
+              <h3 class="prin-title"><span data-lang-content="ko">지도 위에서는 형태가 먼저다.</span><span data-lang-content="en">On the map, shape comes first.</span></h3>
+              <p class="prin-body" data-lang-content="ko">지도는 우리 것이 아닙니다. 통제할 수 없는 배경 위에서 색으로만 구별하려 하면 실패합니다. 형태가 1차 채널, 색은 2차입니다.</p>
+              <p class="prin-body" data-lang-content="en">The map isn&rsquo;t ours. Telling things apart by colour alone, on a background we don&rsquo;t control, fails. Shape is the primary channel; colour is the second.</p>
+            </div>
+          </li>
+
+          <li class="prin">
+            <span class="prin-num">05</span>
+            <div class="prin-text">
+              <h3 class="prin-title"><span data-lang-content="ko">모집글은 앱 밖으로 나간다.</span><span data-lang-content="en">The recruiting post leaves the app.</span></h3>
+              <p class="prin-body" data-lang-content="ko">자동 생성된 모집글은 카톡과 커뮤니티로 나갑니다. 디자인이 통제할 수 없는 곳에서 첫인상을 만드는 접점을 따로 설계합니다.</p>
+              <p class="prin-body" data-lang-content="en">Auto-generated recruiting posts go out to KakaoTalk and community boards. A touchpoint that forms the first impression where design has no control gets designed on its own terms.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
