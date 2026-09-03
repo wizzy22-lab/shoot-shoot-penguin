@@ -60,7 +60,7 @@
     <nav class="ds-subnav" aria-label="Section navigation">
       <div class="ds-container ds-subnav__inner">
         <a class="ds-anchor" href="#intro"><span data-lang-content="ko">개요</span><span data-lang-content="en">intro</span></a>
-        <a class="ds-anchor" href="#ds-problem"><span data-lang-content="ko">시스템 문제</span><span data-lang-content="en">ds problem</span></a>
+        <a class="ds-anchor" href="#ds-problem"><span data-lang-content="ko">왜 시스템인가</span><span data-lang-content="en">why a system</span></a>
         <a class="ds-anchor" href="#ds-principles"><span data-lang-content="ko">원칙</span><span data-lang-content="en">principles</span></a>
         <a class="ds-anchor" href="#status"><span data-lang-content="ko">현황</span><span data-lang-content="en">status</span></a>
         <a class="ds-anchor" href="#problem"><span data-lang-content="ko">문제</span><span data-lang-content="en">problem</span></a>
@@ -112,21 +112,21 @@
 
         <div class="role-grid">
           <div class="rolecol">
-            <div class="role-label">ROLE</div>
+            <div class="role-label"><span data-lang-content="ko">역할</span><span data-lang-content="en">ROLE</span></div>
             <div class="role-value">Product Designer</div>
           </div>
           <div class="rolecol">
-            <div class="role-label">SCOPE</div>
+            <div class="role-label"><span data-lang-content="ko">범위</span><span data-lang-content="en">SCOPE</span></div>
             <div class="role-value" data-lang-content="ko">프로덕트 기획 · IA · UX/UI · 프로토타입 · 개발 핸드오프</div>
             <div class="role-value" data-lang-content="en">Product planning · IA · UX/UI · Prototype · Developer handoff</div>
           </div>
           <div class="rolecol">
-            <div class="role-label">STATUS</div>
+            <div class="role-label"><span data-lang-content="ko">상태</span><span data-lang-content="en">STATUS</span></div>
             <div class="role-value" data-lang-content="ko">Design system v1.5.0 · 화면 개편 진행 중</div>
             <div class="role-value" data-lang-content="en">Design system v1.5.0 · screen redesign in progress</div>
           </div>
           <div class="rolecol">
-            <div class="role-label">TEAM</div>
+            <div class="role-label"><span data-lang-content="ko">팀</span><span data-lang-content="en">TEAM</span></div>
             <div class="role-value">1 Designer · 1 Developer</div>
           </div>
         </div>
@@ -180,23 +180,23 @@
         <h2 class="act-title" data-lang-content="ko">제품을 만들며 시스템을 세웠습니다</h2>
         <h2 class="act-title" data-lang-content="en">Building the product, then the system</h2>
 
-        <div class="role-grid">
-          <div class="rolecol">
+        <div class="ds-meta">
+          <div class="ds-meta-card">
             <div class="role-label"><span data-lang-content="ko">역할</span><span data-lang-content="en">Role</span></div>
             <div class="role-value" data-lang-content="ko">디자인 시스템 설계 · 토큰 · 컴포넌트 · 브랜드 자산</div>
             <div class="role-value" data-lang-content="en">Design system architecture · Tokens · Components · Brand assets</div>
           </div>
-          <div class="rolecol">
+          <div class="ds-meta-card">
             <div class="role-label"><span data-lang-content="ko">산출물</span><span data-lang-content="en">Deliverables</span></div>
             <div class="role-value" data-lang-content="ko">토큰 v1.5.0 · 컴포넌트 26그룹 92변형 · 화면 12장 · 브랜드 SVG 29개</div>
             <div class="role-value" data-lang-content="en">Tokens v1.5.0 · 26 component groups, 92 variants · 12 screens · 29 brand SVGs</div>
           </div>
-          <div class="rolecol">
+          <div class="ds-meta-card">
             <div class="role-label"><span data-lang-content="ko">도구</span><span data-lang-content="en">Tools</span></div>
             <div class="role-value" data-lang-content="ko">Figma · HTML/CSS 빌드 · html.to.design · 자체 검증 스크립트</div>
             <div class="role-value" data-lang-content="en">Figma · HTML/CSS build · html.to.design · a custom validation script</div>
           </div>
-          <div class="rolecol">
+          <div class="ds-meta-card">
             <div class="role-label"><span data-lang-content="ko">플랫폼</span><span data-lang-content="en">Platform</span></div>
             <div class="role-value">iOS / Android · 390&times;844</div>
           </div>
@@ -834,6 +834,62 @@
       }, { rootMargin: '-45% 0px -45% 0px' });
 
       items.forEach(function (item) { io.observe(item.el); });
+    })();
+
+    /* ---- Reading spotlight ----------------------------------------------
+       Exactly one principle card is "being read" at a time: the one on the
+       reading line as the page scrolls, or the one under the pointer.
+
+       Two sources, one class. Scroll position is the base — it is the only
+       one a touch reader ever gets — and a pointer, where there is one,
+       borrows the class while it rests on a card and hands it straight
+       back on the way out.
+
+       Nothing is dimmed to make the active card stand out; it is promoted
+       instead. So .is-reading is only ever added here, never in the
+       markup, and a script that never runs costs the section its emphasis
+       and nothing else — all five cards still render in full. */
+    (function () {
+      var cards = [].slice.call(document.querySelectorAll('.prin'));
+      if (!cards.length || !('IntersectionObserver' in window)) return;
+
+      var scrolled = null;   /* what the scroll position says */
+      var pointed = null;    /* what the pointer says, while it says anything */
+
+      function paint() {
+        var current = pointed || scrolled;
+        cards.forEach(function (card) {
+          card.classList.toggle('is-reading', card === current);
+        });
+      }
+
+      /* The reading line sits above the middle of the viewport, because
+         that is where the eye is. The band is the 35–45% strip. */
+      var visible = new Set();
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) visible.add(e.target);
+          else visible.delete(e.target);
+        });
+        scrolled = cards.find(function (card) { return visible.has(card); }) || null;
+        paint();
+      }, { rootMargin: '-35% 0px -55% 0px' });
+
+      cards.forEach(function (card) { io.observe(card); });
+
+      /* Pointer handover. Behind the same query the CSS hover rules use, so
+         a tap can't leave a card stuck at the front. */
+      if (!window.matchMedia('(hover: hover)').matches) return;
+      cards.forEach(function (card) {
+        card.addEventListener('pointerenter', function () {
+          pointed = card;
+          paint();
+        });
+        card.addEventListener('pointerleave', function () {
+          if (pointed === card) pointed = null;
+          paint();
+        });
+      });
     })();
 
     /* ---- Footer email: click to copy ------------------------------------

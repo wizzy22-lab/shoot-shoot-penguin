@@ -454,8 +454,16 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 /* ============================================================
    ACT II — THE DESIGN SYSTEM
    The case turns here, so the opener takes the display step and the
-   same hairline rule the other dividers use. Its meta row reuses the
-   hero's .role-grid, and the prose runs on the shared .lead steps.
+   same hairline rule the other dividers use.
+
+   Two widths carry the reading measure, and both are derived from the
+   same 800px line length rather than set by hand:
+
+     .ds-prose  800px flat.  It also caps the .lead (820) and .lead--xl
+                (940) inside it, so no override rule is needed.
+     .prin-list 930px = 800 (body) + 56 (number rail) + 24 (rail gap)
+                + 24 + 24 (card padding) + 1 + 1 (card border), i.e. the
+                card's own text column lands on 800 exactly.
    ============================================================ */
 .act { border-top: 1px solid var(--border); }
 .act-title {
@@ -466,20 +474,43 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   letter-spacing: -0.02em;
   color: var(--text);
 }
-.ds-prose { margin-top: 56px; }
+.ds-prose {
+  max-width: 800px;
+  margin-top: 56px;
+}
 .ds-prose > .lead:first-child { margin-top: 0; }
 .ds-prose > .lead--xl { margin-top: 32px; }
 
-/* ---- Principles — a numbered rail, no imagery ---- */
+/* ---- Act meta — four discrete facts, so four cards rather than the
+   hero's hairline columns. Reference data: a hover frame, no reading
+   state (there is nothing here to be "in the middle of"). ---- */
+.ds-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 48px;
+}
+.ds-meta-card {
+  padding: 20px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+/* ---- Principles — a numbered rail, no imagery.
+   One card is "being read" at a time; see MOTION for that state. ---- */
 .prin-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 20px;
+  max-width: 930px;
   margin-top: 44px;
 }
 .prin {
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
+  padding: 24px 20px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
 }
 .prin-num {
   display: block;
@@ -501,7 +532,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .prin-body {
   margin-top: 10px;
-  max-width: 720px;
   font-size: var(--fs-body);
   line-height: 1.6;
   color: var(--text-dim);
@@ -992,12 +1022,14 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .tldr-value { margin-top: 0; }
 
   .ds-prose { margin-top: 64px; }
-  .prin-list { gap: 32px; }
+  .ds-meta { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+  .prin-list { gap: 24px; }
   .prin {
     display: grid;
     grid-template-columns: 56px minmax(0, 1fr);
     gap: 24px;
-    padding-top: 28px;
+    padding: 28px 24px;
   }
   .prin-num { padding-top: 5px; }
   .prin-title { margin-top: 0; }
@@ -1025,6 +1057,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
   .wf-cards { grid-template-columns: repeat(4, 1fr); }
   .role-grid { grid-template-columns: repeat(4, 1fr); }
+  .ds-meta { grid-template-columns: repeat(4, 1fr); }
   .metrics { grid-template-columns: repeat(4, 1fr); }
 
   /* Side A / B: cards on the left, prototype pinned alongside. The device
@@ -1081,8 +1114,56 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
 /* ============================================================
    MOTION
+   One behaviour only: the reading spotlight on the principles.
+
+   Exactly one .prin carries .is-reading at a time — the card sitting on
+   the reading line as you scroll, or the one under the pointer. Nothing
+   is dimmed to achieve it; the active card is promoted instead, so a
+   blocked script costs the page its emphasis and nothing else.
+
+   The contrast step is the point of the effect, not decoration:
+   --text-dim on --surface measures 4.55:1, --text measures 14.2:1, so
+   the card you are actually reading is the one that clears AA with room
+   to spare.
+
+   The class is applied by script and never appears in the markup.
    ============================================================ */
+.prin,
+.ds-meta-card {
+  transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.prin.is-reading {
+  transform: translateY(-2px);
+  border-color: var(--text-faint);
+}
+.prin.is-reading .prin-body { color: var(--text); }
+.prin.is-reading .prin-num { color: var(--text-dim); }
+
+/* Hover lives behind (hover: hover) so a tap doesn't strand the frame on
+   a touch device. The principles take their hover through .is-reading in
+   the script instead, so the two never disagree about which card is up. */
+@media (hover: hover) {
+  .ds-meta-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--text-faint);
+  }
+}
+
+/* ---- Opt out ---------------------------------------------------------
+   The lift and the transitions go; the contrast step stays. It reads as
+   readability rather than motion, and dropping it would leave the
+   feature with nothing to say.
+   -------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .proj-card { transition: none; }
+
+  .prin,
+  .ds-meta-card {
+    transition: none;
+  }
+  .prin.is-reading,
+  .ds-meta-card:hover {
+    transform: none;
+  }
 }
