@@ -155,6 +155,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .metrics-note [data-lang-content="ko"],
 .media-caption [data-lang-content="ko"],
 .tldr-label [data-lang-content="ko"],
+.runner-name [data-lang-content="ko"],
+.runner-spec [data-lang-content="ko"],
+.dom-label [data-lang-content="ko"],
 .ds-anchor [data-lang-content="ko"] {
   font-family: var(--font-sans);
   letter-spacing: normal;
@@ -494,6 +497,111 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   line-height: 1.6;
   color: var(--text);
 }
+
+/* ============================================================
+   SECTION RUNNER
+   Every section opens the same way: number and name on the left, the
+   section's own spec on the right, a hairline filling whatever is
+   between them. The rule is a flex child rather than a border, so it
+   measures itself and never runs under either label.
+
+   The spec drops out below the tablet step — there is no width left for
+   it there, and half a spec is worse than none.
+   ============================================================ */
+.runner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.runner-name,
+.runner-spec {
+  flex: none;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.runner-name { color: var(--text-dim); }
+.runner-spec {
+  display: none;
+  color: var(--text-faint);
+  text-transform: none;
+}
+.runner-rule {
+  flex: 1 1 auto;
+  min-width: 24px;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ============================================================
+   COVERAGE CHIPS
+   One chip per Foundations domain, each an anchor into it. Built on
+   .tag, so they inherit the label type and the pill; the check is a
+   1px stroke, the same weight the flow arrows use.
+   ============================================================ */
+.cov {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+.cov .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.cov .tag[hidden] { display: none; }
+.cov-check {
+  flex: none;
+  width: 11px; height: 11px;
+  fill: none; stroke: currentColor;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+@media (hover: hover) {
+  .cov .tag:hover { border-color: var(--text-faint); color: var(--text); }
+}
+
+/* ============================================================
+   06 — FOUNDATIONS
+   Seven domains, one shape each: runner, then why, then rule. The
+   repetition is the argument — that every domain was decided the same
+   way — so no domain gets a layout of its own.
+   ============================================================ */
+.dom { margin-top: 72px; }
+.dom[hidden] { display: none; }
+
+.dom-lines {
+  display: grid;
+  gap: 20px;
+  margin-top: 24px;
+}
+.dom-line {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+.dom-label {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--text-faint);
+}
+.dom-text {
+  max-width: 680px;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--text);
+}
+.dom .lightband { margin: 40px 0; }
+.dom .spec-list { margin-top: 40px; }
 
 /* ============================================================
    02 — CONTEXT
@@ -1275,6 +1383,15 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
     border-left: 0;
     border-radius: 0 12px 12px 0;
   }
+  .runner-spec { display: block; }
+
+  .dom-line {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+  .dom-label { padding-top: 3px; }
+
   .ds-meta { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
   .prin-list { gap: 24px; }

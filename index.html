@@ -12,7 +12,7 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="wizzy" />
   <meta property="og:title" content="Shoot Shoot Penguin — Design System Case Study" />
-  <meta property="og:description" content="A two-sided platform that predicts guest demand from attendance data. Building the design system: one colour rule, 53 locked colours, 22 components." />
+  <meta property="og:description" content="A two-sided platform that predicts guest demand from attendance data. Building the design system: one colour rule, 53 locked colours, 26 component groups." />
   <meta property="og:image" content="https://shoot-shoot-penguin.vercel.app/assets/img/ssp-og-1200x630.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -75,11 +75,11 @@
       <div class="ds-container ds-subnav__inner">
         <a class="ds-anchor" href="#intro"><span data-lang-content="ko">개요</span><span data-lang-content="en">intro</span></a>
         <a class="ds-anchor" href="#summary"><span data-lang-content="ko">요약</span><span data-lang-content="en">summary</span></a>
-        <a class="ds-anchor" href="#product"><span data-lang-content="ko">제품</span><span data-lang-content="en">product</span></a>
+        <a class="ds-anchor" href="#product"><span data-lang-content="ko">제품</span><span data-lang-content="en">context</span></a>
         <a class="ds-anchor" href="#ds-problem"><span data-lang-content="ko">왜 시스템인가</span><span data-lang-content="en">why</span></a>
         <a class="ds-anchor" href="#ds-color"><span data-lang-content="ko">색 결정</span><span data-lang-content="en">colour</span></a>
         <a class="ds-anchor" href="#ds-principles"><span data-lang-content="ko">원칙</span><span data-lang-content="en">principles</span></a>
-        <a class="ds-anchor" href="#ds-system"><span data-lang-content="ko">토큰</span><span data-lang-content="en">tokens</span></a>
+        <a class="ds-anchor" href="#foundations"><span data-lang-content="ko">파운데이션</span><span data-lang-content="en">foundations</span></a>
         <a class="ds-anchor" href="#ds-script"><span data-lang-content="ko">검증</span><span data-lang-content="en">enforcement</span></a>
         <a class="ds-anchor" href="#ds-figma"><span data-lang-content="ko">핸드오프</span><span data-lang-content="en">handoff</span></a>
         <a class="ds-anchor" href="#ds-results"><span data-lang-content="ko">결과</span><span data-lang-content="en">results</span></a>
@@ -155,7 +155,11 @@
          ============================================================ -->
     <section class="section tldr" id="summary">
       <div class="wrap">
-        <p class="eyebrow">[ 30-Second Summary ]</p>
+        <div class="runner">
+          <span class="runner-name">01 / Summary</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec"><span data-lang-content="ko">// 30초</span><span data-lang-content="en">// 30 seconds</span></span>
+        </div>
 
         <div class="tldr-card">
           <div class="tldr-row">
@@ -182,6 +186,21 @@
             <p class="tldr-value" data-lang-content="en">Design system v1.5.0 · screen redesign in progress</p>
           </div>
         </div>
+
+        <!-- What the system actually covers, each chip a way into its
+             domain. Written as links, so the summary doubles as the
+             table of contents for section 06. -->
+        <div class="cov">
+          <a class="tag" href="#f-colour"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg><span data-lang-content="ko">색</span><span data-lang-content="en">Colour</span></a>
+          <!-- Typography and Radius stay hidden until their domains have a reason to show;
+               see the TODOs on 06-b and 06-d. -->
+          <a class="tag" href="#f-typography" hidden><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg><span data-lang-content="ko">타이포그래피</span><span data-lang-content="en">Typography</span></a>
+          <a class="tag" href="#f-spacing"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg><span data-lang-content="ko">스페이싱</span><span data-lang-content="en">Spacing</span></a>
+          <a class="tag" href="#f-radius" hidden><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg><span data-lang-content="ko">라운드</span><span data-lang-content="en">Radius</span></a>
+          <a class="tag" href="#f-density"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg><span data-lang-content="ko">밀도</span><span data-lang-content="en">Density</span></a>
+          <a class="tag" href="#f-components"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg><span data-lang-content="ko">컴포넌트</span><span data-lang-content="en">Components</span></a>
+          <a class="tag" href="#f-brand"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg><span data-lang-content="ko">브랜드 자산</span><span data-lang-content="en">Brand assets</span></a>
+        </div>
       </div>
     </section>
 
@@ -193,7 +212,11 @@
          ============================================================ -->
     <section class="section ctx" id="product">
       <div class="wrap">
-        <p class="eyebrow"><span data-lang-content="ko">[ 02 — 제품 맥락 ]</span><span data-lang-content="en">[ 02 — Context ]</span></p>
+        <div class="runner">
+          <span class="runner-name">02 / Context</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec"><span data-lang-content="ko">// 두 사용자 · 하나의 흐름</span><span data-lang-content="en">// two users, one loop</span></span>
+        </div>
 
         <h2 class="h2" data-lang-content="ko">경기는 매주 정해져 있었지만,<br />인원은 정해져 있지 않았습니다.</h2>
         <h2 class="h2" data-lang-content="en">Games were fixed every week.<br />The players weren&rsquo;t.</h2>
@@ -239,7 +262,11 @@
          ============================================================ -->
     <section class="section act" id="ds-problem">
       <div class="wrap">
-        <p class="eyebrow">[ Design System ]</p>
+        <div class="runner">
+          <span class="runner-name">03 / Why a System</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec"><span data-lang-content="ko">// 기존 화면 18장을 세어봤습니다</span><span data-lang-content="en">// an audit of 18 screens</span></span>
+        </div>
 
         <h2 class="act-title" data-lang-content="ko">브랜드 색을 정하기 전에,<br />색이 할 일부터 정했습니다</h2>
         <h2 class="act-title" data-lang-content="en">Before picking a brand colour,<br />I decided what colour had to do</h2>
@@ -252,8 +279,8 @@
           </div>
           <div class="ds-meta-card">
             <div class="role-label"><span data-lang-content="ko">산출물</span><span data-lang-content="en">Deliverables</span></div>
-            <div class="role-value" data-lang-content="ko">토큰 v1.5.0 · 컴포넌트 22종 64변형 · 화면 12장 · 브랜드 SVG 29개</div>
-            <div class="role-value" data-lang-content="en">Tokens v1.5.0 · 22 components, 64 variants · 12 screens · 29 brand SVGs</div>
+            <div class="role-value" data-lang-content="ko">토큰 v1.5.0 · 컴포넌트 26그룹 92변형 · 화면 12장 · 브랜드 SVG 29개</div>
+            <div class="role-value" data-lang-content="en">Tokens v1.5.0 · 26 component groups, 92 variants · 12 screens · 29 brand SVGs</div>
           </div>
           <div class="ds-meta-card">
             <div class="role-label"><span data-lang-content="ko">도구</span><span data-lang-content="en">Tools</span></div>
@@ -289,7 +316,11 @@
          ============================================================ -->
     <section class="section ds-color" id="ds-color">
       <div class="wrap">
-        <p class="eyebrow">[ The Colour Decision ]</p>
+        <div class="runner">
+          <span class="runner-name">04 / The Colour Decision</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec"><span data-lang-content="ko">// 액센트를 뺀 이유</span><span data-lang-content="en">// why the accent went</span></span>
+        </div>
 
         <h2 class="h2" data-lang-content="ko">브랜드 색을 뺀 건 취향이 아니었습니다.<br /><span class="acc">이미 일어나고 있던 충돌을 걷어낸 것입니다.</span></h2>
         <h2 class="h2" data-lang-content="en">Dropping the accent wasn&rsquo;t taste.<br /><span class="acc">It cleared a collision that was already happening.</span></h2>
@@ -350,7 +381,11 @@
          ============================================================ -->
     <section class="section principles" id="ds-principles">
       <div class="wrap">
-        <p class="eyebrow">[ Principles ]</p>
+        <div class="runner">
+          <span class="runner-name">05 / Principles</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec">// 5</span>
+        </div>
 
         <ol class="prin-list">
           <li class="prin">
@@ -402,14 +437,27 @@
     </section>
 
     <!-- ============================================================
-         04 — Tokens and components. The token sheet is another white
-         render, so it takes the same light band; the two parts that
-         have no artwork yet take dashed slots that keep their <img>
-         so landing the file is the only edit needed.
+         06 — Foundations. Seven domains, one shape each: what it is,
+         why it is that, and the rule it hands to everyone downstream.
+         The repetition is the point — that every domain was settled the
+         same way — so no domain gets a layout of its own.
+
+         Typography and Radius are built but not shown: their rules are
+         settled and their reasons are not, and a domain with an empty
+         "why" puts the ones that have a why under suspicion too.
          ============================================================ -->
-    <section class="section ds-system" id="ds-system">
+    <section class="section foundations" id="foundations">
       <div class="wrap">
-        <p class="eyebrow">[ Tokens &amp; Components ]</p>
+        <div class="runner">
+          <span class="runner-name">06 / Foundations</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec"><span data-lang-content="ko">// 색 53 · 사이즈 50 · 닫힌 집합</span><span data-lang-content="en">// 53 colours · 50 sizes · a closed set</span></span>
+        </div>
+
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">결정이 끝난 뒤 실제로 만든 것들입니다. 도메인마다 값과, 그 값을 그렇게 정한 이유를 함께 적었습니다.</p>
+          <p class="lead" data-lang-content="en">What actually got built once the decisions were made. Each domain lists its values, and the reason those values are what they are.</p>
+        </div>
       </div>
 
       <div class="lightband" data-theme="light">
@@ -418,42 +466,165 @@
                width="2400" height="1500" loading="lazy" decoding="async"
                alt="The SSP token sheet: colour hierarchy in three tiers, the Pretendard type scale, and the base-4 spacing and radius steps" />
           <figcaption class="media-caption">
-            <span data-lang-content="ko">토큰 시트 &mdash; 컬러 계층 · 타이포 스케일 · 스페이싱</span>
-            <span data-lang-content="en">The token sheet &mdash; colour hierarchy, type scale, spacing</span>
+            <span data-lang-content="ko">토큰 시트 &mdash; 컬러 계층 · 타이포 스케일 · 스페이싱 · 라운드</span>
+            <span data-lang-content="en">The token sheet &mdash; colour hierarchy, type scale, spacing and radius</span>
           </figcaption>
         </figure>
       </div>
 
-      <div class="wrap">
-        <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">쓸 수 있는 색은 53개, 크기는 50개로 정해 두고 목록을 닫았습니다. 목록에 없는 값은 쓸 수 없습니다. 꼭 예외가 필요하면 코드에 이유를 적어야 통과합니다. 이유를 안 적으면 통과하지 않습니다.</p>
-          <p class="lead" data-lang-content="en">The set of usable values is closed: 53 colours and 50 sizes. A value that isn&rsquo;t on the list cannot be used. An exception passes only if the reason is written into the code; no reason, no pass.</p>
+      <div class="dom" id="f-colour">
+        <div class="wrap">
+          <div class="runner">
+            <span class="runner-name">06-a / Colour</span>
+            <span class="runner-rule" aria-hidden="true"></span>
+            <span class="runner-spec"><span data-lang-content="ko">// 53 tokens · 유채색은 status 5색 파생만</span><span data-lang-content="en">// 53 tokens · chromatic only in the five status colours</span></span>
+          </div>
+          <div class="dom-lines">
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
+              <p class="dom-text" data-lang-content="ko">조작에 쓸 색을 아예 만들지 않았습니다. 화면에 색이 보이면 그건 언제나 경기 상태입니다.</p>
+              <p class="dom-text" data-lang-content="en">No colour was ever made for controls. If you see colour on screen, it always means game state.</p>
+            </div>
 
-          <p class="lead" data-lang-content="ko">코드에 적는 예외 문법 &mdash; <code class="ds-code">ssp-allow(규칙): 사유</code></p>
-          <p class="lead" data-lang-content="en">The exception syntax, written into the code &mdash; <code class="ds-code">ssp-allow(rule): reason</code></p>
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">규칙</span><span data-lang-content="en">Rule</span></span>
+              <p class="dom-text" data-lang-content="ko">목록 밖의 값은 쓸 수 없습니다. 꼭 예외가 필요하면 코드에 이유를 적어야 통과합니다 &mdash; <code class="ds-code">ssp-allow(규칙): 사유</code>.</p>
+              <p class="dom-text" data-lang-content="en">Values outside the list can&rsquo;t be used. An exception has to carry its reason in the code &mdash; <code class="ds-code">ssp-allow(rule): reason</code>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <p class="lead" data-lang-content="ko">화면이 빽빽한 정도는 두 가지로 나눴습니다. 팀 리드 화면은 한 번에 봐야 할 정보가 많아 버튼 높이를 44로(compact), 플레이어 화면은 지도 위에서 손가락으로 누르니 48로(comfortable) 잡았습니다. 그리고 버튼 높이와 &lsquo;최소한 이만큼은 되어야 손가락으로 눌리는 크기&rsquo;를 같은 값으로 묶어 놨습니다. 높이만 정하면 누르기 편한 크기가 저절로 따라옵니다.</p>
-          <p class="lead" data-lang-content="en">Screen density splits two ways. The team-lead screens hold a lot at once, so their buttons are 44 tall (compact); the player screens are worked with a thumb on a map, so theirs are 48 (comfortable). Button height and &ldquo;the smallest size a thumb can reliably hit&rdquo; are bound to the same value, so setting the height brings the comfortable tap size with it.</p>
+      <div class="dom" hidden id="f-typography">
+        <!-- TODO(06-b): 13개 role로 정한 기준이 확정되면 '왜' 한 줄을 채우고 hidden 제거.
+             근거 없는 도메인이 섞이면 근거 있는 도메인까지 의심받으므로 빈 채로 공개하지 않는다. -->
+        <div class="wrap">
+          <div class="runner">
+            <span class="runner-name">06-b / Typography</span>
+            <span class="runner-rule" aria-hidden="true"></span>
+            <span class="runner-spec">// Pretendard · 13 roles</span>
+          </div>
+          <div class="dom-lines">
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
+              <p class="dom-text" data-lang-content="ko"></p>
+              <p class="dom-text" data-lang-content="en"></p>
+            </div>
+
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">규칙</span><span data-lang-content="en">Rule</span></span>
+              <p class="dom-text" data-lang-content="ko">스케일에 없는 크기는 쓰지 않습니다.</p>
+              <p class="dom-text" data-lang-content="en">No size that isn&rsquo;t on the scale.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dom" id="f-spacing">
+        <div class="wrap">
+          <div class="runner">
+            <span class="runner-name">06-c / Spacing</span>
+            <span class="runner-rule" aria-hidden="true"></span>
+            <span class="runner-spec">// base 4 · 13 steps + 0</span>
+          </div>
+          <div class="dom-lines">
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
+              <p class="dom-text" data-lang-content="ko">4의 배수로만 잡았습니다. 그래야 &lsquo;마크 높이 ÷ 4&rsquo; 같은 규칙의 결과가 항상 스케일 위에 떨어집니다 &mdash; 16&rarr;4, 24&rarr;6, 32&rarr;8, 64&rarr;16.</p>
+              <p class="dom-text" data-lang-content="en">Everything is a multiple of 4, so a rule like &ldquo;mark height ÷ 4&rdquo; always lands on the scale &mdash; 16&rarr;4, 24&rarr;6, 32&rarr;8, 64&rarr;16.</p>
+            </div>
+
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">규칙</span><span data-lang-content="en">Rule</span></span>
+              <p class="dom-text" data-lang-content="ko">4로 나누어떨어지지 않는 여백은 쓰지 않습니다.</p>
+              <p class="dom-text" data-lang-content="en">No spacing that isn&rsquo;t divisible by 4.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dom" hidden id="f-radius">
+        <!-- TODO(06-d): 6단계로 나눈 기준이 확정되면 '왜' 한 줄을 채우고 hidden 제거. -->
+        <div class="wrap">
+          <div class="runner">
+            <span class="runner-name">06-d / Radius</span>
+            <span class="runner-rule" aria-hidden="true"></span>
+            <span class="runner-spec">// badge 6 · thumb 10 · button 12 · card 16 · sheet 20 · chip full</span>
+          </div>
+          <div class="dom-lines">
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
+              <p class="dom-text" data-lang-content="ko"></p>
+              <p class="dom-text" data-lang-content="en"></p>
+            </div>
+
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">규칙</span><span data-lang-content="en">Rule</span></span>
+              <p class="dom-text" data-lang-content="ko">부품마다 반경을 고정합니다. 같은 부품이 화면마다 다른 반경을 갖지 않습니다.</p>
+              <p class="dom-text" data-lang-content="en">Each component owns one radius. The same part never changes radius between screens.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dom" id="f-density">
+        <div class="wrap">
+          <div class="runner">
+            <span class="runner-name">06-e / Density</span>
+            <span class="runner-rule" aria-hidden="true"></span>
+            <span class="runner-spec">// compact 44 / comfortable 48</span>
+          </div>
+          <div class="dom-lines">
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
+              <p class="dom-text" data-lang-content="ko">팀 리드 화면은 한 번에 봐야 할 정보가 많고, 플레이어는 지도 위에서 손가락으로 누릅니다. 버튼 높이와 &lsquo;최소한 이만큼은 되어야 눌리는 크기&rsquo;를 같은 값으로 묶어서, 높이만 정하면 누르기 편한 크기가 저절로 따라오게 했습니다.</p>
+              <p class="dom-text" data-lang-content="en">Team leads hold a lot on one screen; players press with a thumb on a map. Control height and minimum touch target are locked to the same value, so setting the height makes the tappable size follow automatically.</p>
+            </div>
+
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">규칙</span><span data-lang-content="en">Rule</span></span>
+              <p class="dom-text" data-lang-content="ko">두 모드 밖의 컨트롤 높이는 만들지 않습니다.</p>
+              <p class="dom-text" data-lang-content="en">No control height outside the two modes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dom" id="f-components">
+        <div class="wrap">
+          <div class="runner">
+            <span class="runner-name">06-f / Components</span>
+            <span class="runner-rule" aria-hidden="true"></span>
+            <span class="runner-spec">// 26 groups · 92 variants</span>
+          </div>
+          <div class="dom-lines">
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
+              <p class="dom-text" data-lang-content="ko">화면을 만들 때 여기 없는 것은 만들지 않습니다. 새 상태가 필요하면 그건 새 컴포넌트가 아니라 기존 것의 변형이거나, 잘못된 상태 모델입니다.</p>
+              <p class="dom-text" data-lang-content="en">Building a screen means building nothing that isn&rsquo;t already here. A state you need is either a variant of something existing, or a sign the state model is wrong.</p>
+            </div>
+
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">규칙</span><span data-lang-content="en">Rule</span></span>
+              <p class="dom-text" data-lang-content="ko">화면 12장을 조립하며 새로 만든 컴포넌트는 0개였습니다.</p>
+              <p class="dom-text" data-lang-content="en">Zero new components across all 12 screens.</p>
+            </div>
+          </div>
         </div>
 
+      <div class="lightband" data-theme="light">
         <figure class="lightband-fig">
           <img src="assets/img/ssp-ds-4b-components.webp"
                width="2400" height="1500" loading="lazy" decoding="async"
                alt="The SSP component inventory — twelve cells covering buttons, status badges, filter chips, inputs, game cards, list rows, map pins, search bar, prediction card, app header, bottom navigation and icons" />
           <figcaption class="media-caption">
-            <span data-lang-content="ko">컴포넌트 목록 &mdash; 22개가 이 시스템의 전부</span>
-            <span data-lang-content="en">The component inventory &mdash; 22 components, and that is the whole system</span>
+            <span data-lang-content="ko">컴포넌트 목록 &mdash; 26그룹 92변형이 이 시스템의 전부</span>
+            <span data-lang-content="en">The component inventory &mdash; 26 groups, 92 variants, and that is the whole system</span>
           </figcaption>
         </figure>
+      </div>
 
-        <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">컴포넌트는 22종입니다. 화면을 만들 때 여기 없는 것은 만들지 않습니다. 새 상태가 필요하면 그건 새 컴포넌트가 아니라 기존 것의 변형이거나, 잘못된 상태 모델입니다.</p>
-          <p class="lead" data-lang-content="en">There are 22 components. Building a screen means building nothing that isn&rsquo;t already here. A state you need is either a variant of something that exists or a broken state model &mdash; never a new component.</p>
-
-          <p class="lead" data-lang-content="ko">특별히 설계한 것이 셋 있습니다.</p>
-          <p class="lead" data-lang-content="en">Three of them were designed with particular care.</p>
-        </div>
-
+      <div class="wrap">
         <div class="spec-list">
           <article class="spec">
             <h3 class="spec-title"><span data-lang-content="ko">MapPin &mdash; 형태로 구별한다.</span><span data-lang-content="en">MapPin &mdash; tell it apart by shape.</span></h3>
@@ -473,10 +644,9 @@
             <p class="spec-body" data-lang-content="en">Going, not going, undecided, no answer. Give those four a colour each and the palette has nine. This was the moment the system got tested, and the answer was no colour at all. Status colour exists so you can judge &ldquo;can I make this?&rdquo; in three seconds; checking attendance is a seated review, with no reason to borrow the same channel. The signal that says &ldquo;we need guests&rdquo; is already the PredictionCard&rsquo;s job.</p>
           </article>
         </div>
+      </div>
 
-        <!-- The same parts, assembled. This closes the inventory rather
-             than opening a section of its own: the claim it backs — zero
-             new components — is a fact about the component list. -->
+      <div class="lightband" data-theme="light">
         <figure class="lightband-fig">
           <img src="assets/img/ssp-ds-4c-reuse.webp"
                width="2400" height="1350" loading="lazy" decoding="async"
@@ -486,10 +656,29 @@
             <span data-lang-content="en">Five screens from the same parts &mdash; zero new components were needed</span>
           </figcaption>
         </figure>
+      </div>
+      </div>
 
-        <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">팀 리드 콘솔과 플레이어 앱은 밀도만 다르고 컴포넌트는 같습니다. 홈 · 출석 현황 · 게스트 예측 · 지도 탐색 · 경기 상세를 조립하는 데 새로 만든 컴포넌트는 0개였습니다. 지도 화면도 예외가 아닙니다 &mdash; 검색바 · 칩 · 핀 · FAB 전부 앞 화면에서 쓰던 것입니다.</p>
-          <p class="lead" data-lang-content="en">The team-lead console and the player app differ in density only; the parts are the same. Assembling home, attendance, guest prediction, map search and game detail took zero new components. The map screen is no exception &mdash; the search bar, the chips, the pins and the FAB all came from screens that came before it.</p>
+      <div class="dom" id="f-brand">
+        <div class="wrap">
+          <div class="runner">
+            <span class="runner-name">06-g / Brand</span>
+            <span class="runner-rule" aria-hidden="true"></span>
+            <span class="runner-spec">// 29 SVGs</span>
+          </div>
+          <div class="dom-lines">
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
+              <p class="dom-text" data-lang-content="ko">숫자가 아니라 규칙을 적습니다. &lsquo;PENGUIN은 SHOOT 폭에 정렬한다&rsquo;로 적어두면 폰트를 바꿔도 정렬이 유지됩니다 &mdash; 실제로 Pretendard에서 Poppins로 교체했을 때 자간이 52.7%에서 50.5%로 자동 재계산되면서 정렬이 유지됐습니다. 자간을 &lsquo;+50.5%&rsquo;라고 적어두면 크기만 바꿔도 깨집니다.</p>
+              <p class="dom-text" data-lang-content="en">Write the rule, not the number. &ldquo;PENGUIN aligns to the width of SHOOT&rdquo; survives a font change &mdash; swapping Pretendard for Poppins recomputed the tracking from 52.7% to 50.5% on its own and the alignment held. &ldquo;+50.5% tracking&rdquo; breaks the moment the size changes.</p>
+            </div>
+
+            <div class="dom-line">
+              <span class="dom-label"><span data-lang-content="ko">규칙</span><span data-lang-content="en">Rule</span></span>
+              <p class="dom-text" data-lang-content="ko">Clear Space는 마크 높이 ÷ 4. 결과가 항상 스페이싱 토큰 위에 떨어집니다.</p>
+              <p class="dom-text" data-lang-content="en">Clear space is mark height ÷ 4, so the result always lands on a spacing token.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -499,7 +688,11 @@
          ============================================================ -->
     <section class="section ds-script" id="ds-script">
       <div class="wrap">
-        <p class="eyebrow">[ Enforcement ]</p>
+        <div class="runner">
+          <span class="runner-name">07 / Enforcement</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec"><span data-lang-content="ko">// 검증 스크립트</span><span data-lang-content="en">// the validator</span></span>
+        </div>
 
         <h2 class="h2" data-lang-content="ko">규칙을 <span class="acc">스크립트로</span> 만들다</h2>
         <h2 class="h2" data-lang-content="en">Turning the rules into <span class="acc">a script</span></h2>
@@ -522,7 +715,11 @@
          ============================================================ -->
     <section class="section ds-figma" id="ds-figma">
       <div class="wrap">
-        <p class="eyebrow">[ Handoff ]</p>
+        <div class="runner">
+          <span class="runner-name">08 / Handoff</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec">// HTML/CSS &rarr; html.to.design</span>
+        </div>
 
         <h2 class="h2" data-lang-content="ko">Figma로 옮기는 <span class="acc">법을 바꾸다</span></h2>
         <h2 class="h2" data-lang-content="en">Changing <span class="acc">how it got into Figma</span></h2>
@@ -547,32 +744,33 @@
     </section>
 
     <!-- ============================================================
-         08 — Brand. Rules survive a change of typeface; numbers don't.
-         ============================================================ -->
-    <section class="section ds-brand" id="ds-brand">
+         09 — In use. Held open, not filled: the screens that would go
+         here are still being rebuilt on the system, and the recording
+         of the running app waits on the build. Uncomment when they
+         land; the roadmap in section 12 is what says so meanwhile.
+
+    <section class="section ds-apply" id="ds-apply">
       <div class="wrap">
-        <p class="eyebrow">[ Brand ]</p>
-
-        <h2 class="h2" data-lang-content="ko">숫자가 아니라 <span class="acc">규칙을 적는다</span></h2>
-        <h2 class="h2" data-lang-content="en">Write <span class="acc">the rule</span>, not the number</h2>
-
-        <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">브랜드 워드마크에서 &lsquo;PENGUIN&rsquo;은 &lsquo;SHOOT&rsquo;의 폭에 정확히 정렬됩니다. 이때 자간을 &lsquo;+50.5%&rsquo;라고 적어두면 왜 그 값인지 아무도 모르고, 크기를 조금만 바꿔도 정렬이 깨집니다. 그래서 규칙만 적었습니다 &mdash; &lsquo;PENGUIN은 SHOOT 폭에 정렬한다.&rsquo; 실제로 폰트를 Pretendard에서 Poppins로 교체했을 때 자간이 52.7%에서 50.5%로 자동 재계산되면서 정렬이 유지됐습니다.</p>
-          <p class="lead" data-lang-content="en">In the wordmark, PENGUIN aligns exactly to the width of SHOOT. Write that down as &ldquo;+50.5% tracking&rdquo; and nobody knows why the number is what it is, and the smallest change of size breaks the alignment. So I wrote the rule instead &mdash; PENGUIN aligns to the width of SHOOT. When the typeface actually changed from Pretendard to Poppins, the tracking recomputed itself from 52.7% to 50.5% and the alignment held.</p>
-
-          <p class="lead" data-lang-content="ko">같은 방식이 여백에도 적용됩니다. 로고의 Clear Space는 &lsquo;마크 높이 ÷ 4&rsquo;인데, 이 정의를 고른 이유는 16→4, 24→6, 32→8, 64→16처럼 결과가 항상 스페이싱 토큰 위에 떨어지기 때문입니다.</p>
-          <p class="lead" data-lang-content="en">The same approach covers spacing. The logo&rsquo;s clear space is &ldquo;mark height ÷ 4&rdquo;, and that definition was chosen because the results always land on a spacing token &mdash; 16→4, 24→6, 32→8, 64→16.</p>
+        <div class="runner">
+          <span class="runner-name">09 / In Use</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec"><span data-lang-content="ko">// 준비 중</span><span data-lang-content="en">// in progress</span></span>
         </div>
       </div>
     </section>
+         ============================================================ -->
 
     <!-- ============================================================
-         09 — Results. Same card the 30-second summary uses; this is the
+         10 — Results. Same card the 30-second summary uses; this is the
          other end of the same table.
          ============================================================ -->
     <section class="section ds-results" id="ds-results">
       <div class="wrap">
-        <p class="eyebrow">[ Results ]</p>
+        <div class="runner">
+          <span class="runner-name">10 / Results</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec">// v1.5.0</span>
+        </div>
 
         <div class="tldr-card">
           <div class="tldr-row">
@@ -583,8 +781,8 @@
 
           <div class="tldr-row">
             <div class="tldr-label"><span data-lang-content="ko">컴포넌트</span><span data-lang-content="en">Components</span></div>
-            <p class="tldr-value" data-lang-content="ko">22종 · 변형 64개</p>
-            <p class="tldr-value" data-lang-content="en">22 components · 64 variants</p>
+            <p class="tldr-value" data-lang-content="ko">26그룹 · 변형 92개</p>
+            <p class="tldr-value" data-lang-content="en">26 groups · 92 variants</p>
           </div>
 
           <div class="tldr-row">
@@ -619,7 +817,11 @@
          ============================================================ -->
     <section class="section ds-learnings" id="ds-learnings">
       <div class="wrap">
-        <p class="eyebrow">[ What I Learned ]</p>
+        <div class="runner">
+          <span class="runner-name">11 / What I Learned</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec">// 2</span>
+        </div>
 
         <div class="spec-list">
           <article class="spec">
@@ -642,7 +844,11 @@
          ============================================================ -->
     <section class="section status" id="status">
       <div class="wrap">
-        <p class="eyebrow">[ 08 — Where It Stands ]</p>
+        <div class="runner">
+          <span class="runner-name">12 / Where It Stands</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec"><span data-lang-content="ko">// 개발 진행 중</span><span data-lang-content="en">// in development</span></span>
+        </div>
 
         <h2 class="h2" data-lang-content="ko">개발 진행 중 — <span class="acc">측정할 준비</span>까지 설계했습니다</h2>
         <h2 class="h2" data-lang-content="en">In development — <span class="acc">designed to be measured</span></h2>
@@ -701,7 +907,11 @@
          ============================================================ -->
     <section class="section seemore">
       <div class="wrap">
-        <p class="eyebrow">[ See more projects ]</p>
+        <div class="runner">
+          <span class="runner-name">13 / More</span>
+          <span class="runner-rule" aria-hidden="true"></span>
+          <span class="runner-spec"><span data-lang-content="ko">// 다른 프로젝트</span><span data-lang-content="en">// other projects</span></span>
+        </div>
 
         <div class="proj-cards">
           <a class="proj-card" href="https://bingx-portfolio.vercel.app/" target="_blank" rel="noopener">
