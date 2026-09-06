@@ -63,6 +63,7 @@
         <a class="ds-anchor" href="#ds-problem"><span data-lang-content="ko">왜 시스템인가</span><span data-lang-content="en">why a system</span></a>
         <a class="ds-anchor" href="#ds-principles"><span data-lang-content="ko">원칙</span><span data-lang-content="en">principles</span></a>
         <a class="ds-anchor" href="#ds-color"><span data-lang-content="ko">색 결정</span><span data-lang-content="en">colour</span></a>
+        <a class="ds-anchor" href="#ds-system"><span data-lang-content="ko">토큰·부품</span><span data-lang-content="en">tokens</span></a>
         <a class="ds-anchor" href="#status"><span data-lang-content="ko">현황</span><span data-lang-content="en">status</span></a>
         <a class="ds-anchor" href="#problem"><span data-lang-content="ko">문제</span><span data-lang-content="en">problem</span></a>
         <a class="ds-anchor" href="#system"><span data-lang-content="ko">시스템</span><span data-lang-content="en">system</span></a>
@@ -334,6 +335,112 @@
         <div class="ds-prose">
           <p class="lead" data-lang-content="ko">다섯 개는 tint(배경) · solid(핀·점) · text(글자) 세 단으로 나뉩니다. 대비는 WCAG 상대휘도로 계산했고, 판단이 필요한 정보는 7:1을 목표로 잡았습니다. 그리고 status는 색 단독으로 쓰지 않습니다 &mdash; 항상 점이나 텍스트 라벨을 동반합니다.</p>
           <p class="lead" data-lang-content="en">Each of the five splits into three steps: tint (background), solid (pins and dots) and text. Contrast was computed from WCAG relative luminance, targeting 7:1 wherever the information carries a decision. And status never travels on colour alone &mdash; a dot or a text label always comes with it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         04 — Tokens and components. The token sheet is another white
+         render, so it takes the same light band; the two parts that
+         have no artwork yet take dashed slots that keep their <img>
+         so landing the file is the only edit needed.
+         ============================================================ -->
+    <section class="section ds-system" id="ds-system">
+      <div class="wrap">
+        <p class="eyebrow">[ Tokens &amp; Components ]</p>
+      </div>
+
+      <div class="lightband" data-theme="light">
+        <figure class="lightband-fig">
+          <img src="assets/img/ssp-ds-4a-token-sheet.webp"
+               width="2400" height="1500" loading="lazy" decoding="async"
+               alt="The SSP token sheet: colour hierarchy in three tiers, the Pretendard type scale, and the base-4 spacing and radius steps" />
+          <figcaption class="media-caption">
+            <span data-lang-content="ko">토큰 시트 &mdash; 컬러 계층 · 타이포 스케일 · 스페이싱</span>
+            <span data-lang-content="en">The token sheet &mdash; colour hierarchy, type scale, spacing</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="wrap">
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">토큰은 색 53개, 사이즈 50개가 닫힌 집합으로 잠겨 있습니다. 목록에 없는 값은 쓸 수 없고, 예외가 필요하면 <code class="ds-code">ssp-allow(규칙): 사유</code> 주석으로만 통과합니다. 사유가 없으면 통과하지 않습니다.</p>
+          <p class="lead" data-lang-content="en">The tokens are a closed set &mdash; 53 colours and 50 sizes, locked. A value that isn&rsquo;t on the list can&rsquo;t be used, and an exception passes only through an <code class="ds-code">ssp-allow(rule): reason</code> comment. No reason, no pass.</p>
+
+          <p class="lead" data-lang-content="ko">밀도는 두 모드입니다. 팀 리드는 한 화면에 정보가 많아 compact(컨트롤 44), 플레이어는 지도 위에서 손가락으로 다루니 comfortable(48). 컨트롤 높이와 최소 터치 타겟을 같은 값으로 묶어서, 높이를 정하면 접근성이 자동으로 따라오게 했습니다.</p>
+          <p class="lead" data-lang-content="en">Density comes in two modes. Team leads hold a lot on one screen, so their side runs compact (controls at 44); players work the map with a thumb, so theirs runs comfortable (48). Control height and minimum touch target are bound to the same value, so setting the height carries the accessibility with it.</p>
+        </div>
+
+        <!-- Slot for 4-b. Drop a src on the <img> and delete the label. -->
+        <div class="slot slot--16x10">
+          <img class="slot-img" alt="" width="2400" height="1500" />
+          <p class="slot-label">
+            <span data-lang-content="ko">[ 4-b · 부품 목록 22종 · 변형 64개 · 준비 중 ]</span>
+            <span data-lang-content="en">[ 4-b · 22 components · 64 variants · in progress ]</span>
+          </p>
+        </div>
+
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">컴포넌트는 22종입니다. 화면을 만들 때 여기 없는 것은 만들지 않습니다. 새 상태가 필요하면 그건 새 컴포넌트가 아니라 기존 것의 변형이거나, 잘못된 상태 모델입니다.</p>
+          <p class="lead" data-lang-content="en">There are 22 components. Building a screen means building nothing that isn&rsquo;t already here. A state you need is either a variant of something that exists or a broken state model &mdash; never a new component.</p>
+
+          <p class="lead" data-lang-content="ko">특별히 설계한 것이 셋 있습니다.</p>
+          <p class="lead" data-lang-content="en">Three of them were designed with particular care.</p>
+        </div>
+
+        <div class="spec-list">
+          <article class="spec">
+            <h3 class="spec-title"><span data-lang-content="ko">MapPin &mdash; 형태로 구별한다.</span><span data-lang-content="en">MapPin &mdash; tell it apart by shape.</span></h3>
+            <p class="spec-body" data-lang-content="ko">실제 화면의 네이버 지도에는 원형 POI 아이콘이 25개 이상, 그중 파랑이 14개입니다. 모집중 파랑을 규칙대로 옳게 써도 그 안에서 사라집니다. 그래서 CSS 라운드가 아니라 SVG 패스로 그린 36×44 물방울을 씁니다 &mdash; 아래 끝점이 실제 좌표를 가리키고, 분리는 흰색 2px 외곽선이 담당합니다. drop-shadow는 시스템 금지 항목이라 쓰지 않았습니다.</p>
+            <p class="spec-body" data-lang-content="en">The Naver map underneath carries 25-plus circular POI icons, 14 of them blue. Using the recruiting blue exactly as the rules say still loses it in that crowd. So the pin isn&rsquo;t a CSS round &mdash; it is a 36×44 teardrop drawn as an SVG path: the bottom point marks the actual coordinate, and a 2px white outline does the separating. No drop-shadow; the system forbids it.</p>
+          </article>
+
+          <article class="spec">
+            <h3 class="spec-title"><span data-lang-content="ko">PredictionCard &mdash; 확신을 시각화한다.</span><span data-lang-content="en">PredictionCard &mdash; make the confidence visible.</span></h3>
+            <p class="spec-body" data-lang-content="ko">2px 점선 테두리로 &lsquo;확정 아님&rsquo;을 계속 말합니다. 누적 경기 수에 따라 확신이 높으면 단일값(&lsquo;게스트 4명&rsquo;), 낮으면 범위(&lsquo;게스트 3~5명&rsquo;)로 바뀌고 점 3개짜리 인디케이터가 근거의 두께를 보여줍니다. 여기에 status 색을 쓰지 않습니다 &mdash; 예측은 상태가 아닙니다.</p>
+            <p class="spec-body" data-lang-content="en">A 2px dashed border keeps saying &ldquo;not confirmed&rdquo;. As games accumulate, high confidence reads as a single number (&ldquo;4 guests&rdquo;) and low confidence as a range (&ldquo;3&ndash;5 guests&rdquo;), with a three-dot indicator showing how much evidence sits behind it. No status colour here &mdash; a prediction is not a state.</p>
+          </article>
+
+          <article class="spec">
+            <h3 class="spec-title"><span data-lang-content="ko">출석 응답 &mdash; 색을 쓰지 않기로 했다.</span><span data-lang-content="en">Attendance replies &mdash; the decision to use no colour.</span></h3>
+            <p class="spec-body" data-lang-content="ko">참석 · 불참 · 미정 · 미응답. 여기에 색을 주면 유채색이 아홉 개가 됩니다. 시스템이 시험당한 순간이었고, 색을 전혀 쓰지 않는 쪽을 택했습니다. status 색은 &lsquo;지금 갈 수 있나&rsquo;를 3초에 판단하는 용도인데, 출석 확인은 앉아서 하는 검토라 같은 채널을 쓸 이유가 없습니다. &lsquo;게스트가 필요하다&rsquo;는 신호는 PredictionCard가 이미 담당합니다.</p>
+            <p class="spec-body" data-lang-content="en">Going, not going, undecided, no answer. Give those four a colour each and the palette has nine. This was the moment the system got tested, and the answer was no colour at all. Status colour exists so you can judge &ldquo;can I make this?&rdquo; in three seconds; checking attendance is a seated review, with no reason to borrow the same channel. The signal that says &ldquo;we need guests&rdquo; is already the PredictionCard&rsquo;s job.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         05 — In use. Both slots are empty on purpose: the <video> is
+         wired but sourceless, and the still keeps its <img>, so each
+         one lands with a single attribute.
+         ============================================================ -->
+    <section class="section ds-apply" id="ds-apply">
+      <div class="wrap">
+        <p class="eyebrow">[ In Use ]</p>
+
+        <!-- Recording slot. Add a <source> and a poster file; the element,
+             its ratio and its frame are already the ones it will keep. -->
+        <div class="slot slot--16x9">
+          <video class="slot-video" poster="" muted loop playsinline preload="none"></video>
+          <p class="slot-label">
+            <span data-lang-content="ko">[ 실제 구동 화면 · 준비 중 ]</span>
+            <span data-lang-content="en">[ live screen recording · in progress ]</span>
+          </p>
+        </div>
+
+        <!-- Slot for 4-c. Drop a src on the <img> and delete the label. -->
+        <div class="slot slot--16x9">
+          <img class="slot-img" alt="" width="2400" height="1350" />
+          <p class="slot-label">
+            <span data-lang-content="ko">[ 4-c · 같은 부품으로 다섯 화면 · 준비 중 ]</span>
+            <span data-lang-content="en">[ 4-c · five screens from the same parts · in progress ]</span>
+          </p>
+        </div>
+
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">팀 리드 콘솔과 플레이어 앱은 밀도만 다르고 부품은 같습니다. 홈 · 출석 현황 · 게스트 예측 · 지도 탐색 · 경기 상세를 조립하는 데 새로 만든 컴포넌트는 0개였습니다. 지도 화면도 예외가 아닙니다 &mdash; 검색바 · 칩 · 핀 · FAB 전부 앞 화면에서 쓰던 것입니다.</p>
+          <p class="lead" data-lang-content="en">The team-lead console and the player app differ in density only; the parts are the same. Assembling home, attendance, guest prediction, map search and game detail took zero new components. The map screen is no exception &mdash; the search bar, the chips, the pins and the FAB all came from screens that came before it.</p>
         </div>
       </div>
     </section>

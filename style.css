@@ -548,7 +548,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    runs edge to edge without a 100vw trick and without the scrollbar
    width leaking into the layout.
    -------------------------------------------------------------------- */
-.ds-color .ds-prose { margin-top: 28px; }
+.ds-color .ds-prose,
+.ds-system .ds-prose,
+.ds-apply .ds-prose { margin-top: 28px; }
 
 .lightband {
   margin: 64px 0;
@@ -556,7 +558,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   background: var(--bg);
   color: var(--text);
 }
-.lightband + .wrap .ds-prose { margin-top: 0; }
+.lightband + .wrap > .ds-prose:first-child { margin-top: 0; }
 
 .lightband-fig {
   width: 100%;
@@ -569,6 +571,85 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   height: auto;
   border-radius: 18px;
   border: 1px solid var(--border);
+}
+
+/* ---- 04 / 05 — tokens, components, and the screens they build ------
+   Two of the artefacts here are not drawn yet. Rather than leave a gap
+   in the argument, each one holds its final frame: the right ratio, a
+   dashed edge that says "not yet" in the same language the
+   PredictionCard uses, and the element the file will land on — an
+   <img> with no src, or a <video> with no source. Landing one is a
+   single attribute plus deleting the label.
+
+   .slot-img hides itself until it has a src, because the global
+   `img { display: block }` out-ranks the UA rule for [hidden].
+   -------------------------------------------------------------------- */
+.ds-code {
+  font-family: var(--font-mono);
+  color: var(--text);
+}
+
+.slot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 44px;
+  border: 2px dashed var(--text-faint);
+  border-radius: 18px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.slot--16x10 { aspect-ratio: 16 / 10; }
+.slot--16x9 { aspect-ratio: 16 / 9; }
+
+.slot-img,
+.slot-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: none;
+}
+.slot-img:not([src]) { display: none; }
+
+/* Label typography, but not label casing — uppercasing turns "4-b" into
+   "4-B" and the figure names are part of the file names. */
+.slot-label {
+  position: relative;
+  padding: 0 var(--gutter);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-label);
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-align: center;
+  color: var(--text-faint);
+}
+
+/* The three components that got their own argument. Same steps as the
+   principles: title at 500, body dimmed. */
+.spec-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 44px;
+}
+.spec { max-width: 800px; }
+.spec-title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--fs-mid);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.spec-body {
+  margin-top: 10px;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--text-dim);
 }
 
 /* ============================================================
