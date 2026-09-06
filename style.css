@@ -35,6 +35,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+
+  /* Korean breaks between eojeol, never inside one. Both properties
+     inherit, so setting them here covers body copy, cards and captions
+     alike; break-word is the escape hatch for a token with nowhere to
+     break, such as a long URL or a code span. English is unaffected —
+     keep-all behaves like normal when the text has spaces. */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 img { display: block; max-width: 100%; }
@@ -127,6 +135,29 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-dim);
+}
+
+/* Korean inside a label takes the sans face and normal tracking. Azeret
+   Mono carries no Hangul, so the mono stack falls back mid-string, and
+   0.08em on Hangul reads as broken spacing rather than as a label. Every
+   Korean string in the page already sits inside its own locale span, so
+   that attribute is the hook — no markup change needed.
+
+   English labels keep the mono face and the tracking. .ds-code is
+   deliberately mono in both locales and sets no tracking, so it is not
+   listed here. */
+.eyebrow [data-lang-content="ko"],
+.chip [data-lang-content="ko"],
+.tag [data-lang-content="ko"],
+.pill [data-lang-content="ko"],
+.role-label [data-lang-content="ko"],
+.feat-chip [data-lang-content="ko"],
+.metrics-note [data-lang-content="ko"],
+.media-caption [data-lang-content="ko"],
+.tldr-label [data-lang-content="ko"],
+.ds-anchor [data-lang-content="ko"] {
+  font-family: var(--font-sans);
+  letter-spacing: normal;
 }
 
 /* ---- Shared layout primitives ---- */
@@ -450,6 +481,67 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   line-height: 1.6;
   color: var(--text);
 }
+
+/* ============================================================
+   02 — CONTEXT
+   The six-step loop, drawn as a loop. Out along the top row, down the
+   right rail, back along the return row, up the left rail into the
+   first step again — so the shape says "this repeats" before the
+   labels do. Built from the existing .pill and .flow-arrow; the rails
+   are borders on two pseudo-elements, and they live in the padding
+   reserved for them.
+
+   Below the tablet step the rows stack into one column and the left
+   rail runs the whole height, because six pills in two rows of three
+   cannot hold their line on a phone.
+   ============================================================ */
+.ctx .ds-prose { margin-top: 28px; }
+
+.cycle {
+  position: relative;
+  max-width: 800px;
+  margin-top: 44px;
+  padding-left: 28px;
+}
+.cycle-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+/* Reversed so the return row still reads in travel order — map exposure,
+   sign-ups, better prediction — while the DOM keeps document order. */
+.cycle-row--back { flex-direction: column-reverse; }
+.cycle-row + .cycle-row { margin-top: 10px; }
+
+.cycle .flow-arrow { transform: rotate(90deg); }
+
+/* The return rail: down the left side and back up into the first pill. */
+.cycle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 19px;
+  bottom: 19px;
+  width: 16px;
+  border: 1px solid var(--text-faint);
+  border-right: 0;
+  border-radius: 12px 0 0 12px;
+}
+/* Arrowhead where the rail re-enters the first step. */
+.cycle::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 15px;
+  width: 7px;
+  height: 7px;
+  border-left: 1px solid var(--text-faint);
+  border-top: 1px solid var(--text-faint);
+  transform: rotate(45deg);
+}
+
+.ctx-bridge { margin-top: 44px; }
 
 /* ============================================================
    ACT II — THE DESIGN SYSTEM
@@ -938,6 +1030,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: var(--text);
 }
 .metric-label { font-size: var(--fs-body); line-height: 1.6; color: var(--text); }
+.status-next { margin-top: 56px; }
+
 .metrics-note {
   margin-top: 16px;
   color: var(--text-faint);
@@ -1135,6 +1229,39 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .tldr-value { margin-top: 0; }
 
   .act .ds-prose { margin-top: 64px; }
+
+  /* Serpentine: three across, turn down the right rail, three back. */
+  .cycle { padding: 0 32px; }
+  .cycle-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cycle-row--back { flex-direction: row; }
+  .cycle-row + .cycle-row { margin-top: 44px; }
+
+  .cycle .flow-arrow { transform: none; }
+  .cycle .flow-arrow--back { transform: rotate(180deg); }
+
+  .cycle::before {
+    left: 0;
+    right: auto;
+    border-radius: 12px 0 0 12px;
+  }
+  .cycle::after { left: 26px; }
+
+  /* The turn at the far end, joining the two rows on the right. */
+  .cycle-row:first-child::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 19px;
+    bottom: 19px;
+    width: 16px;
+    border: 1px solid var(--text-faint);
+    border-left: 0;
+    border-radius: 0 12px 12px 0;
+  }
   .ds-meta { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
   .prin-list { gap: 24px; }
