@@ -12,7 +12,9 @@
    Design tokens: single dark theme. Six colour tokens, two font
    stacks, four type steps (+ one intermediate step for long-form
    case copy). No saturated hue appears in the UI — colour lives
-   only inside image and video content.
+   only inside image and video content. The type scale gained one step
+   below label for the Foundations sub-runners, so a domain name reads
+   as subordinate to the section name above it.
    ============================================================ */
 
 *,
@@ -22,7 +24,11 @@
 html, body { margin: 0; padding: 0; }
 
 /* Clears the fixed chrome (70px nav + 38px anchor row) plus a little air. */
+/* The chrome is fixed at 109px, so anchors clear it twice over: the
+   scroll container pads, and each target carries its own margin for the
+   browsers and cases that consult one but not the other. */
 html { scroll-behavior: smooth; scroll-padding-top: 124px; }
+.section, .dom { scroll-margin-top: 124px; }
 
 body {
   background: var(--bg);
@@ -70,6 +76,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   --fs-mid: 1.125rem;       /* the one permitted intermediate step */
   --fs-body: 1rem;
   --fs-label: 0.8125rem;
+  --fs-label-sm: 0.6875rem;  /* sub-runners only, one step under a label */
 
   --wrap: 1280px;
   --gutter: 20px;
@@ -525,6 +532,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   line-height: 1.2;
 }
 .runner-name { color: var(--text-dim); }
+/* A domain inside 06 is subordinate to it, so its name steps down. */
+.runner-name--sub { font-size: var(--fs-label-sm); }
 .runner-spec {
   display: none;
   color: var(--text-faint);
@@ -602,6 +611,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .dom .lightband { margin: 40px 0; }
 .dom .spec-list { margin-top: 40px; }
+.dom > .wrap > .media-caption { margin-top: 20px; text-align: left; }
 
 /* ============================================================
    02 — CONTEXT
@@ -798,6 +808,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .ds-code {
   font-family: var(--font-mono);
   color: var(--text);
+  /* ssp-allow(rule): reason was splitting after "ssp-"; a token like this
+     is one word or it is nothing. */
+  white-space: nowrap;
 }
 
 .slot {
