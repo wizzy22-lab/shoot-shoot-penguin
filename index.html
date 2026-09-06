@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shoot Shoot Penguin — Case Study</title>
   <meta name="description" content="Shoot Shoot Penguin — a two-sided platform that predicts guest demand from attendance data, so amateur basketball organizers spend less time recruiting and more time playing." />
+
+  <!-- Share card. og:image and og:url have to be absolute; the domain is the
+       one the portfolio links to. PNG rather than webp — KakaoTalk regularly
+       skips webp previews. -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="wizzy" />
+  <meta property="og:title" content="Shoot Shoot Penguin — Design System Case Study" />
+  <meta property="og:description" content="A two-sided platform that predicts guest demand from attendance data. Building the design system: one colour rule, 53 locked colours, 22 components." />
+  <meta property="og:image" content="https://shoot-shoot-penguin.vercel.app/assets/img/ssp-og-1200x630.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://shoot-shoot-penguin.vercel.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/img/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&family=Azeret+Mono:wght@400&display=swap" rel="stylesheet" />
@@ -369,14 +383,15 @@
           <p class="lead" data-lang-content="en">Density comes in two modes. Team leads hold a lot on one screen, so their side runs compact (controls at 44); players work the map with a thumb, so theirs runs comfortable (48). Control height and minimum touch target are bound to the same value, so setting the height carries the accessibility with it.</p>
         </div>
 
-        <!-- Slot for 4-b. Drop a src on the <img> and delete the label. -->
-        <div class="slot slot--16x10">
-          <img class="slot-img" alt="" width="2400" height="1500" />
-          <p class="slot-label">
-            <span data-lang-content="ko">[ 4-b · 부품 목록 22종 · 변형 64개 · 준비 중 ]</span>
-            <span data-lang-content="en">[ 4-b · 22 components · 64 variants · in progress ]</span>
-          </p>
-        </div>
+        <figure class="lightband-fig">
+          <img src="assets/img/ssp-ds-4b-components.webp"
+               width="2400" height="1500" loading="lazy" decoding="async"
+               alt="The SSP component inventory — twelve cells covering buttons, status badges, filter chips, inputs, game cards, list rows, map pins, search bar, prediction card, app header, bottom navigation and icons" />
+          <figcaption class="media-caption">
+            <span data-lang-content="ko">부품 목록 &mdash; 22개 컴포넌트가 이 시스템의 전부</span>
+            <span data-lang-content="en">The component inventory &mdash; 22 components, and that is the whole system</span>
+          </figcaption>
+        </figure>
 
         <div class="ds-prose">
           <p class="lead" data-lang-content="ko">컴포넌트는 22종입니다. 화면을 만들 때 여기 없는 것은 만들지 않습니다. 새 상태가 필요하면 그건 새 컴포넌트가 아니라 기존 것의 변형이거나, 잘못된 상태 모델입니다.</p>
@@ -417,24 +432,15 @@
       <div class="wrap">
         <p class="eyebrow">[ In Use ]</p>
 
-        <!-- Recording slot. Add a <source> and a poster file; the element,
-             its ratio and its frame are already the ones it will keep. -->
-        <div class="slot slot--16x9">
-          <video class="slot-video" poster="" muted loop playsinline preload="none"></video>
-          <p class="slot-label">
-            <span data-lang-content="ko">[ 실제 구동 화면 · 준비 중 ]</span>
-            <span data-lang-content="en">[ live screen recording · in progress ]</span>
-          </p>
-        </div>
-
-        <!-- Slot for 4-c. Drop a src on the <img> and delete the label. -->
-        <div class="slot slot--16x9">
-          <img class="slot-img" alt="" width="2400" height="1350" />
-          <p class="slot-label">
-            <span data-lang-content="ko">[ 4-c · 같은 부품으로 다섯 화면 · 준비 중 ]</span>
-            <span data-lang-content="en">[ 4-c · five screens from the same parts · in progress ]</span>
-          </p>
-        </div>
+        <figure class="lightband-fig">
+          <img src="assets/img/ssp-ds-4c-reuse.webp"
+               width="2400" height="1350" loading="lazy" decoding="async"
+               alt="Five SSP screens built from the same parts — home, attendance, guest prediction, map discovery and game detail" />
+          <figcaption class="media-caption">
+            <span data-lang-content="ko">같은 부품으로 다섯 화면 &mdash; 조립하는 데 새로 만든 컴포넌트는 0개</span>
+            <span data-lang-content="en">Five screens from the same parts &mdash; zero new components were needed</span>
+          </figcaption>
+        </figure>
 
         <div class="ds-prose">
           <p class="lead" data-lang-content="ko">팀 리드 콘솔과 플레이어 앱은 밀도만 다르고 부품은 같습니다. 홈 · 출석 현황 · 게스트 예측 · 지도 탐색 · 경기 상세를 조립하는 데 새로 만든 컴포넌트는 0개였습니다. 지도 화면도 예외가 아닙니다 &mdash; 검색바 · 칩 · 핀 · FAB 전부 앞 화면에서 쓰던 것입니다.</p>
@@ -969,7 +975,7 @@
          ============================================================ -->
     <section class="section status" id="status">
       <div class="wrap">
-        <p class="eyebrow">[ Where It Stands — the closing note, after the product walkthrough ]</p>
+        <p class="eyebrow">[ 08 — Where It Stands ]</p>
 
         <h2 class="h2" data-lang-content="ko">개발 진행 중 — <span class="acc">측정할 준비</span>까지 설계했습니다</h2>
         <h2 class="h2" data-lang-content="en">In development — <span class="acc">designed to be measured</span></h2>
