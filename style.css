@@ -396,6 +396,19 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
 .hero-title { margin-top: 8px; }
 
+/* Line breaks that belong to one width band. The title runs on a single
+   line from the desktop step and folds at its comma below it; the lead is
+   set to three lines from the same step and flows freely below, where a
+   fixed break would leave ragged half-lines.
+
+   Both are <br> rather than nowrap spans: nowrap on the English title
+   would overflow a phone rather than wrap, and body { word-break: keep-all }
+   already stops Korean from splitting inside an eojeol. */
+.only-desktop { display: none; }
+
+/* The two clauses the hero is actually about. */
+.hero-em { font-weight: 600; }
+
 .hero-body {
   margin-top: 24px;
   max-width: 880px;
@@ -1330,6 +1343,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    Label columns go side by side; the wordmark moves out to the right.
    ============================================================ */
 @media (min-width: 1024px) {
+  .only-narrow { display: none; }
+  .only-desktop { display: inline; }
+
   .ds-footer__inner {
     flex-direction: row;
     align-items: flex-start;
