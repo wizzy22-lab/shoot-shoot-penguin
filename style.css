@@ -476,8 +476,10 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .ds-prose {
   max-width: 800px;
-  margin-top: 56px;
+  margin-top: 28px;
 }
+/* The act opener's prose follows the meta cards, not a heading. */
+.act .ds-prose { margin-top: 56px; }
 .ds-prose > .lead:first-child { margin-top: 0; }
 .ds-prose > .lead--xl { margin-top: 32px; }
 
@@ -548,10 +550,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    runs edge to edge without a 100vw trick and without the scrollbar
    width leaking into the layout.
    -------------------------------------------------------------------- */
-.ds-color .ds-prose,
-.ds-system .ds-prose,
-.ds-apply .ds-prose { margin-top: 28px; }
-
 .lightband {
   margin: 64px 0;
   padding: 56px 0;
@@ -1136,7 +1134,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .tldr-label { padding-top: 3px; }
   .tldr-value { margin-top: 0; }
 
-  .ds-prose { margin-top: 64px; }
+  .act .ds-prose { margin-top: 64px; }
   .ds-meta { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 
   .prin-list { gap: 24px; }

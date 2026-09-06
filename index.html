@@ -60,16 +60,14 @@
     <nav class="ds-subnav" aria-label="Section navigation">
       <div class="ds-container ds-subnav__inner">
         <a class="ds-anchor" href="#intro"><span data-lang-content="ko">개요</span><span data-lang-content="en">intro</span></a>
+        <a class="ds-anchor" href="#summary"><span data-lang-content="ko">요약</span><span data-lang-content="en">summary</span></a>
         <a class="ds-anchor" href="#ds-problem"><span data-lang-content="ko">왜 시스템인가</span><span data-lang-content="en">why a system</span></a>
         <a class="ds-anchor" href="#ds-principles"><span data-lang-content="ko">원칙</span><span data-lang-content="en">principles</span></a>
         <a class="ds-anchor" href="#ds-color"><span data-lang-content="ko">색 결정</span><span data-lang-content="en">colour</span></a>
         <a class="ds-anchor" href="#ds-system"><span data-lang-content="ko">토큰·부품</span><span data-lang-content="en">tokens</span></a>
+        <a class="ds-anchor" href="#ds-learnings"><span data-lang-content="ko">배운 것</span><span data-lang-content="en">learnings</span></a>
+        <a class="ds-anchor" href="#product"><span data-lang-content="ko">제품 상세</span><span data-lang-content="en">product</span></a>
         <a class="ds-anchor" href="#status"><span data-lang-content="ko">현황</span><span data-lang-content="en">status</span></a>
-        <a class="ds-anchor" href="#problem"><span data-lang-content="ko">문제</span><span data-lang-content="en">problem</span></a>
-        <a class="ds-anchor" href="#system"><span data-lang-content="ko">시스템</span><span data-lang-content="en">system</span></a>
-        <a class="ds-anchor" href="#leads"><span data-lang-content="ko">팀 리드</span><span data-lang-content="en">for leads</span></a>
-        <a class="ds-anchor" href="#players"><span data-lang-content="ko">플레이어</span><span data-lang-content="en">for players</span></a>
-        <a class="ds-anchor" href="#decisions"><span data-lang-content="ko">결정</span><span data-lang-content="en">decisions</span></a>
       </div>
     </nav>
   </div>
@@ -446,6 +444,158 @@
     </section>
 
     <!-- ============================================================
+         06 — Enforcement. The rules stop being prose here.
+         ============================================================ -->
+    <section class="section ds-script" id="ds-script">
+      <div class="wrap">
+        <p class="eyebrow">[ Enforcement ]</p>
+
+        <h2 class="h2" data-lang-content="ko">규칙을 <span class="acc">스크립트로</span> 만들다</h2>
+        <h2 class="h2" data-lang-content="en">Turning the rules into <span class="acc">a script</span></h2>
+
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">디자인 시스템 문서는 읽지 않으면 규칙이 아닙니다. 그래서 검증기를 짰습니다. 그라데이션 · 글로우 · 네온 · 유리 카드, 아이콘 그리드와 3열 피처 카드, 토큰 밖의 색과 사이즈, 플레이스홀더 텍스트를 파일 단위로 잡아냅니다.</p>
+          <p class="lead" data-lang-content="en">A design system document isn&rsquo;t a rule if nobody reads it. So I wrote a validator. It catches gradients, glows, neon and glass cards; icon grids and three-column feature cards; colours and sizes from outside the tokens; and placeholder text &mdash; file by file.</p>
+
+          <p class="lead lead--xl" data-lang-content="ko">이 스크립트가 가장 많이 잡은 건 <span class="acc">제 실수</span>였습니다.</p>
+          <p class="lead lead--xl" data-lang-content="en">What it caught most was <span class="acc">my own work</span>.</p>
+
+          <p class="lead" data-lang-content="ko">@font-face의 <code class="ds-code">font-weight: 100 900</code>, 포커스 링에 쓴 오프셋 0 그림자, 스케일에 없는 <code class="ds-code">max-width: 640px</code>, <code class="ds-code">margin-top: 5px</code> &mdash; 전부 제가 쓴 것이고 스크립트가 먼저 발견했습니다.</p>
+          <p class="lead" data-lang-content="en">A <code class="ds-code">font-weight: 100 900</code> in an @font-face, a zero-offset shadow used as a focus ring, a <code class="ds-code">max-width: 640px</code> that isn&rsquo;t on the scale, a <code class="ds-code">margin-top: 5px</code> &mdash; all mine, and the script found every one of them before I did.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         07 — Handoff. The tool was wrong, not the prompt.
+         ============================================================ -->
+    <section class="section ds-figma" id="ds-figma">
+      <div class="wrap">
+        <p class="eyebrow">[ Handoff ]</p>
+
+        <h2 class="h2" data-lang-content="ko">Figma로 옮기는 <span class="acc">법을 바꾸다</span></h2>
+        <h2 class="h2" data-lang-content="en">Changing <span class="acc">how it got into Figma</span></h2>
+
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">처음에는 Figma Make로 만들 계획이었습니다. 프롬프트를 정교하게 써서 넣었더니 팔레트 목업을 그려버렸습니다. 실패 원인을 뜯어보니 도구를 잘못 이해한 것이었습니다 &mdash; Figma Make는 프롬프트로 앱을 만드는 도구지 Figma 스타일과 변수를 만드는 도구가 아닙니다. 제 프롬프트는 구조적으로 불가능한 것을 요구하고 있었습니다.</p>
+          <p class="lead" data-lang-content="en">The plan was to build it in Figma Make. I wrote a careful prompt, fed it in, and got a mockup of a palette back. Taking the failure apart, the fault was in how I understood the tool &mdash; Figma Make builds apps from prompts; it doesn&rsquo;t build Figma styles and variables. My prompt was asking for something structurally impossible.</p>
+
+          <p class="lead" data-lang-content="ko">그래서 경로를 바꿨습니다. 컴포넌트를 HTML/CSS로 실제로 짓고 html.to.design으로 들여오는 방식입니다. 그림이 아니라 진짜 마크업이라 검증 스크립트를 그대로 돌릴 수 있고, 시스템이 바뀌면 다시 빌드하면 됩니다.</p>
+          <p class="lead" data-lang-content="en">So the route changed: build the components in real HTML/CSS and import them through html.to.design. Because they are markup rather than drawings, the validator runs on them unchanged &mdash; and when the system moves, you rebuild.</p>
+
+          <p class="lead" data-lang-content="ko">여기서 파일럿을 먼저 돌린 게 결정적이었습니다. 8장을 한꺼번에 넣기 전에 2장만 넣어봤는데, 폰트 크기 12px이 <code class="ds-code">card-gap</code> 변수에 묶여 있었습니다. 카드 간격을 바꾸면 글자 크기가 따라 변하는 상태였습니다.</p>
+          <p class="lead" data-lang-content="en">Running a pilot first is what saved it. Before pushing all eight screens through, I sent two &mdash; and a 12px font size came back bound to the <code class="ds-code">card-gap</code> variable. Change the gap between cards and the type would resize with it.</p>
+
+          <p class="lead" data-lang-content="ko">원인은 제 쪽이었습니다. 타입 스케일을 CSS 변수로 노출한 적이 없어서, 도구가 12라는 값을 가진 변수를 찾다가 간격 변수를 집은 것입니다. <code class="ds-code">fs-*</code> <code class="ds-code">lh-*</code> <code class="ds-code">fw-*</code> 26개를 추가하고 CSS 135곳을 바꿔 해결했고, &lsquo;값 하나당 변수 하나&rsquo;라는 규칙을 세워 중복 변수 24개를 걷어냈습니다.</p>
+          <p class="lead" data-lang-content="en">The cause was on my side. I had never exposed the type scale as CSS variables, so the tool went looking for a variable holding the value 12 and grabbed a spacing one. Adding 26 <code class="ds-code">fs-*</code>, <code class="ds-code">lh-*</code> and <code class="ds-code">fw-*</code> variables and changing 135 places in the CSS fixed it &mdash; and one rule, one variable per value, cleared out 24 duplicates.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         08 — Brand. Rules survive a change of typeface; numbers don't.
+         ============================================================ -->
+    <section class="section ds-brand" id="ds-brand">
+      <div class="wrap">
+        <p class="eyebrow">[ Brand ]</p>
+
+        <h2 class="h2" data-lang-content="ko">숫자가 아니라 <span class="acc">규칙을 적는다</span></h2>
+        <h2 class="h2" data-lang-content="en">Write <span class="acc">the rule</span>, not the number</h2>
+
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">브랜드 워드마크에서 &lsquo;PENGUIN&rsquo;은 &lsquo;SHOOT&rsquo;의 폭에 정확히 정렬됩니다. 이때 자간을 &lsquo;+50.5%&rsquo;라고 적어두면 왜 그 값인지 아무도 모르고, 크기를 조금만 바꿔도 정렬이 깨집니다. 그래서 규칙만 적었습니다 &mdash; &lsquo;PENGUIN은 SHOOT 폭에 정렬한다.&rsquo; 실제로 폰트를 Pretendard에서 Poppins로 교체했을 때 자간이 52.7%에서 50.5%로 자동 재계산되면서 정렬이 유지됐습니다.</p>
+          <p class="lead" data-lang-content="en">In the wordmark, PENGUIN aligns exactly to the width of SHOOT. Write that down as &ldquo;+50.5% tracking&rdquo; and nobody knows why the number is what it is, and the smallest change of size breaks the alignment. So I wrote the rule instead &mdash; PENGUIN aligns to the width of SHOOT. When the typeface actually changed from Pretendard to Poppins, the tracking recomputed itself from 52.7% to 50.5% and the alignment held.</p>
+
+          <p class="lead" data-lang-content="ko">같은 방식이 여백에도 적용됩니다. 로고의 Clear Space는 &lsquo;마크 높이 ÷ 4&rsquo;인데, 이 정의를 고른 이유는 16→4, 24→6, 32→8, 64→16처럼 결과가 항상 스페이싱 토큰 위에 떨어지기 때문입니다.</p>
+          <p class="lead" data-lang-content="en">The same approach covers spacing. The logo&rsquo;s clear space is &ldquo;mark height ÷ 4&rdquo;, and that definition was chosen because the results always land on a spacing token &mdash; 16→4, 24→6, 32→8, 64→16.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         09 — Results. Same card the 30-second summary uses; this is the
+         other end of the same table.
+         ============================================================ -->
+    <section class="section ds-results" id="ds-results">
+      <div class="wrap">
+        <p class="eyebrow">[ Results ]</p>
+
+        <div class="tldr-card">
+          <div class="tldr-row">
+            <div class="tldr-label"><span data-lang-content="ko">토큰</span><span data-lang-content="en">Tokens</span></div>
+            <p class="tldr-value" data-lang-content="ko">v1.5.0 · 색 53 · 사이즈 50 · 닫힌 집합</p>
+            <p class="tldr-value" data-lang-content="en">v1.5.0 · 53 colours · 50 sizes · a closed set</p>
+          </div>
+
+          <div class="tldr-row">
+            <div class="tldr-label"><span data-lang-content="ko">컴포넌트</span><span data-lang-content="en">Components</span></div>
+            <p class="tldr-value" data-lang-content="ko">26그룹 · 변형 92개</p>
+            <p class="tldr-value" data-lang-content="en">26 groups · 92 variants</p>
+          </div>
+
+          <div class="tldr-row">
+            <div class="tldr-label"><span data-lang-content="ko">화면</span><span data-lang-content="en">Screens</span></div>
+            <p class="tldr-value" data-lang-content="ko">390×844 실치수 12장 (팀 리드 5 · 플레이어 5 · 빈 템플릿 2)</p>
+            <p class="tldr-value" data-lang-content="en">12 at true 390×844 (5 team lead · 5 player · 2 blank templates)</p>
+          </div>
+
+          <div class="tldr-row">
+            <div class="tldr-label"><span data-lang-content="ko">브랜드 자산</span><span data-lang-content="en">Brand assets</span></div>
+            <p class="tldr-value" data-lang-content="ko">SVG 29개 (마크 · 워드마크 · 락업 · 마스코트 4포즈 · UI 기본값)</p>
+            <p class="tldr-value" data-lang-content="en">29 SVGs (mark · wordmark · lockup · mascot in four poses · UI defaults)</p>
+          </div>
+
+          <div class="tldr-row">
+            <div class="tldr-label"><span data-lang-content="ko">유채색</span><span data-lang-content="en">Chromatic colour</span></div>
+            <p class="tldr-value" data-lang-content="ko">status 5개</p>
+            <p class="tldr-value" data-lang-content="en">The five status colours</p>
+          </div>
+
+          <div class="tldr-row">
+            <div class="tldr-label"><span data-lang-content="ko">새 컴포넌트</span><span data-lang-content="en">New components</span></div>
+            <p class="tldr-value" data-lang-content="ko">화면 12장을 조립하며 0개</p>
+            <p class="tldr-value" data-lang-content="en">Zero, across all 12 screens</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         10 — What the system taught me. Closes the design-system act.
+         ============================================================ -->
+    <section class="section ds-learnings" id="ds-learnings">
+      <div class="wrap">
+        <p class="eyebrow">[ What I Learned ]</p>
+
+        <div class="spec-list">
+          <article class="spec">
+            <h3 class="spec-title"><span data-lang-content="ko">결정을 증명하려면 반례를 성실하게 만들어야 합니다.</span><span data-lang-content="en">Proving a decision means building the counter-case honestly.</span></h3>
+            <p class="spec-body" data-lang-content="ko">액센트를 빼자고 주장하려면 액센트를 살린 안을 대충 만들면 안 됩니다. 대비까지 최대한 조율한 안을 만들고, 그래도 안 되는 이유를 보여줘야 설득이 됩니다.</p>
+            <p class="spec-body" data-lang-content="en">Arguing to drop the accent means the version that keeps it cannot be a straw man. You build it properly, tune its contrast as far as it will go, and then show why it still doesn&rsquo;t work. That is what persuades.</p>
+          </article>
+
+          <article class="spec">
+            <h3 class="spec-title"><span data-lang-content="ko">그런데 가설보다 실측이 강합니다.</span><span data-lang-content="en">Measurement still beats hypothesis.</span></h3>
+            <p class="spec-body" data-lang-content="ko">처음 만든 반증 이미지는 &lsquo;액센트를 얹으면 충돌할 것이다&rsquo;라는 가정이었습니다. 나중에 기존 화면 18장 감사 데이터를 다시 보고 논지를 바꿨습니다 &mdash; &lsquo;이미 충돌하고 있었다.&rsquo; 존재하지 않는 시안에 대한 주장보다 실제로 그려져 있던 것을 보여주는 쪽이 반박할 수 없습니다.</p>
+            <p class="spec-body" data-lang-content="en">The first version of that comparison argued a prediction: an accent would collide. Going back to the audit of the 18 existing screens changed the claim into something else &mdash; it was already colliding. Showing what had actually been drawn is far harder to argue with than a case about a mockup that never shipped.</p>
+          </article>
+
+          <article class="spec">
+            <h3 class="spec-title"><span data-lang-content="ko">규칙은 강제할 수 있어야 규칙입니다.</span><span data-lang-content="en">A rule is only a rule if it can be enforced.</span></h3>
+            <p class="spec-body" data-lang-content="ko">문서에 적은 금지 항목은 지켜지지 않습니다. 스크립트로 만들고 나서야 제 실수까지 포함해 실제로 걸리기 시작했습니다.</p>
+            <p class="spec-body" data-lang-content="en">A prohibition written into a document does not get followed. Only once it was a script did things actually start getting caught &mdash; my own mistakes included.</p>
+          </article>
+
+          <article class="spec">
+            <h3 class="spec-title"><span data-lang-content="ko">도구를 바꾸는 판단도 설계입니다.</span><span data-lang-content="en">Choosing to switch tools is design work too.</span></h3>
+            <p class="spec-body" data-lang-content="ko">Figma Make 실패는 프롬프트 문제가 아니라 도구 이해 문제였습니다. 빨리 인정하고 경로를 바꾼 게 프롬프트를 계속 다듬는 것보다 나았습니다.</p>
+            <p class="spec-body" data-lang-content="en">The Figma Make failure was not a prompt problem; it was a comprehension problem. Admitting that early and changing route beat another round of refining the prompt.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          03 — The Core Question
          ============================================================ -->
     <section class="section coreq" id="question">
@@ -478,57 +628,10 @@
     </section>
 
     <!-- ============================================================
-         08 — Where It Stands
-         ============================================================ -->
-    <section class="section status" id="status">
-      <div class="wrap">
-        <p class="eyebrow">[ 08 — Where It Stands ]</p>
-
-        <h2 class="h2" data-lang-content="ko">개발 진행 중 — <span class="acc">측정할 준비</span>까지 설계했습니다</h2>
-        <h2 class="h2" data-lang-content="en">In development — <span class="acc">designed to be measured</span></h2>
-
-        <p class="lead" data-lang-content="ko">백엔드 개발이 진행 중이며, 핵심 플로우와 디자인 시스템은 핸드오프를 마쳤습니다. 첫 클로즈드 베타는 개발자가 소속된 회사에서 시작할 예정입니다.</p>
-        <p class="lead" data-lang-content="en">Backend development is in progress; core flows and the design system are handed off. The first closed beta will start at the developer's company.</p>
-
-        <div class="metrics">
-          <div class="metric">
-            <span class="metric-dir">↑</span>
-            <span class="metric-label"><span data-lang-content="ko">수동 모집 없이 성사된 경기 비율</span><span data-lang-content="en">Games filled without manual recruiting</span></span>
-          </div>
-          <div class="metric">
-            <span class="metric-dir metric-dir--down">↓</span>
-            <span class="metric-label"><span data-lang-content="ko">모집 소요 시간</span><span data-lang-content="en">Time to recruit</span></span>
-          </div>
-          <div class="metric">
-            <span class="metric-dir metric-dir--down">↓</span>
-            <span class="metric-label"><span data-lang-content="ko">노쇼율</span><span data-lang-content="en">No-show rate</span></span>
-          </div>
-          <div class="metric">
-            <span class="metric-dir">↑</span>
-            <span class="metric-label"><span data-lang-content="ko">게스트 재신청률</span><span data-lang-content="en">Guest re-application rate</span></span>
-          </div>
-        </div>
-        <p class="metrics-note">
-          <span data-lang-content="ko">베타에서 검증할 지표 — 아직 측정 전입니다.</span>
-          <span data-lang-content="en">Metrics to validate in beta — not yet measured.</span>
-        </p>
-
-        <article class="reflection">
-          <span class="chip chip--orange">
-            <span data-lang-content="ko">회고</span>
-            <span data-lang-content="en">Reflection</span>
-          </span>
-          <p class="reflection-body" data-lang-content="ko">이 프로젝트는 화면이 아니라 시스템을 설계하는 법을 가르쳐줬습니다. 두 사용자의 니즈를 하나의 흐름으로 연결하는 일 — 그리고 그것을 첫날부터 개발자와 함께 하는 일은 디자인 방식 자체를 바꿨습니다. 모든 결정이 구현 가능성의 검증을 통과해야 했기 때문입니다. 검증은 다음 챕터이고, 제품은 측정될 준비가 되어 있습니다.</p>
-          <p class="reflection-body" data-lang-content="en">This project taught me to design a system, not screens. Connecting two users' needs into a single flow — and doing it alongside a developer from day one — changed how I design, because every decision had to survive a feasibility check. Validation is the next chapter; the product is ready to be measured.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================================================
          Product detail — everything below predates the new system, so it
          carries one honest label rather than a per-section disclaimer.
          ============================================================ -->
-    <section class="section detail-divider" id="detail">
+    <section class="section detail-divider" id="product">
       <div class="wrap">
         <p class="eyebrow"><span data-lang-content="ko">[ 제품 상세 ]</span><span data-lang-content="en">[ Product Detail ]</span></p>
         <p class="detail-note" data-lang-content="ko">아래 화면들은 시스템 적용 이전 버전입니다. 현재 새 시스템으로 개편 중이며, 완료되는 대로 교체됩니다.</p>
@@ -862,6 +965,53 @@
     </section>
 
     <!-- ============================================================
+         Where It Stands — the closing note, after the product walkthrough
+         ============================================================ -->
+    <section class="section status" id="status">
+      <div class="wrap">
+        <p class="eyebrow">[ Where It Stands — the closing note, after the product walkthrough ]</p>
+
+        <h2 class="h2" data-lang-content="ko">개발 진행 중 — <span class="acc">측정할 준비</span>까지 설계했습니다</h2>
+        <h2 class="h2" data-lang-content="en">In development — <span class="acc">designed to be measured</span></h2>
+
+        <p class="lead" data-lang-content="ko">백엔드 개발이 진행 중이며, 핵심 플로우와 디자인 시스템은 핸드오프를 마쳤습니다. 첫 클로즈드 베타는 개발자가 소속된 회사에서 시작할 예정입니다.</p>
+        <p class="lead" data-lang-content="en">Backend development is in progress; core flows and the design system are handed off. The first closed beta will start at the developer's company.</p>
+
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-dir">↑</span>
+            <span class="metric-label"><span data-lang-content="ko">수동 모집 없이 성사된 경기 비율</span><span data-lang-content="en">Games filled without manual recruiting</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-dir metric-dir--down">↓</span>
+            <span class="metric-label"><span data-lang-content="ko">모집 소요 시간</span><span data-lang-content="en">Time to recruit</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-dir metric-dir--down">↓</span>
+            <span class="metric-label"><span data-lang-content="ko">노쇼율</span><span data-lang-content="en">No-show rate</span></span>
+          </div>
+          <div class="metric">
+            <span class="metric-dir">↑</span>
+            <span class="metric-label"><span data-lang-content="ko">게스트 재신청률</span><span data-lang-content="en">Guest re-application rate</span></span>
+          </div>
+        </div>
+        <p class="metrics-note">
+          <span data-lang-content="ko">베타에서 검증할 지표 — 아직 측정 전입니다.</span>
+          <span data-lang-content="en">Metrics to validate in beta — not yet measured.</span>
+        </p>
+
+        <article class="reflection">
+          <span class="chip chip--orange">
+            <span data-lang-content="ko">회고</span>
+            <span data-lang-content="en">Reflection</span>
+          </span>
+          <p class="reflection-body" data-lang-content="ko">이 프로젝트는 화면이 아니라 시스템을 설계하는 법을 가르쳐줬습니다. 두 사용자의 니즈를 하나의 흐름으로 연결하는 일 — 그리고 그것을 첫날부터 개발자와 함께 하는 일은 디자인 방식 자체를 바꿨습니다. 모든 결정이 구현 가능성의 검증을 통과해야 했기 때문입니다. 검증은 다음 챕터이고, 제품은 측정될 준비가 되어 있습니다.</p>
+          <p class="reflection-body" data-lang-content="en">This project taught me to design a system, not screens. Connecting two users' needs into a single flow — and doing it alongside a developer from day one — changed how I design, because every decision had to survive a feasibility check. Validation is the next chapter; the product is ready to be measured.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
          See more projects
          ============================================================ -->
     <section class="section seemore">
@@ -984,7 +1134,18 @@
     })();
 
     /* ---- Section nav scroll-spy ----------------------------------------
-       Nav order matches document order, so the topmost visible section wins. */
+       The rail marks chapters, not sections: nine links over twenty-one
+       sections, so most of the page sits between two of them. Asking which
+       element occupies a band would leave the rail blank for those
+       stretches — the whole product walkthrough lights nothing, because its
+       only marker is the divider that opens it.
+
+       So the current chapter is the last one whose top has passed the
+       reading line. It lights when its chapter begins and stays lit until
+       the next one starts, whatever sits in between.
+
+       Nav order still has to match document order; the loop takes the last
+       match in nav order. */
     (function () {
       var links = [].slice.call(document.querySelectorAll('.ds-subnav .ds-anchor'));
       var items = links
@@ -992,19 +1153,42 @@
         .filter(function (item) { return item.el; });
       if (!items.length) return;
 
-      var visible = new Set();
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) visible.add(e.target);
-          else visible.delete(e.target);
+      var LINE = 0.4;   /* the reading line, as a fraction of the viewport */
+      var current;
+
+      function sync() {
+        var line = window.innerHeight * LINE;
+        var found = null;
+        items.forEach(function (item) {
+          if (item.el.getBoundingClientRect().top <= line) found = item;
         });
-        var current = items.find(function (item) { return visible.has(item.el); });
+        if (found === current) return;
+        current = found;
         items.forEach(function (item) {
           item.link.classList.toggle('is-current', item === current);
         });
-      }, { rootMargin: '-45% 0px -45% 0px' });
+      }
 
-      items.forEach(function (item) { io.observe(item.el); });
+      /* One rAF per burst of scroll events; nine rects is cheap, reading
+         them every event is not. */
+      var queued = false;
+      function onScroll() {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(function () { queued = false; sync(); });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+
+      /* rAF is paused while the tab is hidden, so a scroll that finishes in
+         a background tab leaves the rail one chapter behind. Settle it the
+         moment the page is looked at again. */
+      document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'visible') sync();
+      });
+
+      sync();
     })();
 
     /* ---- Reading spotlight ----------------------------------------------
