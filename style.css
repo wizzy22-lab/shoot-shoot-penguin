@@ -534,6 +534,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .runner-name { color: var(--text-dim); }
 /* A domain inside 06 is subordinate to it, so its name steps down. */
 .runner-name--sub { font-size: var(--fs-label-sm); }
+/* A spec long enough to squeeze the rule to nothing waits for the wider
+   step rather than pushing the page sideways. */
 .runner-spec {
   display: none;
   color: var(--text-faint);
@@ -1397,6 +1399,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
     border-radius: 0 12px 12px 0;
   }
   .runner-spec { display: block; }
+  .runner-spec--long { display: none; }
 
   .dom-line {
     grid-template-columns: 72px minmax(0, 1fr);
@@ -1475,6 +1478,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 @media (min-width: 1024px) {
   .only-narrow { display: none; }
   .only-desktop { display: inline; }
+  .runner-spec--long { display: block; }
 
   .ds-footer__inner {
     flex-direction: row;

@@ -192,11 +192,9 @@
              table of contents for section 06. -->
         <div class="cov">
           <a class="tag" href="#f-colour"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Colour</a>
-          <!-- Typography and Radius stay hidden until their domains have a reason to show;
-               see the TODOs on 06-b and 06-d. -->
-          <a class="tag" href="#f-typography" hidden><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Typography</a>
+          <a class="tag" href="#f-typography"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Typography</a>
           <a class="tag" href="#f-spacing"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Spacing</a>
-          <a class="tag" href="#f-radius" hidden><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Radius</a>
+          <a class="tag" href="#f-radius"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Radius</a>
           <a class="tag" href="#f-density"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Density</a>
           <a class="tag" href="#f-components"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Components</a>
           <a class="tag" href="#f-brand"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Brand assets</a>
@@ -495,20 +493,18 @@
         </div>
       </div>
 
-      <div class="dom" hidden id="f-typography">
-        <!-- TODO(06-b): 13개 role로 정한 기준이 확정되면 '왜' 한 줄을 채우고 hidden 제거.
-             근거 없는 도메인이 섞이면 근거 있는 도메인까지 의심받으므로 빈 채로 공개하지 않는다. -->
+      <div class="dom" id="f-typography">
         <div class="wrap">
           <div class="runner">
             <span class="runner-name runner-name--sub">Typography</span>
             <span class="runner-rule" aria-hidden="true"></span>
-            <span class="runner-spec">// Pretendard · 13 roles</span>
+            <span class="runner-spec">// Pretendard · 13 roles · 10 sizes</span>
           </div>
           <div class="dom-lines">
             <div class="dom-line">
               <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
-              <p class="dom-text" data-lang-content="ko"></p>
-              <p class="dom-text" data-lang-content="en"></p>
+              <p class="dom-text" data-lang-content="ko">13은 크기가 아니라 역할의 수입니다. 크기는 10개뿐이고, 한 크기가 두 역할을 맡을 때는 무게와 행간이 나눕니다 &mdash; 읽는 글과 누르는 글은 같은 15px이어도 같은 글이 아닙니다.</p>
+              <p class="dom-text" data-lang-content="en">13 counts roles, not sizes. There are only 10 sizes; where one size carries two roles, weight and leading separate them &mdash; body and label are not the same text at 15px.</p>
             </div>
 
             <div class="dom-line">
@@ -543,19 +539,18 @@
         </div>
       </div>
 
-      <div class="dom" hidden id="f-radius">
-        <!-- TODO(06-d): 6단계로 나눈 기준이 확정되면 '왜' 한 줄을 채우고 hidden 제거. -->
+      <div class="dom" id="f-radius">
         <div class="wrap">
           <div class="runner">
             <span class="runner-name runner-name--sub">Radius</span>
             <span class="runner-rule" aria-hidden="true"></span>
-            <span class="runner-spec">// badge 6 · thumb 10 · button 12 · card 16 · sheet 20 · chip full</span>
+            <span class="runner-spec runner-spec--long">// badge 6 · thumb 10 · button 12 · card 16 · sheet 20 · chip full</span>
           </div>
           <div class="dom-lines">
             <div class="dom-line">
               <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
-              <p class="dom-text" data-lang-content="ko"></p>
-              <p class="dom-text" data-lang-content="en"></p>
+              <p class="dom-text" data-lang-content="ko">액센트를 뺀 만큼의 온도를 반경이 대신 냅니다. 스케일에서 통상값보다 한 칸씩 위로 올렸습니다 &mdash; badge 4&rarr;6, button 10&rarr;12, card 12&rarr;16, sheet 16&rarr;20. 취향이 아니라 무액센트가 만든 빚을 갚는 자리입니다.</p>
+              <p class="dom-text" data-lang-content="en">Radius carries the warmth the accent used to. Every component sits one step above its conventional value &mdash; badge 4&rarr;6, button 10&rarr;12, card 12&rarr;16, sheet 16&rarr;20. Not taste: paying back what dropping the accent cost.</p>
             </div>
 
             <div class="dom-line">
@@ -564,6 +559,12 @@
               <p class="dom-text" data-lang-content="en">Each component owns one radius. The same part never changes radius between screens.</p>
             </div>
           </div>
+
+          <!-- The radius sheet's caption, standing where the sheet will go. -->
+          <p class="media-caption">
+            <span data-lang-content="ko">내가 누르는 필터 칩은 알약, 경기 상태를 말하는 배지는 각진 6 &mdash; 조작과 상태를 색으로 못 가르니 형태가 가릅니다.</span>
+            <span data-lang-content="en">The filter chip you press is a pill; the badge that reports state is a squared 6 &mdash; with colour off the table, shape does the separating.</span>
+          </p>
         </div>
       </div>
 
