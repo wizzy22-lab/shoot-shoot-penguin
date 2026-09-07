@@ -429,45 +429,39 @@
     </section>
 
     <section class="section ds-components" id="ds-components">
-        <div class="wrap">
-          <div class="runner">
+      <div class="wrap">
+        <div class="runner">
           <span class="runner-name">07 / Components</span>
-          </div>
-          <div class="dom-lines">
-            <div class="dom-line">
-              <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
-              <p class="dom-text" data-lang-content="ko">화면을 만들 때 여기 없는 것은 만들지 않습니다. 새 상태가 필요하면 그건 새 컴포넌트가 아니라 기존 것의 변형이거나, 잘못된 상태 모델입니다.</p>
-              <p class="dom-text" data-lang-content="en">Building a screen means building nothing that isn&rsquo;t already here. A state you need is either a variant of something existing, or a sign the state model is wrong.</p>
-            </div>
-
-            <div class="dom-line">
-              <span class="dom-label"><span data-lang-content="ko">규칙</span><span data-lang-content="en">Rule</span></span>
-              <p class="dom-text" data-lang-content="ko">화면 12장을 조립하며 새로 만든 컴포넌트는 0개였습니다.</p>
-              <p class="dom-text" data-lang-content="en">Zero new components across all 12 screens.</p>
-            </div>
-          </div>
         </div>
 
-      <div class="wrap">
+        <h2 class="h2" data-lang-content="ko">반복 요소를 정의하고<br />화면의 맥락에 맞게 조합했습니다</h2>
+        <h2 class="h2" data-lang-content="en">Repeating elements defined,<br />then composed to fit each screen</h2>
+
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">버튼, 필터, 배지 등 공통 요소와 지도 핀, 수요 예측 카드 등<br class="only-desktop" /> 서비스 고유 요소를 컴포넌트로 정리했습니다.</p>
+          <p class="lead" data-lang-content="en">Shared elements &mdash; buttons, filters, badges &mdash; and elements particular to this service &mdash; map pins, prediction cards &mdash; were organised into components.</p>
+        </div>
+
         <div class="spec-list">
           <article class="spec">
-            <h3 class="spec-title"><span data-lang-content="ko">MapPin &mdash; 형태로 구별합니다</span><span data-lang-content="en">MapPin &mdash; tell it apart by shape.</span></h3>
-            <p class="spec-body" data-lang-content="ko">네이버 지도 위에는 카페, 편의점 같은 동그란 아이콘이 25개 넘게 깔려 있습니다. 우리 핀도 동그라미면 그 사이에 묻힙니다. 그래서 아래가 뾰족한 물방울 모양(36×44)으로 만들었습니다. 뾰족한 끝이 경기 장소를 정확히 가리키고, 흰색 테두리 2px가 지도 배경에서 핀을 떼어냅니다. 그림자는 우리 시스템이 금지한 효과라 쓰지 않았습니다.</p>
-            <p class="spec-body" data-lang-content="en">A Naver map is already covered with 25-plus round icons &mdash; caf&eacute;s, convenience stores. A round pin of ours would disappear among them. So the pin is a teardrop, 36×44, pointed at the bottom: the point marks the exact court, and a 2px white outline lifts it off the map. No drop shadow &mdash; shadows are on the system&rsquo;s banned list.</p>
+            <h3 class="spec-title"><span data-lang-content="ko">MapPin</span><span data-lang-content="en">MapPin</span></h3>
+            <p class="spec-body" data-lang-content="ko">지도 위에서 경기 위치를 구별할 수 있도록 핀의 형태와 테두리를 정의했습니다.</p>
+            <p class="spec-body" data-lang-content="en">The pin&rsquo;s shape and outline are defined so a game&rsquo;s location can be told apart on the map.</p>
           </article>
 
           <article class="spec">
-            <h3 class="spec-title"><span data-lang-content="ko">PredictionCard &mdash; 확신을 눈에 보이게 합니다</span><span data-lang-content="en">PredictionCard &mdash; make the confidence visible.</span></h3>
-            <p class="spec-body" data-lang-content="ko">2px 점선 테두리로 &lsquo;확정 아님&rsquo;을 계속 말합니다. 누적 경기 수에 따라 확신이 높으면 단일값(&lsquo;게스트 4명&rsquo;), 낮으면 범위(&lsquo;게스트 3~5명&rsquo;)로 바뀌고 점 3개짜리 인디케이터가 근거의 두께를 보여줍니다. 여기에는 경기 상태 색을 쓰지 않습니다. 상태 색은 확정된 사실에만 쓰는 색인데, 예측은 아직 사실이 아니기 때문입니다.</p>
-            <p class="spec-body" data-lang-content="en">A 2px dashed border keeps saying &ldquo;not confirmed&rdquo;. As games accumulate, high confidence reads as a single number (&ldquo;4 guests&rdquo;) and low confidence as a range (&ldquo;3&ndash;5 guests&rdquo;), with a three-dot indicator showing how much evidence sits behind it. State colours are not used here. Those colours are for confirmed facts, and a prediction is not a fact yet.</p>
+            <h3 class="spec-title"><span data-lang-content="ko">PredictionCard</span><span data-lang-content="en">PredictionCard</span></h3>
+            <p class="spec-body" data-lang-content="ko">예상 인원을 확정 인원과 구별하기 위해 점선 테두리와 범위 표기를 적용했습니다.</p>
+            <p class="spec-body" data-lang-content="en">A dashed border and a range notation keep an expected headcount distinct from a confirmed one.</p>
           </article>
 
           <article class="spec">
-            <h3 class="spec-title"><span data-lang-content="ko">출석 응답 &mdash; 색을 쓰지 않기로 했습니다</span><span data-lang-content="en">Attendance replies &mdash; the decision to use no colour.</span></h3>
-            <p class="spec-body" data-lang-content="ko">참석 · 불참 · 미정 · 미응답. 여기에 색을 주면 색이 아홉 개가 됩니다. 시스템이 시험당한 순간이었고, 색을 전혀 쓰지 않는 쪽을 택했습니다. status 색은 &lsquo;지금 갈 수 있나&rsquo;를 3초에 판단하는 용도인데, 출석 확인은 앉아서 하는 검토라 같은 채널을 쓸 이유가 없습니다. &lsquo;게스트가 필요하다&rsquo;는 신호는 PredictionCard가 이미 담당합니다.</p>
-            <p class="spec-body" data-lang-content="en">Going, not going, undecided, no answer. Give those four a colour each and the palette has nine. This was the moment the system got tested, and the answer was no colour at all. Status colour exists so you can judge &ldquo;can I make this?&rdquo; in three seconds; checking attendance is a seated review, with no reason to borrow the same channel. The signal that says &ldquo;we need guests&rdquo; is already the PredictionCard&rsquo;s job.</p>
+            <h3 class="spec-title"><span data-lang-content="ko">출석 응답</span><span data-lang-content="en">Attendance replies</span></h3>
+            <p class="spec-body" data-lang-content="ko">참석 · 불참 · 미정 · 미응답은 무채색과 텍스트로 구분해, 경기 상태의 색상 체계와 분리했습니다.</p>
+            <p class="spec-body" data-lang-content="en">Going, not going, undecided and no answer are separated by neutral colour and text, kept apart from the game state colour system.</p>
           </article>
         </div>
+      </div>
     </section>
 
     <section class="section ds-brandkit" id="ds-brand">
@@ -592,7 +586,6 @@
             <span data-lang-content="en">Five screens from the same parts &mdash; zero new components were needed</span>
           </figcaption>
         </figure>
-      </div>
       </div>
     </section>
 
