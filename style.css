@@ -856,16 +856,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   object-fit: cover;
 }
 .prin-img:not([src]) { display: none; }
-.prin-media-label {
-  padding: 0 16px;
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: var(--fs-label-sm);
-  letter-spacing: 0.08em;
-  line-height: 1.4;
-  text-align: center;
-  color: var(--text-faint);
-}
 
 .prin-title {
   margin-top: 20px;

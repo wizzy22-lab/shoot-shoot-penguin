@@ -213,10 +213,10 @@
         <h2 class="h2" data-lang-content="en">Two users, two different jobs,<br />joined by one UI standard</h2>
 
         <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">Shoot Shoot Penguin은 팀 리드의 게스트 모집과 플레이어의 경기 탐색을 연결하는 농구 앱입니다. 팀 리드는 출석과 모집 인원을 관리하고, 플레이어는 지도에서 참여할 경기를 찾습니다.</p>
+          <p class="lead" data-lang-content="ko">Shoot Shoot Penguin은 팀 리드의 게스트 모집과 플레이어의 경기 탐색을 연결하는 농구 앱입니다.<br class="only-desktop" /> 팀 리드는 출석과 모집 인원을 관리하고, 플레이어는 지도에서 참여할 경기를 찾습니다.</p>
           <p class="lead" data-lang-content="en">Shoot Shoot Penguin is a basketball app that joins a team lead&rsquo;s guest recruiting to a player&rsquo;s search for a game. Team leads manage attendance and how many guests they need; players find a game to join on a map.</p>
 
-          <p class="lead" data-lang-content="ko">같은 경기 정보도 관리하는 화면에서는 비교하기 쉽게, 탐색 화면에서는 빠르게 구별되게 보여야 합니다. 이번 시스템은 공통 컴포넌트를 기반으로 각 작업에 맞는 정보 위계와 상태 표현을 정의했습니다.</p>
+          <p class="lead" data-lang-content="ko">같은 경기 정보도 관리하는 화면에서는 비교하기 쉽게, 탐색 화면에서는 빠르게 구별되게 보여야 합니다.<br class="only-desktop" /> 이번 시스템은 공통 컴포넌트를 기반으로 각 작업에 맞는 정보 위계와 상태 표현을 정의했습니다.</p>
           <p class="lead" data-lang-content="en">The same game information has to be easy to compare on a screen you manage from, and quick to tell apart on a screen you search from. This system defines the information hierarchy and the state expression each job needs, on top of one shared set of components.</p>
         </div>
 
@@ -327,13 +327,10 @@
 
         <ol class="prin-list">
           <li class="prin">
-            <!-- UI 예시 자리. 이미지가 오면 src 를 넣고 라벨을 지웁니다. -->
             <div class="prin-media">
-              <img class="prin-img" alt="" width="1200" height="1200" />
-              <p class="prin-media-label">
-                <span data-lang-content="ko">[ UI 예시 · 준비 중 ]</span>
-                <span data-lang-content="en">[ UI example · in progress ]</span>
-              </p>
+              <img class="prin-img" src="assets/img/ssp-principle-p1.png"
+                   width="1200" height="1200" loading="lazy" decoding="async"
+                   alt="Neutral filter chips and a neutral apply button above coloured status badges and map pins — recruiting, closing soon and full" />
             </div>
             <h3 class="prin-title"><span data-lang-content="ko">행동과 상태를 구분합니다</span><span data-lang-content="en">Separate action from state</span></h3>
             <p class="prin-body" data-lang-content="ko">버튼 · 필터 · 탭은 무채색을 기본으로 사용하고, 경기 상태는 색과 상태명으로 구별합니다.</p>
@@ -341,13 +338,10 @@
           </li>
 
           <li class="prin">
-            <!-- UI 예시 자리. 이미지가 오면 src 를 넣고 라벨을 지웁니다. -->
             <div class="prin-media">
-              <img class="prin-img" alt="" width="1200" height="1200" />
-              <p class="prin-media-label">
-                <span data-lang-content="ko">[ UI 예시 · 준비 중 ]</span>
-                <span data-lang-content="en">[ UI example · in progress ]</span>
-              </p>
+              <img class="prin-img" src="assets/img/ssp-principle-p2.png"
+                   width="1200" height="1200" loading="lazy" decoding="async"
+                   alt="A dashed prediction card reading 3–5 guests with a confidence indicator, above solid tiles showing the confirmed attendance counts" />
             </div>
             <h3 class="prin-title"><span data-lang-content="ko">예측과 확정을 구분합니다</span><span data-lang-content="en">Separate a prediction from a fact</span></h3>
             <p class="prin-body" data-lang-content="ko">예상 인원에는 점선 테두리와 범위 표기를 사용해, 확정된 정보와 다르게 읽히도록 설계합니다.</p>
@@ -355,13 +349,10 @@
           </li>
 
           <li class="prin">
-            <!-- UI 예시 자리. 이미지가 오면 src 를 넣고 라벨을 지웁니다. -->
             <div class="prin-media">
-              <img class="prin-img" alt="" width="1200" height="1200" />
-              <p class="prin-media-label">
-                <span data-lang-content="ko">[ UI 예시 · 준비 중 ]</span>
-                <span data-lang-content="en">[ UI example · in progress ]</span>
-              </p>
+              <img class="prin-img" src="assets/img/ssp-principle-p3.png"
+                   width="1200" height="1200" loading="lazy" decoding="async"
+                   alt="The same game in three settings: a management row with a confirmed badge, two map pins, and the auto-generated recruiting post" />
             </div>
             <h3 class="prin-title"><span data-lang-content="ko">사용 맥락에 맞게 표현합니다</span><span data-lang-content="en">Express it to fit where it is used</span></h3>
             <p class="prin-body" data-lang-content="ko">관리 화면의 정보 밀도, 지도 위 요소의 식별, 외부 공유 시 필요한 정보를 각 환경에 맞게 정의합니다.</p>
