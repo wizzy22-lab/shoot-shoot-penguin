@@ -106,7 +106,7 @@
                and its two lines are the name, not a width accident. -->
           <h1 class="hero-title">Shoot Shoot Penguin<br /><span class="acc">Design System</span></h1>
 
-          <p class="hero-body" data-lang-content="ko">Shoot Shoot Penguin의 초기 화면을 검토하며, 반복 요소의 스타일과 색의 의미가 화면마다 달라지는 문제를 발견했습니다.<br class="only-desktop" /> 조작 요소와 경기 상태의 표현을 분리하고, 토큰과 컴포넌트를 정리해 두 사용자 화면에 적용할 공통 기준을 만들었습니다.</p>
+          <p class="hero-body" data-lang-content="ko">Shoot Shoot Penguin의 초기 화면을 검토하며, 반복 요소의 스타일과<br class="only-desktop" /> 색의 의미가 화면마다 달라지는 문제를 발견했습니다.<br class="only-desktop" /> 조작 요소와 경기 상태의 표현을 분리하고, 토큰과 컴포넌트를 정리해<br class="only-desktop" /> 두 사용자 화면에 적용할 공통 기준을 만들었습니다.</p>
           <p class="hero-body" data-lang-content="en">Reviewing the first screens of Shoot Shoot Penguin, I found that repeated elements were styled differently from screen to screen, and that colour meant something different in each one.<br class="only-desktop" /> Separating how controls and game state are expressed, then settling the tokens and components, gave one standard both sides of the app could be built on.</p>
 
           <div class="tagrow">
@@ -124,9 +124,9 @@
                lands on the same rules and keeps the frame, radius and crop. -->
           <div class="thumb">
             <img class="hero-media"
-                 src="assets/img/ssp-hero-2x.webp"
-                 width="2400" height="1350"
-                 alt="Shoot Shoot Penguin — the team home screen beside the guest map" />
+                 src="assets/img/ssp-hero-v1.png"
+                 width="2400" height="2400"
+                 alt="The Shoot Shoot Penguin game detail screen with four of its components called out around it — game card, status badge, button and map pin" />
           </div>
         </div>
 
@@ -214,15 +214,15 @@
           <span class="runner-spec"><span data-lang-content="ko">// 두 사용자 · 하나의 흐름</span><span data-lang-content="en">// two users, one loop</span></span>
         </div>
 
-        <h2 class="h2" data-lang-content="ko">경기는 매주 정해져 있었지만,<br />인원은 정해져 있지 않았습니다</h2>
-        <h2 class="h2" data-lang-content="en">Games were fixed every week.<br />The players weren&rsquo;t</h2>
+        <h2 class="h2" data-lang-content="ko">두 사용자의 다른 작업을<br />하나의 UI 기준으로 연결했습니다</h2>
+        <h2 class="h2" data-lang-content="en">Two users, two different jobs,<br />joined by one UI standard</h2>
 
         <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">함께한 개발자가 농구팀을 운영하며 매주 겪던 문제입니다. 체육관과 일정은 정해져 있지만, 인원이 채워져야 경기가 성사됩니다. 그래서 경기 전마다 참석 인원을 세고, 부족한 수를 계산하고, 카카오톡과 커뮤니티에 모집글을 올리고, 댓글로 신청을 받고, 입금을 하나씩 확인했습니다. 매주 일곱 단계를 손으로 거치고 있었습니다.</p>
-          <p class="lead" data-lang-content="en">This was a problem my developer teammate lived every week while running his basketball team. The gym and the schedule were fixed; the players weren&rsquo;t. Before every game he counted who was coming, worked out the shortfall by hand, posted a recruiting notice to KakaoTalk and community boards, collected sign-ups in the comments, and checked each payment one by one &mdash; seven manual steps, every week.</p>
+          <p class="lead" data-lang-content="ko">Shoot Shoot Penguin은 팀 리드의 게스트 모집과 플레이어의 경기 탐색을 연결하는 농구 앱입니다. 팀 리드는 출석과 모집 인원을 관리하고, 플레이어는 지도에서 참여할 경기를 찾습니다.</p>
+          <p class="lead" data-lang-content="en">Shoot Shoot Penguin is a basketball app that joins a team lead&rsquo;s guest recruiting to a player&rsquo;s search for a game. Team leads manage attendance and how many guests they need; players find a game to join on a map.</p>
 
-          <p class="lead" data-lang-content="ko">SSP는 이 과정을 하나의 흐름으로 묶습니다. 출석 데이터가 필요한 게스트 수를 예측하고, 예측이 모집글을 자동으로 만들고, 모집 중인 경기는 플레이어의 지도에 뜹니다. 신청 결과는 다시 돌아와 다음 예측을 정확하게 만듭니다. 팀 리드와 플레이어라는 두 사용자가 이 하나의 흐름 양쪽 끝에 있습니다.</p>
-          <p class="lead" data-lang-content="en">SSP folds that into a single loop. Attendance data predicts how many guests are needed, the prediction writes the recruiting post, and open games surface on the player&rsquo;s map. Sign-ups flow back in and sharpen the next prediction. Team leads and players sit at the two ends of that one loop.</p>
+          <p class="lead" data-lang-content="ko">같은 경기 정보도 관리하는 화면에서는 비교하기 쉽게, 탐색 화면에서는 빠르게 구별되게 보여야 합니다. 이번 시스템은 공통 컴포넌트를 기반으로 각 작업에 맞는 정보 위계와 상태 표현을 정의했습니다.</p>
+          <p class="lead" data-lang-content="en">The same game information has to be easy to compare on a screen you manage from, and quick to tell apart on a screen you search from. This system defines the information hierarchy and the state expression each job needs, on top of one shared set of components.</p>
         </div>
 
         <!-- The loop, drawn as a loop. Out along the top row, down the
