@@ -133,12 +133,12 @@
           </div>
           <div class="rolecol">
             <div class="role-label"><span data-lang-content="ko">범위</span><span data-lang-content="en">SCOPE</span></div>
-            <div class="role-value" data-lang-content="ko">프로덕트 기획 · IA · UX/UI · 디자인 시스템 · 개발 핸드오프</div>
+            <div class="role-value" data-lang-content="ko">프로덕트 기획 · 정보 구조(IA) · UX/UI · 디자인 시스템 · 개발 핸드오프</div>
             <div class="role-value" data-lang-content="en">Product planning · IA · UX/UI · Design system · Developer handoff</div>
           </div>
           <div class="rolecol">
             <div class="role-label"><span data-lang-content="ko">상태</span><span data-lang-content="en">STATUS</span></div>
-            <div class="role-value" data-lang-content="ko">Design system v1.5.0 · 화면 개편 진행 중</div>
+            <div class="role-value" data-lang-content="ko">디자인 시스템 v1.5.0 · 화면 개편 진행 중</div>
             <div class="role-value" data-lang-content="en">Design system v1.5.0 · screen redesign in progress</div>
           </div>
           <div class="rolecol">
@@ -176,8 +176,8 @@
 
           <div class="tldr-row">
             <div class="tldr-label"><span data-lang-content="ko">이 케이스에서 볼 것</span><span data-lang-content="en">What to look for</span></div>
-            <p class="tldr-value" data-lang-content="ko">이 앱에서 색이 할 일을 먼저 정하고, 기존 화면 18장을 직접 세어 브랜드 색을 빼자는 결정을 증명하고, 그 규칙을 사람이 아니라 스크립트가 지키게 만든 과정입니다.</p>
-            <p class="tldr-value" data-lang-content="en">Defining what colour has to do in this app, proving the case for dropping the brand colour by counting 18 existing screens, and handing the rules to a script instead of a document.</p>
+            <p class="tldr-value" data-lang-content="ko">이 앱에서 색이 무슨 일을 해야 하는지 먼저 정했습니다. 기존 화면을 뜯어보니 같은 색이 버튼과 상태, 두 가지 뜻으로 쓰이고 있었습니다 &mdash; 브랜드 색을 빼야 하는 이유는 여기서 나왔습니다. 그리고 그 규칙을 스스로 어기지 않도록, 검사하는 프로그램을 만들었습니다.</p>
+            <p class="tldr-value" data-lang-content="en">First I defined what colour has to do in this app. Going through the existing screens, I found the same colour doing two jobs &mdash; a control and a state &mdash; and that is where the case for dropping the brand colour came from. Then, so I wouldn&rsquo;t break my own rules, I built a program that checks them.</p>
           </div>
 
           <div class="tldr-row">
@@ -216,8 +216,8 @@
           <span class="runner-spec"><span data-lang-content="ko">// 두 사용자 · 하나의 흐름</span><span data-lang-content="en">// two users, one loop</span></span>
         </div>
 
-        <h2 class="h2" data-lang-content="ko">경기는 매주 정해져 있었지만,<br />인원은 정해져 있지 않았습니다.</h2>
-        <h2 class="h2" data-lang-content="en">Games were fixed every week.<br />The players weren&rsquo;t.</h2>
+        <h2 class="h2" data-lang-content="ko">경기는 매주 정해져 있었지만,<br />인원은 정해져 있지 않았습니다</h2>
+        <h2 class="h2" data-lang-content="en">Games were fixed every week.<br />The players weren&rsquo;t</h2>
 
         <div class="ds-prose">
           <p class="lead" data-lang-content="ko">함께한 개발자가 농구팀을 운영하며 매주 겪던 문제입니다. 체육관과 일정은 정해져 있지만, 인원이 채워져야 경기가 성사됩니다. 그래서 경기 전마다 참석 인원을 세고, 부족한 수를 계산하고, 카카오톡과 커뮤니티에 모집글을 올리고, 댓글로 신청을 받고, 입금을 하나씩 확인했습니다. 매주 일곱 단계를 손으로 거치고 있었습니다.</p>
@@ -263,7 +263,7 @@
         <div class="runner">
           <span class="runner-name">03 / Why a System</span>
           <span class="runner-rule" aria-hidden="true"></span>
-          <span class="runner-spec"><span data-lang-content="ko">// 기존 화면 18장을 세어봤습니다</span><span data-lang-content="en">// an audit of 18 screens</span></span>
+          <span class="runner-spec"><span data-lang-content="ko">// 같은 색이 두 가지 일을 하고 있었습니다</span><span data-lang-content="en">// the same colour was doing two jobs</span></span>
         </div>
 
         <h2 class="act-title" data-lang-content="ko">브랜드 색을 정하기 전에,<br />색이 할 일부터 정했습니다</h2>
@@ -295,7 +295,7 @@
           <p class="lead" data-lang-content="ko">SSP는 두 종류의 사용자가 같은 앱을 씁니다. 팀 리드는 정기전을 열고 출석을 관리하고 모자란 인원만큼 게스트를 모집합니다. 플레이어는 지도에서 오늘 뛸 경기를 찾아 신청합니다. 핵심 가치는 출석 데이터로 게스트 수요를 미리 예측하는 것이고, 발견은 지도 위에서 일어납니다.</p>
           <p class="lead" data-lang-content="en">Two kinds of user share one app. Team leads open a regular game, track attendance, and recruit exactly as many guests as they are short. Players find a game they can play today on the map and apply. The core value is predicting guest demand from attendance data &mdash; and discovery happens on the map.</p>
 
-          <p class="lead" data-lang-content="ko">와이어프레임과 1차 디자인은 이미 있었습니다. 다만 시스템 없이 화면 단위로 만들어져서, 같은 요소가 화면마다 조금씩 다르고 색이 무엇을 뜻하는지 규칙이 없었습니다.</p>
+          <p class="lead" data-lang-content="ko">화면 뼈대(와이어프레임)와 1차 디자인은 이미 있었습니다. 다만 시스템 없이 화면 단위로 만들어져서, 같은 요소가 화면마다 조금씩 다르고 색이 무엇을 뜻하는지 규칙이 없었습니다.</p>
           <p class="lead" data-lang-content="en">The wireframes and a first design pass already existed. They had been drawn screen by screen without a system, so the same element differed slightly everywhere it appeared, and nothing said what a colour meant.</p>
 
           <p class="lead" data-lang-content="ko">시스템을 새로 세우면서 첫 질문은 &lsquo;브랜드 색을 무엇으로 할까&rsquo;가 아니라 &lsquo;이 앱에서 색은 무슨 일을 해야 하는가&rsquo;였습니다.</p>
@@ -320,8 +320,8 @@
           <span class="runner-spec"><span data-lang-content="ko">// 액센트를 뺀 이유</span><span data-lang-content="en">// why the accent went</span></span>
         </div>
 
-        <h2 class="h2" data-lang-content="ko">브랜드 색을 뺀 건 취향이 아니었습니다.<br /><span class="acc">이미 일어나고 있던 충돌을 걷어낸 것입니다.</span></h2>
-        <h2 class="h2" data-lang-content="en">Dropping the accent wasn&rsquo;t taste.<br /><span class="acc">It cleared a collision that was already happening.</span></h2>
+        <h2 class="h2" data-lang-content="ko">브랜드 색을 뺀 건 취향이 아니었습니다.<br /><span class="acc">이미 일어나고 있던 충돌을 걷어낸 것입니다</span></h2>
+        <h2 class="h2" data-lang-content="en">Dropping the accent wasn&rsquo;t taste.<br /><span class="acc">It cleared a collision that was already happening</span></h2>
 
         <div class="ds-prose">
           <p class="lead" data-lang-content="ko">기존 화면 18장을 하나씩 세어봤습니다. 색 세 개가 버튼 역할과 상태 표시를 동시에 하고 있었습니다. 네이비는 주 CTA이면서 &lsquo;확정&rsquo; 배지였고, 오렌지는 신청 버튼이면서 &lsquo;마감임박&rsquo; 배지였고, 파랑은 링크이면서 모집중 핀이었습니다.</p>
@@ -341,8 +341,8 @@
                width="2400" height="1500" loading="lazy" decoding="async"
                alt="The same guest map screen rendered twice: option A with Court Orange as the primary colour, option B with ink-only controls" />
           <figcaption class="media-caption">
-            <span data-lang-content="ko">같은 화면입니다. 버튼 색만 다릅니다. &mdash; 색을 쓴 안 #D93B12 (흰 글자 대비 4.58) · 검정만 쓴 안 #151E28 (대비 16.82)</span>
-            <span data-lang-content="en">The same screen. Only the button colour differs. &mdash; with colour #D93B12 (4.58 against white) · black only #151E28 (16.82)</span>
+            <span data-lang-content="ko">같은 화면, 버튼 색만 다름 &mdash; 색을 쓴 안 #D93B12 (흰 글자 대비 4.58) · 검정만 쓴 안 #151E28 (대비 16.82)</span>
+            <span data-lang-content="en">Same screen, only the button colour differs &mdash; with colour #D93B12 (4.58 on white text) · black only #151E28 (16.82)</span>
           </figcaption>
         </figure>
       </div>
@@ -368,8 +368,8 @@
 
       <div class="wrap">
         <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">다섯 개는 tint(배경) · solid(핀·점) · text(글자) 세 단으로 나뉩니다. 대비는 WCAG 상대휘도로 계산했고, 판단이 필요한 정보는 7:1을 목표로 잡았습니다. 그리고 status는 색 단독으로 쓰지 않습니다 &mdash; 항상 점이나 텍스트 라벨을 동반합니다.</p>
-          <p class="lead" data-lang-content="en">Each of the five splits into three steps: tint (background), solid (pins and dots) and text. Contrast was computed from WCAG relative luminance, targeting 7:1 wherever the information carries a decision. And status never travels on colour alone &mdash; a dot or a text label always comes with it.</p>
+          <p class="lead" data-lang-content="ko">다섯 개는 tint(배경) · solid(핀·점) · text(글자) 세 단으로 나뉩니다. 글자와 배경의 밝기 차이를 계산해서, 판단이 필요한 정보는 특히 또렷하게 보이도록 맞췄습니다(웹 접근성 기준 7:1). 그리고 상태를 색으로만 알리지 않습니다. 색을 구별하기 어려운 사람도 알아볼 수 있도록 점이나 글자를 함께 붙입니다.</p>
+          <p class="lead" data-lang-content="en">Each of the five splits into three steps: tint (background), solid (pins and dots) and text. Contrast between text and background was calculated so that anything you have to judge stays sharply legible &mdash; 7:1, the web accessibility target. And state is never signalled by colour alone: a dot or a word always comes with it, so people who can&rsquo;t tell the colours apart can still read it.</p>
         </div>
       </div>
     </section>
@@ -470,6 +470,13 @@
         </figure>
       </div>
 
+      <div class="wrap">
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">색마다 이름을 붙였습니다. <code class="ds-code">#151E28</code> 대신 <code class="ds-code">surface-inverse</code>처럼요. 이름이 없으면 이 색을 어디에 써야 하는지 아무도 알 수 없습니다. 그러면 시스템이 아니라 그냥 색 모음이 됩니다.</p>
+          <p class="lead" data-lang-content="en">Every colour has a name &mdash; <code class="ds-code">surface-inverse</code> rather than <code class="ds-code">#151E28</code>. Without a name nobody knows where the colour is supposed to go, and what you have is a pile of colours, not a system.</p>
+        </div>
+      </div>
+
       <div class="dom" id="f-colour">
         <div class="wrap">
           <div class="runner">
@@ -486,8 +493,8 @@
 
             <div class="dom-line">
               <span class="dom-label"><span data-lang-content="ko">규칙</span><span data-lang-content="en">Rule</span></span>
-              <p class="dom-text" data-lang-content="ko">목록 밖의 값은 쓸 수 없습니다. 꼭 예외가 필요하면 코드에 이유를 적어야 통과합니다 &mdash; <code class="ds-code">ssp-allow(규칙): 사유</code>.</p>
-              <p class="dom-text" data-lang-content="en">Values outside the list can&rsquo;t be used. An exception has to carry its reason in the code &mdash; <code class="ds-code">ssp-allow(rule): reason</code>.</p>
+              <p class="dom-text" data-lang-content="ko">목록 밖의 값은 쓸 수 없습니다. 꼭 예외가 필요하면 코드에 <code class="ds-code">ssp-allow(규칙): 사유</code> 형식으로 이유를 적어야 통과합니다.</p>
+              <p class="dom-text" data-lang-content="en">Values outside the list can&rsquo;t be used. An exception passes only if the reason is written into the code as <code class="ds-code">ssp-allow(rule): reason</code>.</p>
             </div>
           </div>
         </div>
@@ -549,8 +556,8 @@
           <div class="dom-lines">
             <div class="dom-line">
               <span class="dom-label"><span data-lang-content="ko">왜</span><span data-lang-content="en">Why</span></span>
-              <p class="dom-text" data-lang-content="ko">액센트를 뺀 만큼의 온도를 반경이 대신 냅니다. 스케일에서 통상값보다 한 칸씩 위로 올렸습니다 &mdash; badge 4&rarr;6, button 10&rarr;12, card 12&rarr;16, sheet 16&rarr;20. 취향이 아니라 무액센트가 만든 빚을 갚는 자리입니다.</p>
-              <p class="dom-text" data-lang-content="en">Radius carries the warmth the accent used to. Every component sits one step above its conventional value &mdash; badge 4&rarr;6, button 10&rarr;12, card 12&rarr;16, sheet 16&rarr;20. Not taste: paying back what dropping the accent cost.</p>
+              <p class="dom-text" data-lang-content="ko">브랜드 색을 빼고 나니 화면이 차가워 보였습니다. 그 온기를 모서리 둥글기가 대신 냅니다. 스케일에서 통상값보다 한 칸씩 위로 올렸습니다 &mdash; badge 4&rarr;6, button 10&rarr;12, card 12&rarr;16, sheet 16&rarr;20. 취향이 아니라 무액센트가 만든 빚을 갚는 자리입니다.</p>
+              <p class="dom-text" data-lang-content="en">Dropping the brand colour left the screens looking cold. Radius carries that warmth instead. Every component sits one step above its conventional value &mdash; badge 4&rarr;6, button 10&rarr;12, card 12&rarr;16, sheet 16&rarr;20. Not taste: paying back what dropping the accent cost.</p>
             </div>
 
             <div class="dom-line">
@@ -562,8 +569,8 @@
 
           <!-- The radius sheet's caption, standing where the sheet will go. -->
           <p class="media-caption">
-            <span data-lang-content="ko">내가 누르는 필터 칩은 알약, 경기 상태를 말하는 배지는 각진 6 &mdash; 조작과 상태를 색으로 못 가르니 형태가 가릅니다.</span>
-            <span data-lang-content="en">The filter chip you press is a pill; the badge that reports state is a squared 6 &mdash; with colour off the table, shape does the separating.</span>
+            <span data-lang-content="ko">내가 누르는 필터 칩은 알약, 경기 상태를 말하는 배지는 각진 6 &mdash; 조작과 상태를 색으로 못 가르니 형태가 가름</span>
+            <span data-lang-content="en">The filter chip you press is a pill; the badge that reports state is a squared 6 &mdash; with colour off the table, shape does the separating</span>
           </p>
         </div>
       </div>
@@ -628,19 +635,19 @@
       <div class="wrap">
         <div class="spec-list">
           <article class="spec">
-            <h3 class="spec-title"><span data-lang-content="ko">MapPin &mdash; 형태로 구별한다.</span><span data-lang-content="en">MapPin &mdash; tell it apart by shape.</span></h3>
-            <p class="spec-body" data-lang-content="ko">네이버 지도에는 원형 POI 아이콘이 25개 이상 깔립니다. 색을 규칙대로 옳게 써도 원형 마커들 사이에서 형태가 구별되지 않습니다. 그래서 CSS 라운드가 아니라 SVG 패스로 그린 36×44 물방울을 씁니다 &mdash; 아래 끝점이 실제 좌표를 가리키고, 분리는 흰색 2px 외곽선이 담당합니다. drop-shadow는 시스템 금지 항목이라 쓰지 않았습니다.</p>
-            <p class="spec-body" data-lang-content="en">The Naver map lays down 25-plus circular POI icons. Use the colour exactly as the rules say and the marker still doesn&rsquo;t read as its own shape among all those circles. So the pin isn&rsquo;t a CSS round &mdash; it is a 36×44 teardrop drawn as an SVG path: the bottom point marks the actual coordinate, and a 2px white outline does the separating. No drop-shadow; the system forbids it.</p>
+            <h3 class="spec-title"><span data-lang-content="ko">MapPin &mdash; 형태로 구별합니다</span><span data-lang-content="en">MapPin &mdash; tell it apart by shape.</span></h3>
+            <p class="spec-body" data-lang-content="ko">네이버 지도 위에는 카페, 편의점 같은 동그란 아이콘이 25개 넘게 깔려 있습니다. 우리 핀도 동그라미면 그 사이에 묻힙니다. 그래서 아래가 뾰족한 물방울 모양(36×44)으로 만들었습니다. 뾰족한 끝이 경기 장소를 정확히 가리키고, 흰색 테두리 2px가 지도 배경에서 핀을 떼어냅니다. 그림자는 우리 시스템이 금지한 효과라 쓰지 않았습니다.</p>
+            <p class="spec-body" data-lang-content="en">A Naver map is already covered with 25-plus round icons &mdash; caf&eacute;s, convenience stores. A round pin of ours would disappear among them. So the pin is a teardrop, 36×44, pointed at the bottom: the point marks the exact court, and a 2px white outline lifts it off the map. No drop shadow &mdash; shadows are on the system&rsquo;s banned list.</p>
           </article>
 
           <article class="spec">
-            <h3 class="spec-title"><span data-lang-content="ko">PredictionCard &mdash; 확신을 시각화한다.</span><span data-lang-content="en">PredictionCard &mdash; make the confidence visible.</span></h3>
-            <p class="spec-body" data-lang-content="ko">2px 점선 테두리로 &lsquo;확정 아님&rsquo;을 계속 말합니다. 누적 경기 수에 따라 확신이 높으면 단일값(&lsquo;게스트 4명&rsquo;), 낮으면 범위(&lsquo;게스트 3~5명&rsquo;)로 바뀌고 점 3개짜리 인디케이터가 근거의 두께를 보여줍니다. 여기에 status 색을 쓰지 않습니다 &mdash; 예측은 상태가 아닙니다.</p>
-            <p class="spec-body" data-lang-content="en">A 2px dashed border keeps saying &ldquo;not confirmed&rdquo;. As games accumulate, high confidence reads as a single number (&ldquo;4 guests&rdquo;) and low confidence as a range (&ldquo;3&ndash;5 guests&rdquo;), with a three-dot indicator showing how much evidence sits behind it. No status colour here &mdash; a prediction is not a state.</p>
+            <h3 class="spec-title"><span data-lang-content="ko">PredictionCard &mdash; 확신을 눈에 보이게 합니다</span><span data-lang-content="en">PredictionCard &mdash; make the confidence visible.</span></h3>
+            <p class="spec-body" data-lang-content="ko">2px 점선 테두리로 &lsquo;확정 아님&rsquo;을 계속 말합니다. 누적 경기 수에 따라 확신이 높으면 단일값(&lsquo;게스트 4명&rsquo;), 낮으면 범위(&lsquo;게스트 3~5명&rsquo;)로 바뀌고 점 3개짜리 인디케이터가 근거의 두께를 보여줍니다. 여기에는 경기 상태 색을 쓰지 않습니다. 상태 색은 확정된 사실에만 쓰는 색인데, 예측은 아직 사실이 아니기 때문입니다.</p>
+            <p class="spec-body" data-lang-content="en">A 2px dashed border keeps saying &ldquo;not confirmed&rdquo;. As games accumulate, high confidence reads as a single number (&ldquo;4 guests&rdquo;) and low confidence as a range (&ldquo;3&ndash;5 guests&rdquo;), with a three-dot indicator showing how much evidence sits behind it. State colours are not used here. Those colours are for confirmed facts, and a prediction is not a fact yet.</p>
           </article>
 
           <article class="spec">
-            <h3 class="spec-title"><span data-lang-content="ko">출석 응답 &mdash; 색을 쓰지 않기로 했다.</span><span data-lang-content="en">Attendance replies &mdash; the decision to use no colour.</span></h3>
+            <h3 class="spec-title"><span data-lang-content="ko">출석 응답 &mdash; 색을 쓰지 않기로 했습니다</span><span data-lang-content="en">Attendance replies &mdash; the decision to use no colour.</span></h3>
             <p class="spec-body" data-lang-content="ko">참석 · 불참 · 미정 · 미응답. 여기에 색을 주면 색이 아홉 개가 됩니다. 시스템이 시험당한 순간이었고, 색을 전혀 쓰지 않는 쪽을 택했습니다. status 색은 &lsquo;지금 갈 수 있나&rsquo;를 3초에 판단하는 용도인데, 출석 확인은 앉아서 하는 검토라 같은 채널을 쓸 이유가 없습니다. &lsquo;게스트가 필요하다&rsquo;는 신호는 PredictionCard가 이미 담당합니다.</p>
             <p class="spec-body" data-lang-content="en">Going, not going, undecided, no answer. Give those four a colour each and the palette has nine. This was the moment the system got tested, and the answer was no colour at all. Status colour exists so you can judge &ldquo;can I make this?&rdquo; in three seconds; checking attendance is a seated review, with no reason to borrow the same channel. The signal that says &ldquo;we need guests&rdquo; is already the PredictionCard&rsquo;s job.</p>
           </article>
@@ -670,8 +677,8 @@
 
           <!-- The brand sheet's caption, standing where the sheet will go. -->
           <p class="media-caption">
-            <span data-lang-content="ko">Pretendard에서 Poppins로 교체했을 때 자간이 52.7%에서 50.5%로 자동 재계산되면서 정렬이 유지됐습니다.</span>
-            <span data-lang-content="en">Swapping Pretendard for Poppins recalculated the tracking from 52.7% to 50.5% on its own, and the alignment held.</span>
+            <span data-lang-content="ko">Pretendard에서 Poppins로 교체했을 때 자간이 52.7%에서 50.5%로 자동 재계산되면서 정렬이 유지됨</span>
+            <span data-lang-content="en">Swapping Pretendard for Poppins recalculated the tracking from 52.7% to 50.5% on its own, and the alignment held</span>
           </p>
         </div>
       </div>
@@ -688,12 +695,15 @@
           <span class="runner-spec"><span data-lang-content="ko">// 검증 스크립트</span><span data-lang-content="en">// the validator</span></span>
         </div>
 
-        <h2 class="h2" data-lang-content="ko">규칙을 <span class="acc">스크립트로</span> 만들다</h2>
+        <h2 class="h2" data-lang-content="ko">규칙을 <span class="acc">스크립트로</span> 만들었습니다</h2>
         <h2 class="h2" data-lang-content="en">Turning the rules into <span class="acc">a script</span></h2>
 
         <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">디자인 시스템 문서는 읽지 않으면 규칙이 아닙니다. 그래서 검증기를 짰습니다. 그라데이션 · 글로우 · 네온 · 유리 카드, 아이콘 그리드와 3열 피처 카드, 토큰 밖의 색과 사이즈, 플레이스홀더 텍스트를 파일 단위로 잡아냅니다.</p>
-          <p class="lead" data-lang-content="en">A design system document isn&rsquo;t a rule if nobody reads it. So I wrote a validator. It catches gradients, glows, neon and glass cards; icon grids and three-column feature cards; colours and sizes from outside the tokens; and placeholder text &mdash; file by file.</p>
+          <p class="lead" data-lang-content="ko">규칙을 문서에만 적어두면 지켜지지 않습니다. 저부터 그랬습니다. 그래서 시스템을 다시 만드는 내내, 제가 정한 규칙을 제가 어기고 있지 않은지 검사하는 프로그램을 돌렸습니다.</p>
+          <p class="lead" data-lang-content="en">A rule written only into a document doesn&rsquo;t get followed. I was the first to prove that. So while rebuilding the system, I kept a program running that checked whether I was breaking my own rules.</p>
+
+          <p class="lead" data-lang-content="ko">쓰면 안 되는 것들을 자동으로 찾아냅니다. 색이 번지는 효과, 빛나는 효과, 반투명 유리처럼 보이는 카드, 목록에 없는 색과 크기, 그리고 채우지 않고 남겨둔 임시 글자까지요.</p>
+          <p class="lead" data-lang-content="en">It finds what isn&rsquo;t allowed: colours that bleed into each other, glow effects, cards that look like frosted glass, any colour or size that isn&rsquo;t on the list, and placeholder text left unfilled.</p>
 
           <p class="lead lead--xl" data-lang-content="ko">이 스크립트가 가장 많이 잡은 건 <span class="acc">제 실수</span>였습니다.</p>
           <p class="lead lead--xl" data-lang-content="en">What it caught most was <span class="acc">my own work</span>.</p>
@@ -715,7 +725,7 @@
           <span class="runner-spec">// HTML/CSS &rarr; html.to.design</span>
         </div>
 
-        <h2 class="h2" data-lang-content="ko">Figma로 옮기는 <span class="acc">법을 바꾸다</span></h2>
+        <h2 class="h2" data-lang-content="ko">Figma로 옮기는 <span class="acc">법을 바꿨습니다</span></h2>
         <h2 class="h2" data-lang-content="en">Changing <span class="acc">how it got into Figma</span></h2>
 
         <div class="ds-prose">
@@ -725,8 +735,8 @@
           <p class="lead" data-lang-content="ko">그래서 경로를 바꿨습니다. 컴포넌트를 HTML/CSS로 실제로 짓고 html.to.design으로 들여오는 방식입니다. 그림이 아니라 진짜 마크업이라 검증 스크립트를 그대로 돌릴 수 있고, 시스템이 바뀌면 다시 빌드하면 됩니다.</p>
           <p class="lead" data-lang-content="en">So the route changed: build the components in real HTML/CSS and import them through html.to.design. Because they are markup rather than drawings, the validator runs on them unchanged &mdash; and when the system moves, you rebuild.</p>
 
-          <p class="lead" data-lang-content="ko">여기서 파일럿을 먼저 돌린 게 결정적이었습니다. 8장을 한꺼번에 넣기 전에 2장만 넣어봤는데, 폰트 크기 12px이 <code class="ds-code">card-gap</code> 변수에 묶여 있었습니다. 카드 간격을 바꾸면 글자 크기가 따라 변하는 상태였습니다.</p>
-          <p class="lead" data-lang-content="en">Running a pilot first is what saved it. Before pushing all eight screens through, I sent two &mdash; and a 12px font size came back bound to the <code class="ds-code">card-gap</code> variable. Change the gap between cards and the type would resize with it.</p>
+          <p class="lead" data-lang-content="ko">여기서 파일럿을 먼저 돌린 게 결정적이었습니다. 8장을 한꺼번에 넣기 전에 2장만 넣어봤는데, 글자 크기 12px이 <code class="ds-code">card-gap</code>(카드 사이 간격) 값에 잘못 연결돼 있었습니다. 카드 간격을 바꾸면 글자 크기까지 같이 변하는 상태였습니다.</p>
+          <p class="lead" data-lang-content="en">Running a pilot first is what saved it. Before pushing all eight screens through, I sent two &mdash; and a 12px font size had been wired to <code class="ds-code">card-gap</code> &mdash; the value for the space between cards. Change the card spacing and the text size changed with it.</p>
 
           <p class="lead" data-lang-content="ko">원인은 제 쪽이었습니다. 타입 스케일을 CSS 변수로 노출한 적이 없어서, 도구가 12라는 값을 가진 변수를 찾다가 간격 변수를 집은 것입니다. <code class="ds-code">fs-*</code> <code class="ds-code">lh-*</code> <code class="ds-code">fw-*</code> 26개를 추가하고 CSS 135곳을 바꿔 해결했고, &lsquo;값 하나당 변수 하나&rsquo;라는 규칙을 세워 중복 변수 24개를 걷어냈습니다.</p>
           <p class="lead" data-lang-content="en">The cause was on my side. I had never exposed the type scale as CSS variables, so the tool went looking for a variable holding the value 12 and grabbed a spacing one. Adding 26 <code class="ds-code">fs-*</code>, <code class="ds-code">lh-*</code> and <code class="ds-code">fw-*</code> variables and changing 135 places in the CSS fixed it &mdash; and one rule, one variable per value, cleared out 24 duplicates.</p>
@@ -799,7 +809,7 @@
 
           <div class="tldr-row">
             <div class="tldr-label"><span data-lang-content="ko">브랜드 자산</span><span data-lang-content="en">Brand assets</span></div>
-            <p class="tldr-value" data-lang-content="ko">SVG 29개 (마크 · 워드마크 · 락업 · 마스코트 4포즈 · UI 기본값)</p>
+            <p class="tldr-value" data-lang-content="ko">SVG 29개 (마크 · 워드마크 · 마크와 글자를 붙여 쓰는 조합(락업) · 마스코트 4포즈 · UI 기본값)</p>
             <p class="tldr-value" data-lang-content="en">29 SVGs (mark · wordmark · lockup · mascot in four poses · UI defaults)</p>
           </div>
 
@@ -859,7 +869,7 @@
         <h2 class="h2" data-lang-content="ko">개발 진행 중 — <span class="acc">측정할 준비</span>까지 설계했습니다</h2>
         <h2 class="h2" data-lang-content="en">In development — <span class="acc">designed to be measured</span></h2>
 
-        <p class="lead" data-lang-content="ko">백엔드 개발이 진행 중이며, 핵심 플로우와 디자인 시스템은 핸드오프를 마쳤습니다. 첫 클로즈드 베타는 개발자가 소속된 회사에서 시작할 예정입니다.</p>
+        <p class="lead" data-lang-content="ko">백엔드 개발이 진행 중이며, 핵심 플로우와 디자인 시스템은 핸드오프를 마쳤습니다. 첫 시범 서비스는 초대받은 사람만 쓰는 클로즈드 베타로, 개발자가 소속된 회사에서 시작할 예정입니다.</p>
         <p class="lead" data-lang-content="en">Backend development is in progress; core flows and the design system are handed off. The first closed beta will start at the developer's company.</p>
 
         <div class="metrics">
