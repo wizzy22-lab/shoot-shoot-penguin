@@ -614,6 +614,10 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   line-height: 1.2;
   color: var(--text-faint);
 }
+/* A domain that is one sentence rather than a why/rule pair carries its
+   own top margin, since there is no .dom-lines grid to supply it. */
+.dom-text--solo { margin-top: 24px; }
+
 .dom-text {
   max-width: 680px;
   font-size: var(--fs-body);
