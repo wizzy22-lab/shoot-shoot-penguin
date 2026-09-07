@@ -267,11 +267,17 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    the 180px inset is a desktop value and must not reach mobile.
    Only the chrome uses this; .wrap still governs the case content.
    -------------------------------------------------------------------- */
+/* The chrome shares the page's geometry so the nav, the section rail and
+   the footer all start on the same line as the content under them. It used
+   to mirror the main portfolio's own chrome — 1920 wide with a stepped
+   24/64/180/360 inset — which measures from the viewport edge while .wrap
+   measures from a centred 1280. Two different origins can only agree by
+   accident, and they were out by 140px at 1280 and 199px at 1536. */
 .ds-container {
   width: 100%;
-  max-width: 1920px;
+  max-width: var(--wrap);
   margin-inline: auto;
-  padding-inline: 24px;
+  padding-inline: var(--gutter);
 }
 
 /* ---- Global nav ------------------------------------------------------
@@ -1353,7 +1359,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   :root { --gutter: 40px; }
 
   /* Chrome container — main's `md:px-16`. */
-  .ds-container { padding-inline: 64px; }
   .ds-nav__right,
   .ds-nav__links { gap: 52px; }
 
@@ -1517,13 +1522,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    CHROME CONTAINER  (>= 1280px / >= 1536px)
    Main's `xl:px-[180px]` and `2xl:px-[360px]`.
    ============================================================ */
-@media (min-width: 1280px) {
-  .ds-container { padding-inline: 180px; }
-}
-@media (min-width: 1536px) {
-  .ds-container { padding-inline: 360px; }
-}
-
 /* ============================================================
    MOTION
    One behaviour only: the reading spotlight on the principles.
