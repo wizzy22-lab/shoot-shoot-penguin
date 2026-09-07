@@ -748,6 +748,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
+/* A figure standing on the page rather than inside a band supplies the
+   vertical room the band used to give it. */
+.section > .lightband-fig { margin-block: 64px; }
 .lightband-fig img {
   width: 100%;
   height: auto;
