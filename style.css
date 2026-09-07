@@ -598,6 +598,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: var(--text);
 }
 .dom .lightband { margin: 40px 0; }
+.dom > .lightband-fig { margin-top: 40px; }
 .dom .spec-list { margin-top: 40px; }
 .dom > .wrap > .media-caption { margin-top: 20px; text-align: left; }
 
