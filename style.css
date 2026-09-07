@@ -704,152 +704,50 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
-  max-width: 930px;
   margin-top: 44px;
 }
 .prin {
-  padding: 24px 20px;
+  padding: 20px;
   border-radius: 18px;
   background: var(--surface);
   border: 1px solid var(--border);
 }
-.prin-num {
-  display: block;
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: var(--fs-label);
-  line-height: 1.2;
-  letter-spacing: 0.08em;
-  color: var(--text-faint);
-}
-.prin-title {
-  margin-top: 12px;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: var(--fs-mid);
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-/* Inside a principle: a labelled note stacks its label over its text, so
-   the card keeps one column and the number rail stays the only rail. */
-.prin-note { margin-top: 18px; }
-.prin-note .dom-label {
-  display: block;
-  margin-bottom: 4px;
-}
-.prin-note .prin-body { margin-top: 0; }
 
-.prin-body {
-  margin-top: 10px;
-  font-size: var(--fs-body);
-  line-height: 1.6;
-  color: var(--text-dim);
-}
-
-/* ---- 03 — the colour decision --------------------------------------
-   Prose column, then two spec sheets. The sheets are rendered on white,
-   so each sits in a band that breaks the 1280 column and re-points the
-   colour tokens rather than dropping a white rectangle on a dark page:
-   the caption inside resolves --text-dim against the light ground on
-   its own, with no per-element override.
-
-   The band is a direct child of .section rather than of .wrap, so it
-   runs edge to edge without a 100vw trick and without the scrollbar
-   width leaking into the layout.
-   -------------------------------------------------------------------- */
-.lightband {
-  margin: 64px 0;
-  padding: 56px 0;
-  background: var(--bg);
-  color: var(--text);
-}
-.lightband + .wrap > .ds-prose:first-child { margin-top: 0; }
-
-.lightband-fig {
-  width: 100%;
-  max-width: var(--wrap);
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-}
-/* A figure standing on the page rather than inside a band supplies the
-   vertical room the band used to give it. */
-.section > .lightband-fig { margin-block: 64px; }
-.lightband-fig img {
-  width: 100%;
-  height: auto;
-  border-radius: 18px;
-  border: 1px solid var(--border);
-}
-
-/* ---- 04 / 05 — tokens, components, and the screens they build ------
-   Two of the artefacts here are not drawn yet. Rather than leave a gap
-   in the argument, each one holds its final frame: the right ratio, a
-   dashed edge that says "not yet" in the same language the
-   PredictionCard uses, and the element the file will land on — an
-   <img> with no src, or a <video> with no source. Landing one is a
-   single attribute plus deleting the label.
-
-   .slot-img hides itself until it has a src, because the global
-   `img { display: block }` out-ranks the UA rule for [hidden].
-   -------------------------------------------------------------------- */
-.ds-code {
-  font-family: var(--font-mono);
-  color: var(--text);
-  /* ssp-allow(rule): reason was splitting after "ssp-"; a token like this
-     is one word or it is nothing. */
-  white-space: nowrap;
-}
-
-.slot {
+/* The card's top half: a square window for the UI example. It sits on the
+   page ground rather than the card's, so it reads as inset. While it is
+   empty the label holds the space; landing the image is a src plus
+   deleting the label. */
+.prin-media {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 44px;
-  border: 2px dashed var(--text-faint);
-  border-radius: 18px;
-  background: var(--surface);
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background: var(--bg);
   overflow: hidden;
 }
-.slot--16x10 { aspect-ratio: 16 / 10; }
-.slot--16x9 { aspect-ratio: 16 / 9; }
-
-.slot-img,
-.slot-video {
+.prin-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background: none;
 }
-.slot-img:not([src]) { display: none; }
-
-/* Label typography, but not label casing — uppercasing turns "4-b" into
-   "4-B" and the figure names are part of the file names. */
-.slot-label {
-  position: relative;
-  padding: 0 var(--gutter);
+.prin-img:not([src]) { display: none; }
+.prin-media-label {
+  padding: 0 16px;
   font-family: var(--font-mono);
   font-weight: 400;
-  font-size: var(--fs-label);
+  font-size: var(--fs-label-sm);
   letter-spacing: 0.08em;
   line-height: 1.4;
   text-align: center;
   color: var(--text-faint);
 }
 
-/* The three components that got their own argument. Same steps as the
-   principles: title at 500, body dimmed. */
-.spec-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  margin-top: 44px;
-}
-.spec { max-width: 800px; }
-.spec-title {
+.prin-title {
+  margin-top: 20px;
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: var(--fs-mid);
@@ -857,7 +755,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   letter-spacing: -0.01em;
   color: var(--text);
 }
-.spec-body {
+.prin-body {
   margin-top: 10px;
   font-size: var(--fs-body);
   line-height: 1.6;
@@ -1389,15 +1287,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   }
   .dom-label { padding-top: 3px; }
 
-  .prin-list { gap: 24px; }
-  .prin {
-    display: grid;
-    grid-template-columns: 56px minmax(0, 1fr);
-    gap: 24px;
-    padding: 28px 24px;
-  }
-  .prin-num { padding-top: 5px; }
-  .prin-title { margin-top: 0; }
+  .prin { padding: 24px; }
 
   .lightband { margin: 80px 0; padding: 72px 0; }
 
@@ -1421,6 +1311,10 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .coreq { padding: 140px 0; }
 
   .eyebrow { margin-bottom: 24px; }
+
+  /* Three across once there is room; below this a card would be narrower
+     than its own square window is tall. */
+  .prin-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 
   .wf-cards { grid-template-columns: repeat(4, 1fr); }
   .role-grid { grid-template-columns: repeat(4, 1fr); }
@@ -1519,7 +1413,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   border-color: var(--text-faint);
 }
 .prin.is-reading .prin-body { color: var(--text); }
-.prin.is-reading .prin-num { color: var(--text-dim); }
 
 /* ---- Opt out ---------------------------------------------------------
    The lift and the transitions go; the contrast step stays. It reads as

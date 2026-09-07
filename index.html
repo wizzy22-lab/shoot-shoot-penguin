@@ -310,7 +310,7 @@
 
       <div class="wrap">
         <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">다섯 가지 상태색을 배경(tint) · 핀과 점(solid) · 텍스트(text)로 구분했습니다.<br class="only-desktop" /> 판단에 필요한 텍스트는 배경과 7:1 이상의 명도 대비를 확보하고, 상태명과 표시를 함께 사용해 색상에만 의존하지 않도록 설계했습니다.</p>
+          <p class="lead" data-lang-content="ko">다섯 가지 상태색을 배경(tint) · 핀과 점(solid) · 텍스트(text)로 구분했습니다.<br class="only-desktop" /> 판단에 필요한 텍스트는 배경과 7:1 이상의 명도 대비를 확보하고, 상태명과 표시를<br class="only-desktop" /> 함께 사용해 색상에만 의존하지 않도록 설계했습니다.</p>
           <p class="lead" data-lang-content="en">Each of the five state colours is split into a background (tint), a pin or dot (solid) and text.<br class="only-desktop" /> Text that carries a decision holds at least 7:1 contrast against its background, and the state&rsquo;s name and marker travel with it, so nothing depends on colour alone.</p>
         </div>
       </div>
@@ -327,84 +327,45 @@
 
         <ol class="prin-list">
           <li class="prin">
-            <span class="prin-num">01</span>
-            <div class="prin-text">
-              <h3 class="prin-title"><span data-lang-content="ko">행동과 상태를 구분합니다</span><span data-lang-content="en">Separate action from state</span></h3>
-              <p class="prin-body" data-lang-content="ko">버튼 · 필터 · 탭은 무채색으로, 경기 상태는 색상과 상태명으로 표현합니다.</p>
-              <p class="prin-body" data-lang-content="en">Buttons, filters and tabs are neutral; game state is carried by colour together with the name of the state.</p>
-
-              <div class="prin-note">
-                <span class="dom-label"><span data-lang-content="ko">적용 기준</span><span data-lang-content="en">How it applies</span></span>
-                <p class="prin-body" data-lang-content="ko">사용자의 조작을 유도하는 요소와 현재 경기 상황을 알리는 요소에 각각 정해진 색상 역할을 적용합니다.</p>
-                <p class="prin-body" data-lang-content="en">Elements that invite an action and elements that report the current state of a game each take their own assigned colour role.</p>
-              </div>
-
-              <div class="prin-note">
-                <span class="dom-label"><span data-lang-content="ko">피해야 할 표현</span><span data-lang-content="en">What to avoid</span></span>
-                <p class="prin-body" data-lang-content="ko">버튼과 상태 배지에 같은 강조 색상을 사용해 행동과 상태가 동일한 의미로 보이게 하지 않습니다.</p>
-                <p class="prin-body" data-lang-content="en">Never give a button and a status badge the same accent colour, which makes an action and a state read as the same thing.</p>
-              </div>
-
-              <div class="prin-note">
-                <span class="dom-label"><span data-lang-content="ko">예시</span><span data-lang-content="en">Example</span></span>
-                <p class="prin-body" data-lang-content="ko">&lsquo;신청하기&rsquo; 버튼은 무채색으로 두고, &lsquo;모집 중&rsquo; 배지는 초록색과 상태명으로 표시합니다.</p>
-                <p class="prin-body" data-lang-content="en">The &ldquo;Apply&rdquo; button stays neutral; the &ldquo;Recruiting&rdquo; badge is shown in green with its state name.</p>
-              </div>
+            <!-- UI 예시 자리. 이미지가 오면 src 를 넣고 라벨을 지웁니다. -->
+            <div class="prin-media">
+              <img class="prin-img" alt="" width="1200" height="1200" />
+              <p class="prin-media-label">
+                <span data-lang-content="ko">[ UI 예시 · 준비 중 ]</span>
+                <span data-lang-content="en">[ UI example · in progress ]</span>
+              </p>
             </div>
+            <h3 class="prin-title"><span data-lang-content="ko">행동과 상태를 구분합니다</span><span data-lang-content="en">Separate action from state</span></h3>
+            <p class="prin-body" data-lang-content="ko">버튼 · 필터 · 탭은 무채색을 기본으로 사용하고, 경기 상태는 색과 상태명으로 구별합니다.</p>
+            <p class="prin-body" data-lang-content="en">Buttons, filters and tabs default to neutral; game state is told apart by colour together with the name of the state.</p>
           </li>
 
           <li class="prin">
-            <span class="prin-num">02</span>
-            <div class="prin-text">
-              <h3 class="prin-title"><span data-lang-content="ko">예측과 확정을 구분합니다</span><span data-lang-content="en">Separate a prediction from a fact</span></h3>
-              <p class="prin-body" data-lang-content="ko">예상 인원은 점선 테두리와 범위로 표시해 확정 정보와 구별합니다.</p>
-              <p class="prin-body" data-lang-content="en">A predicted headcount is drawn with a dashed border and a range, so it reads apart from confirmed information.</p>
-
-              <div class="prin-note">
-                <span class="dom-label"><span data-lang-content="ko">적용 기준</span><span data-lang-content="en">How it applies</span></span>
-                <p class="prin-body" data-lang-content="ko">아직 변동 가능성이 있는 정보에는 범위 · 점선 · 예상 상태명을 함께 사용하고, 확정된 정보에는 단일 값과 실선 표현을 사용합니다.</p>
-                <p class="prin-body" data-lang-content="en">Information that can still change takes a range, a dashed border and a name that says it is an estimate; confirmed information takes a single value and a solid border.</p>
-              </div>
-
-              <div class="prin-note">
-                <span class="dom-label"><span data-lang-content="ko">피해야 할 표현</span><span data-lang-content="en">What to avoid</span></span>
-                <p class="prin-body" data-lang-content="ko">예상 수치를 확정된 숫자처럼 단정하거나, 예측 정보와 확정 정보를 같은 표기 방식으로 표현하지 않습니다.</p>
-                <p class="prin-body" data-lang-content="en">Never state an estimate as though it were settled, or express predicted and confirmed information the same way.</p>
-              </div>
-
-              <div class="prin-note">
-                <span class="dom-label"><span data-lang-content="ko">예시</span><span data-lang-content="en">Example</span></span>
-                <p class="prin-body" data-lang-content="ko">예상 참가 인원은 8~10명처럼 범위로 표기하고 점선 카드로 표현하며, 확정 인원은 실선 카드와 단일 숫자로 표시합니다.</p>
-                <p class="prin-body" data-lang-content="en">An expected turnout is written as a range &mdash; 8&ndash;10 people &mdash; on a dashed card; a confirmed count is a single number on a solid card.</p>
-              </div>
+            <!-- UI 예시 자리. 이미지가 오면 src 를 넣고 라벨을 지웁니다. -->
+            <div class="prin-media">
+              <img class="prin-img" alt="" width="1200" height="1200" />
+              <p class="prin-media-label">
+                <span data-lang-content="ko">[ UI 예시 · 준비 중 ]</span>
+                <span data-lang-content="en">[ UI example · in progress ]</span>
+              </p>
             </div>
+            <h3 class="prin-title"><span data-lang-content="ko">예측과 확정을 구분합니다</span><span data-lang-content="en">Separate a prediction from a fact</span></h3>
+            <p class="prin-body" data-lang-content="ko">예상 인원에는 점선 테두리와 범위 표기를 사용해, 확정된 정보와 다르게 읽히도록 설계합니다.</p>
+            <p class="prin-body" data-lang-content="en">A predicted headcount takes a dashed border and a range, so it reads differently from information that is settled.</p>
           </li>
 
           <li class="prin">
-            <span class="prin-num">03</span>
-            <div class="prin-text">
-              <h3 class="prin-title"><span data-lang-content="ko">맥락에 맞게 정보를 표현합니다</span><span data-lang-content="en">Express information to fit its context</span></h3>
-              <p class="prin-body" data-lang-content="ko">관리 화면 · 지도 · 외부 공유 화면의 목적에 맞춰 정보 밀도와 표현 방식을 정의합니다.</p>
-              <p class="prin-body" data-lang-content="en">Information density and expression are defined to suit the purpose of the management screen, the map and the shared post.</p>
-
-              <div class="prin-note">
-                <span class="dom-label"><span data-lang-content="ko">적용 기준</span><span data-lang-content="en">How it applies</span></span>
-                <p class="prin-body" data-lang-content="ko">화면의 주요 사용 목적과 사용자의 우선 행동을 먼저 정한 뒤, 그에 필요한 정보만 우선순위에 따라 배치합니다.</p>
-                <p class="prin-body" data-lang-content="en">Settle what the screen is mainly for and what the user does first, then place only the information that serves it, in that order.</p>
-              </div>
-
-              <div class="prin-note">
-                <span class="dom-label"><span data-lang-content="ko">피해야 할 표현</span><span data-lang-content="en">What to avoid</span></span>
-                <p class="prin-body" data-lang-content="ko">모든 화면에 동일한 정보량과 구조를 적용해 핵심 정보가 묻히거나, 사용 목적과 무관한 세부 정보를 과도하게 노출하지 않습니다.</p>
-                <p class="prin-body" data-lang-content="en">Never apply the same amount of information and the same structure to every screen, burying what matters or over-exposing detail the screen has no use for.</p>
-              </div>
-
-              <div class="prin-note">
-                <span class="dom-label"><span data-lang-content="ko">예시</span><span data-lang-content="en">Example</span></span>
-                <p class="prin-body" data-lang-content="ko">관리 화면에는 출석 상태와 모집 인원을 함께 보여주고, 지도에서는 경기 시간과 위치를 우선 표시하며, 외부 공유 화면에서는 경기명 · 일시 · 장소만 간결하게 제공합니다.</p>
-                <p class="prin-body" data-lang-content="en">The management screen shows attendance and headcount together; the map leads with time and location; the shared post gives only the game&rsquo;s name, date and place.</p>
-              </div>
+            <!-- UI 예시 자리. 이미지가 오면 src 를 넣고 라벨을 지웁니다. -->
+            <div class="prin-media">
+              <img class="prin-img" alt="" width="1200" height="1200" />
+              <p class="prin-media-label">
+                <span data-lang-content="ko">[ UI 예시 · 준비 중 ]</span>
+                <span data-lang-content="en">[ UI example · in progress ]</span>
+              </p>
             </div>
+            <h3 class="prin-title"><span data-lang-content="ko">사용 맥락에 맞게 표현합니다</span><span data-lang-content="en">Express it to fit where it is used</span></h3>
+            <p class="prin-body" data-lang-content="ko">관리 화면의 정보 밀도, 지도 위 요소의 식별, 외부 공유 시 필요한 정보를 각 환경에 맞게 정의합니다.</p>
+            <p class="prin-body" data-lang-content="en">Density on the management screens, legibility on the map, and what a shared post needs are each defined for their own setting.</p>
           </li>
         </ol>
       </div>
@@ -1021,8 +982,18 @@
       var scrolled = null;   /* what the scroll position says */
       var pointed = null;    /* what the pointer says, while it says anything */
 
+      /* Once the cards sit three across they all cross the reading line
+         together, so scroll position can no longer say which one is being
+         read — the pointer is the only honest source there. Stacked, both
+         still apply. */
+      function stacked() {
+        return cards.length < 2 ||
+          Math.round(cards[0].getBoundingClientRect().top) !==
+          Math.round(cards[1].getBoundingClientRect().top);
+      }
+
       function paint() {
-        var current = pointed || scrolled;
+        var current = pointed || (stacked() ? scrolled : null);
         cards.forEach(function (card) {
           card.classList.toggle('is-reading', card === current);
         });
