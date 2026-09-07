@@ -427,9 +427,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    already stops Korean from splitting inside an eojeol. */
 .only-desktop { display: none; }
 
-/* The two clauses the hero is actually about. */
-.hero-em { font-weight: 600; }
-
 .hero-body {
   margin-top: 24px;
   max-width: 880px;
