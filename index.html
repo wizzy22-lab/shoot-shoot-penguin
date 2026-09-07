@@ -98,30 +98,36 @@
       <div class="hero-glow hero-glow--bl" aria-hidden="true"></div>
 
       <div class="wrap hero-inner">
-        <!-- The title is the system's name, so it is the same string in both
-             locales — handled the way the meta handles "Product Designer" —
-             and its two lines are the name, not a width accident. -->
-        <h1 class="hero-title">Shoot Shoot Penguin<br /><span class="acc">Design System</span></h1>
+        <!-- Two columns from the desktop step: the text block on the left,
+             the key visual on the right. The meta row below spans both. -->
+        <div class="hero-text">
+          <!-- The title is the system's name, so it is the same string in both
+               locales — handled the way the meta handles "Product Designer" —
+               and its two lines are the name, not a width accident. -->
+          <h1 class="hero-title">Shoot Shoot Penguin<br /><span class="acc">Design System</span></h1>
 
-        <p class="hero-body" data-lang-content="ko">Shoot Shoot Penguin의 초기 화면을 검토하며, 반복 요소의 스타일과 색의 의미가 화면마다 달라지는 문제를 발견했습니다.<br class="only-desktop" /> <span class="hero-em">조작 요소와 경기 상태의 표현을 분리하고</span>, 토큰과 컴포넌트를 정리해 <span class="hero-em">두 사용자 화면에 적용할 공통 기준</span>을 만들었습니다.</p>
-        <p class="hero-body" data-lang-content="en">Reviewing the first screens of Shoot Shoot Penguin, I found that repeated elements were styled differently from screen to screen, and that colour meant something different in each one.<br class="only-desktop" /> <span class="hero-em">Separating how controls and game state are expressed</span>, then settling the tokens and components, gave <span class="hero-em">one standard both sides of the app could be built on</span>.</p>
+          <p class="hero-body" data-lang-content="ko">Shoot Shoot Penguin의 초기 화면을 검토하며, 반복 요소의 스타일과 색의 의미가 화면마다 달라지는 문제를 발견했습니다.<br class="only-desktop" /> <span class="hero-em">조작 요소와 경기 상태의 표현을 분리하고</span>, 토큰과 컴포넌트를 정리해 <span class="hero-em">두 사용자 화면에 적용할 공통 기준</span>을 만들었습니다.</p>
+          <p class="hero-body" data-lang-content="en">Reviewing the first screens of Shoot Shoot Penguin, I found that repeated elements were styled differently from screen to screen, and that colour meant something different in each one.<br class="only-desktop" /> <span class="hero-em">Separating how controls and game state are expressed</span>, then settling the tokens and components, gave <span class="hero-em">one standard both sides of the app could be built on</span>.</p>
 
-        <!-- Key visual slot. The media is the frame's only child and fills it
-             edge to edge, so trading the still for a clip later is a one-element
-             swap — <video class="hero-media" autoplay loop muted playsinline>
-             lands on the same rules and keeps the frame, radius and crop. -->
-        <div class="thumb">
-          <img class="hero-media"
-               src="assets/img/ssp-hero-2x.webp"
-               width="2400" height="1350"
-               alt="Shoot Shoot Penguin — the team home screen beside the guest map" />
+          <div class="tagrow">
+            <span class="tag">TWO-SIDED PLATFORM</span>
+            <span class="tag">PREDICTION UX</span>
+            <span class="tag">MOBILE APP</span>
+            <span class="tag">IN DEVELOPMENT</span>
+          </div>
         </div>
 
-        <div class="tagrow">
-          <span class="tag">TWO-SIDED PLATFORM</span>
-          <span class="tag">PREDICTION UX</span>
-          <span class="tag">MOBILE APP</span>
-          <span class="tag">IN DEVELOPMENT</span>
+        <div class="hero-visual">
+          <!-- Key visual slot. The media is the frame's only child and fills it
+               edge to edge, so trading the still for a clip later is a one-element
+               swap — <video class="hero-media" autoplay loop muted playsinline>
+               lands on the same rules and keeps the frame, radius and crop. -->
+          <div class="thumb">
+            <img class="hero-media"
+                 src="assets/img/ssp-hero-2x.webp"
+                 width="2400" height="1350"
+                 alt="Shoot Shoot Penguin — the team home screen beside the guest map" />
+          </div>
         </div>
 
         <div class="role-grid">

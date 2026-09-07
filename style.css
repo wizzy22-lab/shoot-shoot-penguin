@@ -406,6 +406,12 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
 .hero-title { margin-top: 8px; }
 
+/* Two columns from the desktop step: the text block beside the key visual,
+   with the meta row spanning both underneath. Below that step everything
+   stacks in document order — title, lead, tags, visual, meta — so the text
+   block finishes before the picture arrives. */
+.hero-visual { margin-top: 48px; }
+
 /* A line break that belongs to one width band: the lead splits at its
    sentence boundary from the desktop step and flows freely below, where a
    fixed break would leave a ragged half-line.
@@ -431,7 +437,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    and a clip round identically without either carrying its own radius. */
 .thumb {
   position: relative;
-  margin-top: 48px;
   aspect-ratio: 16 / 9;
   border-radius: 20px;
   border: 1px solid var(--border);
@@ -1477,6 +1482,21 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 @media (min-width: 1024px) {
   .only-desktop { display: inline; }
   .runner-spec--long { display: block; }
+
+  .hero-inner {
+    display: grid;
+    /* The text column takes the larger share: at the 1024 step an even
+       split leaves the title needing exactly its column width, and rounding
+       pushes it onto a third line. 1.1fr buys it 20px of slack there and
+       costs the visual 27px at 1440. */
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+  }
+  /* The visual's top edge lines up with the title's first line, so both
+     columns start reading from the same place. */
+  .hero-visual { margin-top: 8px; }
+  .role-grid { grid-column: 1 / -1; }
 
   .ds-footer__inner {
     flex-direction: row;
