@@ -406,12 +406,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
 .hero-title { margin-top: 8px; }
 
-/* Line breaks that belong to one width band. The title runs on a single
-   line from the desktop step and folds at its comma below it; the lead is
-   set to three lines from the same step and flows freely below, where a
-   fixed break would leave ragged half-lines.
+/* A line break that belongs to one width band: the lead splits at its
+   sentence boundary from the desktop step and flows freely below, where a
+   fixed break would leave a ragged half-line.
 
-   Both are <br> rather than nowrap spans: nowrap on the English title
+   It is a <br> rather than a nowrap span: nowrap on the English lead
    would overflow a phone rather than wrap, and body { word-break: keep-all }
    already stops Korean from splitting inside an eojeol. */
 .only-desktop { display: none; }
@@ -1476,7 +1475,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    Label columns go side by side; the wordmark moves out to the right.
    ============================================================ */
 @media (min-width: 1024px) {
-  .only-narrow { display: none; }
   .only-desktop { display: inline; }
   .runner-spec--long { display: block; }
 

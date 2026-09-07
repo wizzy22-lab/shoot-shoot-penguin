@@ -98,15 +98,13 @@
       <div class="hero-glow hero-glow--bl" aria-hidden="true"></div>
 
       <div class="wrap hero-inner">
-        <p class="eyebrow">[ SSP Design System · 0 &rarr; 1 ]</p>
+        <!-- The title is the system's name, so it is the same string in both
+             locales — handled the way the meta handles "Product Designer" —
+             and its two lines are the name, not a width accident. -->
+        <h1 class="hero-title">Shoot Shoot Penguin<br /><span class="acc">Design System</span></h1>
 
-        <h1 class="hero-title">
-          <span data-lang-content="ko">모집은 짧게,<br class="only-narrow" /> <span class="acc">농구는 길게</span></span>
-          <span data-lang-content="en">Spend less time recruiting,<br class="only-narrow" /> <span class="acc">more time playing</span></span>
-        </h1>
-
-        <p class="hero-body" data-lang-content="ko">수년간 아마추어 농구 경기의 게스트 모집은 메신저, 커뮤니티 카페 게시글, 댓글, 문자, 수기 입금 확인으로<br class="only-desktop" /> 흩어진 과정에 의존해 왔습니다. Shoot Shoot Penguin은 이 반복적인 업무를 하나의 시스템으로 묶어,<br class="only-desktop" /> <span class="hero-em">팀 리드는 경기를 더 효율적으로 운영하고</span> <span class="hero-em">플레이어는 참여할 경기를 쉽게 찾을 수 있게</span> 합니다.</p>
-        <p class="hero-body" data-lang-content="en">For years, recruiting guest players for amateur basketball games relied on a fragmented process — Messenger, community cafe posts, comments, texts, and manual payment checks.<br class="only-desktop" /> Shoot Shoot Penguin ties this repetitive workflow into one system,<br class="only-desktop" /> so <span class="hero-em">organizers run games more efficiently</span> and <span class="hero-em">players find games to join with ease</span>.</p>
+        <p class="hero-body" data-lang-content="ko">Shoot Shoot Penguin의 초기 화면을 검토하며, 반복 요소의 스타일과 색의 의미가 화면마다 달라지는 문제를 발견했습니다.<br class="only-desktop" /> <span class="hero-em">조작 요소와 경기 상태의 표현을 분리하고</span>, 토큰과 컴포넌트를 정리해 <span class="hero-em">두 사용자 화면에 적용할 공통 기준</span>을 만들었습니다.</p>
+        <p class="hero-body" data-lang-content="en">Reviewing the first screens of Shoot Shoot Penguin, I found that repeated elements were styled differently from screen to screen, and that colour meant something different in each one.<br class="only-desktop" /> <span class="hero-em">Separating how controls and game state are expressed</span>, then settling the tokens and components, gave <span class="hero-em">one standard both sides of the app could be built on</span>.</p>
 
         <!-- Key visual slot. The media is the frame's only child and fills it
              edge to edge, so trading the still for a clip later is a one-element
