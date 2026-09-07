@@ -525,27 +525,40 @@
     <!-- ============================================================
          06 — Enforcement. The rules stop being prose here.
          ============================================================ -->
-    <section class="section ds-script" id="ds-script">
-      <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">09 / Enforcement</span>
+    <section class="section split" id="ds-script">
+      <div class="wrap split-inner">
+        <div class="split-text">
+          <div class="runner">
+            <span class="runner-name">09 / Enforcement</span>
+          </div>
+
+          <h2 class="h2" data-lang-content="ko">문서의 규칙을<br />코드에서도 확인했습니다</h2>
+          <h2 class="h2" data-lang-content="en">The rules in the document,<br />checked in the code as well</h2>
+
+          <div class="ds-prose">
+            <p class="lead" data-lang-content="ko">HTML/CSS로 제작한 시안에 검사 스크립트를 적용해, 다음 항목을 확인했습니다.</p>
+            <p class="lead" data-lang-content="en">A checking script runs over the mockups built in HTML and CSS, looking for the following.</p>
+          </div>
+
+          <ul class="pain-list">
+            <li><span data-lang-content="ko">허용 목록에 없는 색상과 크기</span><span data-lang-content="en">Colours and sizes that are not on the allowed list</span></li>
+            <li><span data-lang-content="ko">사용이 금지된 효과</span><span data-lang-content="en">Effects the system forbids</span></li>
+            <li><span data-lang-content="ko">아직 남아 있는 임시 문구</span><span data-lang-content="en">Placeholder text still left in place</span></li>
+          </ul>
+
+          <div class="ds-prose">
+            <p class="lead" data-lang-content="ko">반복해서 확인해야 하는 항목은 자동화해 수정 과정에서 규칙이 빠지는 일을 줄였습니다.<br class="only-desktop" /> 다만 이 검사는 코드에 정의된 규칙을 지켰는지만 확인합니다. 화면의 사용성과 가독성은 별도로 검토해야 합니다.</p>
+            <p class="lead" data-lang-content="en">Automating the checks that have to run again and again means fewer rules go missing while a screen is being changed.<br class="only-desktop" /> The check only confirms that the rules written into the code were kept, though; how a screen reads and how it is used still has to be reviewed separately.</p>
+          </div>
         </div>
 
-        <h2 class="h2" data-lang-content="ko">규칙을 <span class="acc">스크립트로</span> 만들었습니다</h2>
-        <h2 class="h2" data-lang-content="en">Turning the rules into <span class="acc">a script</span></h2>
-
-        <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">규칙을 문서에만 적어두면 지켜지지 않습니다. 저부터 그랬습니다. 그래서 시스템을 다시 만드는 내내, 제가 정한 규칙을 제가 어기고 있지 않은지 검사하는 프로그램을 돌렸습니다.</p>
-          <p class="lead" data-lang-content="en">A rule written only into a document doesn&rsquo;t get followed. I was the first to prove that. So while rebuilding the system, I kept a program running that checked whether I was breaking my own rules.</p>
-
-          <p class="lead" data-lang-content="ko">쓰면 안 되는 것들을 자동으로 찾아냅니다. 색이 번지는 효과, 빛나는 효과, 반투명 유리처럼 보이는 카드, 목록에 없는 색과 크기, 그리고 채우지 않고 남겨둔 임시 글자까지요.</p>
-          <p class="lead" data-lang-content="en">It finds what isn&rsquo;t allowed: colours that bleed into each other, glow effects, cards that look like frosted glass, any colour or size that isn&rsquo;t on the list, and placeholder text left unfilled.</p>
-
-          <p class="lead lead--xl" data-lang-content="ko">이 스크립트가 가장 많이 잡은 건 <span class="acc">제 실수</span>였습니다.</p>
-          <p class="lead lead--xl" data-lang-content="en">What it caught most was <span class="acc">my own work</span>.</p>
-
-          <p class="lead" data-lang-content="ko">@font-face의 <code class="ds-code">font-weight: 100 900</code>, 포커스 링에 쓴 오프셋 0 그림자, 스케일에 없는 <code class="ds-code">max-width: 640px</code>, <code class="ds-code">margin-top: 5px</code> &mdash; 전부 제가 쓴 것이고 스크립트가 먼저 발견했습니다.</p>
-          <p class="lead" data-lang-content="en">A <code class="ds-code">font-weight: 100 900</code> in an @font-face, a zero-offset shadow used as a focus ring, a <code class="ds-code">max-width: 640px</code> that isn&rsquo;t on the scale, a <code class="ds-code">margin-top: 5px</code> &mdash; all mine, and the script found every one of them before I did.</p>
+        <!-- 검사 결과 화면 자리. 이미지가 오면 src 를 넣고 라벨을 지웁니다. -->
+        <div class="slot slot--1x1">
+          <img class="slot-img" alt="" width="1200" height="1200" />
+          <p class="slot-label">
+            <span data-lang-content="ko">[ 검사 결과 화면 · 준비 중 ]</span>
+            <span data-lang-content="en">[ Checker output · in progress ]</span>
+          </p>
         </div>
       </div>
     </section>

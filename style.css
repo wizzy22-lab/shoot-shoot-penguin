@@ -608,7 +608,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    the text, which is the order it is read in anyway. The text column
    takes the larger share so a two-line heading holds its lines.
    ============================================================ */
-.split-figure { margin-top: 44px; }
+/* A slot can stand in the figure column while its image is pending. */
+.split-figure,
+.split-inner > .slot { margin-top: 44px; }
 .split-figure img {
   width: 100%;
   height: auto;
@@ -681,6 +683,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   background: var(--surface);
   overflow: hidden;
 }
+.slot--1x1 { aspect-ratio: 1 / 1; }
 .slot--16x10 { aspect-ratio: 16 / 10; }
 .slot--16x9 { aspect-ratio: 16 / 9; }
 
@@ -1468,7 +1471,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
     gap: 64px;
     align-items: start;
   }
-  .split-figure { margin-top: 0; }
+  .split-figure,
+  .split-inner > .slot { margin-top: 0; }
 
   .hero-inner {
     display: grid;
