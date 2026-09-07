@@ -843,8 +843,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
 /* ============================================================
    PRODUCT DETAIL — divider
-   Marks where the pre-system screens begin. The rule on top is
-   the same one .seemore uses to close the page.
+   Marks where the pre-system screens begin.
    ============================================================ */
 .detail-divider {
   border-top: 1px solid var(--border);
@@ -1105,11 +1104,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 /* ============================================================
    SEE MORE PROJECTS
    ============================================================ */
-.seemore { border-top: 1px solid var(--border); }
 .proj-cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+  max-width: 720px;
   margin-top: 32px;
 }
 .proj-card {
