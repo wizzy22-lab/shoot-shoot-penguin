@@ -602,6 +602,21 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .dom > .wrap > .media-caption { margin-top: 20px; text-align: left; }
 
 /* ============================================================
+   SPLIT SECTION
+   Text on the left, its figure on the right, from the desktop step —
+   the same shape the hero uses. Below that step the figure drops under
+   the text, which is the order it is read in anyway. The text column
+   takes the larger share so a two-line heading holds its lines.
+   ============================================================ */
+.split-figure { margin-top: 44px; }
+.split-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+}
+
+/* ============================================================
    02 — CONTEXT
    The six-step loop, drawn as a loop. Out along the top row, down the
    right rail, back along the return row, up the left rail into the
@@ -1440,6 +1455,14 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    ============================================================ */
 @media (min-width: 1024px) {
   .only-desktop { display: inline; }
+
+  .split-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: start;
+  }
+  .split-figure { margin-top: 0; }
 
   .hero-inner {
     display: grid;
