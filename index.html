@@ -81,7 +81,6 @@
         <a class="ds-anchor" href="#ds-principles"><span data-lang-content="ko">원칙</span><span data-lang-content="en">principles</span></a>
         <a class="ds-anchor" href="#foundations"><span data-lang-content="ko">파운데이션</span><span data-lang-content="en">foundations</span></a>
         <a class="ds-anchor" href="#ds-script"><span data-lang-content="ko">검증</span><span data-lang-content="en">enforcement</span></a>
-        <a class="ds-anchor" href="#ds-figma"><span data-lang-content="ko">핸드오프</span><span data-lang-content="en">handoff</span></a>
         <a class="ds-anchor" href="#ds-results"><span data-lang-content="ko">결과</span><span data-lang-content="en">results</span></a>
         <a class="ds-anchor" href="#status"><span data-lang-content="ko">배운 것</span><span data-lang-content="en">learned</span></a>
       </div>
@@ -514,36 +513,6 @@
       </div>
     </section>
 
-    <!-- ============================================================
-         07 — Handoff. The tool was wrong, not the prompt.
-         ============================================================ -->
-    <section class="section ds-figma" id="ds-figma">
-      <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">09 / Handoff</span>
-        </div>
-
-        <h2 class="h2" data-lang-content="ko">Figma로 옮기는 <span class="acc">법을 바꿨습니다</span></h2>
-        <h2 class="h2" data-lang-content="en">Changing <span class="acc">how it got into Figma</span></h2>
-
-        <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">처음에는 Figma Make로 만들 계획이었습니다. 프롬프트를 정교하게 써서 넣었더니 팔레트 목업을 그려버렸습니다. 실패 원인을 뜯어보니 도구를 잘못 이해한 것이었습니다 &mdash; Figma Make는 프롬프트로 앱을 만드는 도구지 Figma 스타일과 변수를 만드는 도구가 아닙니다. 제 프롬프트는 구조적으로 불가능한 것을 요구하고 있었습니다.</p>
-          <p class="lead" data-lang-content="en">The plan was to build it in Figma Make. I wrote a careful prompt, fed it in, and got a mockup of a palette back. Taking the failure apart, the fault was in how I understood the tool &mdash; Figma Make builds apps from prompts; it doesn&rsquo;t build Figma styles and variables. My prompt was asking for something structurally impossible.</p>
-
-          <p class="lead" data-lang-content="ko">그래서 경로를 바꿨습니다. 컴포넌트를 HTML/CSS로 실제로 짓고 html.to.design으로 들여오는 방식입니다. 그림이 아니라 진짜 마크업이라 검증 스크립트를 그대로 돌릴 수 있고, 시스템이 바뀌면 다시 빌드하면 됩니다.</p>
-          <p class="lead" data-lang-content="en">So the route changed: build the components in real HTML/CSS and import them through html.to.design. Because they are markup rather than drawings, the validator runs on them unchanged &mdash; and when the system moves, you rebuild.</p>
-
-          <p class="lead" data-lang-content="ko">여기서 파일럿을 먼저 돌린 게 결정적이었습니다. 8장을 한꺼번에 넣기 전에 2장만 넣어봤는데, 글자 크기 12px이 <code class="ds-code">card-gap</code>(카드 사이 간격) 값에 잘못 연결돼 있었습니다. 카드 간격을 바꾸면 글자 크기까지 같이 변하는 상태였습니다.</p>
-          <p class="lead" data-lang-content="en">Running a pilot first is what saved it. Before pushing all eight screens through, I sent two &mdash; and a 12px font size had been wired to <code class="ds-code">card-gap</code> &mdash; the value for the space between cards. Change the card spacing and the text size changed with it.</p>
-
-          <p class="lead" data-lang-content="ko">원인은 제 쪽이었습니다. 타입 스케일을 CSS 변수로 노출한 적이 없어서, 도구가 12라는 값을 가진 변수를 찾다가 간격 변수를 집은 것입니다. <code class="ds-code">fs-*</code> <code class="ds-code">lh-*</code> <code class="ds-code">fw-*</code> 26개를 추가하고 CSS 135곳을 바꿔 해결했고, &lsquo;값 하나당 변수 하나&rsquo;라는 규칙을 세워 중복 변수 24개를 걷어냈습니다.</p>
-          <p class="lead" data-lang-content="en">The cause was on my side. I had never exposed the type scale as CSS variables, so the tool went looking for a variable holding the value 12 and grabbed a spacing one. Adding 26 <code class="ds-code">fs-*</code>, <code class="ds-code">lh-*</code> and <code class="ds-code">fw-*</code> variables and changing 135 places in the CSS fixed it &mdash; and one rule, one variable per value, cleared out 24 duplicates.</p>
-
-          <p class="lead lead--xl" data-lang-content="ko"><span class="acc">프롬프트를 계속 다듬는 것보다, 도구를 잘못 골랐다고 빨리 인정하는 편이 빨랐습니다.</span></p>
-          <p class="lead lead--xl" data-lang-content="en"><span class="acc">Admitting I had picked the wrong tool was faster than another round of refining the prompt.</span></p>
-        </div>
-      </div>
-    </section>
 
     <!-- ============================================================
          10 — Results. Same card the 30-second summary uses; this is the
@@ -552,7 +521,7 @@
     <section class="section ds-results" id="ds-results">
       <div class="wrap">
         <div class="runner">
-          <span class="runner-name">10 / Results</span>
+          <span class="runner-name">09 / Results</span>
         </div>
 
         <div class="tldr-card">
@@ -601,7 +570,7 @@
     <section class="section status" id="status">
       <div class="wrap">
         <div class="runner">
-          <span class="runner-name">11 / What I Learned</span>
+          <span class="runner-name">10 / What I Learned</span>
         </div>
 
         <h2 class="h2" data-lang-content="ko">규칙을 만드는 것만큼<br />적용하며 확인하는 과정이 중요했습니다</h2>
@@ -644,7 +613,7 @@
     <section class="section seemore">
       <div class="wrap">
         <div class="runner">
-          <span class="runner-name">12 / More</span>
+          <span class="runner-name">11 / More</span>
         </div>
 
         <div class="proj-cards">
