@@ -677,38 +677,12 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
                 card's own text column lands on 800 exactly.
    ============================================================ */
 .act { border-top: 1px solid var(--border); }
-.act-title {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: var(--fs-display);
-  line-height: 1.18;
-  letter-spacing: -0.02em;
-  color: var(--text);
-}
 .ds-prose {
   max-width: 800px;
   margin-top: 28px;
 }
-/* The act opener's prose follows the meta cards, not a heading. */
-.act .ds-prose { margin-top: 56px; }
 .ds-prose > .lead:first-child { margin-top: 0; }
 .ds-prose > .lead--xl { margin-top: 32px; }
-
-/* ---- Act meta — four discrete facts, so four cards rather than the
-   hero's hairline columns. Reference data: a hover frame, no reading
-   state (there is nothing here to be "in the middle of"). ---- */
-.ds-meta {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-  margin-top: 48px;
-}
-.ds-meta-card {
-  padding: 20px;
-  border-radius: 18px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-}
 
 /* ---- Principles — a numbered rail, no imagery.
    One card is "being read" at a time; see MOTION for that state. ---- */
@@ -1349,7 +1323,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .tldr-label { padding-top: 3px; }
   .tldr-value { margin-top: 0; }
 
-  .act .ds-prose { margin-top: 64px; }
 
   /* Serpentine: three across, turn down the right rail, three back. */
   .cycle { padding: 0 32px; }
@@ -1390,8 +1363,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   }
   .dom-label { padding-top: 3px; }
 
-  .ds-meta { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-
   .prin-list { gap: 24px; }
   .prin {
     display: grid;
@@ -1427,7 +1398,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
   .wf-cards { grid-template-columns: repeat(4, 1fr); }
   .role-grid { grid-template-columns: repeat(4, 1fr); }
-  .ds-meta { grid-template-columns: repeat(4, 1fr); }
   .metrics { grid-template-columns: repeat(4, 1fr); }
 
   /* Side A / B: cards on the left, prototype pinned alongside. The device
@@ -1508,10 +1478,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
    The class is applied by script and never appears in the markup.
    ============================================================ */
-.prin,
-.ds-meta-card {
-  transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
+.prin { transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
 
 .prin.is-reading {
   transform: translateY(-2px);
@@ -1519,16 +1486,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .prin.is-reading .prin-body { color: var(--text); }
 .prin.is-reading .prin-num { color: var(--text-dim); }
-
-/* Hover lives behind (hover: hover) so a tap doesn't strand the frame on
-   a touch device. The principles take their hover through .is-reading in
-   the script instead, so the two never disagree about which card is up. */
-@media (hover: hover) {
-  .ds-meta-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--text-faint);
-  }
-}
 
 /* ---- Opt out ---------------------------------------------------------
    The lift and the transitions go; the contrast step stays. It reads as
@@ -1538,12 +1495,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 
-  .prin,
-  .ds-meta-card {
-    transition: none;
-  }
-  .prin.is-reading,
-  .ds-meta-card:hover {
-    transform: none;
-  }
+  .prin { transition: none; }
+  .prin.is-reading { transform: none; }
 }

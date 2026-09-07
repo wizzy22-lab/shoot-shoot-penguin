@@ -233,29 +233,9 @@
           <span class="runner-name">03 / Why a System</span>
         </div>
 
-        <h2 class="act-title" data-lang-content="ko">화면마다 달랐던 표현을<br />공통 규칙으로 정리했습니다</h2>
-        <h2 class="act-title" data-lang-content="en">Expression that differed screen by screen,<br />settled into shared rules</h2>
+        <h2 class="h2" data-lang-content="ko">화면마다 달랐던 표현을<br />공통 규칙으로 정리했습니다</h2>
+        <h2 class="h2" data-lang-content="en">Expression that differed screen by screen,<br />settled into shared rules</h2>
 
-        <div class="ds-meta">
-          <div class="ds-meta-card">
-            <div class="role-label"><span data-lang-content="ko">역할</span><span data-lang-content="en">Role</span></div>
-            <div class="role-value" data-lang-content="ko">디자인 시스템 설계 · 토큰 · 컴포넌트 · 브랜드 자산</div>
-            <div class="role-value" data-lang-content="en">Design system architecture · Tokens · Components · Brand assets</div>
-          </div>
-          <div class="ds-meta-card">
-            <div class="role-label"><span data-lang-content="ko">산출물</span><span data-lang-content="en">Deliverables</span></div>
-            <div class="role-value" data-lang-content="ko">토큰 v1.5.0 · 컴포넌트 26그룹 92변형 · 화면 12장 · 브랜드 SVG 29개</div>
-            <div class="role-value" data-lang-content="en">Tokens v1.5.0 · 26 component groups, 92 variants · 12 screens · 29 brand SVGs</div>
-          </div>
-          <div class="ds-meta-card">
-            <div class="role-label"><span data-lang-content="ko">도구</span><span data-lang-content="en">Tools</span></div>
-            <div class="role-value" data-lang-content="ko">Figma · HTML/CSS 빌드 · html.to.design · 자체 검증 스크립트</div>
-            <div class="role-value" data-lang-content="en">Figma · HTML/CSS build · html.to.design · a custom validation script</div>
-          </div>
-          <div class="ds-meta-card">
-            <div class="role-label"><span data-lang-content="ko">플랫폼</span><span data-lang-content="en">Platform</span></div>
-            <div class="role-value">iOS / Android · 390&times;844</div>
-          </div>
         </div>
 
         <div class="ds-prose">
@@ -279,18 +259,15 @@
           <span class="runner-name">04 / The Colour Decision</span>
         </div>
 
-        <h2 class="h2" data-lang-content="ko">브랜드 색을 뺀 건 취향이 아니었습니다.<br /><span class="acc">이미 일어나고 있던 충돌을 걷어낸 것입니다</span></h2>
-        <h2 class="h2" data-lang-content="en">Dropping the accent wasn&rsquo;t taste.<br /><span class="acc">It cleared a collision that was already happening</span></h2>
+        <h2 class="h2" data-lang-content="ko">색상 역할을 분리해<br />경기 상태를 구분했습니다</h2>
+        <h2 class="h2" data-lang-content="en">Colour&rsquo;s roles separated,<br />so game state reads on its own</h2>
 
         <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">기존 화면 18장을 하나씩 세어봤습니다. 색 세 개가 버튼 역할과 상태 표시를 동시에 하고 있었습니다. 네이비는 주 CTA이면서 &lsquo;확정&rsquo; 배지였고, 오렌지는 신청 버튼이면서 &lsquo;마감임박&rsquo; 배지였고, 파랑은 링크이면서 모집중 핀이었습니다.</p>
-          <p class="lead" data-lang-content="en">I counted the 18 existing screens one by one. Three colours were doing a button&rsquo;s job and a state&rsquo;s job at the same time. Navy was the primary CTA and the &ldquo;confirmed&rdquo; badge. Orange was the apply button and the &ldquo;closing soon&rdquo; badge. Blue was the link and the recruiting pin.</p>
+          <p class="lead" data-lang-content="ko">초기 화면에서는 오렌지가 신청 버튼과 마감임박 배지에 함께 사용되었습니다. 신청이 종료된 요소도 강한 채움색으로 표시되어, 행동 유도와 경기 상태가 구분되지 않았습니다.</p>
+          <p class="lead" data-lang-content="en">In the first screens, orange was used for the apply button and for the closing-soon badge alike. Elements whose applications had already closed were filled just as strongly, so a call to action and a game state could not be told apart.</p>
 
-          <p class="lead" data-lang-content="ko">그래서 이런 화면이 나와 있었습니다. &lsquo;신청 마감&rsquo;이 오렌지 채움 버튼이었습니다 &mdash; 누를 수 없는 상태가 화면에서 가장 강한 요소였습니다. &lsquo;현재 부족인원 2명&rsquo;이 에러 빨강이었습니다 &mdash; 아직 일어나지 않은 추정이 이미 잘못된 일처럼 읽혔습니다.</p>
-          <p class="lead" data-lang-content="en">So screens like this had shipped. &ldquo;Applications closed&rdquo; was a filled orange button &mdash; the one thing you couldn&rsquo;t press was the loudest element on the screen. &ldquo;Short by 2 players&rdquo; was in error red &mdash; an estimate that hadn&rsquo;t happened yet already read as something gone wrong.</p>
-
-          <p class="lead" data-lang-content="ko">브랜드 색을 살리는 쪽도 성실하게 조율해봤습니다. Court Orange를 주 버튼 색으로 놓고 대비를 최대한 끌어올린 안과, 검정만 쓰는 안을 같은 화면으로 나란히 렌더했습니다.</p>
-          <p class="lead" data-lang-content="en">Keeping the brand colour got an honest attempt too. One option put Court Orange on the primary button and pushed its contrast as far as it would go; the other used black alone. Both were rendered on the same screen, side by side.</p>
+          <p class="lead" data-lang-content="ko">이를 개선하기 위해 주요 조작 요소에는 무채색을, 경기 상태에는 구분 색상을 적용했습니다. 색상은 상태 정보에 집중해 버튼과 상태가 서로 다른 신호를 전달하도록 했습니다.</p>
+          <p class="lead" data-lang-content="en">To fix it, the main controls took neutral colour and game states took distinguishing colour. Colour concentrates on state information, so a button and a state carry different signals.</p>
         </div>
       </div>
 
@@ -308,8 +285,8 @@
 
       <div class="wrap">
         <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">색을 쓴 안에서는 선택된 필터 칩과 주 버튼이 경기 상태와 같은 색 언어를 씁니다. 검정만 쓴 안에서는 버튼과 필터가 전부 뒤로 물러나고, 색은 경기 상태에만 남습니다.</p>
-          <p class="lead" data-lang-content="en">In the with-colour option, the selected filter chip and the primary button speak the same colour language as the game states. In the black-only option, buttons and filters all step back, and colour is left to game state alone.</p>
+          <p class="lead" data-lang-content="ko">유채색 버튼과 무채색 버튼을 비교한 결과, 무채색 버튼은 경기 상태 색상과 충돌하지 않았습니다. 조작 요소와 상태 정보가 분리되면서 정보 위계도 명확해졌습니다.</p>
+          <p class="lead" data-lang-content="en">Comparing a coloured button with a neutral one, the neutral button did not collide with the game state colours. With controls separated from state information, the information hierarchy became clear as well.</p>
         </div>
       </div>
 
