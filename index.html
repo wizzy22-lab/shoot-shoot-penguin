@@ -83,7 +83,7 @@
         <a class="ds-anchor" href="#ds-script"><span data-lang-content="ko">검증</span><span data-lang-content="en">enforcement</span></a>
         <a class="ds-anchor" href="#ds-figma"><span data-lang-content="ko">핸드오프</span><span data-lang-content="en">handoff</span></a>
         <a class="ds-anchor" href="#ds-results"><span data-lang-content="ko">결과</span><span data-lang-content="en">results</span></a>
-        <a class="ds-anchor" href="#status"><span data-lang-content="ko">현황</span><span data-lang-content="en">status</span></a>
+        <a class="ds-anchor" href="#status"><span data-lang-content="ko">배운 것</span><span data-lang-content="en">learned</span></a>
       </div>
     </nav>
   </div>
@@ -598,42 +598,20 @@
     <!-- ============================================================
          10 — What the system taught me. Closes the design-system act.
          ============================================================ -->
-    <section class="section ds-learnings" id="ds-learnings">
+    <section class="section status" id="status">
       <div class="wrap">
         <div class="runner">
           <span class="runner-name">11 / What I Learned</span>
         </div>
 
-        <div class="spec-list">
-          <article class="spec">
-            <h3 class="spec-title"><span data-lang-content="ko">주장을 증명하려면 반대쪽 안을 제대로 만들어야 합니다</span><span data-lang-content="en">Proving a claim means building the other side properly</span></h3>
-            <p class="spec-body" data-lang-content="ko">브랜드 색을 빼자고 하려면, 색을 살린 안도 대비까지 맞춰 제대로 만들어야 합니다. 그런데 더 센 게 따로 있었습니다. 처음엔 &lsquo;색을 얹으면 충돌할 것이다&rsquo;라고 예상하고 그림을 만들었는데, 기존 화면 18장을 다시 세어보니 이미 충돌하고 있었습니다. 없는 시안을 두고 하는 주장보다, 이미 그려져 있던 화면을 보여주는 쪽이 반박할 수 없습니다.</p>
-            <p class="spec-body" data-lang-content="en">To argue for dropping the brand colour, the version that keeps it has to be built properly, contrast and all. But something else turned out to be stronger. The first comparison was a prediction &mdash; put colour on and it will collide. Counting the 18 existing screens again changed the claim: it was already colliding. Showing a screen that had actually been drawn is harder to argue with than a case about a mockup that never existed.</p>
-          </article>
+        <h2 class="h2" data-lang-content="ko">규칙을 만드는 것만큼<br />적용하며 확인하는 과정이 중요했습니다</h2>
+        <h2 class="h2" data-lang-content="en">Writing the rules mattered,<br />and so did checking them in use</h2>
 
-          <article class="spec">
-            <h3 class="spec-title"><span data-lang-content="ko">규칙은 지킬 수 있게 만들어야 규칙입니다</span><span data-lang-content="en">A rule is only a rule if it can be kept</span></h3>
-            <p class="spec-body" data-lang-content="ko">문서에 적어둔 금지 항목은 지켜지지 않았습니다. 스크립트로 만들고 나서야, 제가 낸 실수까지 포함해 실제로 걸리기 시작했습니다.</p>
-            <p class="spec-body" data-lang-content="en">The prohibitions written into a document were not followed. Only once they were a script did things actually start getting caught &mdash; my own mistakes included.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+        <p class="lead" data-lang-content="ko">초기 화면을 검토하며 버튼과 상태 표현의 충돌을 발견했고, 공통 규칙을 실제 화면에 적용하며 빠진 정의와 잘못된 연결을 확인했습니다. 문서, 컴포넌트, 코드가 같은 기준을 따르는지 점검하는 과정까지 시스템 설계에 포함된다는 것을 배웠습니다.</p>
+        <p class="lead" data-lang-content="en">Reviewing the first screens turned up a collision between the buttons and the way state was shown, and applying the shared rules to real screens turned up definitions that were missing and links that were wrong. Checking that the document, the components and the code follow one standard belongs to designing the system too &mdash; that is what I learned.</p>
 
-    <!-- ============================================================
-         12 — Where It Stands, and what is still to come.
-         ============================================================ -->
-    <section class="section status" id="status">
-      <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">12 / Where It Stands</span>
-        </div>
-
-        <h2 class="h2" data-lang-content="ko">개발 진행 중 — <span class="acc">측정할 준비</span>까지 설계했습니다</h2>
-        <h2 class="h2" data-lang-content="en">In development — <span class="acc">designed to be measured</span></h2>
-
-        <p class="lead" data-lang-content="ko">백엔드 개발이 진행 중이며, 핵심 플로우와 디자인 시스템은 핸드오프를 마쳤습니다. 첫 시범 서비스는 초대받은 사람만 쓰는 클로즈드 베타로, 개발자가 소속된 회사에서 시작할 예정입니다.</p>
-        <p class="lead" data-lang-content="en">Backend development is in progress; core flows and the design system are handed off. The first closed beta will start at the developer's company.</p>
+        <p class="lead" data-lang-content="ko">현재 디자인 시스템 v1.5.0을 기준으로 화면 개편을 진행하고 있습니다. 다음 단계에서는 개발 구현과 디자인의 차이를 점검하고, 실제 사용자가 경기 상태와 예측 정보를 구별할 수 있는지 확인할 예정입니다.</p>
+        <p class="lead" data-lang-content="en">The screens are being redrawn against design system v1.5.0. Next comes checking the build against the design, and confirming that a real user can tell a game&rsquo;s state apart from a prediction.</p>
 
         <div class="metrics">
           <div class="metric">
@@ -657,27 +635,6 @@
           <span data-lang-content="ko">베타에서 검증할 지표 — 아직 측정 전입니다.</span>
           <span data-lang-content="en">Metrics to validate in beta — not yet measured.</span>
         </p>
-
-        <article class="reflection">
-          <span class="chip chip--orange">
-            <span data-lang-content="ko">회고</span>
-            <span data-lang-content="en">Reflection</span>
-          </span>
-          <p class="reflection-body" data-lang-content="ko">이 프로젝트는 화면이 아니라 시스템을 설계하는 법을 가르쳐줬습니다. 두 사용자의 니즈를 하나의 흐름으로 연결하는 일 — 그리고 그것을 첫날부터 개발자와 함께 하는 일은 디자인 방식 자체를 바꿨습니다. 모든 결정이 구현 가능성의 검증을 통과해야 했기 때문입니다. 검증은 다음 챕터이고, 제품은 측정될 준비가 되어 있습니다.</p>
-          <p class="reflection-body" data-lang-content="en">This project taught me to design a system, not screens. Connecting two users' needs into a single flow — and doing it alongside a developer from day one — changed how I design, because every decision had to survive a feasibility check. Validation is the next chapter; the product is ready to be measured.</p>
-        </article>
-
-        <!-- Everything still to come, gathered in one place. Scattered
-             through the page these read as gaps; collected here they read
-             as a roadmap. -->
-        <div class="status-next">
-          <p class="eyebrow">[ What&rsquo;s Next ]</p>
-          <ul class="pain-list">
-            <li><span data-lang-content="ko">화면 12장을 새 시스템으로 개편 &mdash; 진행 중</span><span data-lang-content="en">Redrawing all 12 screens on the new system &mdash; in progress</span></li>
-            <li><span data-lang-content="ko">실제 구동 화면 녹화 &mdash; 개발이 붙는 대로</span><span data-lang-content="en">A recording of the running app &mdash; as soon as the build lands</span></li>
-            <li><span data-lang-content="ko">클로즈드 베타에서 위 네 지표 측정</span><span data-lang-content="en">Measuring the four metrics above in the closed beta</span></li>
-          </ul>
-        </div>
       </div>
     </section>
 
@@ -687,7 +644,7 @@
     <section class="section seemore">
       <div class="wrap">
         <div class="runner">
-          <span class="runner-name">13 / More</span>
+          <span class="runner-name">12 / More</span>
         </div>
 
         <div class="proj-cards">
