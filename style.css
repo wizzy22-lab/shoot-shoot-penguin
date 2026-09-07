@@ -432,12 +432,14 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: var(--text);
 }
 
-/* Key-visual slot. `overflow: hidden` is what unifies the radius: the media
-   inside is square-cornered and gets clipped to the frame's 20px, so a still
-   and a clip round identically without either carrying its own radius. */
+/* Key-visual slot, square. `overflow: hidden` is what unifies the radius:
+   the media inside is square-cornered and gets clipped to the frame's 20px,
+   so a still and a clip round identically without either carrying its own
+   radius. The media is object-fit: cover, so a source that is not 1:1 is
+   cropped to its centre rather than letterboxed. */
 .thumb {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1 / 1;
   border-radius: 20px;
   border: 1px solid var(--border);
   overflow: hidden;
