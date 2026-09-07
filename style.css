@@ -163,7 +163,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .media-caption [data-lang-content="ko"],
 .tldr-label [data-lang-content="ko"],
 .runner-name [data-lang-content="ko"],
-.runner-spec [data-lang-content="ko"],
 .dom-label [data-lang-content="ko"],
 .ds-anchor [data-lang-content="ko"] {
   font-family: var(--font-sans);
@@ -516,46 +515,20 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
 /* ============================================================
    SECTION RUNNER
-   Every section opens the same way: number and name on the left, the
-   section's own spec on the right, a hairline filling whatever is
-   between them. The rule is a flex child rather than a border, so it
-   measures itself and never runs under either label.
-
-   The spec drops out below the tablet step — there is no width left for
-   it there, and half a spec is worse than none.
+   Every section opens on its number and name, nothing else.
    ============================================================ */
-.runner {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-.runner-name,
-.runner-spec {
-  flex: none;
+.runner { margin-bottom: 20px; }
+.runner-name {
   font-family: var(--font-mono);
   font-weight: 400;
   font-size: var(--fs-label);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   line-height: 1.2;
+  color: var(--text-dim);
 }
-.runner-name { color: var(--text-dim); }
 /* A domain inside 06 is subordinate to it, so its name steps down. */
 .runner-name--sub { font-size: var(--fs-label-sm); }
-/* A spec long enough to squeeze the rule to nothing waits for the wider
-   step rather than pushing the page sideways. */
-.runner-spec {
-  display: none;
-  color: var(--text-faint);
-  text-transform: none;
-}
-.runner-rule {
-  flex: 1 1 auto;
-  min-width: 24px;
-  height: 1px;
-  background: var(--border);
-}
 
 /* ============================================================
    COVERAGE CHIPS
@@ -1410,9 +1383,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
     border-left: 0;
     border-radius: 0 12px 12px 0;
   }
-  .runner-spec { display: block; }
-  .runner-spec--long { display: none; }
-
   .dom-line {
     grid-template-columns: 72px minmax(0, 1fr);
     gap: 24px;
@@ -1489,7 +1459,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    ============================================================ */
 @media (min-width: 1024px) {
   .only-desktop { display: inline; }
-  .runner-spec--long { display: block; }
 
   .hero-inner {
     display: grid;
