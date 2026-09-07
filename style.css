@@ -134,7 +134,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .role-label,
 .wf-num,
 .feat-chip,
-.metrics-note,
 .media-caption {
   font-family: var(--font-mono);
   font-weight: 400;
@@ -157,7 +156,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .pill [data-lang-content="ko"],
 .role-label [data-lang-content="ko"],
 .feat-chip [data-lang-content="ko"],
-.metrics-note [data-lang-content="ko"],
 .media-caption [data-lang-content="ko"],
 .tldr-label [data-lang-content="ko"],
 .runner-name [data-lang-content="ko"],
@@ -1105,39 +1103,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 
 /* ============================================================
-   08 — WHERE IT STANDS
-   ============================================================ */
-.metrics {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  margin-top: 44px;
-}
-.metric {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 22px 20px;
-  border-radius: 16px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-}
-.metric-dir {
-  flex: none;
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: var(--fs-mid);
-  line-height: 1;
-  color: var(--text);
-}
-.metric-label { font-size: var(--fs-body); line-height: 1.6; color: var(--text); }
-
-.metrics-note {
-  margin-top: 16px;
-  color: var(--text-faint);
-}
-
-/* ============================================================
    SEE MORE PROJECTS
    ============================================================ */
 .seemore { border-top: 1px solid var(--border); }
@@ -1360,7 +1325,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .pain-cards { grid-template-columns: repeat(2, 1fr); }
   .role-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
   .dec-cards { grid-template-columns: repeat(2, 1fr); }
-  .metrics { grid-template-columns: repeat(2, 1fr); }
   .proj-cards { grid-template-columns: repeat(2, 1fr); }
 
   .side-head { flex-direction: row; justify-content: space-between; align-items: flex-start; }
@@ -1383,7 +1347,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
   .wf-cards { grid-template-columns: repeat(4, 1fr); }
   .role-grid { grid-template-columns: repeat(4, 1fr); }
-  .metrics { grid-template-columns: repeat(4, 1fr); }
 
   /* Side A / B: cards on the left, prototype pinned alongside. The device
      slot is taller than the card stack, so the stack is centred against it
