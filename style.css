@@ -676,7 +676,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
                 + 24 + 24 (card padding) + 1 + 1 (card border), i.e. the
                 card's own text column lands on 800 exactly.
    ============================================================ */
-.act { border-top: 1px solid var(--border); }
 .ds-prose {
   max-width: 800px;
   margin-top: 28px;

@@ -227,7 +227,7 @@
          ACT II — the design system. The case turns here, so the
          opener carries a rule, the display step, and its own meta row.
          ============================================================ -->
-    <section class="section act" id="ds-problem">
+    <section class="section" id="ds-problem">
       <div class="wrap">
         <div class="runner">
           <span class="runner-name">03 / Why a System</span>
@@ -235,8 +235,6 @@
 
         <h2 class="h2" data-lang-content="ko">화면마다 달랐던 표현을<br />공통 규칙으로 정리했습니다</h2>
         <h2 class="h2" data-lang-content="en">Expression that differed screen by screen,<br />settled into shared rules</h2>
-
-        </div>
 
         <div class="ds-prose">
           <p class="lead" data-lang-content="ko">화면 뼈대(와이어프레임)와 1차 UI는 있었지만, 반복 요소의 스타일과 색상 기준이 화면마다 달랐습니다. 요소를 수정할 때마다 개별 화면을 확인해야 했습니다.</p>
@@ -263,10 +261,10 @@
         <h2 class="h2" data-lang-content="en">Colour&rsquo;s roles separated,<br />so game state reads on its own</h2>
 
         <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">초기 화면에서는 오렌지가 신청 버튼과 마감임박 배지에 함께 사용되었습니다. 신청이 종료된 요소도 강한 채움색으로 표시되어, 행동 유도와 경기 상태가 구분되지 않았습니다.</p>
+          <p class="lead" data-lang-content="ko">초기 화면에서는 오렌지가 신청 버튼과 마감임박 배지에 함께 사용되었습니다.<br class="only-desktop" /> 신청이 종료된 요소도 강한 채움색으로 표시되어, 행동 유도와 경기 상태가 구분되지 않았습니다.</p>
           <p class="lead" data-lang-content="en">In the first screens, orange was used for the apply button and for the closing-soon badge alike. Elements whose applications had already closed were filled just as strongly, so a call to action and a game state could not be told apart.</p>
 
-          <p class="lead" data-lang-content="ko">이를 개선하기 위해 주요 조작 요소에는 무채색을, 경기 상태에는 구분 색상을 적용했습니다. 색상은 상태 정보에 집중해 버튼과 상태가 서로 다른 신호를 전달하도록 했습니다.</p>
+          <p class="lead" data-lang-content="ko">이를 개선하기 위해 주요 조작 요소에는 무채색을, 경기 상태에는 구분 색상을 적용했습니다.<br class="only-desktop" /> 색상은 상태 정보에 집중해 버튼과 상태가 서로 다른 신호를 전달하도록 했습니다.</p>
           <p class="lead" data-lang-content="en">To fix it, the main controls took neutral colour and game states took distinguishing colour. Colour concentrates on state information, so a button and a state carry different signals.</p>
         </div>
       </div>
