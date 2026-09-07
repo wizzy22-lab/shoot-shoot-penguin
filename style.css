@@ -150,9 +150,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    Korean string in the page already sits inside its own locale span, so
    that attribute is the hook — no markup change needed.
 
-   English labels keep the mono face and the tracking. .ds-code is
-   deliberately mono in both locales and sets no tracking, so it is not
-   listed here. */
+   English labels keep the mono face and the tracking. */
 .eyebrow [data-lang-content="ko"],
 .chip [data-lang-content="ko"],
 .tag [data-lang-content="ko"],
@@ -599,7 +597,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .dom .lightband { margin: 40px 0; }
 .dom > .lightband-fig { margin-top: 40px; }
-.dom .spec-list { margin-top: 40px; }
 .dom > .wrap > .media-caption { margin-top: 20px; text-align: left; }
 
 /* ============================================================
@@ -665,14 +662,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    .slot-img hides itself until it has a src, because the global
    `img { display: block }` out-ranks the UA rule for [hidden].
    -------------------------------------------------------------------- */
-.ds-code {
-  font-family: var(--font-mono);
-  color: var(--text);
-  /* ssp-allow(rule): reason was splitting after "ssp-"; a token like this
-     is one word or it is nothing. */
-  white-space: nowrap;
-}
-
 .slot {
   position: relative;
   display: flex;
@@ -711,30 +700,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   line-height: 1.4;
   text-align: center;
   color: var(--text-faint);
-}
-
-/* The three components that got their own argument. Same steps as the
-   principles: title at 500, body dimmed. */
-.spec-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  margin-top: 44px;
-}
-.spec { max-width: 800px; }
-.spec-title {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: var(--fs-mid);
-  line-height: 1.4;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-.spec-body {
-  margin-top: 10px;
-  font-size: var(--fs-body);
-  line-height: 1.6;
-  color: var(--text-dim);
 }
 
 /* ============================================================
@@ -1165,26 +1130,10 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: var(--text);
 }
 .metric-label { font-size: var(--fs-body); line-height: 1.6; color: var(--text); }
-.status-next { margin-top: 56px; }
 
 .metrics-note {
   margin-top: 16px;
   color: var(--text-faint);
-}
-
-.reflection {
-  margin-top: 48px;
-  padding: 32px 28px;
-  border-radius: 18px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-}
-.reflection-body {
-  margin-top: 20px;
-  max-width: 900px;
-  font-size: var(--fs-mid);
-  line-height: 1.6;
-  color: var(--text);
 }
 
 /* ============================================================
