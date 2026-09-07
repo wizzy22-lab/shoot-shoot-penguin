@@ -327,45 +327,81 @@
           <li class="prin">
             <span class="prin-num">01</span>
             <div class="prin-text">
-              <h3 class="prin-title"><span data-lang-content="ko">색은 경기 상태만 말합니다</span><span data-lang-content="en">Colour speaks only for game state</span></h3>
-              <p class="prin-body" data-lang-content="ko">경기 상태는 다섯 개입니다 &mdash; 모집중, 마감임박, 마감, 확정, 취소. 화면에서 색이 들어간 요소는 이 다섯 개가 전부입니다. 여섯 번째 색은 만들지 않습니다. 브랜드다움은 색이 아니라 모서리 둥글기, 글꼴, 마스코트, 문장이 만듭니다.</p>
-              <p class="prin-body" data-lang-content="en">A game has five states &mdash; recruiting, closing soon, closed, confirmed, cancelled. Those five are the only coloured things on screen. There is no sixth colour. Brand character comes from corner radius, type, the mascot and the writing, not from colour.</p>
+              <h3 class="prin-title"><span data-lang-content="ko">행동과 상태를 구분합니다</span><span data-lang-content="en">Separate action from state</span></h3>
+              <p class="prin-body" data-lang-content="ko">버튼 · 필터 · 탭은 무채색으로, 경기 상태는 색상과 상태명으로 표현합니다.</p>
+              <p class="prin-body" data-lang-content="en">Buttons, filters and tabs are neutral; game state is carried by colour together with the name of the state.</p>
+
+              <div class="prin-note">
+                <span class="dom-label"><span data-lang-content="ko">적용 기준</span><span data-lang-content="en">How it applies</span></span>
+                <p class="prin-body" data-lang-content="ko">사용자의 조작을 유도하는 요소와 현재 경기 상황을 알리는 요소에 각각 정해진 색상 역할을 적용합니다.</p>
+                <p class="prin-body" data-lang-content="en">Elements that invite an action and elements that report the current state of a game each take their own assigned colour role.</p>
+              </div>
+
+              <div class="prin-note">
+                <span class="dom-label"><span data-lang-content="ko">피해야 할 표현</span><span data-lang-content="en">What to avoid</span></span>
+                <p class="prin-body" data-lang-content="ko">버튼과 상태 배지에 같은 강조 색상을 사용해 행동과 상태가 동일한 의미로 보이게 하지 않습니다.</p>
+                <p class="prin-body" data-lang-content="en">Never give a button and a status badge the same accent colour, which makes an action and a state read as the same thing.</p>
+              </div>
+
+              <div class="prin-note">
+                <span class="dom-label"><span data-lang-content="ko">예시</span><span data-lang-content="en">Example</span></span>
+                <p class="prin-body" data-lang-content="ko">&lsquo;신청하기&rsquo; 버튼은 무채색으로 두고, &lsquo;모집 중&rsquo; 배지는 초록색과 상태명으로 표시합니다.</p>
+                <p class="prin-body" data-lang-content="en">The &ldquo;Apply&rdquo; button stays neutral; the &ldquo;Recruiting&rdquo; badge is shown in green with its state name.</p>
+              </div>
             </div>
           </li>
 
           <li class="prin">
             <span class="prin-num">02</span>
             <div class="prin-text">
-              <h3 class="prin-title"><span data-lang-content="ko">누르는 것은 전부 검정과 회색입니다</span><span data-lang-content="en">Anything you press is black and grey</span></h3>
-              <p class="prin-body" data-lang-content="ko">버튼, 필터, 탭처럼 눌러서 무언가를 바꾸는 것에는 색을 쓰지 않습니다. 화면에 색이 보이면 그건 &lsquo;내가 누른 결과&rsquo;가 아니라 &lsquo;경기가 그런 상태&rsquo;라는 뜻이어야 합니다.</p>
-              <p class="prin-body" data-lang-content="en">Buttons, filters, tabs &mdash; anything you press to change something gets no colour. When colour appears, it must mean &ldquo;the game is in that state&rdquo;, never &ldquo;you pressed this&rdquo;.</p>
+              <h3 class="prin-title"><span data-lang-content="ko">예측과 확정을 구분합니다</span><span data-lang-content="en">Separate a prediction from a fact</span></h3>
+              <p class="prin-body" data-lang-content="ko">예상 인원은 점선 테두리와 범위로 표시해 확정 정보와 구별합니다.</p>
+              <p class="prin-body" data-lang-content="en">A predicted headcount is drawn with a dashed border and a range, so it reads apart from confirmed information.</p>
+
+              <div class="prin-note">
+                <span class="dom-label"><span data-lang-content="ko">적용 기준</span><span data-lang-content="en">How it applies</span></span>
+                <p class="prin-body" data-lang-content="ko">아직 변동 가능성이 있는 정보에는 범위 · 점선 · 예상 상태명을 함께 사용하고, 확정된 정보에는 단일 값과 실선 표현을 사용합니다.</p>
+                <p class="prin-body" data-lang-content="en">Information that can still change takes a range, a dashed border and a name that says it is an estimate; confirmed information takes a single value and a solid border.</p>
+              </div>
+
+              <div class="prin-note">
+                <span class="dom-label"><span data-lang-content="ko">피해야 할 표현</span><span data-lang-content="en">What to avoid</span></span>
+                <p class="prin-body" data-lang-content="ko">예상 수치를 확정된 숫자처럼 단정하거나, 예측 정보와 확정 정보를 같은 표기 방식으로 표현하지 않습니다.</p>
+                <p class="prin-body" data-lang-content="en">Never state an estimate as though it were settled, or express predicted and confirmed information the same way.</p>
+              </div>
+
+              <div class="prin-note">
+                <span class="dom-label"><span data-lang-content="ko">예시</span><span data-lang-content="en">Example</span></span>
+                <p class="prin-body" data-lang-content="ko">예상 참가 인원은 8~10명처럼 범위로 표기하고 점선 카드로 표현하며, 확정 인원은 실선 카드와 단일 숫자로 표시합니다.</p>
+                <p class="prin-body" data-lang-content="en">An expected turnout is written as a range &mdash; 8&ndash;10 people &mdash; on a dashed card; a confirmed count is a single number on a solid card.</p>
+              </div>
             </div>
           </li>
 
           <li class="prin">
             <span class="prin-num">03</span>
             <div class="prin-text">
-              <h3 class="prin-title"><span data-lang-content="ko">예측은 사실처럼 보이면 안 됩니다</span><span data-lang-content="en">A prediction must not look like a fact</span></h3>
-              <p class="prin-body" data-lang-content="ko">게스트 수요 예측은 추정입니다. 확정된 숫자와 똑같은 무게로 보이면 안 됩니다. 점선 테두리, 확신도 표시, 범위 표기(&lsquo;3~5명&rsquo;)로 &lsquo;이건 아직 제안&rsquo;이라고 계속 말합니다.</p>
-              <p class="prin-body" data-lang-content="en">Guest demand is an estimate. It must never carry the same visual weight as a confirmed number. A dashed border, a confidence indicator and a range (&ldquo;3&ndash;5 guests&rdquo;) keep saying: this is still a suggestion.</p>
-            </div>
-          </li>
+              <h3 class="prin-title"><span data-lang-content="ko">맥락에 맞게 정보를 표현합니다</span><span data-lang-content="en">Express information to fit its context</span></h3>
+              <p class="prin-body" data-lang-content="ko">관리 화면 · 지도 · 외부 공유 화면의 목적에 맞춰 정보 밀도와 표현 방식을 정의합니다.</p>
+              <p class="prin-body" data-lang-content="en">Information density and expression are defined to suit the purpose of the management screen, the map and the shared post.</p>
 
-          <li class="prin">
-            <span class="prin-num">04</span>
-            <div class="prin-text">
-              <h3 class="prin-title"><span data-lang-content="ko">지도 위에서는 색보다 모양입니다</span><span data-lang-content="en">On the map, shape beats colour</span></h3>
-              <p class="prin-body" data-lang-content="ko">지도는 우리가 만든 화면이 아닙니다. 무엇이 깔릴지 모르는 배경 위에서 색만으로 구별하려 하면 실패합니다. 그래서 모양으로 먼저 구별하고, 색은 거들게 했습니다.</p>
-              <p class="prin-body" data-lang-content="en">The map isn&rsquo;t our screen. Telling things apart by colour alone, on a background we don&rsquo;t control, fails. So shape does the separating and colour only assists.</p>
-            </div>
-          </li>
+              <div class="prin-note">
+                <span class="dom-label"><span data-lang-content="ko">적용 기준</span><span data-lang-content="en">How it applies</span></span>
+                <p class="prin-body" data-lang-content="ko">화면의 주요 사용 목적과 사용자의 우선 행동을 먼저 정한 뒤, 그에 필요한 정보만 우선순위에 따라 배치합니다.</p>
+                <p class="prin-body" data-lang-content="en">Settle what the screen is mainly for and what the user does first, then place only the information that serves it, in that order.</p>
+              </div>
 
-          <li class="prin">
-            <span class="prin-num">05</span>
-            <div class="prin-text">
-              <h3 class="prin-title"><span data-lang-content="ko">모집글은 앱 밖으로 나갑니다</span><span data-lang-content="en">The recruiting post leaves the app</span></h3>
-              <p class="prin-body" data-lang-content="ko">자동으로 만들어진 모집글은 카카오톡과 커뮤니티로 나갑니다. 우리가 손댈 수 없는 곳에서 첫인상을 만드는 화면이라, 따로 설계했습니다.</p>
-              <p class="prin-body" data-lang-content="en">Auto-generated recruiting posts go out to KakaoTalk and community boards. It&rsquo;s the screen that forms a first impression somewhere we can&rsquo;t touch, so it was designed separately.</p>
+              <div class="prin-note">
+                <span class="dom-label"><span data-lang-content="ko">피해야 할 표현</span><span data-lang-content="en">What to avoid</span></span>
+                <p class="prin-body" data-lang-content="ko">모든 화면에 동일한 정보량과 구조를 적용해 핵심 정보가 묻히거나, 사용 목적과 무관한 세부 정보를 과도하게 노출하지 않습니다.</p>
+                <p class="prin-body" data-lang-content="en">Never apply the same amount of information and the same structure to every screen, burying what matters or over-exposing detail the screen has no use for.</p>
+              </div>
+
+              <div class="prin-note">
+                <span class="dom-label"><span data-lang-content="ko">예시</span><span data-lang-content="en">Example</span></span>
+                <p class="prin-body" data-lang-content="ko">관리 화면에는 출석 상태와 모집 인원을 함께 보여주고, 지도에서는 경기 시간과 위치를 우선 표시하며, 외부 공유 화면에서는 경기명 · 일시 · 장소만 간결하게 제공합니다.</p>
+                <p class="prin-body" data-lang-content="en">The management screen shows attendance and headcount together; the map leads with time and location; the shared post gives only the game&rsquo;s name, date and place.</p>
+              </div>
             </div>
           </li>
         </ol>

@@ -716,6 +716,15 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   letter-spacing: -0.01em;
   color: var(--text);
 }
+/* Inside a principle: a labelled note stacks its label over its text, so
+   the card keeps one column and the number rail stays the only rail. */
+.prin-note { margin-top: 18px; }
+.prin-note .dom-label {
+  display: block;
+  margin-bottom: 4px;
+}
+.prin-note .prin-body { margin-top: 0; }
+
 .prin-body {
   margin-top: 10px;
   font-size: var(--fs-body);
