@@ -674,6 +674,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   overflow: hidden;
 }
 .slot--1x1 { aspect-ratio: 1 / 1; }
+.slot--filled { border: 1px solid var(--border); }
 .slot--16x10 { aspect-ratio: 16 / 10; }
 .slot--16x9 { aspect-ratio: 16 / 9; }
 
