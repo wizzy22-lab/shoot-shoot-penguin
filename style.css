@@ -1102,8 +1102,57 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 
 /* ============================================================
+   09 — WHAT I LEARNED, the closing block
+   The argument on the left, the state of the work on the right. The
+   spec's --ssp-* tokens and its px type sizes are named in this file's
+   own terms: --border, --text-faint, --text-dim, and the --fs-* steps.
+   No new colour or size enters here.
+   ============================================================ */
+.closing { margin-top: 32px; }
+.closing__row {
+  border-top: 1px solid var(--border);
+  padding: 18px 0;
+}
+.closing__row:first-child { border-top: 0; padding-top: 0; }
+
+/* English only, like .eyebrow and the runners — so the tracking is safe. */
+.closing__k {
+  margin-bottom: 8px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-label-sm);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.closing__v {
+  margin: 0;   /* a <dd> carries a 40px inline start margin of its own */
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.closing__foot {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 64px;
+  padding-top: 34px;
+  border-top: 1px solid var(--border);
+}
+.closing__sig {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--fs-body);
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+}
+.closing__mark { flex: none; }
+
+/* ============================================================
    SEE MORE PROJECTS
    ============================================================ */
+.seemore { padding-top: 120px; }
 .proj-cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -1335,6 +1384,14 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    DESKTOP  (>= 992px)
    ============================================================ */
 @media (min-width: 992px) {
+  .closing {
+    display: flex;
+    gap: 72px;
+    align-items: flex-start;
+  }
+  .closing__left { width: 60%; flex: 0 0 auto; }
+  .closing__status { flex: 1; padding-top: 6px; }
+
   .section { padding: 120px 0; }
   .coreq { padding: 140px 0; }
 
