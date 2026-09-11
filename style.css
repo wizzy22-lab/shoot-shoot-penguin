@@ -615,15 +615,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 
 /* ---- 03 — the colour decision --------------------------------------
-   Prose column, then two spec sheets. The sheets are rendered on white,
-   so each sits in a band that breaks the 1280 column and re-points the
-   colour tokens rather than dropping a white rectangle on a dark page:
-   the caption inside resolves --text-dim against the light ground on
-   its own, with no per-element override.
-
-   The band is a direct child of .section rather than of .wrap, so it
-   runs edge to edge without a 100vw trick and without the scrollbar
-   width leaking into the layout.
+   Prose column, then the A/B screenshot, then the palette it argues
+   for. The screenshot sits in a band that breaks the 1280 column; the
+   band is a direct child of .section rather than of .wrap, so it runs
+   edge to edge without a 100vw trick and without the scrollbar width
+   leaking into the layout.
    -------------------------------------------------------------------- */
 .lightband {
   margin: 64px 0;
@@ -647,6 +643,90 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   height: auto;
   border-radius: 18px;
   border: 1px solid var(--border);
+}
+
+/* ---- The five state colours, one card each -------------------------
+   The spec sheet used to be a flat export; it is markup now, so the
+   hex values are text a reader can select and a screen reader can say.
+
+   This is the one place saturated hue enters the UI, and it enters as
+   content: each card is a specimen of the palette, not a surface
+   painted with it. The card itself stays on the page's own tokens.
+
+   Each state declares its three values once, on the card, and the
+   tiles resolve them. The tiles fan left to right in the order they
+   are applied — tint under solid under text — so the stack reads as a
+   ramp rather than three separate chips.
+   -------------------------------------------------------------------- */
+.state-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 44px;
+}
+.state-card {
+  padding: 20px;
+  border-radius: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.state-card[data-state="recruiting"] { --tint: #E4F5EC; --solid: #0B8A57; --ink: #085C2E; }
+.state-card[data-state="closing"]    { --tint: #FBF0D6; --solid: #C2700A; --ink: #6B4606; }
+.state-card[data-state="confirmed"]  { --tint: #E7EFFB; --solid: #1B62D6; --ink: #12448C; }
+.state-card[data-state="cancelled"]  { --tint: #FBEAE8; --solid: #C7302A; --ink: #8A1C14; }
+.state-card[data-state="closed"]     { --tint: #EFF1F4; --solid: #6E7884; --ink: #454D56; }
+
+.state-tiles {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Square tiles that share their edges: the overlap is what makes the
+   three read as one specimen. Each tile paints its own shadow onto the
+   one behind it, so later tiles must sit above earlier ones — isolation
+   keeps that stacking inside the card. */
+.state-tiles { isolation: isolate; }
+.state-tile {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 68px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.35);
+}
+.state-tile + .state-tile { margin-left: -8px; }
+.state-tile--tint  { background: var(--tint);  color: #4A5768; z-index: 1; }
+.state-tile--solid { background: var(--solid); color: #F8F9FA; z-index: 2; }
+.state-tile--text  { background: var(--ink);   color: #F8F9FA; z-index: 3; }
+
+.state-tile__role,
+.state-tile__hex {
+  display: block;
+  font-size: var(--fs-label-sm);
+  line-height: 1.3;
+  /* The hex is a spec value, so it must not wrap or shrink to fit. */
+  white-space: nowrap;
+}
+
+.state-name {
+  margin-top: 20px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--fs-mid);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.state-body {
+  margin-top: 10px;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--text-dim);
 }
 
 /* ---- 04 / 05 — tokens, components, and the screens they build ------
@@ -1371,6 +1451,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
   .wf-cards { grid-template-columns: repeat(2, 1fr); }
   .pain-cards { grid-template-columns: repeat(2, 1fr); }
+  .state-cards { grid-template-columns: repeat(2, 1fr); }
   .role-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
   .dec-cards { grid-template-columns: repeat(2, 1fr); }
   .proj-cards { grid-template-columns: repeat(2, 1fr); }
@@ -1402,6 +1483,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .prin-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 
   .wf-cards { grid-template-columns: repeat(4, 1fr); }
+  /* All five side by side, so the palette reads as one ramp. Below
+     this the cards would be narrower than their own tile stack. */
+  .state-cards { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
   .role-grid { grid-template-columns: repeat(4, 1fr); }
 
   /* Side A / B: cards on the left, prototype pinned alongside. The device

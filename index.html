@@ -256,9 +256,9 @@
     </section>
 
     <!-- ============================================================
-         03 — The colour decision. Two spec sheets are rendered on
-         white, so each one gets a light band rather than a white
-         rectangle dropped on the dark page.
+         03 — The colour decision. The A/B comparison stays an export,
+         because it is a screenshot of the product. The palette that
+         follows is markup, so its hex values are readable text.
          ============================================================ -->
     <section class="section ds-color" id="ds-color">
       <div class="wrap">
@@ -292,25 +292,110 @@
         <div class="ds-prose">
           <p class="lead" data-lang-content="ko">유채색 버튼과 무채색 버튼을 비교한 결과, 무채색 버튼은 경기 상태 색상과 충돌하지 않았습니다.<br class="only-desktop" /> 조작 요소와 상태 정보가 분리되면서 정보 위계도 명확해졌습니다.</p>
           <p class="lead" data-lang-content="en">Comparing a coloured button with a neutral one, the neutral button did not collide with the game state colours. With controls separated from state information, the information hierarchy became clear as well.</p>
+
+          <p class="lead" data-lang-content="ko">다섯 가지 상태색은 배경(tint) · 핀과 점(solid) · 텍스트(text) 세 단계로 구성했습니다.<br class="only-desktop" /> 판단에 필요한 정보는 7:1 이상의 명도 대비를 유지하고, 상태명과 표시를 함께 사용해<br class="only-desktop" /> 어떤 상태도 색에만 의존하지 않도록 했습니다.</p>
+          <p class="lead" data-lang-content="en">Each of the five state colours is structured across three levels: background (tint), pins and dots (solid), and text. Decision-critical information maintains a contrast ratio of at least 7:1, while labels and markers ensure that no state relies on colour alone.</p>
         </div>
+
+        <ul class="state-cards">
+          <li class="state-card" data-state="recruiting">
+            <div class="state-tiles">
+              <div class="state-tile state-tile--tint">
+                <span class="state-tile__role">tint</span>
+                <span class="state-tile__hex">#E4F5EC</span>
+              </div>
+              <div class="state-tile state-tile--solid">
+                <span class="state-tile__role">solid</span>
+                <span class="state-tile__hex">#0B8A57</span>
+              </div>
+              <div class="state-tile state-tile--text">
+                <span class="state-tile__role">text</span>
+                <span class="state-tile__hex">#085C2E</span>
+              </div>
+            </div>
+            <h3 class="state-name"><span data-lang-content="ko">모집중</span><span data-lang-content="en">Recruiting</span></h3>
+            <p class="state-body" data-lang-content="ko">플레이어가 지도에서 가장 먼저 찾는 상태이므로, 텍스트는 배경과 7.20:1의 명도 대비를 확보했습니다.</p>
+            <p class="state-body" data-lang-content="en">As the state players scan the map for first, its text maintains a 7.20:1 contrast against the background.</p>
+          </li>
+          <li class="state-card" data-state="closing">
+            <div class="state-tiles">
+              <div class="state-tile state-tile--tint">
+                <span class="state-tile__role">tint</span>
+                <span class="state-tile__hex">#FBF0D6</span>
+              </div>
+              <div class="state-tile state-tile--solid">
+                <span class="state-tile__role">solid</span>
+                <span class="state-tile__hex">#C2700A</span>
+              </div>
+              <div class="state-tile state-tile--text">
+                <span class="state-tile__role">text</span>
+                <span class="state-tile__hex">#6B4606</span>
+              </div>
+            </div>
+            <h3 class="state-name"><span data-lang-content="ko">마감임박</span><span data-lang-content="en">Closing Soon</span></h3>
+            <p class="state-body" data-lang-content="ko">부족한 것은 자리가 아니라 시간입니다. 신청은 아직 열려 있으므로 빨강 대신 앰버를 사용했습니다. 명도 대비는 7.40:1입니다.</p>
+            <p class="state-body" data-lang-content="en">Time, not availability, is running out. Amber is used instead of red because applications are still open. The contrast ratio is 7.40:1.</p>
+          </li>
+          <li class="state-card" data-state="confirmed">
+            <div class="state-tiles">
+              <div class="state-tile state-tile--tint">
+                <span class="state-tile__role">tint</span>
+                <span class="state-tile__hex">#E7EFFB</span>
+              </div>
+              <div class="state-tile state-tile--solid">
+                <span class="state-tile__role">solid</span>
+                <span class="state-tile__hex">#1B62D6</span>
+              </div>
+              <div class="state-tile state-tile--text">
+                <span class="state-tile__role">text</span>
+                <span class="state-tile__hex">#12448C</span>
+              </div>
+            </div>
+            <h3 class="state-name"><span data-lang-content="ko">확정</span><span data-lang-content="en">Confirmed</span></h3>
+            <p class="state-body" data-lang-content="ko">다섯 상태 중 대비가 가장 높아, 확정된 경기가 자신의 경기임을 분명히 알아볼 수 있습니다. 명도 대비는 8.13:1입니다.</p>
+            <p class="state-body" data-lang-content="en">The highest contrast of the five makes confirmed games clearly identifiable as the user&rsquo;s own. The contrast ratio is 8.13:1.</p>
+          </li>
+          <li class="state-card" data-state="cancelled">
+            <div class="state-tiles">
+              <div class="state-tile state-tile--tint">
+                <span class="state-tile__role">tint</span>
+                <span class="state-tile__hex">#FBEAE8</span>
+              </div>
+              <div class="state-tile state-tile--solid">
+                <span class="state-tile__role">solid</span>
+                <span class="state-tile__hex">#C7302A</span>
+              </div>
+              <div class="state-tile state-tile--text">
+                <span class="state-tile__role">text</span>
+                <span class="state-tile__hex">#8A1C14</span>
+              </div>
+            </div>
+            <h3 class="state-name"><span data-lang-content="ko">취소</span><span data-lang-content="en">Cancelled</span></h3>
+            <p class="state-body" data-lang-content="ko">빨강은 파괴적 동작과 공유해, 되돌릴 수 없는 상태를 일관되게 전달합니다. 명도 대비는 7.99:1입니다.</p>
+            <p class="state-body" data-lang-content="en">Red is shared with destructive actions to consistently communicate an irreversible state. The contrast ratio is 7.99:1.</p>
+          </li>
+          <li class="state-card" data-state="closed">
+            <div class="state-tiles">
+              <div class="state-tile state-tile--tint">
+                <span class="state-tile__role">tint</span>
+                <span class="state-tile__hex">#EFF1F4</span>
+              </div>
+              <div class="state-tile state-tile--solid">
+                <span class="state-tile__role">solid</span>
+                <span class="state-tile__hex">#6E7884</span>
+              </div>
+              <div class="state-tile state-tile--text">
+                <span class="state-tile__role">text</span>
+                <span class="state-tile__hex">#454D56</span>
+              </div>
+            </div>
+            <h3 class="state-name"><span data-lang-content="ko">마감</span><span data-lang-content="en">Closed</span></h3>
+            <p class="state-body" data-lang-content="ko">마감된 상태는 무채색을 유지해, 아직 행동할 수 있는 상태로 주의가 향하도록 했습니다. 명도 대비는 7.58:1입니다.</p>
+            <p class="state-body" data-lang-content="en">The closed state remains colourless, keeping users&rsquo; attention on states where they can still take action. The contrast ratio is 7.58:1.</p>
+          </li>
+        </ul>
       </div>
 
-        <figure class="lightband-fig">
-          <img src="assets/img/ssp-ds-4-colour-roles.png"
-               width="4800" height="1800" loading="lazy" decoding="async"
-               alt="Six swatches with their names and hex values: control in near-black, then the five game states — recruiting, closing, full, confirmed, cancelled" />
-          <figcaption class="media-caption">
-            <span data-lang-content="ko">사용자의 멘탈 모델을 반영한 다섯 가지 경기 상태색 정의</span>
-            <span data-lang-content="en">Five game state colours, defined to match the user&rsquo;s mental model</span>
-          </figcaption>
-        </figure>
-
-      <div class="wrap">
-        <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">다섯 가지 상태색을 배경(tint) · 핀과 점(solid) · 텍스트(text)로 구분했습니다.<br class="only-desktop" /> 판단에 필요한 텍스트는 배경과 7:1 이상의 명도 대비를 확보하고, 상태명과 표시를<br class="only-desktop" /> 함께 사용해 색상에만 의존하지 않도록 설계했습니다.</p>
-          <p class="lead" data-lang-content="en">Each of the five state colours is split into a background (tint), a pin or dot (solid) and text.<br class="only-desktop" /> Text that carries a decision holds at least 7:1 contrast against its background, and the state&rsquo;s name and marker travel with it, so nothing depends on colour alone.</p>
-        </div>
-      </div>
     </section>
 
     <!-- ============================================================
