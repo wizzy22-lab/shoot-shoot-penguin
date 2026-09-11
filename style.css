@@ -653,22 +653,25 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    It is the one light surface in the case and the one place saturated
    hue enters the UI. Both are deliberate: the sheet is a specimen of
    the palette, not a surface painted with it, so it keeps the source
-   frame's own colours rather than the page's tokens. Every value below
-   is the Figma value.
+   frame's own colours rather than the page's tokens. Every colour value
+   below is the Figma value.
 
-   The card breaks the 1280 column because the five specimens were drawn
-   side by side at 248 apiece; inside the reading column they would not
-   fit, and the row is the argument.
+   The card is not placed inside a .wrap — it *is* one, painted white:
+   the same 1280 cap and the same gutter for padding. That buys two
+   alignments at once. Its white edge falls on the column edge, and its
+   contents fall on the same line as the body copy and the figure above,
+   which a nested card could not do: a wrap's gutter plus a card's own
+   padding would push the contents a gutter's width inboard of every
+   other line on the page.
+
+   The gutter is narrower than Figma's 48, so the five specimens give
+   back what the padding took: 20 between cards instead of 24, and 20
+   inside each instead of 23. Below that the hex values start to clip.
    -------------------------------------------------------------------- */
-.spec-band {
-  margin-block: 64px;
-  padding: 0 var(--gutter);
-}
 .spec-card {
-  max-width: 1440px;
-  margin: 0 auto;
-  /* Figma: 48 all round, easing off as the card narrows. */
-  padding: clamp(24px, 3.4vw, 48px);
+  max-width: var(--wrap);
+  margin: 64px auto;
+  padding: clamp(28px, 3.4vw, 48px) var(--gutter);
   border-radius: 32px;
   background: #FFFFFF;
   color: #000000;
@@ -723,11 +726,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .state-cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 20px;
   margin-top: 48px;
 }
 .state-card {
-  padding: 23px;
+  padding: 20px;
   border-radius: 16px;
   background: #FAFAFA;
   border: 1px solid #F5F5F5;
@@ -1621,7 +1624,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    narrower than its own tile stack and the hex values would clip.
    ============================================================ */
 @media (min-width: 1360px) {
-  .spec-band { margin-block: 80px; }
+  .spec-card { margin-block: 80px; }
   .state-cards { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
 
