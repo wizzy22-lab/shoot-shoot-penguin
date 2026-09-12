@@ -105,7 +105,7 @@
           <h1 class="hero-title">Shoot Shoot Penguin<br /><span class="acc">Design System</span></h1>
 
           <p class="hero-body" data-lang-content="ko">Shoot Shoot Penguin의 초기 화면을 검토하며, 반복 요소의 스타일과<br class="only-desktop" /> 색의 의미가 화면마다 달라지는 문제를 발견했습니다.<br class="only-desktop" /> 조작 요소와 경기 상태의 표현을 분리하고, 토큰과 컴포넌트를 정리해<br class="only-desktop" /> 두 사용자 화면에 적용할 공통 기준을 만들었습니다.</p>
-          <p class="hero-body" data-lang-content="en">Reviewing the first screens of Shoot Shoot Penguin, I found that repeated elements were styled differently from screen to screen, and that colour meant something different in each one.<br class="only-desktop" /> Separating how controls and game state are expressed, then settling the tokens and components, gave one standard both sides of the app could be built on.</p>
+          <p class="hero-body" data-lang-content="en">Reviewing the first screens of Shoot Shoot Penguin, I found that repeated elements were styled differently from screen to screen, and that colour meant something different in each one.<br class="only-desktop" /> Separating how controls and game state were expressed, then settling the tokens and components, gave one standard both sides of the app could be built on.</p>
 
           <div class="tagrow">
             <span class="tag">TWO-SIDED PLATFORM</span>
@@ -274,7 +274,7 @@
           <p class="lead" data-lang-content="en">In the first screens, orange was used for the apply button and for the closing-soon badge alike. Elements whose applications had already closed were filled just as strongly, so a call to action and a game state could not be told apart.</p>
 
           <p class="lead" data-lang-content="ko">이를 개선하기 위해 주요 조작 요소에는 무채색을, 경기 상태에는 구분 색상을 적용했습니다.<br class="only-desktop" /> 색상은 상태 정보에 집중해 버튼과 상태가 서로 다른 신호를 전달하도록 했습니다.</p>
-          <p class="lead" data-lang-content="en">To fix it, the main controls took neutral colour and game states took distinguishing colour. Colour concentrates on state information, so a button and a state carry different signals.</p>
+          <p class="lead" data-lang-content="en">To fix it, I let the main controls take neutral colour and game states take distinguishing colour. Colour concentrates on state information, so a button and a state carry different signals.</p>
         </div>
       </div>
 
@@ -291,7 +291,7 @@
       <div class="wrap">
         <div class="ds-prose">
           <p class="lead" data-lang-content="ko">유채색 버튼과 무채색 버튼을 비교한 결과, 무채색 버튼은 경기 상태 색상과 충돌하지 않았습니다.<br class="only-desktop" /> 조작 요소와 상태 정보가 분리되면서 정보 위계도 명확해졌습니다.</p>
-          <p class="lead" data-lang-content="en">Comparing a coloured button with a neutral one, the neutral button did not collide with the game state colours. With controls separated from state information, the information hierarchy became clear as well.</p>
+          <p class="lead" data-lang-content="en">Compared with a coloured button, the neutral one did not collide with the game state colours. With controls separated from state information, the information hierarchy became clear as well.</p>
         </div>
       </div>
 
@@ -331,7 +331,7 @@
               </div>
               <h4 class="state-name"><span data-lang-content="ko">모집중</span><span data-lang-content="en">Recruiting</span></h4>
               <p class="state-body" data-lang-content="ko">플레이어가 지도에서 가장 먼저 찾는 상태이므로, 텍스트는 배경과 7.20:1의 명도 대비를 확보했습니다.</p>
-              <p class="state-body" data-lang-content="en">As the state players scan the map for first, its text maintains a 7.20:1 contrast against the background.</p>
+              <p class="state-body" data-lang-content="en">As this is the state players scan the map for first, its text maintains a 7.20:1 contrast against the background.</p>
             </li>
             <li class="state-card" data-state="closing">
               <div class="state-tiles">
@@ -540,7 +540,7 @@
             <span class="runner-name runner-name--sub">Density</span>
           </div>
           <p class="dom-text dom-text--solo" data-lang-content="ko">정보를 모아 보는 관리 화면과 지도에서 조작하는 탐색 화면에 맞춰 두 가지 컨트롤 크기를 정의했습니다.</p>
-          <p class="dom-text dom-text--solo" data-lang-content="en">Two control sizes: one for the management screens where information is gathered, one for the map screens worked by hand.</p>
+          <p class="dom-text dom-text--solo" data-lang-content="en">Two control sizes: one for the management screens where information is gathered, one for the map screens you operate directly.</p>
         </div>
 
         <figure class="lightband-fig">
@@ -562,7 +562,7 @@
 
         <div class="ds-prose">
           <p class="lead" data-lang-content="ko">버튼, 필터, 배지 등 공통 요소와 지도 핀, 수요 예측 카드 등<br class="only-desktop" /> 서비스 고유 요소를 컴포넌트로 정리했습니다.</p>
-          <p class="lead" data-lang-content="en">Shared elements &mdash; buttons, filters, badges &mdash; and elements particular to this service &mdash; map pins, prediction cards &mdash; were organised into components.</p>
+          <p class="lead" data-lang-content="en">Shared elements (buttons, filters, badges) and elements particular to this service (map pins, prediction cards) were organised into components.</p>
         </div>
       </div>
 
@@ -599,7 +599,7 @@
 
           <div class="ds-prose">
             <p class="lead" data-lang-content="ko">반복해서 확인해야 하는 항목은 자동화해 수정 과정에서 규칙이 빠지는 일을 줄였습니다.<br class="only-desktop" /> 다만 이 검사는 코드에 정의된 규칙을 지켰는지만 확인했습니다.</p>
-            <p class="lead" data-lang-content="en">Automating the checks that have to run again and again means fewer rules go missing while a screen is being changed.<br class="only-desktop" /> The check only confirms that the rules written into the code were kept, though.</p>
+            <p class="lead" data-lang-content="en">Automating the checks that have to run again and again means that fewer rules go missing while a screen is being changed.<br class="only-desktop" /> The check only confirms that the rules written into the code were kept.</p>
           </div>
         </div>
 
@@ -626,7 +626,7 @@
             <h2 class="h2" data-lang-content="en">Applying the rules mattered as much as writing them</h2>
 
             <p class="lead" data-lang-content="ko">초기 화면을 검토하며 버튼과 상태 표현의 충돌을 발견했고, 공통 규칙을 실제 화면에 적용하며 빠진 정의와 잘못된 연결을 확인했습니다. 문서, 컴포넌트, 코드가 같은 기준을 따르는지 점검하는 과정까지 시스템 설계에 포함된다는 것을 배웠습니다.</p>
-            <p class="lead" data-lang-content="en">Reviewing the early screens surfaced a collision between buttons and status. Applying the shared rules to real screens then exposed missing definitions and wrong connections. Checking that the document, the components and the code follow one standard turned out to be part of designing the system, not a step after it.</p>
+            <p class="lead" data-lang-content="en">Reviewing the early screens surfaced a collision between buttons and state. Applying the shared rules to real screens then exposed missing definitions and wrong connections. Checking that the document, the components and the code follow one standard turned out to be part of designing the system, not a step after it.</p>
           </div>
 
           <dl class="closing__status">
@@ -674,7 +674,7 @@
             <div class="proj-meta">
               <h3 class="proj-title">BingX AI Master</h3>
               <p class="proj-desc" data-lang-content="ko">첫 투자자가 인상이 아닌 근거로 AI 에이전트를 고를 수 있도록, 트레이딩의 의사결정 구조를 설계한 케이스 스터디.</p>
-              <p class="proj-desc" data-lang-content="en">Designing a decision structure for AI-driven crypto trading — so first-time investors can choose an agent with confidence, not impressions.</p>
+              <p class="proj-desc" data-lang-content="en">Designing a decision structure for AI-driven crypto trading — so first-time investors can choose an agent on evidence, not impressions.</p>
               <div class="tagrow tagrow--sm">
                 <span class="tag">AI AGENTS</span>
                 <span class="tag">CRYPTO TRADING</span>
