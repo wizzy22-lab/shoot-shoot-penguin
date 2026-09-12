@@ -656,22 +656,27 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    frame's own colours rather than the page's tokens. Every colour value
    below is the Figma value.
 
-   The card is not placed inside a .wrap — it *is* one, painted white:
-   the same 1280 cap and the same gutter for padding. That buys two
-   alignments at once. Its white edge falls on the column edge, and its
-   contents fall on the same line as the body copy and the figure above,
-   which a nested card could not do: a wrap's gutter plus a card's own
-   padding would push the contents a gutter's width inboard of every
-   other line on the page.
+   The band carries .lightband-fig's geometry, so the white edge starts
+   on the page's visible line — the same line as the A/B figure above
+   it, the nav wordmark and every paragraph. The 1280 column's own edge
+   sits a gutter outboard of that line, and aligning to it would leave
+   the card the only thing on the page hanging past the nav.
 
-   The gutter is narrower than Figma's 48, so the five specimens give
-   back what the padding took: 20 between cards instead of 24, and 20
-   inside each instead of 23. Below that the hex values start to clip.
+   That leaves 1200 for a sheet drawn at 1438, and the five specimens
+   absorb the difference: 20 between cards rather than 24, 16 inside
+   each rather than 23, and a 10px tile label rather than 11. Every one
+   of those is the point at which a hex value would otherwise clip. The
+   tile's own padding and the overlap stay at Figma's 8.
    -------------------------------------------------------------------- */
-.spec-card {
+.spec-band {
+  width: 100%;
   max-width: var(--wrap);
   margin: 64px auto;
-  padding: clamp(28px, 3.4vw, 48px) var(--gutter);
+  padding: 0 var(--gutter);
+}
+.spec-card {
+  /* Figma: 48 all round, easing off as the card narrows. */
+  padding: clamp(24px, 3.4vw, 48px);
   border-radius: 32px;
   background: #FFFFFF;
   color: #000000;
@@ -730,7 +735,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   margin-top: 48px;
 }
 .state-card {
-  padding: 20px;
+  padding: 16px;
   border-radius: 16px;
   background: #FAFAFA;
   border: 1px solid #F5F5F5;
@@ -759,7 +764,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   flex-direction: column;
   justify-content: center;
   gap: 2px;
-  padding: 8px 7px;
+  padding: 8px;
   border-radius: 12px;
   box-shadow: 2px 4px 2px rgba(218, 219, 218, 0.6);
 }
@@ -771,8 +776,10 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .state-tile__role,
 .state-tile__hex {
   display: block;
-  font-size: var(--fs-label-sm);
-  line-height: 1.27;
+  /* A step under --fs-label-sm: the tile is 62 here rather than Figma's
+     68, and the label rides down with it. */
+  font-size: 10px;
+  line-height: 1.4;
   /* A hex is a spec value: it may not wrap and it may not be broken to
      fit, so the tile is sized around it instead. */
   white-space: nowrap;
@@ -1624,7 +1631,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    narrower than its own tile stack and the hex values would clip.
    ============================================================ */
 @media (min-width: 1360px) {
-  .spec-card { margin-block: 80px; }
+  .spec-band { margin-block: 80px; }
   .state-cards { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 }
 
