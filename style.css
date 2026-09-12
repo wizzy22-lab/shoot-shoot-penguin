@@ -818,7 +818,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    better part of a third of it, so the spec sits above the row instead.
    Nothing is dropped — the line breaks, not the content.
    -------------------------------------------------------------------- */
-.typo-sheet {
+.spec-sheet {
   margin-top: 40px;
   border: 1px solid #F5F5F5;
   border-radius: 24px;
@@ -826,10 +826,10 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
      the sticky row heads inside it would never stick to anything. */
   overflow: clip;
 }
-.typo-sheet > * + * { border-top: 1px solid #F5F5F5; }
+.spec-sheet > * + * { border-top: 1px solid #F5F5F5; }
 
-.typo-panel { padding: 24px; }
-.typo-face {
+.spec-panel { padding: 24px; }
+.spec-face {
   font-family: "Pretendard", var(--font-sans);
   font-weight: 800;
   font-size: clamp(36px, 4.4vw, 64px);
@@ -837,22 +837,22 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   letter-spacing: -0.02em;
   color: #000000;
 }
-.typo-face + .typo-panel__title { margin-top: 16px; }
-.typo-panel__title {
+.spec-face + .spec-panel__title { margin-top: 16px; }
+.spec-panel__title {
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: 20px;
   line-height: 1.2;
   color: #000000;
 }
-.typo-panel__body {
+.spec-panel__body {
   margin-top: 12px;
   max-width: 980px;
   font-size: var(--fs-body);
   line-height: 1.6;
   color: #6E7884;
 }
-.typo-panel__body + .typo-panel__body { margin-top: 16px; }
+.spec-panel__body + .spec-panel__body { margin-top: 16px; }
 
 /* ---- The five families, one open at a time ------------------------
    Thirteen rows of identical height ran six screens deep, and the
