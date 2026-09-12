@@ -524,11 +524,579 @@
           <p class="dom-text dom-text--solo" data-lang-content="en">The hierarchy of headings, body and labels is defined by a combination of size, weight and leading.</p>
         </div>
 
-        <figure class="lightband-fig">
-          <img src="assets/img/ssp-f-typography.png"
-               width="2400" height="1800" loading="lazy" decoding="async"
-               alt="The type scale: heading, body and label steps with their size, weight and leading" />
-        </figure>
+        <!-- The type sheet, from the Figma frame (15:413). Markup rather
+             than an export, so each specimen is really set at the size,
+             weight and leading it documents — the page proves the scale
+             instead of showing a picture of it.
+
+             The sheet's own chrome (6-2, the chip, the step names and the
+             spec labels) stays English in either locale, as the runners do.
+             The specimens stay Korean in both: they are samples of how the
+             typeface sets Hangul and numerals, not copy to be read. -->
+        <div class="spec-band">
+          <article class="spec-card">
+            <div class="spec-card__runner">
+              <span class="spec-card__num">6-2</span>
+              <span class="spec-chip">typography</span>
+            </div>
+
+            <div class="typo-sheet">
+              <section class="typo-panel">
+                <h4 class="typo-panel__title">Typography</h4>
+                <p class="typo-panel__body" data-lang-content="ko">크기 · 굵기 · 행간의 조합만으로 정보의 층위가 드러나야 했습니다. 색에 기대지 않는 위계가 타이포그래피에 요구된 조건이었습니다.</p>
+                <p class="typo-panel__body" data-lang-content="en">The layers of information had to read from size, weight and leading alone. A hierarchy that does not lean on colour was what typography had to deliver here.</p>
+              </section>
+
+              <section class="typo-panel">
+                <p class="typo-face">Pretendard</p>
+                <h4 class="typo-panel__title" data-lang-content="ko">브랜드 성격과 구현 조건을 함께 만족하는 서체를 선택했습니다</h4>
+                <h4 class="typo-panel__title" data-lang-content="en">Selected a typeface for both brand character and implementation</h4>
+
+                <p class="typo-panel__body" data-lang-content="ko">브랜드의 다섯 가지 성격 &mdash; 정확함, 단단함, 빠름, 야외다움, 은근한 유쾌함 &mdash; 과 어긋나는 후보를 먼저 제외했습니다. 둥근 지오메트릭 산세리프는 정확함과 단단함을 충분히 전달하지 못해 제외했습니다. 남은 후보는 실무 요건으로 평가했습니다.</p>
+                <p class="typo-panel__body" data-lang-content="en">Candidates that conflicted with the brand&rsquo;s five traits &mdash; precise, solid, fast, outdoorsy and subtly playful &mdash; were removed first. Rounded geometric sans-serifs were excluded because they did not convey enough precision or solidity. The remaining options were assessed against practical requirements.</p>
+
+                <p class="typo-panel__body" data-lang-content="ko">강조색을 쓰지 않으므로 위계는 크기와 굵기에 기대야 했고, 여기에는 가변 폰트로만 얻을 수 있는 650 · 750 값이 포함됩니다. Pretendard Variable은 400&ndash;800을 연속으로 제공하고, 한글과 숫자의 시각적 일관성을 유지하며, 두 플랫폼에서 안정적으로 렌더링됩니다. 오픈 라이선스라 별도 계약 없이 번들할 수 있다는 점도 함께 고려했습니다.</p>
+                <p class="typo-panel__body" data-lang-content="en">With no accent colour, hierarchy had to rely on size and weight, including 650 and 750 &mdash; values available only through variable fonts. Pretendard Variable provides a continuous 400&ndash;800 range, keeps Korean and numerals visually consistent, and renders reliably across both platforms. Its open licence also allows the font to be bundled without a separate agreement.</p>
+              </section>
+
+              <ul class="typo-steps">
+            <li class="typo-step" data-step="display-lg">
+              <h5 class="typo-step__name">Display / Large</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>34px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>120%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>-2%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Semibold, Bold, Extra Bold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Onboarding, Empty state</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semibold</span>
+                    <p class="typo-sample__text">모집은 짧게</p>
+                  </li>
+                  <li class="typo-sample" data-weight="b">
+                    <span class="typo-sample__weight">Bold</span>
+                    <p class="typo-sample__text">모집은 짧게</p>
+                  </li>
+                  <li class="typo-sample" data-weight="xb">
+                    <span class="typo-sample__weight">Extra Bold</span>
+                    <p class="typo-sample__text">모집은 짧게</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="number-lg">
+              <h5 class="typo-step__name">Number / Large</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>28px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>120%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>-2%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Semibold, Bold, Extra Bold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Prediction value</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semibold</span>
+                    <p class="typo-sample__text">게스트 3~5명</p>
+                  </li>
+                  <li class="typo-sample" data-weight="b">
+                    <span class="typo-sample__weight">Bold</span>
+                    <p class="typo-sample__text">게스트 3~5명</p>
+                  </li>
+                  <li class="typo-sample" data-weight="xb">
+                    <span class="typo-sample__weight">Extra Bold</span>
+                    <p class="typo-sample__text">게스트 3~5명</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="number-md">
+              <h5 class="typo-step__name">Number / Medium</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>20px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>120%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>0%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Semibold, Bold, Extra Bold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Price, Seats Left</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semibold</span>
+                    <p class="typo-sample__text">12,000원 · 3/5명</p>
+                  </li>
+                  <li class="typo-sample" data-weight="b">
+                    <span class="typo-sample__weight">Bold</span>
+                    <p class="typo-sample__text">12,000원 · 3/5명</p>
+                  </li>
+                  <li class="typo-sample" data-weight="xb">
+                    <span class="typo-sample__weight">Extra Bold</span>
+                    <p class="typo-sample__text">12,000원 · 3/5명</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="heading-lg">
+              <h5 class="typo-step__name">Heading / Large</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>24px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>130%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>-2%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Semibold, Bold, Extra Bold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Screen title</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semibold</span>
+                    <p class="typo-sample__text">오늘 뛸 경기</p>
+                  </li>
+                  <li class="typo-sample" data-weight="b">
+                    <span class="typo-sample__weight">Bold</span>
+                    <p class="typo-sample__text">오늘 뛸 경기</p>
+                  </li>
+                  <li class="typo-sample" data-weight="xb">
+                    <span class="typo-sample__weight">Extra Bold</span>
+                    <p class="typo-sample__text">오늘 뛸 경기</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="heading-md">
+              <h5 class="typo-step__name">Heading / Medium</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>20px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>130%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>-2%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Semibold, Bold, Extra Bold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Section title</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semibold</span>
+                    <p class="typo-sample__text">다음 경기 준비</p>
+                  </li>
+                  <li class="typo-sample" data-weight="b">
+                    <span class="typo-sample__weight">Bold</span>
+                    <p class="typo-sample__text">다음 경기 준비</p>
+                  </li>
+                  <li class="typo-sample" data-weight="xb">
+                    <span class="typo-sample__weight">Extra Bold</span>
+                    <p class="typo-sample__text">다음 경기 준비</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="heading-sm">
+              <h5 class="typo-step__name">Heading / Small</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>18px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>130%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>-2%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Semibold, Bold, Extra Bold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Card title, Venue</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semibold</span>
+                    <p class="typo-sample__text">역삼 실내체육관</p>
+                  </li>
+                  <li class="typo-sample" data-weight="b">
+                    <span class="typo-sample__weight">Bold</span>
+                    <p class="typo-sample__text">역삼 실내체육관</p>
+                  </li>
+                  <li class="typo-sample" data-weight="xb">
+                    <span class="typo-sample__weight">Extra Bold</span>
+                    <p class="typo-sample__text">역삼 실내체육관</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="body-lg">
+              <h5 class="typo-step__name">Body / Large</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>16px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>150%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>0%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Regular, Medium, Semibold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Section title</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="r">
+                    <span class="typo-sample__weight">Regular</span>
+                    <p class="typo-sample__text">출석 응답 8명이 도착했습니다</p>
+                  </li>
+                  <li class="typo-sample" data-weight="m">
+                    <span class="typo-sample__weight">Medium</span>
+                    <p class="typo-sample__text">출석 응답 8명이 도착했습니다</p>
+                  </li>
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semi Bold</span>
+                    <p class="typo-sample__text">출석 응답 8명이 도착했습니다</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="body-md">
+              <h5 class="typo-step__name">Body / Large</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>14px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>150%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>0%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Regular, Medium, Semibold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Supporting text</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="r">
+                    <span class="typo-sample__weight">Regular</span>
+                    <p class="typo-sample__text">최근 6경기 평균 기준</p>
+                  </li>
+                  <li class="typo-sample" data-weight="m">
+                    <span class="typo-sample__weight">Medium</span>
+                    <p class="typo-sample__text">최근 6경기 평균 기준</p>
+                  </li>
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semi Bold</span>
+                    <p class="typo-sample__text">최근 6경기 평균 기준</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="body-sm">
+              <h5 class="typo-step__name">Body / Small</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>12px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>150%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>0%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Regular, Medium, Semibold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Meta information</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="r">
+                    <span class="typo-sample__weight">Regular</span>
+                    <p class="typo-sample__text">중급 · 5v5 · 12,000원</p>
+                  </li>
+                  <li class="typo-sample" data-weight="m">
+                    <span class="typo-sample__weight">Medium</span>
+                    <p class="typo-sample__text">중급 · 5v5 · 12,000원</p>
+                  </li>
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semi Bold</span>
+                    <p class="typo-sample__text">중급 · 5v5 · 12,000원</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="label-lg">
+              <h5 class="typo-step__name">Label / Large</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>14px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>130%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>0%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Regular, Medium, Semibold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Button label</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="r">
+                    <span class="typo-sample__weight">Regular</span>
+                    <p class="typo-sample__text">이 경기 신청하기</p>
+                  </li>
+                  <li class="typo-sample" data-weight="m">
+                    <span class="typo-sample__weight">Medium</span>
+                    <p class="typo-sample__text">이 경기 신청하기</p>
+                  </li>
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semi Bold</span>
+                    <p class="typo-sample__text">이 경기 신청하기</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="label-md">
+              <h5 class="typo-step__name">Label / Medium</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>12px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>130%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>0%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Regular, Medium, Semibold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Filter chip</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semibold</span>
+                    <p class="typo-sample__text">오늘 · 저녁 · 초중급</p>
+                  </li>
+                  <li class="typo-sample" data-weight="b">
+                    <span class="typo-sample__weight">Bold</span>
+                    <p class="typo-sample__text">오늘 · 저녁 · 초중급</p>
+                  </li>
+                  <li class="typo-sample" data-weight="xb">
+                    <span class="typo-sample__weight">ExtraBold</span>
+                    <p class="typo-sample__text">오늘 · 저녁 · 초중급</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="label-sm">
+              <h5 class="typo-step__name">Label / Small</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>11px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>130%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>2%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Regular, Medium, Semibold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Status badge · Section header</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">Semibold</span>
+                    <p class="typo-sample__text">모집 중 3자리</p>
+                  </li>
+                  <li class="typo-sample" data-weight="b">
+                    <span class="typo-sample__weight">Bold</span>
+                    <p class="typo-sample__text">모집 중 3자리</p>
+                  </li>
+                  <li class="typo-sample" data-weight="xb">
+                    <span class="typo-sample__weight">ExtraBold</span>
+                    <p class="typo-sample__text">모집 중 3자리</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="typo-step" data-step="caption">
+              <h5 class="typo-step__name">Caption</h5>
+              <div class="typo-step__body">
+                <dl class="typo-spec">
+                  <div class="typo-field">
+                    <dt>Size</dt>
+                    <dd>11px</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Line height</dt>
+                    <dd>130%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Letter spacing</dt>
+                    <dd>2%</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Weight</dt>
+                    <dd>Regular, Medium, Semibold</dd>
+                  </div>
+                  <div class="typo-field">
+                    <dt>Used in</dt>
+                    <dd>Time stamp · Source note</dd>
+                  </div>
+                </dl>
+                <ul class="typo-samples">
+                  <li class="typo-sample" data-weight="r">
+                    <span class="typo-sample__weight">Regular</span>
+                    <p class="typo-sample__text">2시간 전 업데이트</p>
+                  </li>
+                  <li class="typo-sample" data-weight="m">
+                    <span class="typo-sample__weight">Medium</span>
+                    <p class="typo-sample__text">2시간 전 업데이트</p>
+                  </li>
+                  <li class="typo-sample" data-weight="sb">
+                    <span class="typo-sample__weight">SemiBold</span>
+                    <p class="typo-sample__text">2시간 전 업데이트</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </div>
 
       <div class="dom" id="f-spacing">

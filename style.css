@@ -801,6 +801,151 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #6E7884;
 }
 
+/* ---- The type sheet, from Figma (frame 15:413) ---------------------
+   Same white card as the colour sheet, and the same reason for being
+   markup: a specimen is only a specimen if it is really set at the size,
+   weight and leading it claims. An exported picture of a type scale
+   proves nothing about the type.
+
+   Each step declares its three values once, on the row, and every
+   specimen in that row resolves them. The weight is the one thing that
+   differs between the three, which is the point the row is making.
+
+   Figma draws the spec beside the specimens; at 1438 there is room for
+   both. The card here is 1200, and the largest specimen alone wants the
+   better part of a third of it, so the spec sits above the row instead.
+   Nothing is dropped — the line breaks, not the content.
+   -------------------------------------------------------------------- */
+.typo-sheet {
+  margin-top: 40px;
+  border: 1px solid #F5F5F5;
+  border-radius: 24px;
+  /* The panels and rows share edges, so the sheet clips its own corners. */
+  overflow: hidden;
+}
+.typo-sheet > * + * { border-top: 1px solid #F5F5F5; }
+
+.typo-panel { padding: 24px; }
+.typo-face {
+  font-family: "Pretendard", var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(36px, 4.4vw, 64px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #000000;
+}
+.typo-face + .typo-panel__title { margin-top: 16px; }
+.typo-panel__title {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+}
+.typo-panel__body {
+  margin-top: 12px;
+  max-width: 980px;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+.typo-panel__body + .typo-panel__body { margin-top: 16px; }
+
+/* ---- One row per step ---- */
+.typo-steps > li + li { border-top: 1px solid #F5F5F5; }
+.typo-step { padding: 24px; }
+.typo-step__name {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+}
+
+/* The five spec fields, label over value. They wrap rather than scroll:
+   a spec that needs a scrollbar is a spec nobody reads. */
+.typo-spec {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  margin: 20px 0 0;
+}
+.typo-field { min-width: 0; }
+.typo-field dt {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+.typo-field dd {
+  margin: 2px 0 0;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #222D3A;
+}
+
+/* The column count follows the widest specimen rather than a breakpoint:
+   "출석 응답 8명이 도착했습니다" at 16px wants 272px of tile, and a step
+   that cannot give it that would set a specimen behind a scrollbar. The
+   min() lets the track collapse below 272 on a phone, where one column
+   is all there is anyway. */
+.typo-samples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(272px, 100%), 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.typo-sample {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 119px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #FAFAFA;
+  /* A specimen may not be re-wrapped to fit; the row scrolls first. */
+  overflow-x: auto;
+}
+.typo-sample__weight {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: 1.2;
+  color: #000000;
+}
+
+/* The specimen itself. Pretendard by name rather than through the sans
+   stack: the stack leads with Manrope, which would set the numerals in
+   "12,000원 · 3/5명" and make the sample a specimen of the wrong face. */
+.typo-sample__text {
+  font-family: "Pretendard", sans-serif;
+  font-size: var(--t-size);
+  line-height: var(--t-lh);
+  letter-spacing: var(--t-track);
+  color: #12161A;
+  white-space: nowrap;
+}
+.typo-sample[data-weight="r"]  .typo-sample__text { font-weight: 400; }
+.typo-sample[data-weight="m"]  .typo-sample__text { font-weight: 500; }
+.typo-sample[data-weight="sb"] .typo-sample__text { font-weight: 600; }
+.typo-sample[data-weight="b"]  .typo-sample__text { font-weight: 700; }
+.typo-sample[data-weight="xb"] .typo-sample__text { font-weight: 800; }
+
+.typo-step[data-step="display-lg"] { --t-size: 34px; --t-lh: 1.2; --t-track: -0.02em; }
+.typo-step[data-step="number-lg"] { --t-size: 28px; --t-lh: 1.2; --t-track: -0.02em; }
+.typo-step[data-step="number-md"] { --t-size: 20px; --t-lh: 1.2; --t-track: 0; }
+.typo-step[data-step="heading-lg"] { --t-size: 24px; --t-lh: 1.3; --t-track: -0.02em; }
+.typo-step[data-step="heading-md"] { --t-size: 20px; --t-lh: 1.3; --t-track: -0.02em; }
+.typo-step[data-step="heading-sm"] { --t-size: 18px; --t-lh: 1.3; --t-track: -0.02em; }
+.typo-step[data-step="body-lg"] { --t-size: 16px; --t-lh: 1.5; --t-track: 0; }
+.typo-step[data-step="body-md"] { --t-size: 14px; --t-lh: 1.5; --t-track: 0; }
+.typo-step[data-step="body-sm"] { --t-size: 12px; --t-lh: 1.5; --t-track: 0; }
+.typo-step[data-step="label-lg"] { --t-size: 14px; --t-lh: 1.3; --t-track: 0; }
+.typo-step[data-step="label-md"] { --t-size: 12px; --t-lh: 1.3; --t-track: 0; }
+.typo-step[data-step="label-sm"] { --t-size: 11px; --t-lh: 1.3; --t-track: 0.02em; }
+.typo-step[data-step="caption"] { --t-size: 11px; --t-lh: 1.3; --t-track: 0.02em; }
+
 /* ---- 04 / 05 — tokens, components, and the screens they build ------
    Two of the artefacts here are not drawn yet. Rather than leave a gap
    in the argument, each one holds its final frame: the right ratio, a
