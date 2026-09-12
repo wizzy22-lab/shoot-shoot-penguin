@@ -201,7 +201,6 @@
           <a class="tag" href="#f-colour"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Colour</a>
           <a class="tag" href="#f-typography"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Typography</a>
           <a class="tag" href="#f-spacing"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Spacing</a>
-          <a class="tag" href="#f-density"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Density</a>
           <a class="tag" href="#ds-components"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Components</a>
         </div>
       </div>
@@ -1241,23 +1240,61 @@
             </div>
           </article>
         </div>
-      </div>
 
-      <div class="dom" id="f-density">
-        <div class="wrap">
-          <div class="runner">
-            <span class="runner-name runner-name--sub">Density</span>
-          </div>
-          <p class="dom-text dom-text--solo" data-lang-content="ko">정보를 모아 보는 관리 화면과 지도에서 조작하는 탐색 화면에 맞춰 두 가지 컨트롤 크기를 정의했습니다.</p>
-          <p class="dom-text dom-text--solo" data-lang-content="en">Two control sizes: one for the management screens where information is gathered, one for the map screens you operate directly.</p>
+        <!-- The radius sheet, from the Figma frame (21:2220). Each swatch
+             carries the radius it names, so the rounding is the specimen
+             rather than a number beside a picture of one. -->
+        <div class="spec-band">
+          <article class="spec-card">
+            <div class="spec-card__runner">
+              <span class="spec-card__num">6-4</span>
+              <span class="spec-chip spec-chip--neutral">radius</span>
+            </div>
+
+            <div class="spec-sheet">
+              <section class="spec-panel">
+                <h4 class="spec-panel__title">Radius</h4>
+                <p class="spec-panel__body" data-lang-content="ko">각 값은 표준보다 한 단계 크게 잡아, 브랜드의 따뜻함을 강조색이 아니라 형태로 전달합니다.</p>
+                <p class="spec-panel__body" data-lang-content="en">Each value is one step larger than the standard, preserving the brand&rsquo;s warmth through form rather than accent colour.</p>
+
+                <ul class="radius-scale">
+                  <li class="radius-step" data-radius="6">
+                    <span class="radius-swatch"></span>
+                    <span class="radius-step__role">Badge</span>
+                    <span class="radius-step__value">6</span>
+                  </li>
+                  <li class="radius-step" data-radius="10">
+                    <span class="radius-swatch"></span>
+                    <span class="radius-step__role">Thumbnail</span>
+                    <span class="radius-step__value">10</span>
+                  </li>
+                  <li class="radius-step" data-radius="12">
+                    <span class="radius-swatch"></span>
+                    <span class="radius-step__role">Button · Input</span>
+                    <span class="radius-step__value">12</span>
+                  </li>
+                  <li class="radius-step" data-radius="16">
+                    <span class="radius-swatch"></span>
+                    <span class="radius-step__role">Card</span>
+                    <span class="radius-step__value">16</span>
+                  </li>
+                  <li class="radius-step" data-radius="20">
+                    <span class="radius-swatch"></span>
+                    <span class="radius-step__role">Sheet</span>
+                    <span class="radius-step__value">20</span>
+                  </li>
+                  <li class="radius-step" data-radius="full">
+                    <span class="radius-swatch"></span>
+                    <span class="radius-step__role">Chip</span>
+                    <span class="radius-step__value">full</span>
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </article>
         </div>
-
-        <figure class="lightband-fig">
-          <img src="assets/img/ssp-f-density.png"
-               width="2400" height="1300" loading="lazy" decoding="async"
-               alt="The two control sizes side by side: the taller one for management screens, the compact one for the map" />
-        </figure>
       </div>
+
     </section>
 
     <section class="section ds-components" id="ds-components">
