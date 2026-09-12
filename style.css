@@ -820,8 +820,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   margin-top: 40px;
   border: 1px solid #F5F5F5;
   border-radius: 24px;
-  /* The panels and rows share edges, so the sheet clips its own corners. */
-  overflow: hidden;
+  /* clip, not hidden: hidden would make the sheet a scroll container and
+     the sticky row heads inside it would never stick to anything. */
+  overflow: clip;
 }
 .typo-sheet > * + * { border-top: 1px solid #F5F5F5; }
 
@@ -851,16 +852,85 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .typo-panel__body + .typo-panel__body { margin-top: 16px; }
 
-/* ---- One row per step ---- */
-.typo-steps > li + li { border-top: 1px solid #F5F5F5; }
-.typo-step { padding: 24px; }
-.typo-step__name {
+/* ---- The five families, one open at a time ------------------------
+   Thirteen rows of identical height ran six screens deep, and the
+   uniformity was the problem: nothing in view said how much was left.
+   Grouping them cuts the sheet to roughly two screens with the largest
+   family open.
+
+   <details name> does the one-at-a-time part natively. No script, so
+   nothing to block; the keyboard and the screen reader get it for free;
+   and find-in-page still opens a closed family to show a match — which
+   a div-and-class accordion would have broken.
+   -------------------------------------------------------------------- */
+.typo-group__head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 20px 24px;
+  cursor: pointer;
+  /* The marker is drawn below; Safari needs the -webkit- rule as well. */
+  list-style: none;
+}
+.typo-group__head::-webkit-details-marker { display: none; }
+.typo-group__name {
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: 20px;
   line-height: 1.2;
   color: #000000;
 }
+.typo-group__count {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+/* The chevron sits at the far end and turns to point at what it opened. */
+.typo-group__head::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  margin-left: auto;
+  align-self: center;
+  border-right: 2px solid #6E7884;
+  border-bottom: 2px solid #6E7884;
+  transform: rotate(45deg);
+  transform-origin: 60% 60%;
+  transition: transform 0.2s ease;
+}
+.typo-group[open] > .typo-group__head::after { transform: rotate(-135deg); }
+.typo-group[open] > .typo-group__head { border-bottom: 1px solid #F5F5F5; }
+
+/* ---- One row per step ---- */
+.typo-steps > li + li { border-top: 1px solid #F5F5F5; }
+
+/* The head is sticky, so the row's own padding lives on its two halves
+   instead: a head that stopped short of the row's edges would let the
+   specimens slide past in the margin. */
+.typo-step__head {
+  position: sticky;
+  /* Clears the fixed chrome (70px nav + 38px anchor row). */
+  top: 109px;
+  z-index: 1;
+  padding: 20px 24px 14px;
+  background: #FFFFFF;
+}
+.typo-step__index {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label-sm);
+  letter-spacing: 0.08em;
+  color: #6E7884;
+}
+.typo-step__name {
+  margin-top: 4px;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+}
+.typo-step__body { padding: 0 24px 24px; }
 
 /* The five spec fields, label over value. They wrap rather than scroll:
    a spec that needs a scrollbar is a spec nobody reads. */
@@ -868,7 +938,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   display: flex;
   flex-wrap: wrap;
   gap: 16px 40px;
-  margin: 20px 0 0;
+  margin: 6px 0 0;
 }
 .typo-field { min-width: 0; }
 .typo-field dt {
@@ -1818,4 +1888,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
   .prin { transition: none; }
   .prin.is-reading { transform: none; }
+
+  .typo-group__head::after { transition: none; }
 }
