@@ -1055,6 +1055,13 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #6E7884;
 }
 .spec-panel__body + .spec-panel__body { margin-top: 16px; }
+/* Emphasis inside a panel body takes the ink the sheets already give a
+   value, not a heavier weight alone: Manrope is loaded at 400/500/800,
+   and 800 inside a sentence reads as a heading fragment. */
+.spec-panel__body strong {
+  font-weight: 500;
+  color: #222D3A;
+}
 
 /* ---- The five families, one open at a time ------------------------
    Thirteen rows of identical height ran six screens deep, and the
