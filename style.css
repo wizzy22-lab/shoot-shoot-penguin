@@ -695,8 +695,16 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   flex: 1 1 320px;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
-  gap: 24px;
+  /* Left, so the samples start on one edge in all three panels and the
+     wrapped rows start on it too. Ranged right, each panel began at
+     whatever its own row happened to measure — 801, 945, 976 — and the
+     column read as three separate things rather than one column. */
+  justify-content: flex-start;
+  /* Half the frame's 24. The samples are one exhibit, not four, and at
+     24 they read as four unrelated pills sitting near each other; 12
+     closes them into a group without letting them touch. Still clear of
+     the 24 between panels, so the grouping goes the right way. */
+  gap: 12px;
   min-width: 0;
 }
 .prob-sample {
