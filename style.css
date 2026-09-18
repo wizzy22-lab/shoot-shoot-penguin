@@ -609,6 +609,115 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   border: 1px solid var(--border);
 }
 
+/* ---- The primary ramp, from Figma (frame 33:3) ---------------------
+   Twelve tones as twelve real swatches. The strip is contiguous in the
+   frame — 82px cells butted together, only the two ends rounded — so it
+   reads as one ramp rather than twelve chips, and the cells share the
+   row's width here instead of holding 82px: the argument is the
+   progression, which survives being narrower, not the cell size.
+
+   The seed square is the 950 end of the ramp, which is why it carries
+   the same shadow the frame gives it: the darkest tone on a near-white
+   panel needs an edge or it reads as a hole.
+   -------------------------------------------------------------------- */
+/* Figma: the title sits on the card, not in a panel — the reasoning is
+   the sheet's own copy, and only the ramp is an exhibit. 32/12/24 are
+   the gaps the frame sets between runner, title, body and panel. */
+.ramp-heading {
+  margin-top: 32px;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+}
+.ramp-panel {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid #F5F5F5;
+  border-radius: 16px;
+  background: #FAFAFA;
+}
+.ramp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+}
+.ramp__name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ramp__seed {
+  flex: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: #0B1118;
+  box-shadow: 2px 4px 4px rgba(218, 219, 218, 0.6);
+}
+.ramp__title {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+}
+
+/* 560px is twelve cells at their narrowest legible width; under that the
+   row wraps the strip below the name rather than shaving the cells. */
+.ramp-steps {
+  display: flex;
+  flex: 1 1 560px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ramp-step {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.ramp-swatch {
+  height: 55px;
+  background: var(--tone);
+}
+.ramp-step:first-child .ramp-swatch {
+  border-radius: 8px 0 0 8px;
+  /* 0 is the page white; without an edge it would not be a swatch. */
+  box-shadow: inset 0 0 0 1px #F8F9FA;
+}
+.ramp-step:last-child .ramp-swatch { border-radius: 0 8px 8px 0; }
+/* The frame sets these at 16px, which is what they hold at full width.
+   A twelve-cell strip on a phone gives each label about 21px, and "950"
+   needs 29 of them, so the label tracks the cell rather than the frame:
+   cqw is the strip's own width, so it shrinks exactly when the cells do
+   and stops at the 16px the frame asks for. */
+.ramp-steps { container-type: inline-size; }
+.ramp-step__value {
+  font-size: clamp(9px, 3.2cqw, 16px);
+  line-height: 1.6;
+  color: #12161A;
+  text-align: center;
+}
+
+.ramp-step[data-tone="0"]   { --tone: #FFFFFF; }
+.ramp-step[data-tone="50"]  { --tone: #F8F9FA; }
+.ramp-step[data-tone="100"] { --tone: #EFF1F4; }
+.ramp-step[data-tone="200"] { --tone: #E0E4E9; }
+.ramp-step[data-tone="300"] { --tone: #C6CCD4; }
+.ramp-step[data-tone="400"] { --tone: #98A1AC; }
+.ramp-step[data-tone="500"] { --tone: #67717D; }
+.ramp-step[data-tone="600"] { --tone: #4F5862; }
+.ramp-step[data-tone="700"] { --tone: #373E47; }
+.ramp-step[data-tone="800"] { --tone: #232930; }
+.ramp-step[data-tone="900"] { --tone: #151E28; }
+.ramp-step[data-tone="950"] { --tone: #0B1118; }
+
 /* ---- The colour sheet, reproduced from Figma (frame 11:307) --------
    This was a flat PNG. It is markup now, so every hex value is text a
    reader can select and a screen reader can say, and the sheet survives

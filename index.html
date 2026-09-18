@@ -307,13 +307,102 @@
         </div>
       </div>
 
+      <!-- The 4-1 sheet, from the Figma frame (33:3). The ramp is markup
+           rather than an export, for the reason the other sheets are: a
+           scale of twelve tones is only evidence if the tones are really
+           there to sample. The runner and the chip are chrome from the
+           source frame and stay English in either locale.
+
+           The sheet states the argument the prose above it makes, and
+           then shows what the argument bought: one neutral ramp for
+           every control, so the five state colours in 4-2 are the only
+           colour on the screen. -->
+      <div class="spec-band" id="f-colour">
+        <article class="spec-card">
+          <div class="spec-card__runner">
+            <span class="spec-card__num">4-1</span>
+            <span class="spec-chip">colors</span>
+          </div>
+
+          <h4 class="ramp-heading" data-lang-content="ko">왜 무채색인가?</h4>
+          <h4 class="ramp-heading" data-lang-content="en">Why neutral colour?</h4>
+
+          <p class="spec-panel__body" data-lang-content="ko">무채색 체계를 선택한 이유는 두 가지입니다. 첫째, 기본 지도 화면에는 25개가 넘는 POI 아이콘이 여러 색으로 표시됩니다. UI 요소에 같은 색을 쓰면 지도 아이콘과 구별하기 어려워집니다. 둘째, 색은 경기 신청 상태를 나타내는 데 쓰이므로 상태 정보를 위해 남겨두어야 했습니다.</p>
+          <p class="spec-panel__body" data-lang-content="ko">그래서 버튼 · 칩 · 탭을 무채색으로 설계해, 강조색이 상태 정보에만 주목을 모으도록 했습니다.</p>
+
+          <p class="spec-panel__body" data-lang-content="en">A neutral colour system was chosen for two reasons. First, the default map screen carries 25+ POI icons in various colours; using those same colours for UI elements would make the two hard to tell apart. Second, colour indicates the status of a match application, so it had to be reserved for status information.</p>
+          <p class="spec-panel__body" data-lang-content="en">Buttons, chips and tabs were therefore designed in neutral colour, leaving the key colours to draw attention to status information alone.</p>
+
+          <div class="ramp-panel">
+            <div class="ramp">
+              <div class="ramp__name">
+                <span class="ramp__seed"></span>
+                <span class="ramp__title">Primary color</span>
+              </div>
+
+              <ul class="ramp-steps">
+                <li class="ramp-step" data-tone="0">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">0</span>
+                </li>
+                <li class="ramp-step" data-tone="50">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">50</span>
+                </li>
+                <li class="ramp-step" data-tone="100">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">100</span>
+                </li>
+                <li class="ramp-step" data-tone="200">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">200</span>
+                </li>
+                <li class="ramp-step" data-tone="300">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">300</span>
+                </li>
+                <li class="ramp-step" data-tone="400">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">400</span>
+                </li>
+                <li class="ramp-step" data-tone="500">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">500</span>
+                </li>
+                <li class="ramp-step" data-tone="600">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">600</span>
+                </li>
+                <li class="ramp-step" data-tone="700">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">700</span>
+                </li>
+                <li class="ramp-step" data-tone="800">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">800</span>
+                </li>
+                <li class="ramp-step" data-tone="900">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">900</span>
+                </li>
+                <li class="ramp-step" data-tone="950">
+                  <span class="ramp-swatch"></span>
+                  <span class="ramp-step__value">950</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </article>
+      </div>
+
       <!-- The colour sheet itself, reproduced from the Figma frame (11:307).
            Its band carries the same geometry as .lightband-fig, so the white
            edge starts where every other visible panel on the page starts —
            the A/B figure above it, the nav wordmark, the body copy. The
            runner and the chip are chrome from the source frame and stay in
            English in either locale, as every other runner does. -->
-      <div class="spec-band" id="f-colour">
+      <div class="spec-band">
         <article class="spec-card">
           <div class="spec-card__runner">
             <span class="spec-card__num">4-2</span>
