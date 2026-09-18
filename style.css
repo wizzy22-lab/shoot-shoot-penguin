@@ -609,6 +609,122 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   border: 1px solid var(--border);
 }
 
+/* ---- The problems sheet, from Figma (frame 39:10) ------------------
+   Three findings, each a panel: the complaint on the left, the pills it
+   is about on the right. The frame fixes the text column at 682px and
+   parks the samples at x=818; here the text takes the room it needs and
+   the samples sit at the end of the row, which holds the same reading
+   order at any width and lets the samples drop below the text on a
+   phone rather than being shaved.
+
+   The sample pills are deliberately off the page's palette. They are
+   the old screens' colours — the four blues and oranges that meant the
+   same thing, the one lavender that meant five — so they are quoted
+   here as evidence, not adopted. None of these hexes is a token.
+   -------------------------------------------------------------------- */
+.probs {
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 24px;
+}
+.prob {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 32px;
+  padding: 24px;
+  border: 1px solid #F5F5F5;
+  border-radius: 16px;
+  background: #FAFAFA;
+}
+.prob__text {
+  flex: 1 1 420px;
+  min-width: 0;
+  max-width: 682px;
+}
+.prob__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+/* 35px in the frame, which is the cap height of the 20px title beside it
+   plus its padding; min-width rather than width so 10+ keeps its circle. */
+.prob__num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  min-width: 35px;
+  padding: 8px;
+  border-radius: 999px;
+  background: #12161A;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: var(--fs-body);
+  line-height: 1.2;
+  color: #E5E5E5;
+}
+.prob__title {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+}
+.prob__body {
+  margin-top: 12px;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+.prob__fix {
+  margin-top: 24px;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+
+/* Both halves carry a basis, so the row shrinks before it breaks: the
+   samples wrap within their own column down to a card of about 1000px
+   and only then drop below the complaint. Sized side by side they stay
+   a pair, which is the whole claim — this text, about these pills. */
+.prob__demo {
+  display: flex;
+  flex: 1 1 320px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  min-width: 0;
+}
+.prob-sample {
+  font-family: "Pretendard", var(--font-sans);
+  font-weight: 400;
+  white-space: nowrap;
+}
+.prob-sample--btn {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+.prob-sample--pill {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+.prob-sample[data-tone="indigo"] { background: #1A1F8B; color: #FFFFFF; }
+.prob-sample[data-tone="blue"]   { background: #2762E8; color: #FFFFFF; }
+.prob-sample[data-tone="orange"] { background: #F4511E; color: #FFFFFF; }
+.prob-sample[data-tone="mute"]   { background: #DADCE3; color: #787C80; }
+.prob-sample[data-tone="lav"]    { background: #E0E0F7; color: #35347D; }
+/* The prediction line carries no fill in the frame — that is the finding:
+   the same red says "closed" as a button and "2 short" as a remark. */
+.prob-sample[data-tone="bare"]   { color: #F4511E; }
+
 /* ---- The primary ramp, from Figma (frame 33:3) ---------------------
    Twelve tones as twelve real swatches. The strip is contiguous in the
    frame — 82px cells butted together, only the two ends rounded — so it

@@ -236,35 +236,113 @@
          ACT II — the design system. The case turns here, so the
          opener carries a rule, the display step, and its own meta row.
          ============================================================ -->
-    <section class="section split" id="ds-problem">
-      <div class="wrap split-inner">
-        <div class="split-text">
-          <div class="runner">
-            <span class="runner-name">03 / Why a System</span>
-          </div>
-
-          <h2 class="h2" data-lang-content="ko">화면마다 달랐던 표현을<br />공통 규칙으로 정리했습니다</h2>
-          <h2 class="h2" data-lang-content="en">Expression that differed screen by screen,<br />settled into shared rules</h2>
-
-          <div class="ds-prose">
-            <p class="lead" data-lang-content="ko">화면 뼈대(와이어프레임)와 1차 UI는 있었지만, 반복 요소의 스타일과 색상 기준이 화면마다 달랐습니다. 요소를 수정할 때마다 개별 화면을 확인해야 했습니다.</p>
-            <p class="lead" data-lang-content="en">The wireframes and a first pass at the UI existed, but repeated elements were styled differently from screen to screen and nothing set a standard for colour. Changing one element meant checking every screen it appeared on.</p>
-
-            <p class="lead" data-lang-content="ko">기존 화면을 검토해 반복 요소와 상태 표현을 분류하고, 공통 토큰과 컴포넌트를 정의했습니다. 먼저 버튼과 경기 상태에 혼용되던 색상의 역할을 분리했습니다.</p>
-            <p class="lead" data-lang-content="en">Reviewing those screens, I sorted the repeated elements and the ways state was expressed, then defined shared tokens and components. The first thing separated was colour&rsquo;s role, which buttons and game states had been sharing.</p>
-          </div>
+    <section class="section" id="ds-problem">
+      <div class="wrap">
+        <div class="runner">
+          <span class="runner-name">03 / Why a System</span>
         </div>
 
-        <figure class="split-figure">
-          <img src="assets/img/ssp-ds-3-why-a-system.png"
-               width="2400" height="2400" loading="lazy" decoding="async"
-               alt="Three findings from the first screens: the same primary button in four different colours, one lavender used for five different things, and a closed state drawn as the strongest button on the screen" />
-          <figcaption class="media-caption">
-            <span data-lang-content="ko">초기 화면의 세 가지 문제 &mdash; 스타일 불일치 · 색상 역할 혼재 · 상태와 액션의 혼동</span>
-            <span data-lang-content="en">Three problems in the first screens &mdash; inconsistent styling · overlapping colour roles · state confused with action</span>
-          </figcaption>
-        </figure>
+        <h2 class="h2" data-lang-content="ko">화면마다 달랐던 표현을<br />공통 규칙으로 정리했습니다</h2>
+        <h2 class="h2" data-lang-content="en">Expression that differed screen by screen,<br />settled into shared rules</h2>
+
+        <div class="ds-prose">
+          <p class="lead" data-lang-content="ko">화면 뼈대(와이어프레임)와 1차 UI는 있었지만, 반복 요소의 스타일과 색상 기준이 화면마다 달랐습니다. 요소를 수정할 때마다 개별 화면을 확인해야 했습니다.</p>
+          <p class="lead" data-lang-content="en">The wireframes and a first pass at the UI existed, but repeated elements were styled differently from screen to screen and nothing set a standard for colour. Changing one element meant checking every screen it appeared on.</p>
+
+          <p class="lead" data-lang-content="ko">기존 화면을 검토해 반복 요소와 상태 표현을 분류하고, 공통 토큰과 컴포넌트를 정의했습니다. 먼저 버튼과 경기 상태에 혼용되던 색상의 역할을 분리했습니다.</p>
+          <p class="lead" data-lang-content="en">Reviewing those screens, I sorted the repeated elements and the ways state was expressed, then defined shared tokens and components. The first thing separated was colour&rsquo;s role, which buttons and game states had been sharing.</p>
+        </div>
       </div>
+
+      <!-- The 01 sheet, from the Figma frame (39:10). It replaces the
+           export that stood here: the three findings were a picture of
+           four buttons, five lavender pills and one closed state, and
+           they are those things now — real pills in the colours they are
+           being blamed for, which is the only way the complaint can be
+           checked against the evidence.
+
+           The demo row is decorative in the strict sense: every pill
+           repeats a noun the prose beside it has already named, so it is
+           aria-hidden rather than read out twice. -->
+      <div class="spec-band">
+        <article class="spec-card">
+          <div class="spec-card__runner">
+            <span class="spec-card__num">01</span>
+            <span class="spec-chip">problems</span>
+          </div>
+
+          <h3 class="spec-card__title" data-lang-content="ko">리디자인 전의 관찰</h3>
+          <h3 class="spec-card__title" data-lang-content="en">Pre-Redesign Observations</h3>
+
+          <p class="spec-card__lead" data-lang-content="ko">세 가지 문제는 별개의 증상처럼 보이지만, 색의 역할과 사용 규칙이 명확히 정의되지 않은 데서 비롯됐습니다.</p>
+          <p class="spec-card__lead" data-lang-content="en">The three issues may appear to be separate symptoms, but the roles and usage rules for color were not clearly defined.</p>
+
+          <ol class="probs">
+          <li class="prob">
+            <div class="prob__text">
+              <div class="prob__head">
+                <span class="prob__num">01</span>
+                <h4 class="prob__title" data-lang-content="ko">같은 목적에 서로 다른 색을 썼습니다.</h4>
+                <h4 class="prob__title" data-lang-content="en">Different colors were used for the same purpose.</h4>
+              </div>
+              <p class="prob__body" data-lang-content="ko">주요 버튼이 화면마다 네 가지 색으로 쓰였습니다. 같은 기능의 버튼이 색에 따라 서로 다른 중요도를 가진 것처럼 보일 수 있었습니다.</p>
+              <p class="prob__body" data-lang-content="en">The main buttons used four different colors across the interface. This could make buttons with the same function appear to have different levels of importance based on their color.</p>
+              <p class="prob__fix" data-lang-content="ko">&rarr; 주요 버튼을 Grey/900으로 통일했습니다.</p>
+              <p class="prob__fix" data-lang-content="en">&rarr; I unified the primary buttons using Grey/900.</p>
+            </div>
+
+            <div class="prob__demo" aria-hidden="true">
+              <span class="prob-sample prob-sample--btn" data-tone="indigo">신청하기</span>
+              <span class="prob-sample prob-sample--btn" data-tone="blue">경기 생성</span>
+              <span class="prob-sample prob-sample--btn" data-tone="orange">신청마감</span>
+              <span class="prob-sample prob-sample--btn" data-tone="mute">상세보기</span>
+            </div>
+          </li>
+
+          <li class="prob">
+            <div class="prob__text">
+              <div class="prob__head">
+                <span class="prob__num">02</span>
+                <h4 class="prob__title" data-lang-content="ko">같은 색을 서로 다른 목적에 썼습니다.</h4>
+                <h4 class="prob__title" data-lang-content="en">The same color was used for different purposes.</h4>
+              </div>
+              <p class="prob__body" data-lang-content="ko">하나의 색이 난이도 · 시간 · 권한 · 인원 · 내비게이션을 모두 나타냈습니다. 그 결과 색만으로는 각각의 의미를 알 수 없었습니다.</p>
+              <p class="prob__body" data-lang-content="en">A single color was used to represent difficulty, time, permissions, people, and navigation. As a result, the meaning of each color could not be understood on its own.</p>
+              <p class="prob__fix" data-lang-content="ko">&rarr; 주요 버튼을 Grey/900으로 통일했습니다.</p>
+              <p class="prob__fix" data-lang-content="en">&rarr; I unified the primary buttons using Grey/900.</p>
+            </div>
+
+            <div class="prob__demo" aria-hidden="true">
+              <span class="prob-sample prob-sample--pill" data-tone="lav">중급</span>
+              <span class="prob-sample prob-sample--pill" data-tone="lav">19:30</span>
+              <span class="prob-sample prob-sample--pill" data-tone="lav">팀장</span>
+              <span class="prob-sample prob-sample--pill" data-tone="lav">황</span>
+              <span class="prob-sample prob-sample--pill" data-tone="lav">홈 · 나의팀 · 캘린더</span>
+            </div>
+          </li>
+
+          <li class="prob">
+            <div class="prob__text">
+              <div class="prob__head">
+                <span class="prob__num">03</span>
+                <h4 class="prob__title" data-lang-content="ko">상태와 액션에 같은 색을 썼습니다.</h4>
+                <h4 class="prob__title" data-lang-content="en">The same color was used for both status and actions.</h4>
+              </div>
+              <p class="prob__body" data-lang-content="ko">&lsquo;신청마감&rsquo;, &lsquo;현재 부족인원 2명&rsquo;처럼 상태와 예측 정보 모두에 강한 색을 썼습니다. 그 결과 색의 강도가 정보의 중요도와 조작 가능 여부를 동시에 전달하고 있었습니다.</p>
+              <p class="prob__body" data-lang-content="en">Strong colors were used for both status and predictive information, such as &ldquo;Registration Closed&rdquo; and &ldquo;2 spots needed.&rdquo; As a result, color intensity was being used to communicate both information importance and whether an element was actionable.</p>
+              <p class="prob__fix" data-lang-content="ko">&rarr; 색은 상태와 피드백에 한정하고, 조작 요소는 무채색으로 분리했습니다.</p>
+              <p class="prob__fix" data-lang-content="en">&rarr; Color is reserved for status and feedback, while interactive elements are separated using neutral colors.</p>
+            </div>
+
+            <div class="prob__demo" aria-hidden="true">
+              <span class="prob-sample prob-sample--btn" data-tone="orange">신청마감</span>
+              <span class="prob-sample prob-sample--btn" data-tone="bare">현재 부족인원 2명</span>
+            </div>
+          </li>
+          </ol>
+        </article>
+      </div>
+
     </section>
 
     <!-- ============================================================
