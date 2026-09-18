@@ -701,8 +701,14 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .spec-chip {
   padding: 8px 16px;
   border-radius: 999px;
-  background: #FF8C42;
-  /* --neutral overrides this; see the spacing sheet. */
+  /* One grey for every sheet chip: the chip names the domain, it is not
+     a status light, so it does not change colour from sheet to sheet.
+
+     A tint of #6E7884, the grey the sheets already use for swatches,
+     labels and rules — same hue and saturation, lifted in lightness so
+     black chip text keeps its contrast. A neutral #B0B0B0 here read
+     warm against those cool greys; matching the family removes it. */
+  background: #A9AFB7;
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: clamp(13px, 1.1vw, 16px);
@@ -711,7 +717,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #000000;
   white-space: nowrap;
 }
-.spec-chip--neutral { background: #B0B0B0; }
 .spec-card__title {
   margin-top: 10px;
   font-family: var(--font-sans);
