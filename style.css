@@ -159,7 +159,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .media-caption [data-lang-content="ko"],
 .tldr-label [data-lang-content="ko"],
 .runner-name [data-lang-content="ko"],
-.dom-label [data-lang-content="ko"],
 .ds-anchor [data-lang-content="ko"] {
   font-family: var(--font-sans);
   letter-spacing: normal;
@@ -523,8 +522,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   line-height: 1.2;
   color: var(--text-dim);
 }
-/* A domain inside 06 is subordinate to it, so its name steps down. */
-.runner-name--sub { font-size: var(--fs-label-sm); }
 
 /* ============================================================
    COVERAGE CHIPS
@@ -563,39 +560,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    ============================================================ */
 .dom { margin-top: 72px; }
 .dom[hidden] { display: none; }
-
-.dom-lines {
-  display: grid;
-  gap: 20px;
-  margin-top: 24px;
-}
-.dom-line {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 6px;
-}
-.dom-label {
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: var(--fs-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1.2;
-  color: var(--text-faint);
-}
-/* A domain that is one sentence rather than a why/rule pair carries its
-   own top margin, since there is no .dom-lines grid to supply it. */
-.dom-text--solo { margin-top: 24px; }
-
-.dom-text {
-  max-width: 680px;
-  font-size: var(--fs-body);
-  line-height: 1.6;
-  color: var(--text);
-}
-.dom .lightband { margin: 40px 0; }
-.dom > .lightband-fig { margin-top: 40px; }
-.dom > .wrap > .media-caption { margin-top: 20px; text-align: left; }
 
 /* ============================================================
    SPLIT SECTION
@@ -1840,13 +1804,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
     border-left: 0;
     border-radius: 0 12px 12px 0;
   }
-  .dom-line {
-    grid-template-columns: 72px minmax(0, 1fr);
-    gap: 24px;
-    align-items: start;
-  }
-  .dom-label { padding-top: 3px; }
-
   .prin { padding: 24px; }
   .prin-media { margin: -24px -24px 0; }
 
