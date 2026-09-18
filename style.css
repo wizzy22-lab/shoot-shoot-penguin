@@ -1562,14 +1562,21 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   border-radius: 32px;
   background: #141414;
 }
+/* Three lines, and the <br>s are the only breaks allowed: "according to
+   its meaning" is the longest and was folding a fourth line out of the
+   statement wherever the panel came up short. The size follows the panel
+   rather than the viewport (cqi), so the line shrinks to fit instead of
+   breaking, and the shape the frame drew survives every width. */
+.prin-lede { container-type: inline-size; }
 .prin-lede__title {
   margin-top: 40px;
   font-family: var(--font-sans);
   font-weight: 800;
-  font-size: clamp(30px, 3.3vw, 48px);
+  font-size: clamp(22px, 8.4cqi, 48px);
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: #FFFFFF;
+  text-wrap: nowrap;
 }
 .prin-lede__body {
   margin-top: 32px;
