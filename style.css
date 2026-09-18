@@ -939,15 +939,29 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .typo-step__body { padding: 0 24px 24px; }
 
-/* The five spec fields, label over value. They wrap rather than scroll:
-   a spec that needs a scrollbar is a spec nobody reads. */
+/* The five spec fields, label over value, on one line. They wrap rather
+   than scroll: a spec that needs a scrollbar is a spec nobody reads.
+
+   Two track widths, not five equal ones. The three numeric specs never
+   run past 40px of value and are set by their labels instead — "Letter
+   spacing" is the longest at 106px, so 112 off the spacing scale holds
+   all three. Weight and "Used in" carry the prose and take what is
+   left. Measured across all thirteen steps, exactly one value ("Status
+   badge · Section header", 222px) runs past 198 — which is all an even
+   five-way split leaves, while handing each numeric field 198px it has
+   no use for. That waste is what broke the row in two.
+
+   Flex rather than a grid template, so the row folds on its own below
+   the 844px it needs — no breakpoint to keep in step with the sheet. */
 .typo-spec {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px 40px;
+  gap: 16px;
   margin: 6px 0 0;
 }
-.typo-field { min-width: 0; }
+.typo-field { min-width: 0; flex: 0 0 112px; }
+/* Weight and Used in — the two that hold prose. */
+.typo-field:nth-child(n+4) { flex: 1 1 222px; }
 .typo-field dt {
   font-size: var(--fs-body);
   line-height: 1.6;
