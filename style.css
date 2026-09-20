@@ -1344,10 +1344,16 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    what changes — each swatch really casts the shadow it names, so the
    sheet is the specimen rather than a picture of one.
 
-   shadow-4 is the odd one and is meant to be: it throws upward, because
+   The steps are named for what they do rather than numbered, which is
+   how the radius row above them reads (Badge, Card, Sheet) and how the
+   rest of the page names anything a person has to say out loud.
+
+   Anchored is the odd one and is meant to be: it throws upward, because
    the things that use it (BottomSheet, BottomNav) are lit from the page
-   they rise over, not from above. Its slab is barely there in the frame
-   (20% white) for the same reason — the shadow is the whole exhibit.
+   they rise over, not from above. A number hid that — fourth of five
+   reads as "deeper than the third" — where the name says it. Its slab is
+   barely there in the frame (20% white) for the same reason: the shadow
+   is the whole exhibit.
    -------------------------------------------------------------------- */
 .shadow-scale {
   display: flex;
@@ -1374,7 +1380,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   border-radius: var(--shadow-r);
   box-shadow: var(--shadow-v);
 }
-.shadow-step__token {
+.shadow-step__role {
   margin-top: 12px;
   font-size: var(--fs-body);
   line-height: 1.6;
