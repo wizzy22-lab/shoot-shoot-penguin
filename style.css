@@ -882,8 +882,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 /* The sheet's own runner: the number, then the domain it belongs to.
    Both are chrome from the source frame and stay in English in either
    locale, exactly as the section runners above them do. */
-.spec-card--tight { padding: 24px; }
-
 .spec-card__runner {
   display: flex;
   align-items: center;
