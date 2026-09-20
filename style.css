@@ -1409,6 +1409,84 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   --shadow-v: 0 2px 6px 0 rgba(11, 17, 24, 0.14), 0 20px 44px 0 rgba(11, 17, 24, 0.12);
 }
 
+/* ---- The icon sheet, from Figma (frame 50:340) ---------------------
+   Twenty-two boxes, each holding the real glyph at the size the system
+   sets it. The frame lays them 11 across a fixed 1134px; here the row
+   wraps on its own, because the set is a list rather than a grid — no
+   cell means anything by its position.
+
+   The two labels under each are different kinds of string and are set
+   as such: the name we call it, and the ligature you type. The second
+   takes the mono stack the page uses for identifiers, since that is
+   what it is.
+   -------------------------------------------------------------------- */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+}
+
+/* 24 both ways. The frame runs 11 across a fixed 1134px, which needs 28
+   between them — a step the spacing sheet two panels up does not have,
+   and this sheet is not the place to invent one. At 24 the set holds two
+   rows at full width with nothing orphaned, and re-wraps from there. */
+.icon-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.icon-spec {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* 4 is the gap between the two labels; the box stands 12 off the pair,
+     which is the 8 the name adds on top. */
+  gap: 4px;
+  min-width: 48px;
+}
+.icon-box {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #E0E4E9;
+  border-radius: 10px;
+  background: #F8F9FA;
+  color: #12161A;
+}
+/* 4px apart, and the pair sits under the box rather than centred on it:
+   the names run to different lengths and a centred pair would put every
+   row on its own axis. */
+.icon-spec__name {
+  margin-top: 8px;
+  font-family: "Pretendard", var(--font-sans);
+  font-size: 11px;
+  line-height: 1.3;
+  letter-spacing: 0.33px;
+  color: #98A1AC;
+}
+.icon-spec__lig {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.3;
+  letter-spacing: 0.33px;
+  color: #98A1AC;
+}
+
 /* ---- 04 / 05 — tokens, components, and the screens they build ------
    Two of the artefacts here are not drawn yet. Rather than leave a gap
    in the argument, each one holds its final frame: the right ratio, a

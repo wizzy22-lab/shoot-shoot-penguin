@@ -23,6 +23,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;800&family=Azeret+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <!-- Material Symbols, subset to the 22 glyphs the 6-5 sheet sets. The
+       sheet documents the icon set, so the specimens are the real font
+       rather than pictures of it — the same reason the type sheet sets
+       Pretendard. display=block: a ligature that falls back would show
+       its own name as words. -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;icon_names=add,calendar_month,check,chevron_left,chevron_right,close,content_copy,edit,filter_list,groups,home,location_on,lock,menu,more_horiz,my_location,notifications,person,remove,schedule,search,sports_basketball&amp;display=block" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <!-- Contentsquare. Runs on the live host only, so local work and Vercel
        preview deploys (their own -git- hostnames) stay out of the session
@@ -201,6 +207,7 @@
           <a class="tag" href="#f-colour"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Colour</a>
           <a class="tag" href="#f-typography"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Typography</a>
           <a class="tag" href="#f-spacing"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Spacing</a>
+          <a class="tag" href="#f-icon"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Icon</a>
           <a class="tag" href="#ds-components"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Components</a>
         </div>
       </div>
@@ -1486,6 +1493,149 @@
                     <span class="shadow-swatch"></span>
                     <span class="shadow-step__token">shadow-5</span>
                     <span class="shadow-step__use">Modal, ConfirmDialog</span>
+                  </li>
+                </ul>
+              </section>
+            </div>
+          </article>
+        </div>
+      </div>
+
+
+      <!-- The 6-5 sheet, from the Figma frame (50:340). The glyphs are the
+           live Material Symbols font, subset in the head to exactly these
+           22 names, so what the sheet shows is what the app ships — the
+           same argument the type sheet makes by setting Pretendard.
+
+           Each is captioned twice: the name the system calls it, and the
+           name you type to get it. Figma sets that second label in Inter
+           Bold; the page has no Inter, and loading one for 22 ten-pixel
+           labels is a poor trade, so it takes the mono stack the page
+           already uses for identifiers — which is what the string is. -->
+      <div class="dom" id="f-icon">
+        <div class="spec-band">
+          <article class="spec-card">
+            <div class="spec-card__runner">
+              <span class="spec-card__num">6-5</span>
+              <span class="spec-chip">icon</span>
+            </div>
+
+            <div class="spec-sheet">
+              <section class="spec-panel">
+                <h4 class="spec-panel__title">Icon</h4>
+                <p class="spec-panel__body" data-lang-content="ko">본문 텍스트인 Pretendard와 시각적 무게가 맞도록 Material Symbols Outlined 400을 선택했습니다. 모든 상태에는 아이콘이나 레이블을 함께 사용해, 정보가 색에만 의존하지 않도록 했습니다.</p>
+                <p class="spec-panel__body" data-lang-content="en">Material Symbols Outlined 400 was selected to match the visual weight of Pretendard body text. Every state is also paired with an icon or label, ensuring that information never relies on colour alone.</p>
+
+                <ul class="icon-specs">
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">chevron_right</span></span>
+                    <span class="icon-spec__name">chevron-right</span>
+                    <span class="icon-spec__lig">chevron_right</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">chevron_left</span></span>
+                    <span class="icon-spec__name">chevron-left</span>
+                    <span class="icon-spec__lig">chevron_left</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">more_horiz</span></span>
+                    <span class="icon-spec__name">more</span>
+                    <span class="icon-spec__lig">more_horiz</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">home</span></span>
+                    <span class="icon-spec__name">home</span>
+                    <span class="icon-spec__lig">home</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">groups</span></span>
+                    <span class="icon-spec__name">team</span>
+                    <span class="icon-spec__lig">groups</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">calendar_month</span></span>
+                    <span class="icon-spec__name">calendar</span>
+                    <span class="icon-spec__lig">calendar_month</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">notifications</span></span>
+                    <span class="icon-spec__name">bell</span>
+                    <span class="icon-spec__lig">notifications</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">menu</span></span>
+                    <span class="icon-spec__name">menu</span>
+                    <span class="icon-spec__lig">menu</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">my_location</span></span>
+                    <span class="icon-spec__name">location</span>
+                    <span class="icon-spec__lig">my_location</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">search</span></span>
+                    <span class="icon-spec__name">search</span>
+                    <span class="icon-spec__lig">search</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">remove</span></span>
+                    <span class="icon-spec__name">minus</span>
+                    <span class="icon-spec__lig">remove</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">add</span></span>
+                    <span class="icon-spec__name">plus</span>
+                    <span class="icon-spec__lig">add</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">check</span></span>
+                    <span class="icon-spec__name">check</span>
+                    <span class="icon-spec__lig">check</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">close</span></span>
+                    <span class="icon-spec__name">close</span>
+                    <span class="icon-spec__lig">close</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">sports_basketball</span></span>
+                    <span class="icon-spec__name">basketball</span>
+                    <span class="icon-spec__lig">sports_basketball</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">edit</span></span>
+                    <span class="icon-spec__name">edit</span>
+                    <span class="icon-spec__lig">edit</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">content_copy</span></span>
+                    <span class="icon-spec__name">copy</span>
+                    <span class="icon-spec__lig">content_copy</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">filter_list</span></span>
+                    <span class="icon-spec__name">filter</span>
+                    <span class="icon-spec__lig">filter_list</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">schedule</span></span>
+                    <span class="icon-spec__name">time</span>
+                    <span class="icon-spec__lig">schedule</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">location_on</span></span>
+                    <span class="icon-spec__name">place</span>
+                    <span class="icon-spec__lig">location_on</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">lock</span></span>
+                    <span class="icon-spec__name">lock</span>
+                    <span class="icon-spec__lig">lock</span>
+                  </li>
+                  <li class="icon-spec">
+                    <span class="icon-box"><span class="material-symbols-outlined">person</span></span>
+                    <span class="icon-spec__name">person</span>
+                    <span class="icon-spec__lig">person</span>
                   </li>
                 </ul>
               </section>
