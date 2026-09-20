@@ -1436,13 +1436,18 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   font-feature-settings: "liga";
 }
 
-/* 24 both ways. The frame runs 11 across a fixed 1134px, which needs 28
-   between them — a step the spacing sheet two panels up does not have,
-   and this sheet is not the place to invent one. At 24 the set holds two
-   rows at full width with nothing orphaned, and re-wraps from there. */
+/* Identifier over usage, which is the shape 6-3 and 6-4 use: the name
+   you type, then where it is set. The frame pairs two names for the
+   same glyph instead, and ten of the twenty-two then say one word
+   twice — home over home — so the second line was carrying nothing for
+   nearly half the set.
+
+   The identifier takes the mono stack, as identifiers do on this page;
+   the usage line is prose and takes Pretendard. Cells are wide enough
+   for a usage line to sit on one or two, and the row wraps. */
 .icon-specs {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(168px, 100%), 1fr));
   gap: 24px;
   margin: 24px 0 0;
   padding: 0;
@@ -1452,10 +1457,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* 4 is the gap between the two labels; the box stands 12 off the pair,
-     which is the 8 the name adds on top. */
   gap: 4px;
-  min-width: 48px;
+  min-width: 0;
 }
 .icon-box {
   display: grid;
@@ -1467,24 +1470,22 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   background: #F8F9FA;
   color: #12161A;
 }
-/* 4px apart, and the pair sits under the box rather than centred on it:
-   the names run to different lengths and a centred pair would put every
-   row on its own axis. */
-.icon-spec__name {
+.icon-spec__lig {
   margin-top: 8px;
-  font-family: "Pretendard", var(--font-sans);
+  font-family: var(--font-mono);
+  font-weight: 400;
   font-size: 11px;
   line-height: 1.3;
   letter-spacing: 0.33px;
-  color: #98A1AC;
+  color: #6E7884;
+  /* sports_basketball is the longest and must not be broken. */
+  white-space: nowrap;
 }
-.icon-spec__lig {
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: 10px;
-  line-height: 1.3;
-  letter-spacing: 0.33px;
-  color: #98A1AC;
+.icon-spec__use {
+  font-family: "Pretendard", var(--font-sans);
+  font-size: 11px;
+  line-height: 1.4;
+  color: #222D3A;
 }
 
 /* ---- 04 / 05 — tokens, components, and the screens they build ------
