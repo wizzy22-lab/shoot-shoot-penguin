@@ -444,9 +444,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    and every position is replaced with the frame's own numbers as a
    percentage of 1920x936 — see that block for where each comes from.
 
-   The map's diagonal left edge is baked into the source PNG rather than a
-   CSS clip — the page's own background shows through it, so it fades into
-   the page instead of sitting in a box, at both sizes.
+   The map's diagonal left edge is a clip-path (the frame's own source PNG
+   had it baked in; the higher-resolution map supplied to replace it is a
+   plain rectangle, so the cut moved into CSS) — the page's own background
+   shows through the clipped area, so the map still fades into the page
+   instead of sitting in a box, at both sizes.
 
    Floating is the elevation this sheet already uses for exactly this —
    a device resting above the page, not flush with it (see 6-4's shadow
@@ -464,7 +466,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center right;
+  object-position: 30% 70%;
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
 }
 .hero-map__phone {
   position: absolute;
