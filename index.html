@@ -2058,10 +2058,19 @@
        reaches the line the reading spotlight already uses above — so the
        page keeps one definition of "arriving," not two.
 
-       One-shot and unobserved after: a sheet that has already been read
-       has nothing left to announce, and leaving the trigger live would
-       replay it on every scroll back up, which reads as nervous rather
-       than immersive.
+       This checks geometry on scroll rather than leaving it to an
+       IntersectionObserver, because a fast flick can carry a short,
+       stacked sheet from below the fold to already-above it between two
+       observed frames — the callback never fires "intersecting" at all,
+       and a one-shot trigger that never shoots leaves the sheet stuck at
+       opacity 0 forever. Reading the rect directly after the scroll has
+       already landed has no such gap: "already passed" and "just
+       arriving" both read as rect.top at or above the line, so both
+       reveal.
+
+       One-shot in effect: each card drops out of `pending` the moment
+       it reveals, so it costs nothing on later scrolls and never
+       replays scrolling back up.
 
        The class that hides the card is itself added by script, so a
        blocked script never leaves a sheet invisible — it just skips the
@@ -2069,21 +2078,34 @@
        motion skips it the same way, by never arming it at all. */
     (function () {
       var cards = [].slice.call(document.querySelectorAll('.spec-card'));
-      if (!cards.length || !('IntersectionObserver' in window)) return;
+      if (!cards.length) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-      var io = new IntersectionObserver(function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-visible');
-          obs.unobserve(entry.target);
-        });
-      }, { rootMargin: '-10% 0px -10% 0px' });
+      cards.forEach(function (card) { card.classList.add('will-reveal'); });
+      var pending = cards;
 
-      cards.forEach(function (card) {
-        card.classList.add('will-reveal');
-        io.observe(card);
-      });
+      function check() {
+        pending = pending.filter(function (card) {
+          if (card.getBoundingClientRect().top > window.innerHeight * 0.92) return true;
+          card.classList.add('is-visible');
+          return false;
+        });
+        if (!pending.length) {
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onScroll);
+        }
+      }
+
+      var queued = false;
+      function onScroll() {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(function () { queued = false; check(); });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      check();
     })();
 
     /* ---- Footer email: click to copy ------------------------------------

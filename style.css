@@ -2405,15 +2405,15 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .prin.is-reading .prin-body { color: #222D3A; }
 
 /* ---- The sheet entrance ------------------------------------------------
-   .will-reveal is added by script, right before the card is observed —
-   never in the markup — so a blocked script leaves every sheet exactly
-   as visible as it always was; it only skips the arrival.
+   .will-reveal is added by script, right before scroll position is
+   checked — never in the markup — so a blocked script leaves every
+   sheet exactly as visible as it always was; it only skips the arrival.
 
    Once .is-visible lands the transition is what plays, not a fixed
    keyframe, so a card already mid-viewport on load never jumps from a
    16px offset — it settles from wherever the browser actually painted
-   it. One-shot: the observer stops watching the moment it fires, so
-   scrolling back up never replays it.
+   it. One-shot in effect: the script drops a card from its watch list
+   the moment it reveals, so scrolling back up never replays it.
    -------------------------------------------------------------------- */
 .spec-card.will-reveal {
   opacity: 0;
