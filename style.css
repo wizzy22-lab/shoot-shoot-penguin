@@ -879,6 +879,37 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #000000;
 }
 
+/* ---- Stacking sheets ---------------------------------------------------
+   Where a section runs several sheets in a row (Colour's three, then
+   Foundations' four), each one sticks at the same point the typography
+   step heads already use — 109px, clearing the fixed chrome — instead
+   of scrolling past. The next sheet in the row arrives at that same
+   point and, being later in the document, paints over whatever is
+   still stuck there, so one replaces the other at a fixed spot rather
+   than the page just scrolling on.
+
+   Equal z-index on every stacked band is enough: ties resolve by
+   document order, so the later sheet always wins without the bands
+   needing to know their own position in the row.
+
+   The card, not the band, carries the height floor, so a short sheet
+   (6-5's icon grid) still fills the stack point edge-to-edge instead of
+   leaving the sheet behind it peeking out underneath. A tall sheet
+   (6-2's specimens) simply ignores the floor and sticks for as long as
+   its own content takes to clear it — that's the row reading at its
+   own pace, not a bug in the floor. -------------------------------------- */
+.spec-band--stack {
+  position: sticky;
+  top: 109px;
+  z-index: 1;
+}
+.spec-band--stack .spec-card {
+  min-height: calc(100vh - 109px - 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* The sheet's own runner: the number, then the domain it belongs to.
    Both are chrome from the source frame and stay in English in either
    locale, exactly as the section runners above them do. */
