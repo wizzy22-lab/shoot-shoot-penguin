@@ -2052,6 +2052,40 @@
       });
     })();
 
+    /* ---- Sheet entrance: each spec-card rises into the reading line ------
+       Every numbered sheet (01, 5-1, 5-2, 6-2..6-5) arrives the same way:
+       it starts a little low and faded, and settles into place once it
+       reaches the line the reading spotlight already uses above — so the
+       page keeps one definition of "arriving," not two.
+
+       One-shot and unobserved after: a sheet that has already been read
+       has nothing left to announce, and leaving the trigger live would
+       replay it on every scroll back up, which reads as nervous rather
+       than immersive.
+
+       The class that hides the card is itself added by script, so a
+       blocked script never leaves a sheet invisible — it just skips the
+       entrance and the card renders exactly as it always did. Reduced
+       motion skips it the same way, by never arming it at all. */
+    (function () {
+      var cards = [].slice.call(document.querySelectorAll('.spec-card'));
+      if (!cards.length || !('IntersectionObserver' in window)) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        });
+      }, { rootMargin: '-10% 0px -10% 0px' });
+
+      cards.forEach(function (card) {
+        card.classList.add('will-reveal');
+        io.observe(card);
+      });
+    })();
+
     /* ---- Footer email: click to copy ------------------------------------
        The mailto href stays put so the link still behaves like a link for
        middle-click / "copy link address"; the click handler intercepts the
