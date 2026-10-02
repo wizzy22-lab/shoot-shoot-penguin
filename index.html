@@ -116,11 +116,10 @@
       <div class="hero-glow hero-glow--visual" aria-hidden="true"></div>
 
       <div class="wrap hero-inner">
-        <!-- Two columns from the desktop step: the text block (meta included)
-             on the left, the key visual on the right — v2 of the Figma frame
-             (67:203) moves the role grid in under the tags, so both halves
-             now finish on their own, rather than the meta spanning under
-             both at the old breakpoint. -->
+        <!-- The text block, meta included — v2 of the Figma frame (67:203)
+             moves the role grid in under the tags, so it finishes on its
+             own rather than spanning under the visual at the old
+             breakpoint, which now sits behind this column, not beside it. -->
         <div class="hero-text">
           <!-- The title is the system's name, so it is the same string in both
                locales — handled the way the meta handles "Product Designer" —
@@ -158,42 +157,53 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="hero-visual">
-          <!-- Key visual, v2 (Figma 67:203): the single annotated screen is
-               replaced by the map both apps are built around, with the two
-               home screens it connects — player and team lead — sitting on
-               top of it. The map keeps its own diagonal edge (cut into the
-               source image, not a CSS mask) so it fades into the page rather
-               than sitting in a hard-edged box.
+      <!-- The visual is a sibling of .wrap, not a column inside it: from the
+           desktop step it breaks out to the section's own right edge (Figma
+           67:203 runs the map to the frame edge, no gutter), which a grid
+           column constrained to the 1280 wrap could never reach. It comes
+           after .hero-inner in source order, so a narrow viewport — where
+           it drops back into normal flow instead of breaking out — still
+           stacks it below the text, same as before. -->
+      <div class="hero-visual">
+        <!-- Key visual, v2 (Figma 67:203): the single annotated screen is
+             replaced by the map both apps are built around, with the two
+             home screens it connects — player and team lead — sitting on
+             top of it, side by side rather than overlapping, the same 48px
+             the frame leaves between them. The map keeps its own diagonal
+             edge (cut into the source image, not a CSS mask) so it fades
+             into the page rather than sitting in a box.
 
-               Two pins echo the player screen's own map pins (2 and 3 open
-               games), so the illustration reads as the same map the app
-               shows, not a generic backdrop. -->
-          <div class="hero-map">
-            <img class="hero-map__bg"
-                 src="assets/img/ssp-hero-v2-map.png"
-                 width="695" height="950"
-                 alt="A map of the neighbourhoods the app's pickup games are listed in" />
+             Two pins echo the player screen's own map pins (1 and 3 open
+             games), so the illustration reads as the same map the app
+             shows, not a generic backdrop. Every position below is a
+             percentage of this element's own box, which is the full
+             section from the desktop step and just itself above it — the
+             same numbers hold either way. -->
+        <div class="hero-map">
+          <img class="hero-map__bg"
+               src="assets/img/ssp-hero-v2-map.png"
+               width="695" height="950"
+               alt="A map of the neighbourhoods the app's pickup games are listed in" />
 
-            <img class="hero-map__phone hero-map__phone--lead"
-                 src="assets/img/ssp-hero-v2-teamlead.png"
-                 width="277" height="600"
-                 alt="The team lead's home screen: items to check, this week's games, and team-management shortcuts" />
-            <img class="hero-map__phone hero-map__phone--player"
-                 src="assets/img/ssp-hero-v2-player.png"
-                 width="277" height="600"
-                 alt="The player's map screen, with two nearby open games pinned and today's games listed below" />
+          <img class="hero-map__phone hero-map__phone--lead"
+               src="assets/img/ssp-hero-v2-teamlead.png"
+               width="277" height="600"
+               alt="The team lead's home screen: items to check, this week's games, and team-management shortcuts" />
+          <img class="hero-map__phone hero-map__phone--player"
+               src="assets/img/ssp-hero-v2-player.png"
+               width="277" height="600"
+               alt="The player's map screen, with two nearby open games pinned and today's games listed below" />
 
-            <span class="hero-pin hero-pin--a">
-              <img class="hero-pin__glyph" src="assets/img/ssp-hero-v2-pin.svg" width="32" height="36" alt="" />
-              <span class="hero-pin__count">3</span>
-            </span>
-            <span class="hero-pin hero-pin--b">
-              <img class="hero-pin__glyph" src="assets/img/ssp-hero-v2-pin.svg" width="32" height="36" alt="" />
-              <span class="hero-pin__count">1</span>
-            </span>
-          </div>
+          <span class="hero-pin hero-pin--a">
+            <img class="hero-pin__glyph" src="assets/img/ssp-hero-v2-pin.svg" width="32" height="36" alt="" />
+            <span class="hero-pin__count">3</span>
+          </span>
+          <span class="hero-pin hero-pin--b">
+            <img class="hero-pin__glyph" src="assets/img/ssp-hero-v2-pin.svg" width="32" height="36" alt="" />
+            <span class="hero-pin__count">1</span>
+          </span>
         </div>
       </div>
     </section>

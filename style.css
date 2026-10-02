@@ -410,10 +410,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
 .hero-title { margin-top: 8px; }
 
-/* Two columns from the desktop step: the text block (meta included) beside
-   the key visual. Below that step everything stacks in document order —
-   title, lead, tags, meta, visual — so the text block finishes, meta
-   included, before the picture arrives. */
+/* Below the desktop step everything stacks in document order — title, lead,
+   tags, meta, visual — so the text block finishes, meta included, before
+   the picture arrives in normal flow, contained at its own aspect ratio.
+   From the desktop step the visual breaks out instead (see the 1024px
+   block) and this margin stops applying to it. */
 .hero-visual { margin-top: 48px; }
 
 /* A line break that belongs to one width band: the lead splits at its
@@ -434,11 +435,18 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 
 /* ---- Key visual v2 (Figma 67:203): the map and the two screens --------
-   The map keeps the frame's own aspect ratio, so the phones' percentage
-   positions hold regardless of viewport width. Its diagonal left edge is
-   baked into the source PNG rather than a CSS clip — the page's own
-   background shows through it, so the map fades into the page instead of
-   sitting in a box.
+   Below the desktop step, .hero-map is a self-contained box at the map
+   image's own aspect ratio, and the two phones are positioned simply
+   inside it — there's no frame-width context for Figma's coordinates to
+   scale against yet, so this is a compact approximation, not the frame.
+
+   From the desktop step (below) the box becomes the full section instead,
+   and every position is replaced with the frame's own numbers as a
+   percentage of 1920x936 — see that block for where each comes from.
+
+   The map's diagonal left edge is baked into the source PNG rather than a
+   CSS clip — the page's own background shows through it, so it fades into
+   the page instead of sitting in a box, at both sizes.
 
    Floating is the elevation this sheet already uses for exactly this —
    a device resting above the page, not flush with it (see 6-4's shadow
@@ -460,13 +468,13 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .hero-map__phone {
   position: absolute;
-  width: 42%;
+  width: 46%;
   height: auto;
   border-radius: 20px;
   box-shadow: 0 1px 2px 0 rgba(11, 17, 24, 0.1), 0 8px 20px 0 rgba(11, 17, 24, 0.12);
 }
-.hero-map__phone--lead { left: 2%; top: 20%; z-index: 1; }
-.hero-map__phone--player { left: 40%; top: 11%; z-index: 2; }
+.hero-map__phone--lead { left: 4%; top: 18%; z-index: 1; }
+.hero-map__phone--player { left: 50%; top: 8%; z-index: 2; }
 
 .hero-pin {
   position: absolute;
@@ -475,8 +483,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   width: 9%;
   aspect-ratio: 32 / 36;
 }
-.hero-pin--a { left: 90%; top: 19%; }
-.hero-pin--b { left: 90%; top: 87%; }
+.hero-pin--a { left: 91%; top: 10%; }
+.hero-pin--b { left: 91%; top: 80%; }
 .hero-pin__glyph { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-pin__count {
   position: relative;
@@ -2390,20 +2398,47 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .split-figure,
   .split-inner > .slot { margin-top: 0; }
 
-  .hero-inner {
-    display: grid;
-    /* v2 (Figma 67:203) gives the visual the larger share, not the text:
-       the map plus its two phones reads cramped below 1.1fr the way the
-       old single square thumb never was. The frame's own columns run
-       close to even with a slight edge to the visual (595 : 685 of
-       1920), which is what 1fr : 1.15fr approximates here. */
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-    gap: 64px;
-    align-items: start;
+  /* v2 (Figma 67:203): the text column no longer has a grid sibling to
+     size against, since the visual breaks out of .wrap entirely below —
+     so it takes an explicit width instead, close to what the 1.1fr share
+     of the old two-column grid worked out to. */
+  .hero-text { max-width: 620px; }
+
+  /* The visual breaks out of .wrap to the section's own right edge — the
+     frame runs the map there with no gutter, which nothing inside .wrap's
+     1280px cap can reach. .hero (a .section) is the positioning context,
+     already established for the glows. */
+  .hero-visual {
+    position: absolute;
+    inset: 0;
+    margin-top: 0;
+    z-index: 0;
   }
-  /* The visual's top edge lines up with the title's first line, so both
-     columns start reading from the same place. */
-  .hero-visual { margin-top: 8px; }
+  .hero-map {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+  /* The map no longer fills .hero-map edge to edge — .hero-map is the
+     whole section now, and the frame only runs the image from 64.3% of
+     it (1235 of 1920) to the right edge. left+right with no width lets it
+     size itself, rather than a percentage that would drift at widths the
+     1235:1920 ratio wasn't measured at. */
+  .hero-map__bg { left: 64.3%; right: 0; width: auto; }
+
+  /* Every phone and pin position below is the frame's own px, converted
+     to a percentage of the 1920x936 section (x/1920, y/936) — not
+     estimated, so the 48px the frame leaves between the phones (top:
+     138 vs 186) survives as that gap rather than as an overlap. */
+  .hero-map__phone { width: 14.6%; }
+  .hero-map__phone--lead { left: 51.3%; top: 19.9%; }
+  .hero-map__phone--player { left: 67.1%; top: 14.7%; }
+
+  .hero-pin { width: 1.9%; }
+  .hero-pin--a { left: 88.1%; top: 22.1%; }
+  .hero-pin--b { left: 88.1%; top: 92.2%; }
 
   .ds-footer__inner {
     flex-direction: row;
