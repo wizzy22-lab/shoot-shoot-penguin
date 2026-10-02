@@ -484,19 +484,42 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .hero-map__phone--lead { left: 4%; top: 18%; z-index: 1; }
 .hero-map__phone--player { left: 50%; top: 8%; z-index: 2; }
 
+/* The frame's pin wrapper is 36x44 — not square, and not the SVG's own
+   64x71.4558 viewBox, which carries the drop-shadow filter's padding
+   around a visible shape that only fills about 56% of it. The frame
+   handles that with an inset() on the image (-13.81% -38.89% -50.63%
+   -38.89%, relative to a 36x43.456 box): .hero-pin__glyph reproduces that
+   exactly, so the visible pin fills .hero-pin edge to edge instead of
+   floating, undersized, inside its own padding. The count sits at the
+   frame's own 50%/calc(50%-12px) of the 36x44 box — converted to 22.7%
+   from top here — which is the circle's centre, not the wrapper's. */
 .hero-pin {
   position: absolute;
-  display: grid;
-  place-items: center;
-  width: 9%;
-  aspect-ratio: 32 / 36;
+  width: 11%;
+  aspect-ratio: 36 / 43.456;
 }
-.hero-pin--a { left: 91%; top: 10%; }
-.hero-pin--b { left: 91%; top: 80%; }
-.hero-pin__glyph { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-pin--a { left: 90%; top: 9%; }
+.hero-pin--b { left: 90%; top: 79%; }
+.hero-pin__glyph {
+  /* left/top/right/bottom alone would auto-size a div to fill the gap,
+     but img is a replaced element — that rule doesn't apply to it, so it
+     falls back to its intrinsic size instead. width/height have to be
+     explicit here for the same inset to actually take effect — and the
+     page's own `img { max-width: 100% }` would otherwise clamp that
+     177.78% straight back down to 100% of .hero-pin, so it's overridden
+     here too. */
+  position: absolute;
+  left: -38.89%;
+  top: -13.81%;
+  width: 177.78%;
+  max-width: none;
+  height: 164.44%;
+}
 .hero-pin__count {
-  position: relative;
-  margin-top: -18%;
+  position: absolute;
+  left: 50%;
+  top: 22.7%;
+  transform: translate(-50%, -50%);
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 0.75rem;
@@ -2455,7 +2478,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .hero-map__phone--lead { left: 56.3%; top: 19.9%; }
   .hero-map__phone--player { left: 72.1%; top: 14.7%; }
 
-  .hero-pin { width: 1.9%; }
+  /* Sized up from the frame's literal 36/1920 (1.9%) — true to scale, the
+     pin read smaller here than it does in the frame itself, where the
+     viewer sits far closer to a 1920-wide canvas than to this section at
+     any real viewport width. */
+  .hero-pin { width: 2.4%; }
   .hero-pin--a { left: 88.1%; top: 22.1%; }
   .hero-pin--b { left: 88.1%; top: 92.2%; }
 
