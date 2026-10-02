@@ -177,7 +177,7 @@
     <section class="section tldr" id="summary">
       <div class="wrap">
         <div class="runner">
-          <span class="runner-name">01 / Summary</span>
+          <span class="runner-name">02 / Summary</span>
         </div>
 
         <div class="tldr-card">
@@ -214,7 +214,7 @@
     </section>
 
     <!-- ============================================================
-         02 — Context. The whole product in one screen: what the week
+         03 — Context. The whole product in one screen: what the week
          used to cost, what the loop replaced it with, and the line that
          hands over to the system. No product screenshots — every screen
          that exists predates the system this page argues for.
@@ -222,7 +222,7 @@
     <section class="section ctx" id="product">
       <div class="wrap">
         <div class="runner">
-          <span class="runner-name">02 / Context</span>
+          <span class="runner-name">03 / Context</span>
         </div>
 
         <h2 class="h2" data-lang-content="ko">두 사용자의 다른 작업을<br />하나의 UI 기준으로 연결했습니다</h2>
@@ -246,7 +246,7 @@
     <section class="section" id="ds-problem">
       <div class="wrap">
         <div class="runner">
-          <span class="runner-name">03 / Why a System</span>
+          <span class="runner-name">04 / Why a System</span>
         </div>
 
         <h2 class="h2" data-lang-content="ko">화면마다 달랐던 표현을<br />공통 규칙으로 정리했습니다</h2>
@@ -353,14 +353,19 @@
     </section>
 
     <!-- ============================================================
-         03 — The colour decision. The A/B comparison stays an export,
+         05 — The colour decision. The A/B comparison stays an export,
          because it is a screenshot of the product. The palette that
          follows is markup, so its hex values are readable text.
+
+         The section now carries the judgement, the rule it produced,
+         and the values that rule became, in that order: the A/B figure
+         argues the case, the principles sheet states the rule, and the
+         5-1/5-2 sheets below it are that rule as tokens.
          ============================================================ -->
     <section class="section ds-color" id="ds-color">
       <div class="wrap">
         <div class="runner">
-          <span class="runner-name">04 / The Colour Decision</span>
+          <span class="runner-name">05 / The Colour Decision</span>
         </div>
 
         <h2 class="h2" data-lang-content="ko">색상 역할을 분리해<br />경기 상태를 구분했습니다</h2>
@@ -385,20 +390,78 @@
           </figcaption>
         </figure>
 
-      <!-- The 4-1 sheet, from the Figma frame (33:3). The ramp is markup
+      <!-- The principles sheet, from the Figma frame (41:270). The three
+           principles had a square illustration each; the frame drops them
+           and sets the statement they serve opposite instead, which is
+           the thing the sheet was missing — the cards said what to do
+           and never what it was for.
+
+           It sits here, between the judgement above and the tokens below,
+           because the first of the three rules is that judgement stated
+           as a rule: action stays neutral, state carries colour. The
+           other two generalise it to prediction and to context. -->
+      <div class="spec-band spec-band--stack" id="ds-principles">
+        <article class="spec-card">
+          <div class="prin-sheet">
+            <div class="prin-lede">
+              <span class="spec-chip">design principle</span>
+
+              <h3 class="prin-lede__title" data-lang-content="ko">정보를<br />의미와 맥락에<br />맞게 표현합니다.</h3>
+              <h3 class="prin-lede__title" data-lang-content="en">Express information<br />according to its meaning<br />and context.</h3>
+
+              <p class="prin-lede__body" data-lang-content="ko">행동 · 상태 · 예측처럼 성격이 다른 정보를 분명히 구분하고, 관리 화면부터 지도와 외부 공유까지 각 맥락에 맞는 정보와 시각 언어를 정의합니다. 표현 규칙을 명확히 세워, 사용자가 인터페이스를 해석하지 않아도 의미와 확실성을 한눈에 알 수 있도록 합니다.</p>
+              <p class="prin-lede__body" data-lang-content="en">Clearly distinguish information types such as actions, states, and predictions, while defining the appropriate information and visual language for each context, from management screens to maps and external sharing. Establish clear rules for representation so that meaning and certainty can be understood at a glance, without requiring users to interpret the interface.</p>
+            </div>
+
+            <ol class="prin-list">
+              <li class="prin">
+                <div class="prin__head">
+                  <span class="prin__num">01</span>
+                  <h4 class="prin-title" data-lang-content="ko">행동과 상태를 구분합니다</h4>
+                  <h4 class="prin-title" data-lang-content="en">Separate action from state</h4>
+                </div>
+                <p class="prin-body" data-lang-content="ko">버튼 · 필터 · 탭은 무채색을 기본으로 사용하고, 경기 상태는 색과 상태명으로 구별합니다.</p>
+                <p class="prin-body" data-lang-content="en">Buttons, filters and tabs default to neutral; game state is told apart by colour together with the name of the state.</p>
+              </li>
+
+              <li class="prin">
+                <div class="prin__head">
+                  <span class="prin__num">02</span>
+                  <h4 class="prin-title" data-lang-content="ko">예측과 확정을 구분합니다</h4>
+                  <h4 class="prin-title" data-lang-content="en">Separate a prediction from a fact</h4>
+                </div>
+                <p class="prin-body" data-lang-content="ko">예상 인원에는 점선 테두리와 범위 표기를 사용해, 확정된 정보와 다르게 읽히도록 설계합니다.</p>
+                <p class="prin-body" data-lang-content="en">A predicted headcount takes a dashed border and a range, so it reads differently from information that is settled.</p>
+              </li>
+
+              <li class="prin">
+                <div class="prin__head">
+                  <span class="prin__num">03</span>
+                  <h4 class="prin-title" data-lang-content="ko">사용 맥락에 맞게 표현합니다</h4>
+                  <h4 class="prin-title" data-lang-content="en">Express it to fit where it is used</h4>
+                </div>
+                <p class="prin-body" data-lang-content="ko">관리 화면의 정보 밀도, 지도 위 요소의 식별, 외부 공유 시 필요한 정보를 각 환경에 맞게 정의합니다.</p>
+                <p class="prin-body" data-lang-content="en">Density on the management screens, legibility on the map, and what a shared post needs are each defined for their own setting.</p>
+              </li>
+            </ol>
+          </div>
+        </article>
+      </div>
+
+      <!-- The 5-1 sheet, from the Figma frame (33:3). The ramp is markup
            rather than an export, for the reason the other sheets are: a
            scale of twelve tones is only evidence if the tones are really
            there to sample. The runner and the chip are chrome from the
            source frame and stay English in either locale.
 
-           The sheet states the argument the prose above it makes, and
-           then shows what the argument bought: one neutral ramp for
-           every control, so the five state colours in 4-2 are the only
-           colour on the screen. -->
-      <div class="spec-band" id="f-colour">
+           The sheet states the rule the principle above it just made, and
+           then shows what the rule bought: one neutral ramp for every
+           control, so the five state colours in 5-2 are the only colour
+           on the screen. -->
+      <div class="spec-band spec-band--stack" id="f-colour">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">4-1</span>
+            <span class="spec-card__num">5-1</span>
             <span class="spec-chip">colors</span>
           </div>
 
@@ -480,10 +543,10 @@
            the A/B figure above it, the nav wordmark, the body copy. The
            runner and the chip are chrome from the source frame and stay in
            English in either locale, as every other runner does. -->
-      <div class="spec-band">
+      <div class="spec-band spec-band--stack">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">4-2</span>
+            <span class="spec-card__num">5-2</span>
             <span class="spec-chip">colors</span>
           </div>
 
@@ -595,71 +658,6 @@
     </section>
 
     <!-- ============================================================
-         Principles — the five rules the rest of the system answers to.
-         ============================================================ -->
-    <section class="section principles" id="ds-principles">
-      <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">05 / Principles</span>
-        </div>
-
-      </div>
-
-      <!-- The principles sheet, from the Figma frame (41:270). The three
-           principles had a square illustration each; the frame drops them
-           and sets the statement they serve opposite instead, which is
-           the thing the section was missing — the cards said what to do
-           and never what it was for. -->
-      <div class="spec-band">
-        <article class="spec-card">
-          <div class="prin-sheet">
-            <div class="prin-lede">
-              <span class="spec-chip">design principle</span>
-
-              <h3 class="prin-lede__title" data-lang-content="ko">정보를<br />의미와 맥락에<br />맞게 표현합니다.</h3>
-              <h3 class="prin-lede__title" data-lang-content="en">Express information<br />according to its meaning<br />and context.</h3>
-
-              <p class="prin-lede__body" data-lang-content="ko">행동 · 상태 · 예측처럼 성격이 다른 정보를 분명히 구분하고, 관리 화면부터 지도와 외부 공유까지 각 맥락에 맞는 정보와 시각 언어를 정의합니다. 표현 규칙을 명확히 세워, 사용자가 인터페이스를 해석하지 않아도 의미와 확실성을 한눈에 알 수 있도록 합니다.</p>
-              <p class="prin-lede__body" data-lang-content="en">Clearly distinguish information types such as actions, states, and predictions, while defining the appropriate information and visual language for each context, from management screens to maps and external sharing. Establish clear rules for representation so that meaning and certainty can be understood at a glance, without requiring users to interpret the interface.</p>
-            </div>
-
-            <ol class="prin-list">
-              <li class="prin">
-                <div class="prin__head">
-                  <span class="prin__num">01</span>
-                  <h4 class="prin-title" data-lang-content="ko">행동과 상태를 구분합니다</h4>
-                  <h4 class="prin-title" data-lang-content="en">Separate action from state</h4>
-                </div>
-                <p class="prin-body" data-lang-content="ko">버튼 · 필터 · 탭은 무채색을 기본으로 사용하고, 경기 상태는 색과 상태명으로 구별합니다.</p>
-                <p class="prin-body" data-lang-content="en">Buttons, filters and tabs default to neutral; game state is told apart by colour together with the name of the state.</p>
-              </li>
-
-              <li class="prin">
-                <div class="prin__head">
-                  <span class="prin__num">02</span>
-                  <h4 class="prin-title" data-lang-content="ko">예측과 확정을 구분합니다</h4>
-                  <h4 class="prin-title" data-lang-content="en">Separate a prediction from a fact</h4>
-                </div>
-                <p class="prin-body" data-lang-content="ko">예상 인원에는 점선 테두리와 범위 표기를 사용해, 확정된 정보와 다르게 읽히도록 설계합니다.</p>
-                <p class="prin-body" data-lang-content="en">A predicted headcount takes a dashed border and a range, so it reads differently from information that is settled.</p>
-              </li>
-
-              <li class="prin">
-                <div class="prin__head">
-                  <span class="prin__num">03</span>
-                  <h4 class="prin-title" data-lang-content="ko">사용 맥락에 맞게 표현합니다</h4>
-                  <h4 class="prin-title" data-lang-content="en">Express it to fit where it is used</h4>
-                </div>
-                <p class="prin-body" data-lang-content="ko">관리 화면의 정보 밀도, 지도 위 요소의 식별, 외부 공유 시 필요한 정보를 각 환경에 맞게 정의합니다.</p>
-                <p class="prin-body" data-lang-content="en">Density on the management screens, legibility on the map, and what a shared post needs are each defined for their own setting.</p>
-              </li>
-            </ol>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============================================================
          06 — Foundations. Three sheets, one shape each: the numbered
          card, the panel that states the rule, and the specimens that
          are really set to it. The repetition is the point — that every
@@ -704,7 +702,7 @@
              closed group. Each row carries its number in the thirteen,
              and its name stays under the chrome while its specimens go
              past, so the sheet always says where you are in it. -->
-        <div class="spec-band">
+        <div class="spec-band spec-band--stack">
           <article class="spec-card">
             <div class="spec-card__runner">
               <span class="spec-card__num">6-2</span>
@@ -1357,7 +1355,7 @@
              scale rather than a picture of one. Its chip is grey where the
              colour and type sheets are orange; that is the source frame's
              own distinction between them. -->
-        <div class="spec-band">
+        <div class="spec-band spec-band--stack">
           <article class="spec-card">
             <div class="spec-card__runner">
               <span class="spec-card__num">6-3</span>
@@ -1416,7 +1414,7 @@
         <!-- The radius sheet, from the Figma frame (21:2220). Each swatch
              carries the radius it names, so the rounding is the specimen
              rather than a number beside a picture of one. -->
-        <div class="spec-band">
+        <div class="spec-band spec-band--stack">
           <article class="spec-card">
             <div class="spec-card__runner">
               <span class="spec-card__num">6-4</span>
@@ -1513,7 +1511,7 @@
            labels is a poor trade, so it takes the mono stack the page
            already uses for identifiers — which is what the string is. -->
       <div class="dom" id="f-icon">
-        <div class="spec-band">
+        <div class="spec-band spec-band--stack">
           <article class="spec-card">
             <div class="spec-card__runner">
               <span class="spec-card__num">6-5</span>
@@ -1691,7 +1689,7 @@
     </section>
 
     <!-- ============================================================
-         06 — Enforcement. The rules stop being prose here.
+         08 — Enforcement. The rules stop being prose here.
          ============================================================ -->
     <section class="section split" id="ds-script">
       <div class="wrap split-inner">
@@ -1729,7 +1727,7 @@
     </section>
 
     <!-- ============================================================
-         10 — What the system taught me. Closes the design-system act.
+         09 — What the system taught me. Closes the design-system act.
          ============================================================ -->
     <section class="section status" id="status">
       <div class="wrap">
@@ -2052,6 +2050,62 @@
           paint();
         });
       });
+    })();
+
+    /* ---- Sheet entrance: each spec-card rises into the reading line ------
+       Every numbered sheet (01, 5-1, 5-2, 6-2..6-5) arrives the same way:
+       it starts a little low and faded, and settles into place once it
+       reaches the line the reading spotlight already uses above — so the
+       page keeps one definition of "arriving," not two.
+
+       This checks geometry on scroll rather than leaving it to an
+       IntersectionObserver, because a fast flick can carry a short,
+       stacked sheet from below the fold to already-above it between two
+       observed frames — the callback never fires "intersecting" at all,
+       and a one-shot trigger that never shoots leaves the sheet stuck at
+       opacity 0 forever. Reading the rect directly after the scroll has
+       already landed has no such gap: "already passed" and "just
+       arriving" both read as rect.top at or above the line, so both
+       reveal.
+
+       One-shot in effect: each card drops out of `pending` the moment
+       it reveals, so it costs nothing on later scrolls and never
+       replays scrolling back up.
+
+       The class that hides the card is itself added by script, so a
+       blocked script never leaves a sheet invisible — it just skips the
+       entrance and the card renders exactly as it always did. Reduced
+       motion skips it the same way, by never arming it at all. */
+    (function () {
+      var cards = [].slice.call(document.querySelectorAll('.spec-card'));
+      if (!cards.length) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      cards.forEach(function (card) { card.classList.add('will-reveal'); });
+      var pending = cards;
+
+      function check() {
+        pending = pending.filter(function (card) {
+          if (card.getBoundingClientRect().top > window.innerHeight * 0.92) return true;
+          card.classList.add('is-visible');
+          return false;
+        });
+        if (!pending.length) {
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onScroll);
+        }
+      }
+
+      var queued = false;
+      function onScroll() {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(function () { queued = false; check(); });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      check();
     })();
 
     /* ---- Footer email: click to copy ------------------------------------

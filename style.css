@@ -879,6 +879,37 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #000000;
 }
 
+/* ---- Stacking sheets ---------------------------------------------------
+   Where a section runs several sheets in a row (Colour's three, then
+   Foundations' four), each one sticks at the same point the typography
+   step heads already use — 109px, clearing the fixed chrome — instead
+   of scrolling past. The next sheet in the row arrives at that same
+   point and, being later in the document, paints over whatever is
+   still stuck there, so one replaces the other at a fixed spot rather
+   than the page just scrolling on.
+
+   Equal z-index on every stacked band is enough: ties resolve by
+   document order, so the later sheet always wins without the bands
+   needing to know their own position in the row.
+
+   The card, not the band, carries the height floor, so a short sheet
+   (6-5's icon grid) still fills the stack point edge-to-edge instead of
+   leaving the sheet behind it peeking out underneath. A tall sheet
+   (6-2's specimens) simply ignores the floor and sticks for as long as
+   its own content takes to clear it — that's the row reading at its
+   own pace, not a bug in the floor. -------------------------------------- */
+.spec-band--stack {
+  position: sticky;
+  top: 109px;
+  z-index: 1;
+}
+.spec-band--stack .spec-card {
+  min-height: calc(100vh - 109px - 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* The sheet's own runner: the number, then the domain it belongs to.
    Both are chrome from the source frame and stay in English in either
    locale, exactly as the section runners above them do. */
@@ -2353,7 +2384,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    ============================================================ */
 /* ============================================================
    MOTION
-   One behaviour only: the reading spotlight on the principles.
+   Two behaviours, one reading line: the spotlight on the principles,
+   and the entrance every numbered sheet makes crossing the same line.
 
    Exactly one .prin carries .is-reading at a time — the card sitting on
    the reading line as you scroll, or the one under the pointer. Nothing
@@ -2372,16 +2404,45 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .prin.is-reading { transform: translateY(-2px); }
 .prin.is-reading .prin-body { color: #222D3A; }
 
+/* ---- The sheet entrance ------------------------------------------------
+   .will-reveal is added by script, right before scroll position is
+   checked — never in the markup — so a blocked script leaves every
+   sheet exactly as visible as it always was; it only skips the arrival.
+
+   Once .is-visible lands the transition is what plays, not a fixed
+   keyframe, so a card already mid-viewport on load never jumps from a
+   16px offset — it settles from wherever the browser actually painted
+   it. One-shot in effect: the script drops a card from its watch list
+   the moment it reveals, so scrolling back up never replays it.
+   -------------------------------------------------------------------- */
+.spec-card.will-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+}
+.spec-card.will-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ---- Opt out ---------------------------------------------------------
    The lift and the transitions go; the contrast step stays. It reads as
    readability rather than motion, and dropping it would leave the
-   feature with nothing to say.
+   feature with nothing to say. The sheet entrance is never armed in the
+   first place under reduced motion, but a card still wins this rule if
+   that class ever reaches the DOM some other way.
    -------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 
   .prin { transition: none; }
   .prin.is-reading { transform: none; }
+
+  .spec-card.will-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 
   .typo-group__head::after { transition: none; }
 }
