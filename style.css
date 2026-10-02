@@ -2400,9 +2400,14 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
   /* v2 (Figma 67:203): the text column no longer has a grid sibling to
      size against, since the visual breaks out of .wrap entirely below —
-     so it takes an explicit width instead, close to what the 1.1fr share
-     of the old two-column grid worked out to. */
-  .hero-text { max-width: 620px; }
+     so it takes an explicit width instead. Narrower than the frame's own
+     text-frame bounding box (595px of 1920, which would scale to a touch
+     under 620px here): that box ran right up against the first phone with
+     nothing in between, which the frame's own text never actually reached
+     edge-to-edge (word-wrap stopped well short of it). 560px leaves the
+     real breathing room the frame's rendered text has, not the room its
+     frame happens to claim. */
+  .hero-text { max-width: 560px; }
 
   /* The visual breaks out of .wrap to the section's own right edge — the
      frame runs the map there with no gutter, which nothing inside .wrap's
@@ -2428,13 +2433,19 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
      1235:1920 ratio wasn't measured at. */
   .hero-map__bg { left: 64.3%; right: 0; width: auto; }
 
-  /* Every phone and pin position below is the frame's own px, converted
-     to a percentage of the 1920x936 section (x/1920, y/936) — not
-     estimated, so the 48px the frame leaves between the phones (top:
-     138 vs 186) survives as that gap rather than as an overlap. */
+  /* Vertical position and the gap between the phones are the frame's own
+     px, converted to a percentage of the 1920x936 section (y/936) — not
+     estimated, so the 48px the frame leaves between them (top: 138 vs
+     186) survives as that gap rather than as an overlap.
+
+     Horizontal position is shifted 5 points right of the frame's own
+     x/1920 (51.3%/67.1%): against the narrower 560px text column above,
+     the frame's own numbers sat the lead phone right on top of the text
+     column's edge, with none of the clearance the frame has against its
+     own (wider, mostly-empty) text frame. */
   .hero-map__phone { width: 14.6%; }
-  .hero-map__phone--lead { left: 51.3%; top: 19.9%; }
-  .hero-map__phone--player { left: 67.1%; top: 14.7%; }
+  .hero-map__phone--lead { left: 56.3%; top: 19.9%; }
+  .hero-map__phone--player { left: 72.1%; top: 14.7%; }
 
   .hero-pin { width: 1.9%; }
   .hero-pin--a { left: 88.1%; top: 22.1%; }
