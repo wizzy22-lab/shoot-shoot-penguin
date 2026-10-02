@@ -403,13 +403,17 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .hero-glow--tr { right: -180px; top: -60px; }
 .hero-glow--bl { left: -220px; bottom: 40px; }
+/* v2 (Figma 67:203) adds a third bloom behind the visual's lower edge —
+   the frame's own gradient blur, sitting there for the same reason as the
+   other two: depth behind the map rather than a flat drop onto the page. */
+.hero-glow--visual { width: 420px; height: 420px; right: -120px; bottom: 40px; }
 
 .hero-title { margin-top: 8px; }
 
-/* Two columns from the desktop step: the text block beside the key visual,
-   with the meta row spanning both underneath. Below that step everything
-   stacks in document order — title, lead, tags, visual, meta — so the text
-   block finishes before the picture arrives. */
+/* Two columns from the desktop step: the text block (meta included) beside
+   the key visual. Below that step everything stacks in document order —
+   title, lead, tags, meta, visual — so the text block finishes, meta
+   included, before the picture arrives. */
 .hero-visual { margin-top: 48px; }
 
 /* A line break that belongs to one width band: the lead splits at its
@@ -429,33 +433,58 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: var(--text);
 }
 
-/* Key-visual slot, square. `overflow: hidden` is what unifies the radius:
-   the media inside is square-cornered and gets clipped to the frame's 20px,
-   so a still and a clip round identically without either carrying its own
-   radius. The media is object-fit: cover, so a source that is not 1:1 is
-   cropped to its centre rather than letterboxed. */
-.thumb {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 50% 40%,
-      color-mix(in srgb, var(--text) 4%, transparent) 0%,
-      transparent 60%),
-    var(--surface);
-}
+/* ---- Key visual v2 (Figma 67:203): the map and the two screens --------
+   The map keeps the frame's own aspect ratio, so the phones' percentage
+   positions hold regardless of viewport width. Its diagonal left edge is
+   baked into the source PNG rather than a CSS clip — the page's own
+   background shows through it, so the map fades into the page instead of
+   sitting in a box.
 
-/* One rule for whatever fills the slot — <img> today, <video> later. The
-   source is square and the frame is 16:9, so cover crops it to a band that
-   holds both devices; centre keeps them balanced in it. */
-.hero-media {
-  display: block;
+   Floating is the elevation this sheet already uses for exactly this —
+   a device resting above the page, not flush with it (see 6-4's shadow
+   step 3) — so the phones borrow its shadow rather than inventing one.
+   The pins reuse the player screen's own pin glyph and counts, so the
+   illustration reads as the map the app actually shows. -------------------- */
+.hero-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 695 / 950;
+}
+.hero-map__bg {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center right;
+}
+.hero-map__phone {
+  position: absolute;
+  width: 42%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px 0 rgba(11, 17, 24, 0.1), 0 8px 20px 0 rgba(11, 17, 24, 0.12);
+}
+.hero-map__phone--lead { left: 2%; top: 20%; z-index: 1; }
+.hero-map__phone--player { left: 40%; top: 11%; z-index: 2; }
+
+.hero-pin {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 9%;
+  aspect-ratio: 32 / 36;
+}
+.hero-pin--a { left: 90%; top: 19%; }
+.hero-pin--b { left: 90%; top: 87%; }
+.hero-pin__glyph { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-pin__count {
+  position: relative;
+  margin-top: -18%;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #FFFFFF;
 }
 
 .hero .tagrow { margin-top: 20px; }
@@ -2321,7 +2350,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
   .wf-cards { grid-template-columns: repeat(4, 1fr); }
   .state-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .role-grid { grid-template-columns: repeat(4, 1fr); }
 
   /* Side A / B: cards on the left, prototype pinned alongside. The device
      slot is taller than the card stack, so the stack is centred against it
@@ -2364,18 +2392,18 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
   .hero-inner {
     display: grid;
-    /* The text column takes the larger share: at the 1024 step an even
-       split leaves the title needing exactly its column width, and rounding
-       pushes it onto a third line. 1.1fr buys it 20px of slack there and
-       costs the visual 27px at 1440. */
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    /* v2 (Figma 67:203) gives the visual the larger share, not the text:
+       the map plus its two phones reads cramped below 1.1fr the way the
+       old single square thumb never was. The frame's own columns run
+       close to even with a slight edge to the visual (595 : 685 of
+       1920), which is what 1fr : 1.15fr approximates here. */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
     gap: 64px;
     align-items: start;
   }
   /* The visual's top edge lines up with the title's first line, so both
      columns start reading from the same place. */
   .hero-visual { margin-top: 8px; }
-  .role-grid { grid-column: 1 / -1; }
 
   .ds-footer__inner {
     flex-direction: row;

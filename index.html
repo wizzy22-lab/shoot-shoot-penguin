@@ -113,10 +113,14 @@
     <section class="section hero" id="intro">
       <div class="hero-glow hero-glow--tr" aria-hidden="true"></div>
       <div class="hero-glow hero-glow--bl" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--visual" aria-hidden="true"></div>
 
       <div class="wrap hero-inner">
-        <!-- Two columns from the desktop step: the text block on the left,
-             the key visual on the right. The meta row below spans both. -->
+        <!-- Two columns from the desktop step: the text block (meta included)
+             on the left, the key visual on the right — v2 of the Figma frame
+             (67:203) moves the role grid in under the tags, so both halves
+             now finish on their own, rather than the meta spanning under
+             both at the old breakpoint. -->
         <div class="hero-text">
           <!-- The title is the system's name, so it is the same string in both
                locales — handled the way the meta handles "Product Designer" —
@@ -132,39 +136,63 @@
             <span class="tag">MOBILE APP</span>
             <span class="tag">IN DEVELOPMENT</span>
           </div>
+
+          <div class="role-grid">
+            <div class="rolecol">
+              <div class="role-label"><span data-lang-content="ko">역할</span><span data-lang-content="en">ROLE</span></div>
+              <div class="role-value">Product Designer</div>
+            </div>
+            <div class="rolecol">
+              <div class="role-label"><span data-lang-content="ko">범위</span><span data-lang-content="en">SCOPE</span></div>
+              <div class="role-value" data-lang-content="ko">프로덕트 기획 · 정보 구조(IA) · UX/UI · 디자인 시스템 · 개발 핸드오프</div>
+              <div class="role-value" data-lang-content="en">Product planning · IA · UX/UI · Design system · Developer handoff</div>
+            </div>
+            <div class="rolecol">
+              <div class="role-label"><span data-lang-content="ko">상태</span><span data-lang-content="en">STATUS</span></div>
+              <div class="role-value" data-lang-content="ko">디자인 시스템 v1.5.0 · 화면 개편 진행 중</div>
+              <div class="role-value" data-lang-content="en">Design system v1.5.0 · screen redesign in progress</div>
+            </div>
+            <div class="rolecol">
+              <div class="role-label"><span data-lang-content="ko">팀</span><span data-lang-content="en">TEAM</span></div>
+              <div class="role-value">1 Designer · 1 Developer</div>
+            </div>
+          </div>
         </div>
 
         <div class="hero-visual">
-          <!-- Key visual slot. The media is the frame's only child and fills it
-               edge to edge, so trading the still for a clip later is a one-element
-               swap — <video class="hero-media" autoplay loop muted playsinline>
-               lands on the same rules and keeps the frame, radius and crop. -->
-          <div class="thumb">
-            <img class="hero-media"
-                 src="assets/img/ssp-hero-v1.png"
-                 width="2400" height="2400"
-                 alt="The Shoot Shoot Penguin game detail screen with four of its components called out around it — game card, status badge, button and map pin" />
-          </div>
-        </div>
+          <!-- Key visual, v2 (Figma 67:203): the single annotated screen is
+               replaced by the map both apps are built around, with the two
+               home screens it connects — player and team lead — sitting on
+               top of it. The map keeps its own diagonal edge (cut into the
+               source image, not a CSS mask) so it fades into the page rather
+               than sitting in a hard-edged box.
 
-        <div class="role-grid">
-          <div class="rolecol">
-            <div class="role-label"><span data-lang-content="ko">역할</span><span data-lang-content="en">ROLE</span></div>
-            <div class="role-value">Product Designer</div>
-          </div>
-          <div class="rolecol">
-            <div class="role-label"><span data-lang-content="ko">범위</span><span data-lang-content="en">SCOPE</span></div>
-            <div class="role-value" data-lang-content="ko">프로덕트 기획 · 정보 구조(IA) · UX/UI · 디자인 시스템 · 개발 핸드오프</div>
-            <div class="role-value" data-lang-content="en">Product planning · IA · UX/UI · Design system · Developer handoff</div>
-          </div>
-          <div class="rolecol">
-            <div class="role-label"><span data-lang-content="ko">상태</span><span data-lang-content="en">STATUS</span></div>
-            <div class="role-value" data-lang-content="ko">디자인 시스템 v1.5.0 · 화면 개편 진행 중</div>
-            <div class="role-value" data-lang-content="en">Design system v1.5.0 · screen redesign in progress</div>
-          </div>
-          <div class="rolecol">
-            <div class="role-label"><span data-lang-content="ko">팀</span><span data-lang-content="en">TEAM</span></div>
-            <div class="role-value">1 Designer · 1 Developer</div>
+               Two pins echo the player screen's own map pins (2 and 3 open
+               games), so the illustration reads as the same map the app
+               shows, not a generic backdrop. -->
+          <div class="hero-map">
+            <img class="hero-map__bg"
+                 src="assets/img/ssp-hero-v2-map.png"
+                 width="695" height="950"
+                 alt="A map of the neighbourhoods the app's pickup games are listed in" />
+
+            <img class="hero-map__phone hero-map__phone--lead"
+                 src="assets/img/ssp-hero-v2-teamlead.png"
+                 width="277" height="600"
+                 alt="The team lead's home screen: items to check, this week's games, and team-management shortcuts" />
+            <img class="hero-map__phone hero-map__phone--player"
+                 src="assets/img/ssp-hero-v2-player.png"
+                 width="277" height="600"
+                 alt="The player's map screen, with two nearby open games pinned and today's games listed below" />
+
+            <span class="hero-pin hero-pin--a">
+              <img class="hero-pin__glyph" src="assets/img/ssp-hero-v2-pin.svg" width="32" height="36" alt="" />
+              <span class="hero-pin__count">3</span>
+            </span>
+            <span class="hero-pin hero-pin--b">
+              <img class="hero-pin__glyph" src="assets/img/ssp-hero-v2-pin.svg" width="32" height="36" alt="" />
+              <span class="hero-pin__count">1</span>
+            </span>
           </div>
         </div>
       </div>
