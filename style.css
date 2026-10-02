@@ -460,6 +460,10 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   width: 100%;
   aspect-ratio: 695 / 950;
 }
+/* Dimmed rather than full-strength: the frame keeps the map as context
+   for the two phones, not a competing subject — at full opacity a real
+   map screenshot's white and colour reads brighter than anything else in
+   a dark hero, including the phones sitting on it. */
 .hero-map__bg {
   position: absolute;
   inset: 0;
@@ -468,6 +472,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   object-fit: cover;
   object-position: 30% 70%;
   clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+  opacity: 0.55;
 }
 .hero-map__phone {
   position: absolute;
