@@ -28,7 +28,7 @@ html, body { margin: 0; padding: 0; }
    scroll container pads, and each target carries its own margin for the
    browsers and cases that consult one but not the other. */
 html { scroll-behavior: smooth; scroll-padding-top: 124px; }
-.section, .dom { scroll-margin-top: 124px; }
+.section, .dom, .spec-band { scroll-margin-top: 124px; }
 
 body {
   background: var(--bg);
@@ -626,7 +626,24 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    repetition is the argument — that every domain was decided the same
    way — so no domain gets a layout of its own.
    ============================================================ */
-.dom { margin-top: 72px; }
+/* The wrapper grades the domains but must not box them. A sticky box is
+   held inside its parent's content box, so while .dom generated one it
+   capped how far each sheet could travel: the last band in every wrapper
+   — 6-2, 6-4 and 6-5 — had nowhere to go and never stuck at all, and
+   only 6-3 (with 6-4 below it to travel through) ever did. Zeroing the
+   wrappers' margins had closed the visible gap between them but not
+   this, so Foundations' row looked continuous and still would not stack.
+
+   display:contents removes the box and leaves the children, which puts
+   every sheet in the row back in the section's own containing block,
+   the way Colour's four already are. Two things rode on that box and
+   are re-homed: the 72px opening gap, now on the row's first sheet, and
+   the domain anchors, which are ids on the sheets themselves — a
+   display:contents element has no box for a fragment jump to land on,
+   so leaving them here would have killed the coverage-tag links. */
+.dom { display: contents; }
+/* Specificity keeps this winning over the rule above, so the (unused)
+   hidden state still hides rather than unwrapping. */
 .dom[hidden] { display: none; }
 
 /* ============================================================
@@ -983,15 +1000,12 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   z-index: 1;
   margin-block: 0;
 }
-/* Foundations splits its row across three .dom wrappers (Typography its
-   own, Spacing and Radius sharing one, Icon its own), each normally
-   opening with .dom's 72px. The row's first sheet (6-2) still wants
-   that gap, to clear the section's own heading — only the wrappers that
-   continue the row instead of starting it zero it out, so the row reads
-   as one continuous stack rather than three. */
-#f-spacing,
-#f-icon {
-  margin-top: 0;
+/* Foundations' row opens with the same gap Colour's does, to clear the
+   section's own heading. It sits on the first sheet rather than on the
+   wrapper that used to carry it; the sheets after it keep
+   .spec-band--stack's zero, so the row still reads as one stack. */
+#f-typography {
+  margin-top: 72px;
 }
 
 /* The colour row's first sheet (5-1) opens the stack, so it keeps a gap
