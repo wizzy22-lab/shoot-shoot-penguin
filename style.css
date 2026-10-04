@@ -1868,21 +1868,31 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    nearly half the set.
 
    The identifier takes the mono stack, as identifiers do on this page;
-   the usage line is prose and takes Pretendard. Cells are wide enough
-   for a usage line to sit on one or two, and the row wraps. */
+   the usage line is prose and takes Pretendard.
+
+   The cell is sized to the widest thing that has to sit on one line,
+   and both are short: `sports_basketball` sets the identifier at 128px,
+   and the longest usage line is 133px in Korean, 108 in English. A 160
+   floor clears both with room to spare and fits six columns rather than
+   five, which takes the 22 glyphs from five rows to four. Seven would
+   need 1216px and the card never offers that, so the count is steady
+   across the desktop range rather than shifting from screen to screen. */
 .icon-specs {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(168px, 100%), 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(min(160px, 100%), 1fr));
+  gap: 16px;
   margin: 24px 0 0;
   padding: 0;
   list-style: none;
 }
+/* The glyph, its name and its use are one object; they are spaced to
+   read as that rather than as three stacked lines, which is also where
+   the rest of the sheet's height went. */
 .icon-spec {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
+  gap: 2px;
   min-width: 0;
 }
 .icon-box {
@@ -1896,7 +1906,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #12161A;
 }
 .icon-spec__lig {
-  margin-top: 8px;
+  margin-top: 4px;
   font-family: var(--font-mono);
   font-weight: 400;
   font-size: 11px;
