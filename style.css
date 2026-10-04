@@ -1021,6 +1021,20 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* Elevation 4, "Anchored", exactly as 6-4 defines it and for the role
+     6-4 gives it — a surface that rises from below and settles over what
+     is behind. That is what a stacked sheet does, so the row is the
+     page practising the claim 6-4 makes: with colour gone, shadow is
+     what carries hierarchy.
+
+     It earns its place here because the cards are white and borderless.
+     One sliding over another was seamless — the arriving card's 32px
+     corners were filled by the white of the card behind, so two sheets
+     read as one with two runners in it. The shadow is dark on a dark
+     page, so it shows only where it falls on the sheet underneath,
+     which is the one moment the edge needs saying. */
+  box-shadow: 0 -2px 6px 0 rgba(11, 17, 24, 0.06),
+              0 -14px 34px 0 rgba(11, 17, 24, 0.12);
 }
 /* The floor is there to stop a short sheet letting the one stuck behind
    it peek out below. A row's opening sheet has nothing behind it — the
