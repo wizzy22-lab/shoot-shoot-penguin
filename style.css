@@ -1113,6 +1113,10 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   white-space: nowrap;
 }
 .cmp-col__title {
+  /* h4 is not in the page's heading reset, so it still carries the UA's
+     own block margin — 21px above and below here, which pushed the pill
+     and the claim apart on a line they are meant to share. */
+  margin: 0;
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: clamp(16px, 1.5vw, 20px);

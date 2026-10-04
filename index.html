@@ -426,10 +426,12 @@
            picture of them, so it survives the KO/EN swap and the two
            button colours are real values a reader can sample.
 
-           The frame is a slide, so it repeats the section's own heading
-           and lede inside the card; that repetition is kept, because the
-           sheet is also the first of the stacked row and sticks at 109px
-           on its own, where the section heading has already scrolled by.
+           The frame is a slide, so it carries the section's heading and
+           lede inside the card. Those are dropped here: the section
+           states them directly above, and a page does not need the
+           slide's self-sufficiency. The runner is enough to name the
+           sheet, and the card is 300px shorter for it, which the
+           sticky row feels.
 
            Two columns, AS-IS then TO-BE, each one a screen beside the
            components the screen is being judged on. Every colour in the
@@ -446,15 +448,6 @@
             <span class="spec-card__num">5-1</span>
             <span class="spec-chip">colors</span>
           </div>
-
-          <h3 class="spec-card__title" data-lang-content="ko">색상 역할을 분리해<br />경기 상태를 구분했습니다</h3>
-          <h3 class="spec-card__title" data-lang-content="en">Colour&rsquo;s roles separated,<br />so game state reads on its own</h3>
-
-          <p class="spec-card__lead" data-lang-content="ko">초기 화면에서는 오렌지가 신청 버튼과 마감임박 배지에 함께 사용되었습니다. 신청이 종료된 요소도 강한 채움색으로 표시되어, 행동 유도와 경기 상태가 구분되지 않았습니다.</p>
-          <p class="spec-card__lead" data-lang-content="en">In the first screens, orange was used for the apply button and for the closing-soon badge alike. Elements whose applications had already closed were filled just as strongly, so a call to action and a game state could not be told apart.</p>
-
-          <p class="spec-card__lead" data-lang-content="ko">이를 개선하기 위해 주요 조작 요소에는 무채색을, 경기 상태에는 구분 색상을 적용했습니다. 색상은 상태 정보에 집중해 버튼과 상태가 서로 다른 신호를 전달하도록 했습니다.</p>
-          <p class="spec-card__lead" data-lang-content="en">To fix it, I let the main controls take neutral colour and game states take distinguishing colour. Colour concentrates on state information, so a button and a state carry different signals.</p>
 
           <div class="cmp">
             <!-- AS-IS ------------------------------------------------- -->
