@@ -993,6 +993,14 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 #f-icon {
   margin-top: 0;
 }
+
+/* The colour row's first sheet (5-1) opens the stack, so it keeps a gap
+   above it the way 6-2 does — the A/B figure that used to stand here
+   supplied that gap with its own margin, and went with it. The gap is
+   above the point anything sticks to, so it costs the stack nothing. */
+#ds-colour-compare {
+  margin-top: 64px;
+}
 .spec-band--stack .spec-card {
   min-height: calc(100vh - 109px - 48px);
   display: flex;
@@ -1051,6 +1059,280 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   line-height: 1.6;
   color: #6E7884;
 }
+
+/* ---- The AS-IS / TO-BE comparison, from Figma (frame 2075:3418) ----
+   Two columns, each a screen beside the components that screen is being
+   judged on. The frame lays them out at absolute coordinates inside a
+   1438 card — AS-IS at x=48, TO-BE at x=732, each one a 280 screen and
+   a detail column — which is a two-up grid once the coordinates are
+   dropped, and the only thing the coordinates were carrying.
+
+   The frame draws every specimen about 1.8x its real size so it stays
+   legible on a slide. That magnification is a slide's problem, not a
+   page's: here the specimens sit at the size the components actually
+   are, because a reader can lean in and a projector cannot. The rest of
+   the geometry is the frame's own — the 12 between a specimen and its
+   caption, the 24 between the columns, the 16 radius on every callout.
+
+   Colour is the exception that proves the sheet's point. Everything in
+   the AS-IS column is quoted from the old build (#0000B3, #FF4500, the
+   #E8E8FF tags) and so is deliberately off the page's palette, exactly
+   as the problems sheet quotes the old screens' pills. The TO-BE column
+   uses the tokens 5-3 goes on to specify, so the two sides can be
+   compared on colour alone.
+   -------------------------------------------------------------------- */
+.cmp {
+  display: grid;
+  /* minmax(0,…) rather than a bare 1fr: an auto-minimum track will not
+     shrink below its content, and the screens and trays inside are wide
+     enough to hold a phone-width column open if it is allowed to. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: 56px;
+  margin-top: 40px;
+}
+.cmp-col { min-width: 0; }
+
+/* The pill and the column's claim sit on one line, as they do in the
+   frame. The claim ships in both locales and the pill does not: it is
+   chrome from the source frame, like the sheet runners above it, and
+   stays English either way. */
+.cmp-col__head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.cmp-pill {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.cmp-col__title {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* The two sides differ only in weight: AS-IS is stated in the grey the
+   sheets use for secondary text, TO-BE in the ink the page's own
+   primary action uses, so the column that won reads as the louder of
+   the two without either one being coloured. */
+.cmp-col[data-side="asis"] .cmp-pill { background: #98A1AC; color: #4A5768; }
+.cmp-col[data-side="asis"] .cmp-col__title { color: #98A1AC; }
+.cmp-col[data-side="tobe"] .cmp-pill { background: #151E28; color: #FFFFFF; }
+.cmp-col[data-side="tobe"] .cmp-col__title { color: #000000; }
+
+.cmp-col__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+/* The screens are exports, because they are screenshots of the product.
+   Both carry their own 2px #C6CCD4 frame and 24 radius from Figma, so
+   neither is given a border here — one would double the other. */
+.cmp-screen {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+
+.cmp-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+
+/* The same callout surface the state cards use, for the same reason:
+   a specimen needs a tray that is not the card it sits on. */
+/* The tray hugs its specimen, as the frame's 136-wide TO-BE callouts do
+   — a neutral button is being shown at its own size, and a tray run to
+   the column's full width would be claiming the specimen is that wide.
+   The AS-IS tray is the exception the frame also makes: it holds a
+   column of controls beside the old search radius, and takes the full
+   width to seat them, which is the 368 the frame gives it. */
+.cmp-spec {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: fit-content;
+  max-width: 100%;
+  padding: 12px;
+  border-radius: 16px;
+  background: #FAFAFA;
+  border: 1px solid #F5F5F5;
+  /* The frame clips this callout, and it has to: the search radius
+     inside carries a drop shadow that is drawn well outside the ring,
+     and unclipped it hangs over the caption beside it. */
+  overflow: hidden;
+}
+.cmp-spec--asis {
+  width: 100%;
+  justify-content: space-between;
+}
+.cmp-spec__stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.cmp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Every caption is given the same top margin rather than only the ones
+   after a sibling: both locales ship, the inactive one is display:none
+   and so lays out nothing, and a uniform margin is the only rule that
+   spaces the visible run correctly whichever locale is on. */
+.cmp-note__body {
+  margin-top: 12px;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+
+/* ---- Specimens ---- */
+.cmp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.cmp-btn--primary  { background: #151E28; color: #FFFFFF; }
+.cmp-btn--disabled { background: #E0E4E9; color: #98A1AC; }
+
+/* The old pair: one width for both, because the frame gives them one,
+   and the comparison is about their fill and nothing else. */
+.cmp-btn--old-apply,
+.cmp-btn--old-closed {
+  width: 104px;
+  padding: 0;
+  border-radius: 11px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+.cmp-btn--old-apply  { background: #0000B3; }
+.cmp-btn--old-closed { background: #FF4500; }
+
+.cmp-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 10px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.cmp-tag--old-today { border-radius: 8px; background: rgba(255, 69, 0, 0.1); color: #FF4500; }
+.cmp-tag--old-info  { border-radius: 6px; background: #E8E8FF; color: #3D3E3F; }
+
+/* 36 is the frame's own badge height, and it is also the height at
+   which the 21.6 icon Figma exports needs no resizing — so the badge is
+   built around the asset rather than the asset shrunk to fit it. The
+   tint and ink are the closing-soon pair 5-3 specifies. */
+.cmp-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 6px;
+  background: #FBF0D6;
+  color: #6B4606;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.cmp-badge__icon { flex: none; }
+
+/* ---- The old search radius ----------------------------------------
+   The ring and its centre dot are Figma vectors whose drop shadows are
+   baked into the SVG, so each file is drawn larger than the shape it
+   contains. Both are placed the way the frame places them: a box at the
+   shape's own size, with the asset pulled out past it by the bleed, so
+   the shape lands where it belongs and the shadow spills as drawn.
+
+   The two blue discs are the map's own pins, and they are the argument
+   — an orange radius put a third saturated hue on a map that already
+   had two, which is the same mistake the orange apply button made one
+   screen over. Every offset is a percentage of the ring's box, so the
+   whole illustration scales with the column. ------------------------ */
+.cmp-radius {
+  position: relative;
+  flex: 0 1 179px;
+  width: 179px;
+  max-width: 48%;
+  aspect-ratio: 1 / 1;
+}
+.cmp-radius__ring,
+.cmp-radius__dot {
+  position: absolute;
+  display: block;
+}
+/* Each box is the shape's own size; the asset inside it is scaled up by
+   exactly its bleed and pulled back by the same amount, so the shape
+   lands on the box and the shadow hangs outside it. 153.75% and 816.67%
+   are the two files' own ratios — 275.212/179 and 109.637/13.425. */
+/* The page caps every image at max-width:100%; these two are deliberately
+   wider than their box, so they opt out of that cap rather than being
+   squeezed to the box width while their height keeps the bleed. */
+.cmp-radius__ring img,
+.cmp-radius__dot img {
+  position: absolute;
+  max-width: none;
+}
+.cmp-radius__ring { inset: 0; }
+.cmp-radius__ring img {
+  left: -24.38%;
+  top: -24.38%;
+  width: 153.75%;
+  height: 153.75%;
+}
+.cmp-radius__dot {
+  left: 46.251%;
+  top: 49.721%;
+  width: 7.5%;
+  aspect-ratio: 1 / 1;
+}
+.cmp-radius__dot img {
+  left: -325%;
+  top: -325%;
+  width: 816.67%;
+  height: 816.67%;
+}
+.cmp-radius__pin {
+  position: absolute;
+  width: 12.5%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: #2C5FD8;
+}
+.cmp-radius__pin--a { left: 8.125%;  top: 56.874%; }
+.cmp-radius__pin--b { left: 58.125%; top: 4.374%; }
 
 /* ---- One card per state ---- */
 .state-cards {
@@ -2365,6 +2647,15 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .side-head { flex-direction: row; justify-content: space-between; align-items: flex-start; }
   .side-head > div { flex: 1; }
 
+  /* The screen moves alongside its specimens, which is the frame's own
+     arrangement. The columns themselves stay stacked until 1024 — two
+     screens and two detail stacks will not share a line before that
+     without the screens going too small to read. */
+  .cmp-col__body {
+    grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+  }
 }
 
 /* ============================================================
@@ -2497,6 +2788,12 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
     column-gap: 80px;
   }
   .ds-footer__brand { text-align: right; }
+
+  /* AS-IS beside TO-BE, at the frame's own 24 between them. */
+  .cmp {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
 }
 
 /* ============================================================

@@ -391,14 +391,16 @@
     </section>
 
     <!-- ============================================================
-         05 — The colour decision. The A/B comparison stays an export,
-         because it is a screenshot of the product. The palette that
-         follows is markup, so its hex values are readable text.
+         05 — The colour decision. The comparison that used to stand
+         here as an export is now a sheet: the screens stay screenshots,
+         because they are screenshots of the product, but the components
+         being judged are markup, so their hex values are readable text
+         and the captions survive the KO/EN swap.
 
-         The section now carries the judgement, the rule it produced,
-         and the values that rule became, in that order: the A/B figure
-         argues the case, the principles sheet states the rule, and the
-         5-1/5-2 sheets below it are that rule as tokens.
+         The section carries the judgement, the rule it produced, and
+         the values that rule became, in that order: 5-1 argues the case
+         from the old screens, the principles sheet states the rule, and
+         the 5-2/5-3 sheets below it are that rule as tokens.
          ============================================================ -->
     <section class="section ds-color" id="ds-color">
       <div class="wrap">
@@ -418,15 +420,147 @@
         </div>
       </div>
 
-        <figure class="lightband-fig">
-          <img src="assets/img/ssp-ds-4-colour-decision.png"
-               width="4800" height="2700" loading="lazy" decoding="async"
-               alt="The same game detail screen rendered twice: A with an orange apply button, B with a black one, while the recruiting badge stays green in both" />
-          <figcaption class="media-caption">
-            <span data-lang-content="ko">A 유채색 버튼 · B 무채색 버튼 &mdash; 버튼 색만 다르고 나머지는 동일</span>
-            <span data-lang-content="en">A coloured button · B neutral button &mdash; only the button colour differs</span>
-          </figcaption>
-        </figure>
+      <!-- The 5-1 sheet, from the Figma frame (2075:3418). It replaces the
+           A/B export that stood here: the same argument, but made of the
+           screens and the components themselves rather than a baked
+           picture of them, so it survives the KO/EN swap and the two
+           button colours are real values a reader can sample.
+
+           The frame is a slide, so it repeats the section's own heading
+           and lede inside the card; that repetition is kept, because the
+           sheet is also the first of the stacked row and sticks at 109px
+           on its own, where the section heading has already scrolled by.
+
+           Two columns, AS-IS then TO-BE, each one a screen beside the
+           components the screen is being judged on. Every colour in the
+           AS-IS column is quoted from the old build — the #0000B3 apply
+           button, the #FF4500 closed button and the orange search radius
+           that collided with the map's own blue pins — so, like the
+           problems sheet, those values are deliberately off the page's
+           palette. The TO-BE column uses the real tokens: neutral
+           #151E28 for the action, #E0E4E9 for the disabled one, and the
+           closing-soon tint/ink pair that 5-3 goes on to specify. -->
+      <div class="spec-band spec-band--stack" id="ds-colour-compare">
+        <article class="spec-card">
+          <div class="spec-card__runner">
+            <span class="spec-card__num">5-1</span>
+            <span class="spec-chip">colors</span>
+          </div>
+
+          <h3 class="spec-card__title" data-lang-content="ko">색상 역할을 분리해<br />경기 상태를 구분했습니다</h3>
+          <h3 class="spec-card__title" data-lang-content="en">Colour&rsquo;s roles separated,<br />so game state reads on its own</h3>
+
+          <p class="spec-card__lead" data-lang-content="ko">초기 화면에서는 오렌지가 신청 버튼과 마감임박 배지에 함께 사용되었습니다. 신청이 종료된 요소도 강한 채움색으로 표시되어, 행동 유도와 경기 상태가 구분되지 않았습니다.</p>
+          <p class="spec-card__lead" data-lang-content="en">In the first screens, orange was used for the apply button and for the closing-soon badge alike. Elements whose applications had already closed were filled just as strongly, so a call to action and a game state could not be told apart.</p>
+
+          <p class="spec-card__lead" data-lang-content="ko">이를 개선하기 위해 주요 조작 요소에는 무채색을, 경기 상태에는 구분 색상을 적용했습니다. 색상은 상태 정보에 집중해 버튼과 상태가 서로 다른 신호를 전달하도록 했습니다.</p>
+          <p class="spec-card__lead" data-lang-content="en">To fix it, I let the main controls take neutral colour and game states take distinguishing colour. Colour concentrates on state information, so a button and a state carry different signals.</p>
+
+          <div class="cmp">
+            <!-- AS-IS ------------------------------------------------- -->
+            <section class="cmp-col" data-side="asis">
+              <header class="cmp-col__head">
+                <span class="cmp-pill">AS - IS</span>
+                <h4 class="cmp-col__title" data-lang-content="ko">행동과 상태에 모두 강한 색을 썼습니다</h4>
+                <h4 class="cmp-col__title" data-lang-content="en">Strong colors were used for both actions and statuses</h4>
+              </header>
+
+              <div class="cmp-col__body">
+                <img class="cmp-screen"
+                     src="assets/img/ssp-ds-5-colour-asis.png"
+                     width="840" height="1818" loading="lazy" decoding="async"
+                     alt="The old map screen: an orange search radius over the map's blue pins, and a game list whose apply buttons are blue and orange" />
+
+                <div class="cmp-notes">
+                  <div class="cmp-note">
+                    <div class="cmp-spec cmp-spec--asis">
+                      <div class="cmp-spec__stack">
+                        <span class="cmp-btn cmp-btn--old-apply">신청 하기</span>
+                        <span class="cmp-btn cmp-btn--old-closed">신청 마감</span>
+                        <div class="cmp-tags">
+                          <span class="cmp-tag cmp-tag--old-today">오늘</span>
+                          <span class="cmp-tag cmp-tag--old-info">주차가능</span>
+                        </div>
+                      </div>
+
+                      <!-- The old search radius, quoted at the frame's own
+                           geometry: the ring's drop shadow is baked into
+                           the SVG, which is why it is drawn larger than
+                           the 179 box and pulled back by the same insets
+                           the frame uses. The two blue discs are the map's
+                           own pins, and they are the point — orange for a
+                           radius put a third saturated hue on a map that
+                           already had two. -->
+                      <div class="cmp-radius" aria-hidden="true">
+                        <span class="cmp-radius__ring">
+                          <img src="assets/img/ssp-ds-5-radius-ring.svg" width="275.212" height="275.212" alt="" />
+                        </span>
+                        <span class="cmp-radius__dot">
+                          <img src="assets/img/ssp-ds-5-radius-dot.svg" width="109.637" height="109.637" alt="" />
+                        </span>
+                        <span class="cmp-radius__pin cmp-radius__pin--a"></span>
+                        <span class="cmp-radius__pin cmp-radius__pin--b"></span>
+                      </div>
+                    </div>
+
+                    <p class="cmp-note__body" data-lang-content="ko">신청 버튼과 상태 배지가 모두 오렌지 계열이나 강한 채움색을 썼습니다.</p>
+                    <p class="cmp-note__body" data-lang-content="en">Both the application buttons and status badges used orange tones or strong fill colors.</p>
+
+                    <p class="cmp-note__body" data-lang-content="ko">기능마다 색을 따로 지정해, 정보의 시각적 위계가 일관되지 않았습니다.</p>
+                    <p class="cmp-note__body" data-lang-content="en">Colors were applied individually to each function, resulting in an inconsistent visual hierarchy of information.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- TO-BE ------------------------------------------------- -->
+            <section class="cmp-col" data-side="tobe">
+              <header class="cmp-col__head">
+                <span class="cmp-pill">TO - BE</span>
+                <h4 class="cmp-col__title" data-lang-content="ko">행동과 상태의 색 역할을 분리했습니다</h4>
+                <h4 class="cmp-col__title" data-lang-content="en">Color roles were separated for actions and statuses.</h4>
+              </header>
+
+              <div class="cmp-col__body">
+                <img class="cmp-screen"
+                     src="assets/img/ssp-ds-5-colour-tobe.png"
+                     width="840" height="1818" loading="lazy" decoding="async"
+                     alt="The rebuilt map screen: neutral filter chips and apply buttons, with colour left to the recruiting, closing-soon and closed badges" />
+
+                <div class="cmp-notes">
+                  <div class="cmp-note">
+                    <div class="cmp-spec">
+                      <span class="cmp-btn cmp-btn--primary">신청</span>
+                    </div>
+                    <p class="cmp-note__body" data-lang-content="ko">주요 조작 요소를 무채색 버튼으로 통일해, 의도한 행동이 분명히 드러나도록 했습니다.</p>
+                    <p class="cmp-note__body" data-lang-content="en">Primary interaction elements were unified with neutral-colored buttons to make the intended action clear.</p>
+                  </div>
+
+                  <div class="cmp-note">
+                    <div class="cmp-spec">
+                      <span class="cmp-btn cmp-btn--disabled">마감</span>
+                    </div>
+                    <p class="cmp-note__body" data-lang-content="ko">신청이 마감된 요소는 채도가 낮은 색으로 표현해, 비활성 상태가 분명히 구분되도록 했습니다.</p>
+                    <p class="cmp-note__body" data-lang-content="en">Closed applications are represented with low-saturation colors to clearly distinguish their inactive state.</p>
+                  </div>
+
+                  <div class="cmp-note">
+                    <div class="cmp-spec">
+                      <span class="cmp-badge">
+                        <img class="cmp-badge__icon" src="assets/img/ssp-ds-5-icon-closing.svg" width="21.6" height="21.6" alt="" />
+                        <span data-lang-content="ko">마감임박</span>
+                        <span data-lang-content="en">Closing Soon</span>
+                      </span>
+                    </div>
+                    <p class="cmp-note__body" data-lang-content="ko">경기 상태를 기준으로 색 체계를 세워, 상태 정보가 직관적으로 전달되도록 했습니다.</p>
+                    <p class="cmp-note__body" data-lang-content="en">A color system based on match status was established to communicate status information intuitively.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </article>
+      </div>
 
       <!-- The principles sheet, from the Figma frame (41:270). The three
            principles had a square illustration each; the frame drops them
@@ -486,7 +620,7 @@
         </article>
       </div>
 
-      <!-- The 5-1 sheet, from the Figma frame (33:3). The ramp is markup
+      <!-- The 5-2 sheet, from the Figma frame (33:3). The ramp is markup
            rather than an export, for the reason the other sheets are: a
            scale of twelve tones is only evidence if the tones are really
            there to sample. The runner and the chip are chrome from the
@@ -499,7 +633,7 @@
       <div class="spec-band spec-band--stack" id="f-colour">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">5-1</span>
+            <span class="spec-card__num">5-2</span>
             <span class="spec-chip">colors</span>
           </div>
 
@@ -584,7 +718,7 @@
       <div class="spec-band spec-band--stack">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">5-2</span>
+            <span class="spec-card__num">5-3</span>
             <span class="spec-chip">colors</span>
           </div>
 
@@ -2091,7 +2225,7 @@
     })();
 
     /* ---- Sheet entrance: each spec-card rises into the reading line ------
-       Every numbered sheet (01, 5-1, 5-2, 6-2..6-5) arrives the same way:
+       Every numbered sheet (01, 5-1..5-3, 6-2..6-5) arrives the same way:
        it starts a little low and faded, and settles into place once it
        reaches the line the reading spotlight already uses above — so the
        page keeps one definition of "arriving," not two.
