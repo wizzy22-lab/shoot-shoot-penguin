@@ -1022,6 +1022,20 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   flex-direction: column;
   justify-content: center;
 }
+/* The floor is there to stop a short sheet letting the one stuck behind
+   it peek out below. A row's opening sheet has nothing behind it — the
+   previous section's row released at its own containing block — and the
+   sheet after it is already flush against its bottom edge, so it covers
+   the rest on its way up. 6-1 is that sheet and is also the shortest on
+   the page: held to the floor it carried 182px of air above and below
+   its four lines, against the 48 every other sheet shows. Let it take
+   its own height instead, which is the 365 its frame draws.
+
+   5-1 opens Colour's row on the same terms; it runs past the floor on
+   its own, so this never binds there. */
+#f-overview .spec-card {
+  min-height: 0;
+}
 
 /* The sheet's own runner: the number, then the domain it belongs to.
    Both are chrome from the source frame and stay in English in either
