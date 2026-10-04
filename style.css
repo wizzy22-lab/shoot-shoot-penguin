@@ -1001,10 +1001,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   margin-block: 0;
 }
 /* Foundations' row opens with the same gap Colour's does, to clear the
-   section's own heading. It sits on the first sheet rather than on the
+   section's own runner. It sits on the first sheet rather than on the
    wrapper that used to carry it; the sheets after it keep
-   .spec-band--stack's zero, so the row still reads as one stack. */
-#f-typography {
+   .spec-band--stack's zero, so the row still reads as one stack. The
+   opener is 6-1 now, so the gap moved off 6-2 with it. */
+#f-overview {
   margin-top: 72px;
 }
 
