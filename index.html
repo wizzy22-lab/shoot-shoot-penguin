@@ -226,7 +226,7 @@
             <span class="spec-chip">summary</span>
           </div>
 
-          <ol class="sum-list" data-reveal="0.8">
+          <ol class="sum-list" data-reveal="0.8" data-stagger>
             <li class="sum-item">
               <div class="prob__head">
                 <span class="prob__num">01</span>
@@ -303,7 +303,7 @@
                 </div>
               </div>
 
-              <ul class="ctx-tasks ctx-tasks--lead">
+              <ul class="ctx-tasks ctx-tasks--lead" data-reveal="0.8" data-stagger>
               <li class="ctx-task">
                 <span class="ctx-task__icon"><img src="assets/img/ssp-ctx-icon-group.svg" width="48" height="48" alt="" /></span>
                 <span class="ctx-task__text">
@@ -342,7 +342,7 @@
               </li>
               </ul>
 
-              <div class="ctx-hub" data-reveal="0.75">
+              <div class="ctx-hub">
             <div class="ctx-hub__block">
               <span class="ctx-hub__icon"><img src="assets/img/ssp-ctx-icon-data-table.svg" width="40" height="40" alt="" /></span>
               <span class="ctx-hub__title" data-lang-content="ko">같은 경기 데이터</span>
@@ -350,12 +350,16 @@
               <span class="ctx-hub__desc" data-lang-content="ko">경기 정보 · 장소 · 시간<br />출석 · 경기 상태</span>
               <span class="ctx-hub__desc" data-lang-content="en">Game details · Location · Time<br />Attendance · Game status</span>
             </div>
-                <img class="ctx-hub__line ctx-hub__line--up" src="assets/img/ssp-ctx-line-v.svg" width="4" height="48" alt="" />
-                <div class="ctx-hub__core">
-                  <span class="ctx-hub__pill" data-lang-content="ko">공통<br />UI 시스템</span>
-                  <span class="ctx-hub__pill" data-lang-content="en">Shared<br />UI System</span>
+                <!-- The spine is its own reveal target: the lines sit 200+ under
+                     the hub's top, so on the hub's trigger they grew off screen. -->
+                <div class="ctx-hub__spine" data-reveal="0.7">
+                  <span class="ctx-hub__line ctx-hub__line--up" aria-hidden="true"></span>
+                  <div class="ctx-hub__core">
+                    <span class="ctx-hub__pill" data-lang-content="ko">공통<br />UI 시스템</span>
+                    <span class="ctx-hub__pill" data-lang-content="en">Shared<br />UI System</span>
+                  </div>
+                  <span class="ctx-hub__line ctx-hub__line--down" aria-hidden="true"></span>
                 </div>
-                <img class="ctx-hub__line ctx-hub__line--down" src="assets/img/ssp-ctx-line-v.svg" width="4" height="48" alt="" />
             <div class="ctx-hub__block">
               <span class="ctx-hub__icon"><img src="assets/img/ssp-ctx-icon-database.svg" width="40" height="40" alt="" /></span>
               <span class="ctx-hub__title" data-lang-content="ko">하나의 컴포넌트 세트</span>
@@ -376,7 +380,7 @@
                 </div>
               </div>
 
-              <ul class="ctx-tasks ctx-tasks--player">
+              <ul class="ctx-tasks ctx-tasks--player" data-reveal="0.8" data-stagger>
               <li class="ctx-task">
                 <span class="ctx-task__icon"><img src="assets/img/ssp-ctx-icon-distance.svg" width="48" height="48" alt="" /></span>
                 <span class="ctx-task__text">
@@ -479,7 +483,7 @@
           <p class="spec-card__lead" data-lang-content="ko">세 가지 문제는 별개의 증상처럼 보이지만, 색의 역할과 사용 규칙이 명확히 정의되지 않은 데서 비롯됐습니다.</p>
           <p class="spec-card__lead" data-lang-content="en">The three issues may appear to be separate symptoms, but the roles and usage rules for color were not clearly defined.</p>
 
-          <ol class="probs">
+          <ol class="probs" data-reveal="0.8" data-stagger>
           <li class="prob">
             <div class="prob__text">
               <div class="prob__head">
@@ -618,7 +622,7 @@
                      width="840" height="1818" loading="lazy" decoding="async"
                      alt="The old map screen: an orange search radius over the map's blue pins, and a game list whose apply buttons are blue and orange" />
 
-                <div class="cmp-notes">
+                <div class="cmp-notes" data-reveal="0.8" data-stagger>
                   <div class="cmp-note">
                     <div class="cmp-spec cmp-spec--asis">
                       <div class="cmp-spec__stack">
@@ -674,7 +678,7 @@
                      width="840" height="1818" loading="lazy" decoding="async"
                      alt="The rebuilt map screen: neutral filter chips and apply buttons, with color left to the recruiting, closing-soon and closed badges" />
 
-                <div class="cmp-notes">
+                <div class="cmp-notes" data-reveal="0.8" data-stagger>
                   <div class="cmp-note">
                     <div class="cmp-spec">
                       <span class="cmp-btn cmp-btn--primary">신청</span>
@@ -735,7 +739,7 @@
               <p class="prin-lede__body" data-lang-content="en">Clearly distinguish information types such as actions, states, and predictions, while defining the appropriate information and visual language for each context, from management screens to maps and external sharing. Establish clear rules for representation so that meaning and certainty can be understood at a glance, without requiring users to interpret the interface.</p>
             </div>
 
-            <ol class="prin-list">
+            <ol class="prin-list" data-reveal="0.8" data-stagger>
               <li class="prin">
                 <div class="prin__head">
                   <span class="prin__num">01</span>
@@ -877,7 +881,7 @@
           <p class="spec-card__lead" data-lang-content="ko">다섯 가지 상태색은 배경(tint) · 핀과 점(solid) · 텍스트(text) 세 단계로 구성했습니다. 판단에 필요한 정보는 7:1 이상의 명도 대비를 유지하고, 상태명과 표시를 함께 사용해 어떤 상태도 색에만 의존하지 않도록 했습니다.</p>
           <p class="spec-card__lead" data-lang-content="en">Each of the five state colors is structured across three levels: background (tint), pins and dots (solid), and text. Decision-critical information maintains a contrast ratio of at least 7:1, while labels and markers ensure that no state relies on color alone.</p>
 
-          <ul class="state-cards">
+          <ul class="state-cards" data-reveal="0.8" data-stagger>
             <li class="state-card" data-state="recruiting">
               <div class="state-tiles">
                 <div class="state-tile state-tile--tint">
@@ -2095,9 +2099,13 @@
               <p class="comp-cap comp-cap--parts" data-lang-content="ko">컴포넌트 — 버튼, 필터, 배지</p>
               <p class="comp-cap comp-cap--parts" data-lang-content="en">Components - buttons, filters, badges</p>
 
-              <img class="comp-screen" src="assets/img/ssp-ds-7-components.png"
-                   width="1628" height="1310" loading="lazy" decoding="async"
-                   alt="The Components page in Figma: atomic parts such as buttons, filter chips, icons and map pins, composed into the search bar, navigation, game list rows and a bottom sheet" />
+              <!-- Hover zooms the screen 2x inside its frame, following the
+                   pointer, so the parts drawn small here can be read. -->
+              <div class="comp-screen" data-zoom>
+                <img src="assets/img/ssp-ds-7-components.png"
+                     width="1628" height="1310" loading="lazy" decoding="async"
+                     alt="The Components page in Figma: atomic parts such as buttons, filter chips, icons and map pins, composed into the search bar, navigation, game list rows and a bottom sheet" />
+              </div>
 
               <span class="comp-pin comp-pin--count" aria-hidden="true">
                 <span class="comp-pin__body">
@@ -2131,8 +2139,8 @@
 
          The chips are the page's one grey, not the frame's #FF8C42, for
          the reason 5-1 gives. The BEFORE / AFTER frames in 7-3 are
-         captures of the validator's own reports, drawn at the frame's
-         537:202 so nothing is cropped on desktop.
+         screenshots of the validator's own terminal output, each frame
+         set to their 950:436 so the whole report shows.
          ============================================================ -->
     <section class="section" id="ds-script">
       <div class="spec-band spec-band--stack" id="enf-why">
@@ -2169,7 +2177,7 @@
           <p class="spec-card__lead spec-card__lead--short" data-lang-content="ko">주요 버튼이 화면마다 네 가지 색으로 쓰였습니다. 같은 기능의 버튼이 색에 따라 서로 다른 중요도를 가진 것처럼 보일 수 있었습니다.</p>
           <p class="spec-card__lead spec-card__lead--short" data-lang-content="en">The main buttons used four different colors across the interface. This could make buttons with the same function appear to have different levels of importance based on their color.</p>
 
-          <ul class="checks">
+          <ul class="checks" data-reveal="0.8" data-stagger>
             <li class="check">
               <span class="check__k">Color</span>
               <span class="check__q" data-lang-content="ko">디자인 시스템에 정의되지 않은 색상을 쓰고 있지 않은가?</span>
@@ -2210,16 +2218,16 @@
           <!-- Side by side, so the two states compare in one view: stacked
                they ran the sheet past the stack point and 7-4 covered the
                AFTER frame before it was ever on screen whole. -->
-          <div class="fix-pair">
+          <div class="fix-pair" data-reveal="0.8" data-stagger>
             <figure class="fix-shot">
               <img class="fix-shot__img" src="assets/img/ssp-ds-8-report-before.png"
-                   width="1611" height="606" loading="lazy" decoding="async"
+                   width="950" height="436" loading="lazy" decoding="async"
                    alt="Validator report before the fix: FAIL, two violations — an arbitrary color #6E7884 in 04-map.html and an arbitrary size 640px in index.html" />
               <figcaption class="fix-shot__tag">BEFORE : violation 2</figcaption>
             </figure>
             <figure class="fix-shot">
               <img class="fix-shot__img" src="assets/img/ssp-ds-8-report-after.png"
-                   width="1611" height="606" loading="lazy" decoding="async"
+                   width="950" height="436" loading="lazy" decoding="async"
                    alt="Validator report after the fix: PASS, no violations across effects, layout patterns, arbitrary values and placeholder text" />
               <figcaption class="fix-shot__tag">after : violation 0</figcaption>
             </figure>
@@ -2277,7 +2285,7 @@
             <h3 class="next-card__title" data-lang-content="en">Extending validation<br class="only-desktop" /> beyond system<br class="only-desktop" /> consistency to the actual<br class="only-desktop" /> user experience.</h3>
           </div>
 
-          <ol class="next-list">
+          <ol class="next-list" data-reveal="0.8" data-stagger>
             <li class="next-item">
               <div class="prob__head">
                 <span class="prob__num">01</span>
@@ -2652,6 +2660,64 @@
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', onScroll, { passive: true });
       check();
+    })();
+
+    /* ---- Tall stacked sheets: stick by the bottom, not the top -----------
+       Every stacked sheet sticks at 109px, under the fixed chrome. A sheet
+       taller than the space below that line stuck with its lower part
+       still off screen, and the next sheet slid over it there — 4-1's
+       comparison, 5-2's specimens and 5-4's shadows were never seen to
+       the end. So each band's sticking point is set from its own card:
+       109 when the card fits, otherwise high enough that it sticks only
+       once its bottom is 24px clear of the viewport's. It scrolls whole,
+       then holds while the next one covers it.
+
+       A ResizeObserver keeps it right when a card changes height — 5-2's
+       groups open and close — as well as on resize. Without the script
+       the CSS 109 stands, which is the behaviour this replaces. */
+    (function () {
+      var bands = [].slice.call(document.querySelectorAll('.spec-band--stack'));
+      if (!bands.length) return;
+      var CHROME = 109, CLEAR = 24;
+
+      function place(band) {
+        var card = band.querySelector('.spec-card');
+        if (!card) return;
+        var room = window.innerHeight - CHROME - CLEAR;
+        var top = card.offsetHeight > room
+          ? window.innerHeight - CLEAR - card.offsetHeight
+          : CHROME;
+        band.style.top = top + 'px';
+      }
+      function placeAll() { bands.forEach(place); }
+
+      if ('ResizeObserver' in window) {
+        var ro = new ResizeObserver(function (entries) {
+          entries.forEach(function (e) { place(e.target.closest('.spec-band--stack')); });
+        });
+        bands.forEach(function (b) {
+          var card = b.querySelector('.spec-card');
+          if (card) ro.observe(card);
+        });
+      }
+      window.addEventListener('resize', placeAll, { passive: true });
+      placeAll();
+    })();
+
+    /* ---- Hover zoom: the zoom follows the pointer ------------------------
+       [data-zoom] frames scale their image on hover in CSS; this only
+       moves the scale's origin to the pointer, so the part under it is the
+       part that grows, and moving the pointer pans across the zoomed
+       image. Mouse-like pointers only — a touch has no hover to end it. */
+    (function () {
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      [].slice.call(document.querySelectorAll('[data-zoom]')).forEach(function (box) {
+        box.addEventListener('pointermove', function (e) {
+          var r = box.getBoundingClientRect();
+          box.style.setProperty('--zx', ((e.clientX - r.left) / r.width * 100) + '%');
+          box.style.setProperty('--zy', ((e.clientY - r.top) / r.height * 100) + '%');
+        });
+      });
     })();
 
     /* ---- Footer email: click to copy ------------------------------------

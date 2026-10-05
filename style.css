@@ -987,9 +987,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    The card, not the band, carries the height floor, so a short sheet
    (5-5's icon grid) still fills the stack point edge-to-edge instead of
    leaving the sheet behind it peeking out underneath. A tall sheet
-   (5-2's specimens) simply ignores the floor and sticks for as long as
-   its own content takes to clear it — that's the row reading at its
-   own pace, not a bug in the floor.
+   (5-2's specimens) ignores the floor; the page script then lifts its
+   sticking point so it sticks only once its bottom is on screen, and
+   the next sheet covers it from there.
 
    Block margin zeroed, not the shorthand: .spec-band's own 64px top and
    bottom would otherwise sit between one stuck sheet and the next, and
@@ -1163,19 +1163,19 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #6E7884;
 }
 
-/* 7-3's BEFORE / AFTER frames: 202 tall (the frame's 288, cut by 30%),
-   full measure, the tag pinned to the top-right corner over whatever the
-   frame holds. */
+/* 7-3's BEFORE / AFTER frames: the terminal screenshots' own 950:436,
+   so each report shows whole, full measure of its column. The tag sits in
+   the bottom-right corner, the one corner both reports leave empty: at
+   the top right it sat on the rule under the title. */
 .fix-shot {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: flex-end;
-  height: 202px;
+  aspect-ratio: 950 / 436;
   margin: 0;
-  /* Half the frame's 24: the tag is a corner label, and at 24 it sat in
-     on the report's first lines rather than off them. */
+  /* Half the frame's 24: the tag is a corner label, kept tight to it. */
   padding: 12px;
   border: 1px solid #F5F5F5;
   border-radius: 16px;
@@ -1249,7 +1249,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .checks { grid-template-columns: minmax(0, 1fr); }
   .check { align-items: flex-start; flex-direction: column; gap: 8px; }
   .fix-pair { grid-template-columns: minmax(0, 1fr); }
-  .fix-shot { height: 140px; }
 }
 
 /* ---- The AS-IS / TO-BE comparison, from Figma (frame 2075:3418) ----
@@ -2776,10 +2775,23 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   line-height: 1.6;
   color: #6E7884;
 }
-.ctx-hub__line { flex: none; }
-/* The pill and the two dotted runs out to the task lists. The runs are
-   the frame's own stroke (4 wide, 4 on 4 off, #E2DDDA) drawn in CSS,
-   because unlike the hub's 48 steps they have to stretch with the board. */
+.ctx-hub__line {
+  flex: none;
+  width: 4px;
+  height: 48px;
+  background: repeating-linear-gradient(180deg, #E2DDDA 0 4px, transparent 4px 8px);
+}
+.ctx-hub__spine {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+/* The pill and the two dotted runs out to the task lists. All four lines
+   are the frame's own stroke (4 wide, 4 on 4 off, #E2DDDA) drawn in CSS:
+   the runs have to stretch with the board, and every line's dots flow
+   outward from the pill on a loop (see MOTION), which an <img> cannot. */
 .ctx-hub__core {
   align-self: stretch;
   display: flex;
@@ -2986,12 +2998,24 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   text-align: center;
 }
 .comp-screen {
-  width: 100%;
-  height: auto;
+  overflow: hidden;
   margin-top: calc(16 * var(--u));
   border-radius: 16px;
   box-shadow: 0 0.6px 1.2px 0 rgba(11, 17, 24, 0.1),
               0 2.4px 6px 0 rgba(11, 17, 24, 0.12);
+}
+.comp-screen img {
+  width: 100%;
+  height: auto;
+  transform-origin: var(--zx, 50%) var(--zy, 50%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* 2x on hover, origin at the pointer (set by the page script; centre
+   without it). The frame clips, so the zoom stays inside the card. The
+   screen is shown at about 520 of its 1628, so 2x is still sharp. */
+@media (hover: hover) and (pointer: fine) {
+  .comp-screen[data-zoom] { cursor: zoom-in; }
+  .comp-screen[data-zoom]:hover img { transform: scale(2); }
 }
 
 /* The game row, at the frame's 1.231x of the 390 component. */
@@ -3723,41 +3747,65 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 /* 2-1's dotted lines grow out of the hub's pill when the hub reaches the
    reading line: the upper step upward, the lower one downward, the two
    runs out toward the task lists. Each is drawn from the edge touching
-   the pill, so the system reads as the source of both sides. The hub is
-   its own [data-reveal] target, as 1-1's panels are. */
-.ctx-hub.will-reveal .ctx-hub__line,
-.ctx-hub.will-reveal .ctx-hub__core::before,
-.ctx-hub.will-reveal .ctx-hub__core::after {
+   the pill, so the system reads as the source of both sides. The spine
+   (the two steps and the pill) is its own [data-reveal] target: on the
+   hub's trigger the lines were still below the fold while they grew. */
+.ctx-hub__spine.will-reveal .ctx-hub__line { transform: scaleY(0); }
+.ctx-hub__spine.will-reveal .ctx-hub__line--up   { transform-origin: 50% 100%; }
+.ctx-hub__spine.will-reveal .ctx-hub__line--down { transform-origin: 50% 0; }
+.ctx-hub__spine.will-reveal .ctx-hub__core::before { transform: scaleX(0); transform-origin: 100% 50%; }
+.ctx-hub__spine.will-reveal .ctx-hub__core::after  { transform: scaleX(0); transform-origin: 0 50%; }
+/* Once grown, the dots keep flowing outward from the pill — up, down,
+   and out to each side — one 8px dot-and-gap every 0.5s, for as long as
+   the page is open. The loop moves only the gradient, never the box, so
+   it costs a repaint of four 4px strips and nothing else. */
+@keyframes ctx-flow-up    { to { background-position: 0 -8px; } }
+@keyframes ctx-flow-down  { to { background-position: 0 8px; } }
+@keyframes ctx-flow-left  { to { background-position: -8px 0; } }
+@keyframes ctx-flow-right { to { background-position: 8px 0; } }
+.ctx-hub__line--up     { animation: ctx-flow-up 0.5s linear infinite; }
+.ctx-hub__line--down   { animation: ctx-flow-down 0.5s linear infinite; }
+.ctx-hub__core::before { animation: ctx-flow-left 0.5s linear infinite; }
+.ctx-hub__core::after  { animation: ctx-flow-right 0.5s linear infinite; }
+
+/* The transition sits on the revealed state only, so arming hides the
+   lines at once instead of animating them shut on load. */
+.ctx-hub__spine.will-reveal.is-visible .ctx-hub__line,
+.ctx-hub__spine.will-reveal.is-visible .ctx-hub__core::before,
+.ctx-hub__spine.will-reveal.is-visible .ctx-hub__core::after {
+  transform: none;
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.ctx-hub.will-reveal .ctx-hub__line { transform: scaleY(0); }
-.ctx-hub.will-reveal .ctx-hub__line--up   { transform-origin: 50% 100%; }
-.ctx-hub.will-reveal .ctx-hub__line--down { transform-origin: 50% 0; }
-.ctx-hub.will-reveal .ctx-hub__core::before { transform: scaleX(0); transform-origin: 100% 50%; }
-.ctx-hub.will-reveal .ctx-hub__core::after  { transform: scaleX(0); transform-origin: 0 50%; }
-.ctx-hub.will-reveal.is-visible .ctx-hub__line,
-.ctx-hub.will-reveal.is-visible .ctx-hub__core::before,
-.ctx-hub.will-reveal.is-visible .ctx-hub__core::after { transform: none; }
-.ctx-hub.will-reveal.is-visible .ctx-hub__core::before,
-.ctx-hub.will-reveal.is-visible .ctx-hub__core::after { transition-delay: 0.15s; }
+.ctx-hub__spine.will-reveal.is-visible .ctx-hub__core::before,
+.ctx-hub__spine.will-reveal.is-visible .ctx-hub__core::after { transition-delay: 0.15s; }
 
-/* 1-1's three panels come in one after another, on the sheet's rise and
-   curve. The list is its own [data-reveal] target, triggered when it
-   reaches 80% of the viewport: on the sheet's trigger the panels were
-   still below the fold and their stagger finished unseen. Each starts
-   0.15s after the last, so the row reads in order: problem, approach,
-   deliverables. */
-.sum-list.will-reveal .sum-item {
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+/* ---- Staggered lists ---------------------------------------------------
+   A list marked [data-stagger] brings its items in one after another
+   when the list itself reaches the reading line ([data-reveal], so a
+   list low on a tall sheet waits until it is actually on screen). Each
+   item takes the sheet's own rise — 16px, 0.45s, ease-out — 0.15s after
+   the one before it, so a numbered list reads in its order.
+
+   An animation, not a transition: 4-2's principles already transition
+   their lift and colour for the reading spotlight, and a transition-delay
+   would have left that spotlight lagging on every card after the first.
+   `backwards` holds the first frame through the delay and lets go at the
+   end, so nothing of it stays on the element afterwards.
+
+   2-1's task lists start 0.3s late, so they follow the hub's lines out. */
+@keyframes stagger-in {
+  from { opacity: 0; transform: translateY(16px); }
 }
-.sum-list.will-reveal.is-visible .sum-item {
-  opacity: 1;
-  transform: translateY(0);
+[data-stagger].will-reveal:not(.is-visible) > * { opacity: 0; }
+[data-stagger].will-reveal.is-visible > * {
+  animation: stagger-in 0.45s ease-out backwards;
+  animation-delay: calc(var(--stagger-base, 0s) + var(--i, 0) * 0.15s);
 }
-.sum-list.is-visible .sum-item:nth-child(2) { transition-delay: 0.15s; }
-.sum-list.is-visible .sum-item:nth-child(3) { transition-delay: 0.3s; }
+[data-stagger] > :nth-child(2) { --i: 1; }
+[data-stagger] > :nth-child(3) { --i: 2; }
+[data-stagger] > :nth-child(4) { --i: 3; }
+[data-stagger] > :nth-child(5) { --i: 4; }
+.ctx-tasks[data-stagger] { --stagger-base: 0.3s; }
 
 /* ---- Opt out ---------------------------------------------------------
    The lift and the transitions go; the contrast step stays. It reads as
@@ -3777,16 +3825,19 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
     transform: none;
     transition: none;
   }
-  .ctx-hub.will-reveal .ctx-hub__line,
-  .ctx-hub.will-reveal .ctx-hub__core::before,
-  .ctx-hub.will-reveal .ctx-hub__core::after {
+  .comp-screen img { transition: none; }
+  .ctx-hub__line,
+  .ctx-hub__core::before,
+  .ctx-hub__core::after { animation: none; }
+  .ctx-hub__spine.will-reveal .ctx-hub__line,
+  .ctx-hub__spine.will-reveal .ctx-hub__core::before,
+  .ctx-hub__spine.will-reveal .ctx-hub__core::after {
     transform: none;
     transition: none;
   }
-  .sum-list.will-reveal .sum-item {
-    opacity: 1;
-    transform: none;
-    transition: none;
+  [data-stagger].will-reveal > * {
+    opacity: 1 !important;
+    animation: none !important;
   }
 
   .typo-group__head::after { transition: none; }
