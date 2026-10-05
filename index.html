@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;800&family=Azeret+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-  <!-- Material Symbols, subset to the 22 glyphs the 6-5 sheet sets. The
+  <!-- Material Symbols, subset to the 22 glyphs the 5-5 sheet sets. The
        sheet documents the icon set, so the specimens are the real font
        rather than pictures of it — the same reason the type sheet sets
        Pretendard. display=block: a ligature that falls back would show
@@ -96,9 +96,10 @@
         <a class="ds-anchor" href="#summary"><span data-lang-content="ko">요약</span><span data-lang-content="en">summary</span></a>
         <a class="ds-anchor" href="#product"><span data-lang-content="ko">제품</span><span data-lang-content="en">context</span></a>
         <a class="ds-anchor" href="#ds-problem"><span data-lang-content="ko">왜 시스템인가</span><span data-lang-content="en">why</span></a>
-        <a class="ds-anchor" href="#ds-color"><span data-lang-content="ko">색 결정</span><span data-lang-content="en">colour</span></a>
+        <a class="ds-anchor" href="#ds-color"><span data-lang-content="ko">색 결정</span><span data-lang-content="en">color</span></a>
         <a class="ds-anchor" href="#ds-principles"><span data-lang-content="ko">원칙</span><span data-lang-content="en">principles</span></a>
         <a class="ds-anchor" href="#foundations"><span data-lang-content="ko">파운데이션</span><span data-lang-content="en">foundations</span></a>
+        <a class="ds-anchor" href="#ds-components"><span data-lang-content="ko">컴포넌트</span><span data-lang-content="en">components</span></a>
         <a class="ds-anchor" href="#ds-script"><span data-lang-content="ko">검증</span><span data-lang-content="en">enforcement</span></a>
         <a class="ds-anchor" href="#status"><span data-lang-content="ko">배운 것</span><span data-lang-content="en">learned</span></a>
       </div>
@@ -127,7 +128,7 @@
           <h1 class="hero-title">Shoot Shoot Penguin<br /><span class="acc">Design System</span></h1>
 
           <p class="hero-body" data-lang-content="ko">Shoot Shoot Penguin은 농구 경기의<br class="only-desktop" /> 게스트 모집과 운영을 돕는 서비스입니다.<br class="only-desktop" /> 모집과 입금 확인이 여러 채널에 흩어져 있던 문제에서 출발했고,<br class="only-desktop" /> 이 케이스스터디에서는 그중 디자인 시스템을 다룹니다.</p>
-          <p class="hero-body" data-lang-content="en">Reviewing the first screens of Shoot Shoot Penguin, I found that repeated elements were styled differently from screen to screen, and that colour meant something different in each one.<br class="only-desktop" /> Separating how controls and game state were expressed, then settling the tokens and components, gave one standard both sides of the app could be built on.</p>
+          <p class="hero-body" data-lang-content="en">Reviewing the first screens of Shoot Shoot Penguin, I found that repeated elements were styled differently from screen to screen, and that color meant something different in each one.<br class="only-desktop" /> Separating how controls and game state were expressed, then settling the tokens and components, gave one standard both sides of the app could be built on.</p>
 
           <div class="tagrow">
             <span class="tag">TWO-SIDED PLATFORM</span>
@@ -214,14 +215,14 @@
          ============================================================ -->
     <section class="section tldr" id="summary">
       <div class="spec-band" id="sum">
-        <!-- The 01 sheet, from the Figma frame (90:1157): the three rows
+        <!-- The 1-1 sheet, from the Figma frame (90:1157): the three rows
              that stood here as a table are three panels now, numbered the
-             way 04's problems are, so the summary reads as the same
+             way 3-2's problems are, so the summary reads as the same
              family as the sheets it summarises. The phrase each panel
              turns on is set in ink. The chip is the page's grey. -->
         <article class="spec-card sum-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">01</span>
+            <span class="spec-card__num">1-1</span>
             <span class="spec-chip">summary</span>
           </div>
 
@@ -229,7 +230,7 @@
             <li class="sum-item">
               <div class="prob__head">
                 <span class="prob__num">01</span>
-                <h3 class="prob__title">Problem</h3>
+                <h4 class="prob__title">Problem</h4>
               </div>
               <p class="prob__body" data-lang-content="ko">화면별로 제작한 초기 UI에는 반복 요소의 스타일 차이가 있었고, 같은 색이 버튼과 경기 상태를 함께 나타내고 있었습니다.</p>
               <p class="prob__body" data-lang-content="en">The initial UI, designed screen by screen, had inconsistent styles across repeated elements. The same colors were also used to represent both actions and game states.</p>
@@ -237,7 +238,7 @@
             <li class="sum-item">
               <div class="prob__head">
                 <span class="prob__num">02</span>
-                <h3 class="prob__title">Approach</h3>
+                <h4 class="prob__title">Approach</h4>
               </div>
               <p class="prob__body" data-lang-content="ko"><strong>행동과 상태의 색 역할</strong>을 분리하고, 타이포그래피 · 간격 · 컴포넌트를 공통 규칙으로 정리했습니다. 예측 정보는 확정된 경기 정보와 구별되도록 표현해, 사용자가 정보의 성격을 직관적으로 이해할 수 있도록 했습니다.</p>
               <p class="prob__body" data-lang-content="en">I separated color roles for <strong>actions and states</strong>, and established shared rules for typography, spacing, and components. I also differentiated predicted information from confirmed game information so users could intuitively understand the nature of each piece of information.</p>
@@ -245,7 +246,7 @@
             <li class="sum-item">
               <div class="prob__head">
                 <span class="prob__num">03</span>
-                <h3 class="prob__title">Deliverables</h3>
+                <h4 class="prob__title">Deliverables</h4>
               </div>
               <p class="prob__body" data-lang-content="ko"><strong>색상 · 타이포그래피 · 간격을 아우르는 디자인 토큰, 컴포넌트 26그룹, 브랜드 자산과 화면 적용 시안</strong>을 제작했습니다. 이후 HTML/CSS 구현에 자동 검사 스크립트를 적용해, 정의한 디자인 규칙이 실제 코드에서도 유지되는지 확인했습니다.</p>
               <p class="prob__body" data-lang-content="en">Built <strong>design tokens covering color, typography, and spacing, 26 component groups, brand assets, and screen applications</strong>. I then applied an automated validator to the HTML/CSS implementation to verify that the defined design rules were also maintained in the actual code.</p>
@@ -283,15 +284,15 @@
          opener carries a rule, the display step, and its own meta row.
          ============================================================ -->
     <section class="section" id="ds-problem">
-      <!-- The 1-1 sheet, from the Figma frame (91:1209). It replaces the
-           heading and lede that stood above the 01 sheet: the same two
+      <!-- The 3-1 sheet, from the Figma frame (91:1209). It replaces the
+           heading and lede that stood above the 3-2 sheet: the same two
            paragraphs, now beside the picture they describe — the first
            screens laid out in Figma, cropped to the corner the frame
            shows. The chip is the page's grey. -->
       <div class="spec-band" id="why">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">1-1</span>
+            <span class="spec-card__num">3-1</span>
             <span class="spec-chip">why system</span>
           </div>
 
@@ -314,7 +315,7 @@
         </article>
       </div>
 
-      <!-- The 01 sheet, from the Figma frame (39:10). It replaces the
+      <!-- The 3-2 sheet, from the Figma frame (39:10). It replaces the
            export that stood here: the three findings were a picture of
            four buttons, five lavender pills and one closed state, and
            they are those things now — real pills in the colours they are
@@ -327,7 +328,7 @@
       <div class="spec-band">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">01</span>
+            <span class="spec-card__num">3-2</span>
             <span class="spec-chip">problems</span>
           </div>
 
@@ -413,17 +414,17 @@
          and the captions survive the KO/EN swap.
 
          The section states nothing outside its sheets any more: its own
-         heading and lede said what 5-1 already says on the card, one
+         heading and lede said what 4-1 already says on the card, one
          scroll apart, so the runner is all that is left in the wrap and
          the sheets carry the section.
 
          They carry it in order — the judgement, the rule it produced,
-         and the values that rule became: 5-1 argues the case from the
+         and the values that rule became: 4-1 argues the case from the
          old screens, the principles sheet states the rule, and the
-         5-2/5-3 sheets below it are that rule as tokens.
+         4-3/4-4 sheets below it are that rule as tokens.
          ============================================================ -->
     <section class="section ds-color" id="ds-color">
-      <!-- The 5-1 sheet, from the Figma frame (2075:3418). It replaces the
+      <!-- The 4-1 sheet, from the Figma frame (2075:3418). It replaces the
            A/B export that stood here: the same argument, but made of the
            screens and the components themselves rather than a baked
            picture of them, so it survives the KO/EN swap and the two
@@ -444,22 +445,22 @@
            problems sheet, those values are deliberately off the page's
            palette. The TO-BE column uses the real tokens: neutral
            #151E28 for the action, #E0E4E9 for the disabled one, and the
-           closing-soon tint/ink pair that 5-3 goes on to specify. -->
+           closing-soon tint/ink pair that 4-4 goes on to specify. -->
       <div class="spec-band spec-band--stack" id="ds-colour-compare">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">5-1</span>
+            <span class="spec-card__num">4-1</span>
             <span class="spec-chip">colors</span>
           </div>
 
           <h3 class="spec-card__title" data-lang-content="ko">색상 역할을 분리해<br />경기 상태를 구분했습니다</h3>
-          <h3 class="spec-card__title" data-lang-content="en">Colour&rsquo;s roles separated,<br />so game state reads on its own</h3>
+          <h3 class="spec-card__title" data-lang-content="en">Color&rsquo;s roles separated,<br />so game state reads on its own</h3>
 
           <p class="spec-card__lead" data-lang-content="ko">초기 화면에서는 오렌지가 신청 버튼과 마감임박 배지에 함께 사용되었습니다. 신청이 종료된 요소도 강한 채움색으로 표시되어, 행동 유도와 경기 상태가 구분되지 않았습니다.</p>
           <p class="spec-card__lead" data-lang-content="en">In the first screens, orange was used for the apply button and for the closing-soon badge alike. Elements whose applications had already closed were filled just as strongly, so a call to action and a game state could not be told apart.</p>
 
           <p class="spec-card__lead" data-lang-content="ko">이를 개선하기 위해 주요 조작 요소에는 무채색을, 경기 상태에는 구분 색상을 적용했습니다. 색상은 상태 정보에 집중해 버튼과 상태가 서로 다른 신호를 전달하도록 했습니다.</p>
-          <p class="spec-card__lead" data-lang-content="en">To fix it, I let the main controls take neutral colour and game states take distinguishing colour. Colour concentrates on state information, so a button and a state carry different signals.</p>
+          <p class="spec-card__lead" data-lang-content="en">To fix it, I let the main controls take neutral color and game states take distinguishing color. Color concentrates on state information, so a button and a state carry different signals.</p>
 
           <div class="cmp">
             <!-- AS-IS ------------------------------------------------- -->
@@ -530,7 +531,7 @@
                 <img class="cmp-screen"
                      src="assets/img/ssp-ds-5-colour-tobe.png"
                      width="840" height="1818" loading="lazy" decoding="async"
-                     alt="The rebuilt map screen: neutral filter chips and apply buttons, with colour left to the recruiting, closing-soon and closed badges" />
+                     alt="The rebuilt map screen: neutral filter chips and apply buttons, with color left to the recruiting, closing-soon and closed badges" />
 
                 <div class="cmp-notes">
                   <div class="cmp-note">
@@ -581,7 +582,10 @@
         <article class="spec-card">
           <div class="prin-sheet">
             <div class="prin-lede">
-              <span class="spec-chip">design principle</span>
+              <div class="spec-card__runner">
+                <span class="spec-card__num">4-2</span>
+                <span class="spec-chip">design principle</span>
+              </div>
 
               <h3 class="prin-lede__title" data-lang-content="ko">정보를<br />의미와 맥락에<br />맞게 표현합니다.</h3>
               <h3 class="prin-lede__title" data-lang-content="en">Express information<br />according to its meaning<br />and context.</h3>
@@ -598,7 +602,7 @@
                   <h4 class="prin-title" data-lang-content="en">Separate action from state</h4>
                 </div>
                 <p class="prin-body" data-lang-content="ko">버튼 · 필터 · 탭은 무채색을 기본으로 사용하고, 경기 상태는 색과 상태명으로 구별합니다.</p>
-                <p class="prin-body" data-lang-content="en">Buttons, filters and tabs default to neutral; game state is told apart by colour together with the name of the state.</p>
+                <p class="prin-body" data-lang-content="en">Buttons, filters and tabs default to neutral; game state is told apart by color together with the name of the state.</p>
               </li>
 
               <li class="prin">
@@ -625,7 +629,7 @@
         </article>
       </div>
 
-      <!-- The 5-2 sheet, from the Figma frame (33:3). The ramp is markup
+      <!-- The 4-3 sheet, from the Figma frame (33:3). The ramp is markup
            rather than an export, for the reason the other sheets are: a
            scale of twelve tones is only evidence if the tones are really
            there to sample. The runner and the chip are chrome from the
@@ -633,23 +637,23 @@
 
            The sheet states the rule the principle above it just made, and
            then shows what the rule bought: one neutral ramp for every
-           control, so the five state colours in 5-2 are the only colour
+           control, so the five state colours in 4-3 are the only colour
            on the screen. -->
       <div class="spec-band spec-band--stack" id="f-colour">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">5-2</span>
+            <span class="spec-card__num">4-3</span>
             <span class="spec-chip">colors</span>
           </div>
 
           <h4 class="ramp-heading" data-lang-content="ko">왜 무채색인가?</h4>
-          <h4 class="ramp-heading" data-lang-content="en">Why neutral colour?</h4>
+          <h4 class="ramp-heading" data-lang-content="en">Why neutral color?</h4>
 
           <p class="spec-panel__body" data-lang-content="ko">무채색 체계를 선택한 이유는 두 가지입니다. 첫째, 기본 지도 화면에는 25개가 넘는 POI 아이콘이 여러 색으로 표시됩니다. UI 요소에 같은 색을 쓰면 지도 아이콘과 구별하기 어려워집니다. 둘째, 색은 경기 신청 상태를 나타내는 데 쓰이므로 상태 정보를 위해 남겨두어야 했습니다.</p>
           <p class="spec-panel__body" data-lang-content="ko">그래서 버튼 · 칩 · 탭을 무채색으로 설계해, 강조색이 상태 정보에만 주목을 모으도록 했습니다.</p>
 
-          <p class="spec-panel__body" data-lang-content="en">A neutral colour system was chosen for two reasons. First, the default map screen carries 25+ POI icons in various colours; using those same colours for UI elements would make the two hard to tell apart. Second, colour indicates the status of a match application, so it had to be reserved for status information.</p>
-          <p class="spec-panel__body" data-lang-content="en">Buttons, chips and tabs were therefore designed in neutral colour, leaving the key colours to draw attention to status information alone.</p>
+          <p class="spec-panel__body" data-lang-content="en">A neutral color system was chosen for two reasons. First, the default map screen carries 25+ POI icons in various colors; using those same colors for UI elements would make the two hard to tell apart. Second, color indicates the status of a match application, so it had to be reserved for status information.</p>
+          <p class="spec-panel__body" data-lang-content="en">Buttons, chips and tabs were therefore designed in neutral color, leaving the key colors to draw attention to status information alone.</p>
 
           <div class="ramp-panel">
             <div class="ramp">
@@ -723,14 +727,14 @@
       <div class="spec-band spec-band--stack">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">5-3</span>
+            <span class="spec-card__num">4-4</span>
             <span class="spec-chip">colors</span>
           </div>
 
-          <h3 class="spec-card__title"><span data-lang-content="ko">경기 상태에 따른 색 구분</span><span data-lang-content="en">Colour-coded by game state</span></h3>
+          <h3 class="spec-card__title"><span data-lang-content="ko">경기 상태에 따른 색 구분</span><span data-lang-content="en">Color-coded by game state</span></h3>
 
           <p class="spec-card__lead" data-lang-content="ko">다섯 가지 상태색은 배경(tint) · 핀과 점(solid) · 텍스트(text) 세 단계로 구성했습니다. 판단에 필요한 정보는 7:1 이상의 명도 대비를 유지하고, 상태명과 표시를 함께 사용해 어떤 상태도 색에만 의존하지 않도록 했습니다.</p>
-          <p class="spec-card__lead" data-lang-content="en">Each of the five state colours is structured across three levels: background (tint), pins and dots (solid), and text. Decision-critical information maintains a contrast ratio of at least 7:1, while labels and markers ensure that no state relies on colour alone.</p>
+          <p class="spec-card__lead" data-lang-content="en">Each of the five state colors is structured across three levels: background (tint), pins and dots (solid), and text. Decision-critical information maintains a contrast ratio of at least 7:1, while labels and markers ensure that no state relies on color alone.</p>
 
           <ul class="state-cards">
             <li class="state-card" data-state="recruiting">
@@ -826,7 +830,7 @@
               </div>
               <h4 class="state-name"><span data-lang-content="ko">마감</span><span data-lang-content="en">Closed</span></h4>
               <p class="state-body" data-lang-content="ko">마감된 상태는 무채색을 유지해, 아직 행동할 수 있는 상태로 주의가 향하도록 했습니다. 명도 대비는 7.58:1입니다.</p>
-              <p class="state-body" data-lang-content="en">The closed state remains colourless, keeping users&rsquo; attention on states where they can still take action. The contrast ratio is 7.58:1.</p>
+              <p class="state-body" data-lang-content="en">The closed state remains colorless, keeping users&rsquo; attention on states where they can still take action. The contrast ratio is 7.58:1.</p>
             </li>
           </ul>
         </article>
@@ -847,8 +851,8 @@
          introduced it both went, here and at Colour.
          ============================================================ -->
     <section class="section foundations" id="foundations">
-      <!-- The 6-1 sheet, from the Figma frame (75:1168). It opens the row
-           the way 5-1 opens Colour's: the section's heading and lede sit
+      <!-- The 5-1 sheet, from the Figma frame (75:1168). It opens the row
+           the way 4-1 opens Colour's: the section's heading and lede sit
            on the card rather than above it, so they are still in front of
            the reader once the row is stuck at 109px and the section's own
            wrap has scrolled by. The wrap keeps only its runner.
@@ -860,7 +864,7 @@
       <div class="spec-band spec-band--stack" id="f-overview">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">6-1</span>
+            <span class="spec-card__num">5-1</span>
             <span class="spec-chip">foundations</span>
           </div>
 
@@ -868,7 +872,7 @@
           <h3 class="spec-card__title" data-lang-content="en">The visual decisions that repeat,<br />settled into tokens</h3>
 
           <p class="spec-card__lead" data-lang-content="ko">색상, 타이포그래피, 간격, 모서리 반경을 공통 값으로 정의했습니다.<br class="only-desktop" /> 각 값에는 사용 목적을 함께 기록해, 화면을 추가하거나 수정할 때 같은 기준을 적용할 수 있도록 했습니다.</p>
-          <p class="spec-card__lead" data-lang-content="en">Colour, typography, spacing and corner radius are defined as shared values.<br class="only-desktop" /> Each value carries a note on what it is for, so the same standard applies when a screen is added or changed.</p>
+          <p class="spec-card__lead" data-lang-content="en">Color, typography, spacing and corner radius are defined as shared values.<br class="only-desktop" /> Each value carries a note on what it is for, so the same standard applies when a screen is added or changed.</p>
         </article>
       </div>
 
@@ -878,7 +882,7 @@
              weight and leading it documents — the page proves the scale
              instead of showing a picture of it.
 
-             The sheet's own chrome (6-2, the chip, the step names and the
+             The sheet's own chrome (5-2, the chip, the step names and the
              spec labels) stays English in either locale, as the runners do.
              The specimens stay Korean in both: they are samples of how the
              typeface sets Hangul and numerals, not copy to be read.
@@ -893,7 +897,7 @@
         <div class="spec-band spec-band--stack" id="f-typography">
           <article class="spec-card">
             <div class="spec-card__runner">
-              <span class="spec-card__num">6-2</span>
+              <span class="spec-card__num">5-2</span>
               <span class="spec-chip">typography</span>
             </div>
 
@@ -901,7 +905,7 @@
               <section class="spec-panel">
                 <h4 class="spec-panel__title">Typography</h4>
                 <p class="spec-panel__body" data-lang-content="ko">크기, 굵기, 행간의 조합만으로 정보의 층위를 구분했습니다. 색상 없이도 제목부터 본문까지 위계가 명확하게 읽히도록 타이포그래피 체계를 설계했습니다.</p>
-                <p class="spec-panel__body" data-lang-content="en">Information is separated into layers by size, weight and leading alone. The type system was designed so that the hierarchy from heading to body reads clearly without colour.</p>
+                <p class="spec-panel__body" data-lang-content="en">Information is separated into layers by size, weight and leading alone. The type system was designed so that the hierarchy from heading to body reads clearly without color.</p>
               </section>
 
               <section class="spec-panel">
@@ -916,7 +920,7 @@
                 <p class="spec-panel__body" data-lang-content="en">After testing the remaining candidates across actual screens, Pretendard was selected for its natural, stable balance between Hangul, Latin characters and numerals.</p>
 
                 <p class="spec-panel__body" data-lang-content="ko">액센트 색이 없는 시스템에서는 굵기가 시각적 위계를 만듭니다. 다양한 웨이트를 지원하고, 오픈 라이선스로 개발자와 제약 없이 공유할 수 있어 앱과 문서 전반에 일관되게 적용했습니다.</p>
-                <p class="spec-panel__body" data-lang-content="en">With no accent colour in the system, font weight creates the visual hierarchy. Pretendard offers a wide range of weights and an open licence, allowing it to be shared easily with developers and applied consistently across the app and documentation.</p>
+                <p class="spec-panel__body" data-lang-content="en">With no accent color in the system, font weight creates the visual hierarchy. Pretendard offers a wide range of weights and an open licence, allowing it to be shared easily with developers and applied consistently across the app and documentation.</p>
               </section>
 
               <details class="typo-group" name="typo-group" open>
@@ -1546,7 +1550,7 @@
         <div class="spec-band spec-band--stack" id="f-spacing">
           <article class="spec-card">
             <div class="spec-card__runner">
-              <span class="spec-card__num">6-3</span>
+              <span class="spec-card__num">5-3</span>
               <span class="spec-chip">spacing</span>
             </div>
 
@@ -1605,7 +1609,7 @@
         <div class="spec-band spec-band--stack">
           <article class="spec-card">
             <div class="spec-card__runner">
-              <span class="spec-card__num">6-4</span>
+              <span class="spec-card__num">5-4</span>
               <span class="spec-chip">radius &amp; shadows</span>
             </div>
 
@@ -1613,7 +1617,7 @@
               <section class="spec-panel">
                 <h4 class="spec-panel__title">Radius</h4>
                 <p class="spec-panel__body" data-lang-content="ko">각 값은 표준보다 한 단계 크게 잡아, 브랜드의 따뜻함을 강조색이 아니라 형태로 전달합니다.</p>
-                <p class="spec-panel__body" data-lang-content="en">Each value is one step larger than the standard, preserving the brand&rsquo;s warmth through form rather than accent colour.</p>
+                <p class="spec-panel__body" data-lang-content="en">Each value is one step larger than the standard, preserving the brand&rsquo;s warmth through form rather than accent color.</p>
 
                 <ul class="radius-scale">
                   <li class="radius-step" data-radius="6">
@@ -1652,7 +1656,7 @@
               <section class="spec-panel">
                 <h4 class="spec-panel__title">Shadows</h4>
                 <p class="spec-panel__body" data-lang-content="ko">색을 걷어낸 자리에서 <strong>그림자가 시각적 위계의 주요 단서</strong>가 되었습니다. 다섯 단계의 elevation을 정의하고, 각 단계를 특정 UI 역할에 대응시켰습니다.</p>
-                <p class="spec-panel__body" data-lang-content="en">With colour removed, <strong>shadows became the primary cue for visual hierarchy</strong>. We defined five elevation levels, each mapped to a specific UI role.</p>
+                <p class="spec-panel__body" data-lang-content="en">With color removed, <strong>shadows became the primary cue for visual hierarchy</strong>. We defined five elevation levels, each mapped to a specific UI role.</p>
 
                 <ul class="shadow-scale">
                   <li class="shadow-step" data-shadow="1">
@@ -1688,7 +1692,7 @@
       </div>
 
 
-      <!-- The 6-5 sheet, from the Figma frame (50:340). The glyphs are the
+      <!-- The 5-5 sheet, from the Figma frame (50:340). The glyphs are the
            live Material Symbols font, subset in the head to exactly these
            22 names, so what the sheet shows is what the app ships — the
            same argument the type sheet makes by setting Pretendard.
@@ -1702,7 +1706,7 @@
         <div class="spec-band spec-band--stack" id="f-icon">
           <article class="spec-card">
             <div class="spec-card__runner">
-              <span class="spec-card__num">6-5</span>
+              <span class="spec-card__num">5-5</span>
               <span class="spec-chip">icon</span>
             </div>
 
@@ -1710,7 +1714,7 @@
               <section class="spec-panel">
                 <h4 class="spec-panel__title">Icon</h4>
                 <p class="spec-panel__body" data-lang-content="ko">본문 텍스트인 Pretendard와 시각적 무게가 맞도록 Material Symbols Outlined 400을 선택했습니다.<br class="only-desktop" /> 모든 상태에는 아이콘이나 레이블을 함께 사용해, 정보가 색에만 의존하지 않도록 했습니다.</p>
-                <p class="spec-panel__body" data-lang-content="en">Material Symbols Outlined 400 was selected to match the visual weight of Pretendard body text.<br class="only-desktop" /> Every state is also paired with an icon or label, ensuring that information never relies on colour alone.</p>
+                <p class="spec-panel__body" data-lang-content="en">Material Symbols Outlined 400 was selected to match the visual weight of Pretendard body text.<br class="only-desktop" /> Every state is also paired with an icon or label, ensuring that information never relies on color alone.</p>
 
                 <ul class="icon-specs">
                   <li class="icon-spec">
@@ -1765,7 +1769,7 @@
                     <span class="icon-box"><span class="material-symbols-outlined">my_location</span></span>
                     <span class="icon-spec__lig">my_location</span>
                     <span class="icon-spec__use" data-lang-content="ko">지도 현재 위치</span>
-                    <span class="icon-spec__use" data-lang-content="en">Map, recentre</span>
+                    <span class="icon-spec__use" data-lang-content="en">Map, recenter</span>
                   </li>
                   <li class="icon-spec">
                     <span class="icon-box"><span class="material-symbols-outlined">search</span></span>
@@ -1855,7 +1859,7 @@
     </section>
 
     <!-- ============================================================
-         07 — Components. The 7-1 sheet, from the Figma frame (89:1059).
+         07 — Components. The 6-1 sheet, from the Figma frame (89:1059).
          It replaces the heading, lede and the one wide export that stood
          here: the claim (components built on the tokens, then composed
          into screens) is shown as its three steps — the Variables that
@@ -1863,27 +1867,29 @@
          of those parts.
 
          The parts are markup, not a picture: the game row and the five
-         state badges are set in the token values 5-3 specifies, so the
+         state badges are set in the token values 4-4 specifies, so the
          sheet is built from the rules it describes. They are Korean in
          either locale, as the type specimens are — samples of the UI,
          not copy to be read — and hidden from assistive tech, since the
          caption beneath them says what they are.
 
-         The frame draws no chip on this sheet, so neither does the page.
+         The frame draws no chip on this sheet; the page gives it one, as
+         every other sheet has.
          ============================================================ -->
     <section class="section ds-components" id="ds-components">
       <div class="spec-band" id="components">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">7-1</span>
+            <span class="spec-card__num">6-1</span>
+            <span class="spec-chip">components</span>
           </div>
 
-          <h3 class="spec-card__title comp-title" data-lang-content="ko">반복 요소를 정의하고<br />화면의 맥락에 맞게 조합했습니다</h3>
-          <h3 class="spec-card__title comp-title" data-lang-content="en">Components built from shared rules,<br />then adapted to each screen</h3>
+          <h3 class="spec-card__title" data-lang-content="ko">반복 요소를 정의하고<br />화면의 맥락에 맞게 조합했습니다</h3>
+          <h3 class="spec-card__title" data-lang-content="en">Components built from shared rules,<br />then adapted to each screen</h3>
 
           <p class="spec-card__lead spec-card__lead--wide" data-lang-content="ko">버튼, 필터, 배지 등 공통 요소는 재사용할 수 있는 컴포넌트로 정리하고,<br class="only-desktop" /> 지도 핀, 수요 예측 카드 등 서비스 고유 요소는 각각의 쓰임에 맞게 구성했습니다.</p>
           <p class="spec-card__lead spec-card__lead--wide comp-lead-2" data-lang-content="ko">Figma Variables로 컴포넌트를 정의된 디자인 토큰에 연결해,<br class="only-desktop" /> 시스템의 규칙이 실제 화면까지 그대로 이어지도록 했습니다.</p>
-          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="en">Shared elements such as buttons, filters, and badges were organised into reusable components,<br class="only-desktop" /> while service-specific elements such as map pins and prediction cards were structured for their respective use cases.</p>
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="en">Shared elements such as buttons, filters, and badges were organized into reusable components,<br class="only-desktop" /> while service-specific elements such as map pins and prediction cards were structured for their respective use cases.</p>
           <p class="spec-card__lead spec-card__lead--wide comp-lead-2" data-lang-content="en">Figma Variables connected these components to the defined design tokens,<br class="only-desktop" /> allowing the same rules to carry through from the system to the actual screens.</p>
 
           <div class="comp-board">
@@ -1983,7 +1989,7 @@
          for, what it caught, and what running it taught.
 
          The chips are the page's one grey, not the frame's #FF8C42, for
-         the reason 6-1 gives. The BEFORE / AFTER frames in 8-3 are
+         the reason 5-1 gives. The BEFORE / AFTER frames in 7-3 are
          captures of the validator's own reports, drawn at the frame's
          537:202 so nothing is cropped on desktop.
          ============================================================ -->
@@ -1991,7 +1997,7 @@
       <div class="spec-band spec-band--stack" id="enf-why">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">8-1</span>
+            <span class="spec-card__num">7-1</span>
             <span class="spec-chip">enforcement</span>
           </div>
 
@@ -2012,7 +2018,7 @@
       <div class="spec-band spec-band--stack" id="enf-checks">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">8-2</span>
+            <span class="spec-card__num">7-2</span>
             <span class="spec-chip">what I checked</span>
           </div>
 
@@ -2050,7 +2056,7 @@
       <div class="spec-band spec-band--stack" id="enf-fix">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">8-3</span>
+            <span class="spec-card__num">7-3</span>
             <span class="spec-chip">violation &amp; fix</span>
           </div>
 
@@ -2061,13 +2067,13 @@
           <p class="spec-card__lead spec-card__lead--wide" data-lang-content="en">One undefined color and one undefined size were found in the implementation.</p>
 
           <!-- Side by side, so the two states compare in one view: stacked
-               they ran the sheet past the stack point and 8-4 covered the
+               they ran the sheet past the stack point and 7-4 covered the
                AFTER frame before it was ever on screen whole. -->
           <div class="fix-pair">
             <figure class="fix-shot">
               <img class="fix-shot__img" src="assets/img/ssp-ds-8-report-before.png"
                    width="1611" height="606" loading="lazy" decoding="async"
-                   alt="Validator report before the fix: FAIL, two violations — an arbitrary colour #6E7884 in 04-map.html and an arbitrary size 640px in index.html" />
+                   alt="Validator report before the fix: FAIL, two violations — an arbitrary color #6E7884 in 04-map.html and an arbitrary size 640px in index.html" />
               <figcaption class="fix-shot__tag">BEFORE : violation 2</figcaption>
             </figure>
             <figure class="fix-shot">
@@ -2086,7 +2092,7 @@
       <div class="spec-band spec-band--stack" id="enf-result">
         <article class="spec-card">
           <div class="spec-card__runner">
-            <span class="spec-card__num">8-4</span>
+            <span class="spec-card__num">7-4</span>
             <span class="spec-chip">implementation validation</span>
           </div>
 
@@ -2110,7 +2116,7 @@
     <!-- ============================================================
          09 — What the system taught me. Closes the design-system act.
 
-         The 9-1 sheet, from the Figma frame (85:1015): the next step on
+         The 8-1 sheet, from the Figma frame (85:1015): the next step on
          a dark panel, the state of the work beside it as three numbered
          items. It replaces the heading, lede and status list that stood
          here; the status rows keep their copy. The items borrow the
@@ -2122,19 +2128,19 @@
         <article class="spec-card next-card">
           <div class="next-card__lede">
             <div class="spec-card__runner">
-              <span class="spec-card__num">9-1</span>
+              <span class="spec-card__num">8-1</span>
               <span class="spec-chip">next validation</span>
             </div>
 
-            <h2 class="next-card__title" data-lang-content="ko">시스템의 일관성을 넘어<br class="only-desktop" /> 실제 사용자 경험까지<br class="only-desktop" /> 검증을 넓혀 갑니다</h2>
-            <h2 class="next-card__title" data-lang-content="en">Extending validation<br class="only-desktop" /> beyond system<br class="only-desktop" /> consistency to the actual<br class="only-desktop" /> user experience.</h2>
+            <h3 class="next-card__title" data-lang-content="ko">시스템의 일관성을 넘어<br class="only-desktop" /> 실제 사용자 경험까지<br class="only-desktop" /> 검증을 넓혀 갑니다</h3>
+            <h3 class="next-card__title" data-lang-content="en">Extending validation<br class="only-desktop" /> beyond system<br class="only-desktop" /> consistency to the actual<br class="only-desktop" /> user experience.</h3>
           </div>
 
           <ol class="next-list">
             <li class="next-item">
               <div class="prob__head">
                 <span class="prob__num">01</span>
-                <h3 class="prob__title">Done</h3>
+                <h4 class="prob__title">Done</h4>
               </div>
               <p class="prob__body" data-lang-content="ko">토큰 · 컴포넌트 · 브랜드 자산을 정의하고,<br class="only-desktop" /> 검사 스크립트로 규칙 준수를 확인했습니다.</p>
               <p class="prob__body" data-lang-content="en">Tokens, components and brand assets defined;<br class="only-desktop" /> rule compliance checked through the validator.</p>
@@ -2142,7 +2148,7 @@
             <li class="next-item">
               <div class="prob__head">
                 <span class="prob__num">02</span>
-                <h3 class="prob__title">In progress</h3>
+                <h4 class="prob__title">In progress</h4>
               </div>
               <p class="prob__body" data-lang-content="ko">디자인 시스템 v1.5.0을 기준으로 화면 개편을 진행하고 있습니다.</p>
               <p class="prob__body" data-lang-content="en">Rebuilding the screens against Design System v1.5.0.</p>
@@ -2150,7 +2156,7 @@
             <li class="next-item">
               <div class="prob__head">
                 <span class="prob__num">03</span>
-                <h3 class="prob__title">Next to Validate</h3>
+                <h4 class="prob__title">Next to Validate</h4>
               </div>
               <p class="prob__body" data-lang-content="ko">개발 구현과 디자인의 차이를 점검하고, 실제 사용자가 경기 상태와 예측 정보를 구별할 수 있는지 확인합니다.</p>
               <p class="prob__body" data-lang-content="en">Check the gap between design and implementation, then validate whether users can clearly distinguish game states from predicted numbers.</p>
@@ -2472,7 +2478,7 @@
     (function () {
       /* [data-reveal] opts a group inside a sheet into the same entrance
          on its own trigger, at its own line (the attribute's value, a
-         share of the viewport). 01's panels need it: they sit 130px
+         share of the viewport). 1-1's panels need it: they sit 130px
          under the sheet's top edge, so on the sheet's trigger their
          stagger played out while they were still below the fold. */
       var cards = [].slice.call(document.querySelectorAll('.spec-card, [data-reveal]'));

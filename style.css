@@ -451,7 +451,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    instead of sitting in a box, at both sizes.
 
    Floating is the elevation this sheet already uses for exactly this —
-   a device resting above the page, not flush with it (see 6-4's shadow
+   a device resting above the page, not flush with it (see 5-4's shadow
    step 3) — so the phones borrow its shadow rather than inventing one.
    The pins reuse the player screen's own pin glyph and counts, so the
    illustration reads as the map the app actually shows. -------------------- */
@@ -633,8 +633,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 /* The wrapper grades the domains but must not box them. A sticky box is
    held inside its parent's content box, so while .dom generated one it
    capped how far each sheet could travel: the last band in every wrapper
-   — 6-2, 6-4 and 6-5 — had nowhere to go and never stuck at all, and
-   only 6-3 (with 6-4 below it to travel through) ever did. Zeroing the
+   — 5-2, 5-4 and 5-5 — had nowhere to go and never stuck at all, and
+   only 5-3 (with 5-4 below it to travel through) ever did. Zeroing the
    wrappers' margins had closed the visible gap between them but not
    this, so Foundations' row looked continuous and still would not stack.
 
@@ -756,6 +756,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #E5E5E5;
 }
 .prob__title {
+  /* h4 is outside the page's heading reset, and the UA's 1.33em above and
+     below was pushing the body 38.6 under the head instead of 12. */
+  margin: 0;
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: 20px;
@@ -982,9 +985,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    needing to know their own position in the row.
 
    The card, not the band, carries the height floor, so a short sheet
-   (6-5's icon grid) still fills the stack point edge-to-edge instead of
+   (5-5's icon grid) still fills the stack point edge-to-edge instead of
    leaving the sheet behind it peeking out underneath. A tall sheet
-   (6-2's specimens) simply ignores the floor and sticks for as long as
+   (5-2's specimens) simply ignores the floor and sticks for as long as
    its own content takes to clear it — that's the row reading at its
    own pace, not a bug in the floor.
 
@@ -1009,15 +1012,19 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    on a heading. The openers used to carry 64-72 more to clear the
    section runner, and the runners are gone. */
 .section > .spec-band:first-child { margin-top: 0; }
+/* And closes on it flush: a sheet's own 64-80 below it, on top of both
+   sections' 120, put 320 between sections that end on a lone sheet
+   (01, 04, 07) against the 240 everywhere else. */
+.section > .spec-band:last-child { margin-bottom: 0; }
 .spec-band--stack .spec-card {
   min-height: calc(100vh - 109px - 48px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Elevation 4, "Anchored", exactly as 6-4 defines it and for the role
-     6-4 gives it — a surface that rises from below and settles over what
+  /* Elevation 4, "Anchored", exactly as 5-4 defines it and for the role
+     5-4 gives it — a surface that rises from below and settles over what
      is behind. That is what a stacked sheet does, so the row is the
-     page practising the claim 6-4 makes: with colour gone, shadow is
+     page practising the claim 5-4 makes: with colour gone, shadow is
      what carries hierarchy.
 
      It earns its place here because the cards are white and borderless.
@@ -1033,12 +1040,12 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    it peek out below. A row's opening sheet has nothing behind it — the
    previous section's row released at its own containing block — and the
    sheet after it is already flush against its bottom edge, so it covers
-   the rest on its way up. 6-1 is that sheet and is also the shortest on
+   the rest on its way up. 5-1 is that sheet and is also the shortest on
    the page: held to the floor it carried 182px of air above and below
    its four lines, against the 48 every other sheet shows. Let it take
    its own height instead, which is the 365 its frame draws.
 
-   5-1 opens Colour's row on the same terms; it runs past the floor on
+   4-1 opens Colour's row on the same terms; it runs past the floor on
    its own, so this never binds there. */
 #f-overview .spec-card {
   min-height: 0;
@@ -1097,12 +1104,12 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 
 /* ---- Enforcement sheets, from Figma (frame 40:127) ---------------------
-   8-1 to 8-4 add one step to the sheet chrome: a 20px subhead that either
-   follows the title (8-1, 24 under it) or stands in for it (8-2, 8-3, at
+   7-1 to 7-4 add one step to the sheet chrome: a 20px subhead that either
+   follows the title (7-1, 24 under it) or stands in for it (7-2, 7-3, at
    the title's own 10 under the runner). The lede then sits 12 under it.
 
    The frame sets these ledes on hand-broken lines longer than 779, so
-   the measure is lifted for them; 8-2's is the frame's 682. ------------ */
+   the measure is lifted for them; 7-2's is the frame's 682. ------------ */
 .spec-card__sub {
   margin: 24px 0 0;
   font-family: var(--font-sans);
@@ -1118,11 +1125,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .spec-card__lead--wide { max-width: none; }
 .spec-card__lead--short { max-width: 682px; }
 
-/* Enforcement opens its row the way 6-1 opens Foundations': at its own
+/* Enforcement opens its row the way 5-1 opens Foundations': at its own
    height rather than the stack's floor. */
 #enf-why .spec-card { min-height: 0; }
 
-/* 8-2's four checks: the problems sheet's panel (#FAFAFA, #F5F5F5 rule,
+/* 7-2's four checks: the problems sheet's panel (#FAFAFA, #F5F5F5 rule,
    16 radius, 24 inset) two-up, 24 between rows and 30 between columns
    as drawn. The label is chrome and keeps Pretendard, as the frame sets it. */
 .checks {
@@ -1156,7 +1163,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #6E7884;
 }
 
-/* 8-3's BEFORE / AFTER frames: 202 tall (the frame's 288, cut by 30%),
+/* 7-3's BEFORE / AFTER frames: 202 tall (the frame's 288, cut by 30%),
    full measure, the tag pinned to the top-right corner over whatever the
    frame holds. */
 .fix-shot {
@@ -1190,7 +1197,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 /* A caption, not a chip: it names the picture it sits on, so it takes
    the page's label step (mono, 13, tracked caps, as .media-caption) —
    under the sheet chip's 16 and over the report's own 11. The grey pair
-   is 5-3's closed-state tint and ink, the one neutral the system already
+   is 4-4's closed-state tint and ink, the one neutral the system already
    gives a small label; a status hue here would compete with the report's
    own FAIL / PASS. */
 .fix-shot__tag {
@@ -1207,7 +1214,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #454D56;
   white-space: nowrap;
 }
-/* The pair takes 8-2's grid gaps, and the note follows it at the
+/* The pair takes 7-2's grid gaps, and the note follows it at the
    lede-to-content 32, so the sheet fits under the stack point. */
 .fix-pair {
   margin-top: 32px;
@@ -1217,7 +1224,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .spec-card__lead.fix-note { margin-top: 32px; }
 
-/* 8-4's close: 48 under the title, then three paragraphs 12 apart, the
+/* 7-4's close: 48 under the title, then three paragraphs 12 apart, the
    middle one promoted to the subhead step because it is the claim. */
 .enf-close {
   margin-top: 48px;
@@ -1263,7 +1270,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    the AS-IS column is quoted from the old build (#0000B3, #FF4500, the
    #E8E8FF tags) and so is deliberately off the page's palette, exactly
    as the problems sheet quotes the old screens' pills. The TO-BE column
-   uses the tokens 5-3 goes on to specify, so the two sides can be
+   uses the tokens 4-4 goes on to specify, so the two sides can be
    compared on colour alone.
    -------------------------------------------------------------------- */
 .cmp {
@@ -1439,7 +1446,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 /* 36 is the frame's own badge height, and it is also the height at
    which the 21.6 icon Figma exports needs no resizing — so the badge is
    built around the asset rather than the asset shrunk to fit it. The
-   tint and ink are the closing-soon pair 5-3 specifies. */
+   tint and ink are the closing-soon pair 4-4 specifies. */
 .cmp-badge {
   display: inline-flex;
   align-items: center;
@@ -1615,7 +1622,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .spec-sheet {
   margin-top: 40px;
   border: 1px solid #F5F5F5;
-  border-radius: 24px;
+  border-radius: 16px;
   /* clip, not hidden: hidden would make the sheet a scroll container and
      the sticky row heads inside it would never stick to anything. */
   overflow: clip;
@@ -2032,7 +2039,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   font-feature-settings: "liga";
 }
 
-/* Identifier over usage, which is the shape 6-3 and 6-4 use: the name
+/* Identifier over usage, which is the shape 5-3 and 5-4 use: the name
    you type, then where it is set. The frame pairs two names for the
    same glyph instead, and ten of the twenty-two then say one word
    twice — home over home — so the second line was carrying nothing for
@@ -2244,7 +2251,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   flex: 1 1 420px;
   min-width: 0;
   padding: 48px;
-  border-radius: 32px;
+  border-radius: 16px;
   background: #141414;
 }
 /* Three lines, and the <br>s are the only breaks allowed: "according to
@@ -2254,7 +2261,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    breaking, and the shape the frame drew survives every width. */
 .prin-lede { container-type: inline-size; }
 .prin-lede__title {
-  margin-top: 40px;
+  margin-top: 10px;
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: clamp(22px, 8.4cqi, 48px);
@@ -2282,7 +2289,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .prin {
   padding: 24px;
-  border-radius: 32px;
+  border: 1px solid #F5F5F5;
+  border-radius: 16px;
   background: #FAFAFA;
 }
 .prin__head {
@@ -2305,6 +2313,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #E5E5E5;
 }
 .prin-title {
+  margin: 0;   /* h4: clear the UA's 1.33em, as .prob__title does */
   font-family: var(--font-sans);
   font-weight: 800;
   font-size: 20px;
@@ -2609,7 +2618,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: var(--text-dim);
 }
 
-/* ---- 1-1 Why system, from Figma (frame 91:1209) ------------------------
+/* ---- 3-1 Why system, from Figma (frame 91:1209) ------------------------
    The lede and the screens share a row at the frame's 647 : 671 split,
    24 apart, both starting 24 under the title. The two paragraphs keep
    the frame's one blank line (25.6) between them. The screenshot is
@@ -2649,11 +2658,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .why-body { grid-template-columns: minmax(0, 1fr); }
 }
 
-/* ---- 01 Summary, from Figma (frame 90:1157) ---------------------------
-   A short sheet, so it runs 30 top and bottom rather than 48, as drawn.
-   Three of 04's panels side by side, 24 apart; they stretch to the
+/* ---- 1-1 Summary, from Figma (frame 90:1157) ---------------------------
+   Three of 3-2's panels side by side, 24 apart; they stretch to the
    tallest, which the frame fixes at 244. Below 1024 they stack. */
-.sum-card { padding-block: 30px; }
 .sum-list {
   margin-top: 25px;
   display: grid;
@@ -2675,7 +2682,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .sum-list { grid-template-columns: minmax(0, 1fr); }
 }
 
-/* ---- 7-1, from Figma (frame 89:1059) ----------------------------------
+/* ---- 6-1, from Figma (frame 89:1059) ----------------------------------
    The frame places everything on its 1438 canvas at absolute
    coordinates. The board keeps those proportions but in flow: a grid of
    the frame's own two columns (643 and 632, 24 apart, with the 43 the
@@ -2688,7 +2695,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    An element cannot query its own size, so --u is spent only by the
    board's descendants, each resolving 100cqi against the board.
    -------------------------------------------------------------------- */
-.comp-title { margin-top: 24px; }
 .spec-card__lead.comp-lead-2 { margin-top: 0; }
 
 .comp-board {
@@ -2859,7 +2865,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #FFFFFF;
 }
 
-/* The five state badges at the frame's 1.522x, in 5-3's tint and text
+/* The five state badges at the frame's 1.522x, in 4-4's tint and text
    pairs. The icons are Figma's exports drawn through a mask, because the
    exports carry the component's default ink (#232930) while each badge
    draws its icon in its own text colour. */
@@ -3002,28 +3008,27 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .comp-cap--parts { text-align: left; }
 }
 
-/* ---- 9-1, from Figma (frame 85:1015) ----------------------------------
-   A white sheet inset by 24 rather than 48: the dark lede panel and the
-   three items are surfaces of their own, so the sheet is only their
-   mount. Columns keep the frame's 742 : 624 split with its 24 gutter;
+/* ---- 8-1, from Figma (frame 85:1015) ----------------------------------
+   The sheet takes the page's 48 inset and its panels the page's 16
+   radius, rather than the frame's 24 and 32, so it reads as one of the
+   set. Columns keep the frame's 742 : 624 split with its 24 gutter;
    below 1024 they stack, lede first.
 
-   The lede panel's 26 under the runner is the frame's; the items are
-   the problems sheet's numbered head on #FAFAFA, 36 apart as drawn. */
+   The title sits the page's 10 under the runner; the items are the
+   problems sheet's panel and numbered head, 36 apart as drawn. */
 .next-card {
   display: grid;
   grid-template-columns: minmax(0, 742fr) minmax(0, 624fr);
   gap: 24px;
-  padding: 24px;
 }
 .next-card__lede {
   padding: clamp(24px, 3.4vw, 48px);
-  border-radius: 32px;
+  border-radius: 16px;
   background: #141414;
   container-type: inline-size;
 }
 .next-card__title {
-  margin-top: 26px;
+  margin-top: 10px;
   font-family: var(--font-sans);
   font-weight: 800;
   /* Sized to the panel, not the viewport: the frame sets 48 on a 646
@@ -3040,7 +3045,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .next-item {
   padding: 24px;
-  border-radius: 32px;
+  border: 1px solid #F5F5F5;
+  border-radius: 16px;
   background: #FAFAFA;
 }
 
@@ -3498,7 +3504,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   transform: translateY(0);
 }
 
-/* 01's three panels come in one after another, on the sheet's rise and
+/* 1-1's three panels come in one after another, on the sheet's rise and
    curve. The list is its own [data-reveal] target, triggered when it
    reaches 80% of the viewport: on the sheet's trigger the panels were
    still below the fold and their stagger finished unseen. Each starts
