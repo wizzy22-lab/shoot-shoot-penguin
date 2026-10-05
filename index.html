@@ -213,42 +213,47 @@
          who scrolls no further than the hero.
          ============================================================ -->
     <section class="section tldr" id="summary">
-      <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">02 / Summary</span>
-        </div>
-
-        <div class="tldr-card">
-          <div class="tldr-row">
-            <div class="tldr-label"><span data-lang-content="ko">문제</span><span data-lang-content="en">Problem</span></div>
-            <p class="tldr-value" data-lang-content="ko">화면별로 제작한 초기 UI에는 반복 요소의 스타일 차이가 있었고, 같은 색이 버튼과 경기 상태를 함께 나타내고 있었습니다.</p>
-            <p class="tldr-value" data-lang-content="en">The first UI was built screen by screen, so repeated elements were styled differently, and one colour stood for a button and a game state at the same time.</p>
+      <div class="spec-band" id="sum">
+        <!-- The 01 sheet, from the Figma frame (90:1157): the three rows
+             that stood here as a table are three panels now, numbered the
+             way 04's problems are, so the summary reads as the same
+             family as the sheets it summarises. The phrase each panel
+             turns on is set in ink. The chip is the page's grey. -->
+        <article class="spec-card sum-card">
+          <div class="spec-card__runner">
+            <span class="spec-card__num">01</span>
+            <span class="spec-chip">summary</span>
           </div>
 
-          <div class="tldr-row">
-            <div class="tldr-label"><span data-lang-content="ko">접근</span><span data-lang-content="en">Approach</span></div>
-            <p class="tldr-value" data-lang-content="ko">색의 역할을 분리하고, 타이포그래피 · 간격 · 컴포넌트를 공통 규칙으로 정리했습니다. 예측 정보는 확정 정보와 구별되도록 표현했습니다.</p>
-            <p class="tldr-value" data-lang-content="en">Colour&rsquo;s roles were separated, and typography, spacing and components were settled into shared rules. Predicted information was expressed so that it reads as distinct from confirmed information.</p>
-          </div>
-
-          <div class="tldr-row">
-            <div class="tldr-label"><span data-lang-content="ko">산출물</span><span data-lang-content="en">Deliverables</span></div>
-            <p class="tldr-value" data-lang-content="ko">디자인 토큰, 컴포넌트 26그룹, 브랜드 자산과 화면 적용 시안을 제작했습니다. HTML/CSS에서 규칙 위반을 확인하는 검사 프로그램도 구성했습니다.</p>
-            <p class="tldr-value" data-lang-content="en">Design tokens, 26 component groups, brand assets and applied screen mockups. Plus a checker that finds rule violations in the HTML and CSS.</p>
-          </div>
-        </div>
-
-        <!-- What the system actually covers, each chip a way into its
-             domain. Written as links, so the summary doubles as the
-             table of contents for section 06. -->
-        <div class="cov">
-          <a class="tag" href="#f-colour"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Colour</a>
-          <a class="tag" href="#f-typography"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Typography</a>
-          <a class="tag" href="#f-spacing"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Spacing</a>
-          <a class="tag" href="#f-icon"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Icon</a>
-          <a class="tag" href="#ds-components"><svg class="cov-check" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.4 4.6 9 10 3.2"/></svg>Components</a>
-        </div>
+          <ol class="sum-list" data-reveal="0.8">
+            <li class="sum-item">
+              <div class="prob__head">
+                <span class="prob__num">01</span>
+                <h3 class="prob__title">Problem</h3>
+              </div>
+              <p class="prob__body" data-lang-content="ko">화면별로 제작한 초기 UI에는 반복 요소의 스타일 차이가 있었고, 같은 색이 버튼과 경기 상태를 함께 나타내고 있었습니다.</p>
+              <p class="prob__body" data-lang-content="en">The initial UI, designed screen by screen, had inconsistent styles across repeated elements. The same colors were also used to represent both actions and game states.</p>
+            </li>
+            <li class="sum-item">
+              <div class="prob__head">
+                <span class="prob__num">02</span>
+                <h3 class="prob__title">Approach</h3>
+              </div>
+              <p class="prob__body" data-lang-content="ko"><strong>행동과 상태의 색 역할</strong>을 분리하고, 타이포그래피 · 간격 · 컴포넌트를 공통 규칙으로 정리했습니다. 예측 정보는 확정된 경기 정보와 구별되도록 표현해, 사용자가 정보의 성격을 직관적으로 이해할 수 있도록 했습니다.</p>
+              <p class="prob__body" data-lang-content="en">I separated color roles for <strong>actions and states</strong>, and established shared rules for typography, spacing, and components. I also differentiated predicted information from confirmed game information so users could intuitively understand the nature of each piece of information.</p>
+            </li>
+            <li class="sum-item">
+              <div class="prob__head">
+                <span class="prob__num">03</span>
+                <h3 class="prob__title">Deliverables</h3>
+              </div>
+              <p class="prob__body" data-lang-content="ko"><strong>색상 · 타이포그래피 · 간격을 아우르는 디자인 토큰, 컴포넌트 26그룹, 브랜드 자산과 화면 적용 시안</strong>을 제작했습니다. 이후 HTML/CSS 구현에 자동 검사 스크립트를 적용해, 정의한 디자인 규칙이 실제 코드에서도 유지되는지 확인했습니다.</p>
+              <p class="prob__body" data-lang-content="en">Built <strong>design tokens covering color, typography, and spacing, 26 component groups, brand assets, and screen applications</strong>. I then applied an automated validator to the HTML/CSS implementation to verify that the defined design rules were also maintained in the actual code.</p>
+            </li>
+          </ol>
+        </article>
       </div>
+
     </section>
 
     <!-- ============================================================
@@ -259,10 +264,6 @@
          ============================================================ -->
     <section class="section ctx" id="product">
       <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">03 / Context</span>
-        </div>
-
         <h2 class="h2" data-lang-content="ko">두 사용자의 다른 작업을<br />하나의 UI 기준으로 연결했습니다</h2>
         <h2 class="h2" data-lang-content="en">Two users, two different jobs,<br />joined by one UI standard</h2>
 
@@ -283,10 +284,6 @@
          ============================================================ -->
     <section class="section" id="ds-problem">
       <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">04 / Why a System</span>
-        </div>
-
         <h2 class="h2" data-lang-content="ko">화면마다 달랐던 표현을<br />공통 규칙으로 정리했습니다</h2>
         <h2 class="h2" data-lang-content="en">Expression that differed screen by screen,<br />settled into shared rules</h2>
 
@@ -408,12 +405,6 @@
          5-2/5-3 sheets below it are that rule as tokens.
          ============================================================ -->
     <section class="section ds-color" id="ds-color">
-      <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">05 / The Colour Decision</span>
-        </div>
-      </div>
-
       <!-- The 5-1 sheet, from the Figma frame (2075:3418). It replaces the
            A/B export that stood here: the same argument, but made of the
            screens and the components themselves rather than a baked
@@ -838,12 +829,6 @@
          introduced it both went, here and at Colour.
          ============================================================ -->
     <section class="section foundations" id="foundations">
-      <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">06 / Foundations</span>
-        </div>
-      </div>
-
       <!-- The 6-1 sheet, from the Figma frame (75:1168). It opens the row
            the way 5-1 opens Colour's: the section's heading and lede sit
            on the card rather than above it, so they are still in front of
@@ -1851,26 +1836,125 @@
 
     </section>
 
+    <!-- ============================================================
+         07 — Components. The 7-1 sheet, from the Figma frame (89:1059).
+         It replaces the heading, lede and the one wide export that stood
+         here: the claim (components built on the tokens, then composed
+         into screens) is shown as its three steps — the Variables that
+         hold the tokens, the parts built on them, and the screen made
+         of those parts.
+
+         The parts are markup, not a picture: the game row and the five
+         state badges are set in the token values 5-3 specifies, so the
+         sheet is built from the rules it describes. They are Korean in
+         either locale, as the type specimens are — samples of the UI,
+         not copy to be read — and hidden from assistive tech, since the
+         caption beneath them says what they are.
+
+         The frame draws no chip on this sheet, so neither does the page.
+         ============================================================ -->
     <section class="section ds-components" id="ds-components">
-      <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">07 / Components</span>
-        </div>
+      <div class="spec-band" id="components">
+        <article class="spec-card">
+          <div class="spec-card__runner">
+            <span class="spec-card__num">7-1</span>
+          </div>
 
-        <h2 class="h2" data-lang-content="ko">반복 요소를 정의하고<br />화면의 맥락에 맞게 조합했습니다</h2>
-        <h2 class="h2" data-lang-content="en">Repeating elements defined,<br />then composed to fit each screen</h2>
+          <h3 class="spec-card__title comp-title" data-lang-content="ko">반복 요소를 정의하고<br />화면의 맥락에 맞게 조합했습니다</h3>
+          <h3 class="spec-card__title comp-title" data-lang-content="en">Components built from shared rules,<br />then adapted to each screen</h3>
 
-        <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">버튼, 필터, 배지 등 공통 요소와 지도 핀, 수요 예측 카드 등<br class="only-desktop" /> 서비스 고유 요소를 컴포넌트로 정리했습니다.</p>
-          <p class="lead" data-lang-content="en">Shared elements (buttons, filters, badges) and elements particular to this service (map pins, prediction cards) were organised into components.</p>
-        </div>
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="ko">버튼, 필터, 배지 등 공통 요소는 재사용할 수 있는 컴포넌트로 정리하고,<br class="only-desktop" /> 지도 핀, 수요 예측 카드 등 서비스 고유 요소는 각각의 쓰임에 맞게 구성했습니다.</p>
+          <p class="spec-card__lead spec-card__lead--wide comp-lead-2" data-lang-content="ko">Figma Variables로 컴포넌트를 정의된 디자인 토큰에 연결해,<br class="only-desktop" /> 시스템의 규칙이 실제 화면까지 그대로 이어지도록 했습니다.</p>
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="en">Shared elements such as buttons, filters, and badges were organised into reusable components,<br class="only-desktop" /> while service-specific elements such as map pins and prediction cards were structured for their respective use cases.</p>
+          <p class="spec-card__lead spec-card__lead--wide comp-lead-2" data-lang-content="en">Figma Variables connected these components to the defined design tokens,<br class="only-desktop" /> allowing the same rules to carry through from the system to the actual screens.</p>
+
+          <div class="comp-board">
+            <!-- The four Variables panels are fanned as drawn: the front
+                 one is the panel being described, the three behind it
+                 only say "there are more", so they carry no alt. -->
+            <div class="comp-stack">
+              <span class="comp-stack__sheet comp-stack__sheet--4" aria-hidden="true">
+                <img src="assets/img/ssp-ds-7-vars-4.png" width="1452" height="1622" loading="lazy" decoding="async" alt="" />
+              </span>
+              <span class="comp-stack__sheet comp-stack__sheet--3" aria-hidden="true">
+                <img src="assets/img/ssp-ds-7-vars-3.png" width="1452" height="1622" loading="lazy" decoding="async" alt="" />
+              </span>
+              <span class="comp-stack__sheet comp-stack__sheet--2" aria-hidden="true">
+                <img src="assets/img/ssp-ds-7-vars-2.png" width="1452" height="1622" loading="lazy" decoding="async" alt="" />
+              </span>
+              <span class="comp-stack__sheet comp-stack__sheet--1">
+                <img src="assets/img/ssp-ds-7-vars-1.png" width="1452" height="1622" loading="lazy" decoding="async"
+                     alt="The SSP Design System Variables panel: the Primitive collection's Status group, each state holding its tint, solid and text values" />
+              </span>
+            </div>
+
+            <p class="comp-cap comp-cap--vars" data-lang-content="ko">Figma Variables로 디자인 토큰을 연결했습니다</p>
+            <p class="comp-cap comp-cap--vars" data-lang-content="en">Design tokens were connected through Figma Variables</p>
+
+            <div class="comp-parts">
+              <div class="comp-specimens" aria-hidden="true">
+                <div class="game-row">
+                  <div class="game-row__main">
+                    <div class="game-row__when">
+                      <span class="game-row__time">09:00</span>
+                      <span class="game-row__date">9.12</span>
+                      <span class="game-row__badge">
+                        <img src="assets/img/ssp-ds-7-icon-recruiting-sm.svg" width="14.7692" height="14.7692" alt="" />
+                        모집중
+                      </span>
+                    </div>
+                    <div class="game-row__what">
+                      <span class="game-row__place">SH 스포츠센터</span>
+                      <span class="game-row__team">팀 슛슛펭귄</span>
+                      <span class="game-row__tags">
+                        <span class="info-tag">주차가능</span>
+                        <span class="info-tag">샤워실</span>
+                        <span class="info-tag">실내</span>
+                      </span>
+                    </div>
+                  </div>
+                  <span class="game-row__cta">신청</span>
+                </div>
+
+                <!-- Figma's own component-set outline, kept: it is what
+                     says these five are one component's variants. -->
+                <div class="badge-set">
+                  <span class="state-badge" data-state="recruiting"><span class="state-badge__icon"></span>모집중</span>
+                  <span class="state-badge" data-state="closing"><span class="state-badge__icon"></span>마감임박</span>
+                  <span class="state-badge" data-state="closed"><span class="state-badge__icon"></span>마감</span>
+                  <span class="state-badge" data-state="confirmed"><span class="state-badge__icon"></span>확정</span>
+                  <span class="state-badge" data-state="cancelled"><span class="state-badge__icon"></span>취소</span>
+                </div>
+              </div>
+
+              <p class="comp-cap comp-cap--parts" data-lang-content="ko">컴포넌트 — 버튼, 필터, 배지</p>
+              <p class="comp-cap comp-cap--parts" data-lang-content="en">Components - buttons, filters, badges</p>
+
+              <img class="comp-screen" src="assets/img/ssp-ds-7-components.png"
+                   width="1628" height="1310" loading="lazy" decoding="async"
+                   alt="The Components page in Figma: atomic parts such as buttons, filter chips, icons and map pins, composed into the search bar, navigation, game list rows and a bottom sheet" />
+
+              <span class="comp-pin comp-pin--count" aria-hidden="true">
+                <span class="comp-pin__body">
+                  <img class="comp-pin__glyph" src="assets/img/ssp-ds-7-pin-36.svg" width="91" height="109.847" alt="" />
+                  <span class="comp-pin__count">3</span>
+                </span>
+              </span>
+            </div>
+
+            <div class="comp-foot">
+              <span class="comp-pin comp-pin--empty" aria-hidden="true">
+                <span class="comp-pin__body">
+                  <img class="comp-pin__glyph" src="assets/img/ssp-ds-7-pin-28.svg" width="87" height="105.018" alt="" />
+                  <span class="comp-pin__count">0</span>
+                </span>
+              </span>
+              <p class="comp-cap comp-cap--screens" data-lang-content="ko">컴포넌트를 조합해 각 화면을 구성했습니다</p>
+              <p class="comp-cap comp-cap--screens" data-lang-content="en">composed these components into each screen</p>
+            </div>
+          </div>
+        </article>
       </div>
-
-      <figure class="lightband-fig">
-        <img src="assets/img/ssp-f-components.png"
-             width="4800" height="2700" loading="lazy" decoding="async"
-             alt="The component set: shared parts such as buttons, filters and badges alongside the map pin and prediction card built for this service" />
-      </figure>
     </section>
 
     <!-- ============================================================
@@ -1881,16 +1965,11 @@
          for, what it caught, and what running it taught.
 
          The chips are the page's one grey, not the frame's #FF8C42, for
-         the reason 6-1 gives. The BEFORE / AFTER frames in 8-3 still
-         carry the frame's placeholder fill; the screenshots replace it.
+         the reason 6-1 gives. The BEFORE / AFTER frames in 8-3 are
+         captures of the validator's own reports, drawn at the frame's
+         537:202 so nothing is cropped on desktop.
          ============================================================ -->
     <section class="section" id="ds-script">
-      <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">08 / Enforcement</span>
-        </div>
-      </div>
-
       <div class="spec-band spec-band--stack" id="enf-why">
         <article class="spec-card">
           <div class="spec-card__runner">
@@ -1968,13 +2047,15 @@
                AFTER frame before it was ever on screen whole. -->
           <div class="fix-pair">
             <figure class="fix-shot">
-              <img class="fix-shot__img" src="assets/img/ssp-ds-8-shot-placeholder.png"
-                   width="256" height="256" alt="" />
+              <img class="fix-shot__img" src="assets/img/ssp-ds-8-report-before.png"
+                   width="1611" height="606" loading="lazy" decoding="async"
+                   alt="Validator report before the fix: FAIL, two violations — an arbitrary colour #6E7884 in 04-map.html and an arbitrary size 640px in index.html" />
               <figcaption class="fix-shot__tag">BEFORE : violation 2</figcaption>
             </figure>
             <figure class="fix-shot">
-              <img class="fix-shot__img" src="assets/img/ssp-ds-8-shot-placeholder.png"
-                   width="256" height="256" alt="" />
+              <img class="fix-shot__img" src="assets/img/ssp-ds-8-report-after.png"
+                   width="1611" height="606" loading="lazy" decoding="async"
+                   alt="Validator report after the fix: PASS, no violations across effects, layout patterns, arbitrary values and placeholder text" />
               <figcaption class="fix-shot__tag">after : violation 0</figcaption>
             </figure>
           </div>
@@ -2019,12 +2100,6 @@
          read as one family. The chip is the page's grey, as on 6-1.
          ============================================================ -->
     <section class="section status" id="status">
-      <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">09 / What I Learned</span>
-        </div>
-      </div>
-
       <div class="spec-band" id="next">
         <article class="spec-card next-card">
           <div class="next-card__lede">
@@ -2080,10 +2155,6 @@
          ============================================================ -->
     <section class="section seemore">
       <div class="wrap">
-        <div class="runner">
-          <span class="runner-name">10 / More</span>
-        </div>
-
         <div class="proj-cards">
           <a class="proj-card" href="https://bingx-portfolio.vercel.app/" target="_blank" rel="noopener">
             <div class="proj-thumb">
@@ -2381,7 +2452,12 @@
        entrance and the card renders exactly as it always did. Reduced
        motion skips it the same way, by never arming it at all. */
     (function () {
-      var cards = [].slice.call(document.querySelectorAll('.spec-card'));
+      /* [data-reveal] opts a group inside a sheet into the same entrance
+         on its own trigger, at its own line (the attribute's value, a
+         share of the viewport). 01's panels need it: they sit 130px
+         under the sheet's top edge, so on the sheet's trigger their
+         stagger played out while they were still below the fold. */
+      var cards = [].slice.call(document.querySelectorAll('.spec-card, [data-reveal]'));
       if (!cards.length) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -2390,7 +2466,8 @@
 
       function check() {
         pending = pending.filter(function (card) {
-          if (card.getBoundingClientRect().top > window.innerHeight * 0.92) return true;
+          var line = parseFloat(card.getAttribute('data-reveal')) || 0.92;
+          if (card.getBoundingClientRect().top > window.innerHeight * line) return true;
           card.classList.add('is-visible');
           return false;
         });

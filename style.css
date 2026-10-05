@@ -1000,22 +1000,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   z-index: 1;
   margin-block: 0;
 }
-/* Foundations' row opens with the same gap Colour's does, to clear the
-   section's own runner. It sits on the first sheet rather than on the
-   wrapper that used to carry it; the sheets after it keep
-   .spec-band--stack's zero, so the row still reads as one stack. The
-   opener is 6-1 now, so the gap moved off 6-2 with it. */
-#f-overview {
-  margin-top: 72px;
-}
-
-/* The colour row's first sheet (5-1) opens the stack, so it keeps a gap
-   above it the way 6-2 does — the A/B figure that used to stand here
-   supplied that gap with its own margin, and went with it. The gap is
-   above the point anything sticks to, so it costs the stack nothing. */
-#ds-colour-compare {
-  margin-top: 64px;
-}
+/* A section that opens on a sheet opens on it flush: the section's own
+   120 of padding is the gap, exactly as it is above a section that opens
+   on a heading. The openers used to carry 64-72 more to clear the
+   section runner, and the runners are gone. */
+.section > .spec-band:first-child { margin-top: 0; }
 .spec-band--stack .spec-card {
   min-height: calc(100vh - 109px - 48px);
   display: flex;
@@ -1125,9 +1114,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .spec-card__lead--wide { max-width: none; }
 .spec-card__lead--short { max-width: 682px; }
 
-/* Enforcement opens its row the way 6-1 opens Foundations': clear of the
-   runner, and at its own height rather than the stack's floor. */
-#enf-why { margin-top: 72px; }
+/* Enforcement opens its row the way 6-1 opens Foundations': at its own
+   height rather than the stack's floor. */
 #enf-why .spec-card { min-height: 0; }
 
 /* 8-2's four checks: the problems sheet's panel (#FAFAFA, #F5F5F5 rule,
@@ -1175,7 +1163,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   align-items: flex-end;
   height: 202px;
   margin: 0;
-  padding: 24px;
+  /* Half the frame's 24: the tag is a corner label, and at 24 it sat in
+     on the report's first lines rather than off them. */
+  padding: 12px;
   border: 1px solid #F5F5F5;
   border-radius: 16px;
   overflow: hidden;
@@ -1187,19 +1177,30 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   height: 100%;
   max-width: none;
   object-fit: cover;
+  /* The captures are drawn at the frame's own 537:202, so this only
+     crops on a phone — and it keeps the report's left edge, where every
+     line starts, rather than its middle. */
+  object-position: left top;
   pointer-events: none;
 }
+/* A caption, not a chip: it names the picture it sits on, so it takes
+   the page's label step (mono, 13, tracked caps, as .media-caption) —
+   under the sheet chip's 16 and over the report's own 11. The grey pair
+   is 5-3's closed-state tint and ink, the one neutral the system already
+   gives a small label; a status hue here would compete with the report's
+   own FAIL / PASS. */
 .fix-shot__tag {
   position: relative;
-  padding: 7px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
-  background: #A9AFB7;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: var(--fs-body);
-  line-height: 1.2;
+  background: #EFF1F4;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-label);
+  line-height: 1.4;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #000000;
+  color: #454D56;
   white-space: nowrap;
 }
 /* The pair takes 8-2's grid gaps, and the note follows it at the
@@ -2604,6 +2605,359 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: var(--text-dim);
 }
 
+/* ---- 01 Summary, from Figma (frame 90:1157) ---------------------------
+   A short sheet, so it runs 30 top and bottom rather than 48, as drawn.
+   Three of 04's panels side by side, 24 apart; they stretch to the
+   tallest, which the frame fixes at 244. Below 1024 they stack. */
+.sum-card { padding-block: 30px; }
+.sum-list {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.sum-item {
+  padding: 24px;
+  border: 1px solid #F5F5F5;
+  border-radius: 16px;
+  background: #FAFAFA;
+}
+.sum-item .prob__body strong {
+  font-weight: 600;
+  color: #12161A;
+}
+
+@media (max-width: 1023px) {
+  .sum-list { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* ---- 7-1, from Figma (frame 89:1059) ----------------------------------
+   The frame places everything on its 1438 canvas at absolute
+   coordinates. The board keeps those proportions but in flow: a grid of
+   the frame's own two columns (643 and 632, 24 apart, with the 43 the
+   frame leaves at the right), and every drawn size inside it in --u, one
+   frame pixel as a share of the board's content width. So the composition scales
+   with the card as one piece instead of the specimens clipping when the
+   card is narrower than the frame. Captions stay at the page's 16 — they
+   are copy, not drawing.
+
+   An element cannot query its own size, so --u is spent only by the
+   board's descendants, each resolving 100cqi against the board.
+   -------------------------------------------------------------------- */
+.comp-title { margin-top: 24px; }
+.spec-card__lead.comp-lead-2 { margin-top: 0; }
+
+.comp-board {
+  container-type: inline-size;
+  /* cqi is the content box, so the frame's 43 of right padding is out:
+     1342 - 43 = 1299 frame pixels across. */
+  --u: calc(100cqi / 1299);
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 643fr) minmax(0, 632fr);
+  grid-template-rows: auto auto 1fr;
+  column-gap: 1.788%;
+  padding-right: 3.2%;
+}
+.comp-stack,
+.comp-cap--vars,
+.comp-foot { grid-column: 1; }
+.comp-parts { grid-column: 2; grid-row: 1 / -1; position: relative; }
+
+.comp-cap {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+
+/* Variables: four panels fanned down-right, front panel top-left, each
+   cropped to its top-left corner at the frame's own overscale. */
+.comp-stack {
+  position: relative;
+  margin: calc(70 * var(--u)) 0 0 calc(3 * var(--u));
+  width: calc(640 * var(--u));
+  max-width: calc(100% - 3 * var(--u));
+  aspect-ratio: 640 / 493;
+}
+.comp-stack__sheet {
+  position: absolute;
+  width: 93.75%;
+  height: 91.28%;
+  overflow: hidden;
+  border: 1px solid #F5F5F5;
+  border-radius: calc(9.549 * var(--u));
+  background: #FFFFFF;
+  box-shadow: 0 0.6px 1.2px 0 rgba(11, 17, 24, 0.1),
+              0 2.4px 6px 0 rgba(11, 17, 24, 0.12);
+}
+.comp-stack__sheet img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 104.99%;
+  max-width: none;
+  height: auto;
+}
+.comp-stack__sheet--1 { left: 0;     top: 0; }
+.comp-stack__sheet--2 { left: 2.19%; top: 2.84%; }
+.comp-stack__sheet--3 { left: 4.38%; top: 5.68%; }
+.comp-stack__sheet--3 img { width: 108.75%; }
+.comp-stack__sheet--4 { left: 6.25%; top: 8.72%; }
+
+.comp-cap--vars {
+  margin-top: 14px;
+  text-align: center;
+}
+
+/* Parts: the row and the badge set sit 21 in from the column, as drawn;
+   the caption centres on the set, the screen takes the full column. */
+.comp-specimens { margin-left: calc(21 * var(--u)); }
+.comp-cap--parts {
+  width: calc(615 * var(--u));
+  margin: calc(17 * var(--u)) 0 0 calc(21 * var(--u));
+  text-align: center;
+}
+.comp-screen {
+  width: 100%;
+  height: auto;
+  margin-top: calc(16 * var(--u));
+  border-radius: 16px;
+  box-shadow: 0 0.6px 1.2px 0 rgba(11, 17, 24, 0.1),
+              0 2.4px 6px 0 rgba(11, 17, 24, 0.12);
+}
+
+/* The game row, at the frame's 1.231x of the 390 component. */
+.game-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(480 * var(--u));
+  padding: calc(19.692 * var(--u));
+  border-top: calc(1.231 * var(--u)) solid #EFF1F4;
+  background: #F8F9FA;
+  font-family: "Pretendard", var(--font-sans);
+  white-space: nowrap;
+}
+.game-row__main {
+  display: flex;
+  align-items: center;
+  gap: calc(14.769 * var(--u));
+}
+.game-row__when,
+.game-row__what {
+  display: flex;
+  flex-direction: column;
+  gap: calc(2.462 * var(--u));
+}
+.game-row__when { width: calc(72.615 * var(--u)); align-items: center; }
+.game-row__what { width: calc(171.077 * var(--u)); align-items: flex-start; }
+.game-row__time,
+.game-row__place {
+  font-weight: 800;
+  font-size: calc(24.62 * var(--u));
+  line-height: calc(29.538 * var(--u));
+  letter-spacing: calc(-0.4924 * var(--u));
+  color: #232930;
+}
+.game-row__time { align-self: stretch; }
+.game-row__date,
+.game-row__team {
+  font-weight: 400;
+  font-size: calc(14.77 * var(--u));
+  line-height: calc(29.538 * var(--u));
+  color: #67717D;
+}
+.game-row__badge,
+.info-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(24.615 * var(--u));
+  padding: 0 calc(7.385 * var(--u));
+  font-weight: 700;
+  font-size: calc(13.54 * var(--u));
+  line-height: calc(17.231 * var(--u));
+  letter-spacing: calc(0.2708 * var(--u));
+}
+.game-row__badge {
+  align-self: stretch;
+  gap: calc(4.923 * var(--u));
+  border-radius: calc(6 * var(--u));
+  background: #E4F5EC;
+  color: #085C2E;
+}
+.game-row__badge img {
+  width: calc(14.769 * var(--u));
+  height: calc(14.769 * var(--u));
+}
+.game-row__tags {
+  display: flex;
+  gap: calc(4.923 * var(--u));
+}
+.info-tag {
+  border: calc(1.231 * var(--u)) solid #C6CCD4;
+  border-radius: 9999px;
+  background: #EFF1F4;
+  color: #454D56;
+}
+.game-row__cta {
+  display: inline-flex;
+  align-items: center;
+  height: calc(54.154 * var(--u));
+  padding: 0 calc(19.692 * var(--u));
+  border-radius: calc(14.769 * var(--u));
+  background: #151E28;
+  font-weight: 600;
+  font-size: calc(17.23 * var(--u));
+  line-height: calc(22.154 * var(--u));
+  color: #FFFFFF;
+}
+
+/* The five state badges at the frame's 1.522x, in 5-3's tint and text
+   pairs. The icons are Figma's exports drawn through a mask, because the
+   exports carry the component's default ink (#232930) while each badge
+   draws its icon in its own text colour. */
+.badge-set {
+  display: flex;
+  align-items: center;
+  gap: calc(37 * var(--u));
+  width: calc(615 * var(--u));
+  height: calc(65 * var(--u));
+  margin-top: calc(25 * var(--u));
+  padding-left: calc(30.445 * var(--u));
+  border: 1px dashed #9747FF;
+  border-radius: calc(5 * var(--u));
+}
+.state-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(6.089 * var(--u));
+  height: calc(30.446 * var(--u));
+  padding: 0 calc(9.134 * var(--u));
+  border-radius: calc(9.134 * var(--u));
+  background: var(--tint);
+  color: var(--ink);
+  font-family: "Pretendard", var(--font-sans);
+  font-weight: 700;
+  font-size: calc(16.745 * var(--u));
+  line-height: calc(21.312 * var(--u));
+  letter-spacing: calc(0.3349 * var(--u));
+  white-space: nowrap;
+}
+.state-badge__icon {
+  flex: none;
+  width: calc(18.267 * var(--u));
+  height: calc(18.267 * var(--u));
+  background: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+          mask: var(--icon) center / contain no-repeat;
+}
+.state-badge[data-state="recruiting"] { --tint: #E4F5EC; --ink: #085C2E; --icon: url(assets/img/ssp-ds-7-icon-recruiting.svg); }
+.state-badge[data-state="closing"]    { --tint: #FBF0D6; --ink: #6B4606; --icon: url(assets/img/ssp-ds-7-icon-closing.svg); }
+.state-badge[data-state="closed"]     { --tint: #EFF1F4; --ink: #454D56; --icon: url(assets/img/ssp-ds-7-icon-lock.svg); }
+.state-badge[data-state="confirmed"]  { --tint: #E7EFFB; --ink: #12448C; --icon: url(assets/img/ssp-ds-7-icon-check.svg); }
+.state-badge[data-state="cancelled"]  { --tint: #FBEAE8; --ink: #8A1C14; --icon: url(assets/img/ssp-ds-7-icon-close.svg); }
+
+/* The foot: the empty pin at the left edge, the last caption ranged
+   right against the screen it captions, both on the board's floor. */
+.comp-foot {
+  align-self: end;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-left: calc(33.79 * var(--u));
+}
+.comp-cap--screens { text-align: right; }
+
+/* The map pins: Figma's MapPin instances, rotated as drawn. The SVGs
+   carry their drop-shadow padding, so each glyph is inset by the frame's
+   own percentages to land the visible pin on its box, as .hero-pin does. */
+.comp-pin {
+  flex: none;
+  display: grid;
+  place-items: center;
+}
+.comp-pin__body { position: relative; }
+.comp-pin__glyph {
+  position: absolute;
+  max-width: none;
+}
+.comp-pin__count {
+  position: absolute;
+  font-family: "Pretendard", var(--font-sans);
+  color: #FFFFFF;
+  white-space: nowrap;
+}
+.comp-pin--count {
+  position: absolute;
+  left: calc(547.93 * var(--u));
+  top: calc(-1 * var(--u));
+  width: calc(116.8 * var(--u));
+  height: calc(131.065 * var(--u));
+}
+.comp-pin--count .comp-pin__body {
+  width: calc(91 * var(--u));
+  height: calc(111.222 * var(--u));
+  transform: rotate(15.08deg);
+}
+.comp-pin--count .comp-pin__glyph {
+  left: -38.89%;
+  top: -13.64%;
+  width: 177.78%;
+  height: 162.4%;
+}
+.comp-pin--count .comp-pin__count {
+  left: calc(50% - 10.11 * var(--u));
+  top: calc(50% - 30.33 * var(--u));
+  font-weight: 600;
+  font-size: calc(35.39 * var(--u));
+  line-height: calc(45.5 * var(--u));
+}
+.comp-pin--empty {
+  width: calc(113.417 * var(--u));
+  height: calc(125.999 * var(--u));
+}
+.comp-pin--empty .comp-pin__body {
+  width: calc(87 * var(--u));
+  height: calc(105.643 * var(--u));
+  transform: rotate(-16.5deg);
+}
+.comp-pin--empty .comp-pin__glyph {
+  left: -50%;
+  top: -17.65%;
+  width: 200%;
+  height: 181.76%;
+}
+.comp-pin--empty .comp-pin__count {
+  left: calc(50% - 12.43 * var(--u));
+  top: calc(50% - 31.07 * var(--u));
+  font-weight: 700;
+  font-size: calc(34.18 * var(--u));
+  line-height: calc(43.5 * var(--u));
+  letter-spacing: calc(0.6836 * var(--u));
+}
+
+/* One column on a phone: the parts are re-measured against the full
+   board, so the row and the badge set fill it rather than shrinking to
+   half. The screen's caption follows the screen. */
+@media (max-width: 900px) {
+  .comp-board {
+    --u: calc(100cqi / 640);
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    row-gap: 24px;
+    padding-right: 0;
+  }
+  .comp-stack { margin-top: 0; }
+  .comp-cap--vars { margin-top: -10px; }
+  .comp-parts { grid-column: 1; grid-row: auto; }
+  .comp-foot { padding-left: 0; }
+  .comp-cap--parts { text-align: left; }
+}
+
 /* ---- 9-1, from Figma (frame 85:1015) ----------------------------------
    A white sheet inset by 24 rather than 48: the dark lede panel and the
    three items are surfaces of their own, so the sheet is only their
@@ -2675,6 +3029,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    SEE MORE PROJECTS
    ============================================================ */
 .seemore { padding-top: 120px; }
+/* First in its section now that the runner above it is gone. */
+.seemore .proj-cards { margin-top: 0; }
 .proj-cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -3098,6 +3454,24 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   transform: translateY(0);
 }
 
+/* 01's three panels come in one after another, on the sheet's rise and
+   curve. The list is its own [data-reveal] target, triggered when it
+   reaches 80% of the viewport: on the sheet's trigger the panels were
+   still below the fold and their stagger finished unseen. Each starts
+   0.15s after the last, so the row reads in order: problem, approach,
+   deliverables. */
+.sum-list.will-reveal .sum-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+}
+.sum-list.will-reveal.is-visible .sum-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sum-list.is-visible .sum-item:nth-child(2) { transition-delay: 0.15s; }
+.sum-list.is-visible .sum-item:nth-child(3) { transition-delay: 0.3s; }
+
 /* ---- Opt out ---------------------------------------------------------
    The lift and the transitions go; the contrast step stays. It reads as
    readability rather than motion, and dropping it would leave the
@@ -3112,6 +3486,11 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .prin.is-reading { transform: none; }
 
   .spec-card.will-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .sum-list.will-reveal .sum-item {
     opacity: 1;
     transform: none;
     transition: none;
