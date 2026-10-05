@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="edit_calendar">
+<mask id="mask0_0_5" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
+<rect id="Bounding box" width="48" height="48" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_0_5)">
+<path id="edit_calendar_2" d="M9 44C8.2 44 7.5 43.7 6.9 43.1C6.3 42.5 6 41.8 6 41V10C6 9.2 6.3 8.5 6.9 7.9C7.5 7.3 8.2 7 9 7H12.25V4H15.5V7H32.5V4H35.75V7H39C39.8 7 40.5 7.3 41.1 7.9C41.7 8.5 42 9.2 42 10V23H39V19.5H9V41H25V44H9ZM9 16.5H39V10H9V16.5ZM28 44V37.85L39.05 26.85C39.35 26.55 39.6833 26.3333 40.05 26.2C40.4167 26.0667 40.7833 26 41.15 26C41.55 26 41.9333 26.075 42.3 26.225C42.6667 26.375 43 26.6 43.3 26.9L45.15 28.75C45.45 29.05 45.6667 29.3833 45.8 29.75C45.9333 30.1167 46 30.4833 46 30.85C46 31.2167 45.925 31.5917 45.775 31.975C45.625 32.3583 45.4015 32.7 45.1045 33L34.15 44H28ZM31 41H32.9L38.95 34.9L38.05 33.95L37.1 33.05L31 39.1V41ZM38.05 33.95L37.1 33.05L38.95 34.9L38.05 33.95Z" fill="#98A1AC"/>
+</g>
+</g>
+</svg>

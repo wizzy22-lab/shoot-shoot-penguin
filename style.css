@@ -2618,6 +2618,222 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: var(--text-dim);
 }
 
+/* ---- 2-1 Context, from Figma (frame 93:1742) ---------------------------
+   Head: the title and the lede share a row, the lede starting level
+   with the title. Board: 44 below, three columns
+   — team lead, hub, player — with the hub held at 300 so each task list
+   gets the rest and every task stays on one line. Each role row is the
+   frame's 253 tall; the penguin and its label overlap as drawn (label 180
+   in on the lead side, 144 on the player side, both 134 down). The hub
+   starts 60 down and steps 64 between its parts, a 48 dotted line in
+   each step. Below a 1000 board the columns stack. */
+.ctx-head {
+  display: grid;
+  /* The title takes the width its two set lines need and the lede the
+     rest: at the page's 1104 the frame's 725 column would fold the
+     48px title onto four lines. */
+  grid-template-columns: max-content minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: 48px;
+}
+.ctx-head__main { display: contents; }
+.ctx-head__main .spec-card__runner { grid-column: 1; grid-row: 1; }
+.ctx-head__main .spec-card__title { grid-column: 1; grid-row: 2; }
+.ctx-head__lede { grid-column: 2; grid-row: 2; margin-top: 10px; }
+.ctx-lede {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+.ctx-lede strong { font-weight: 600; color: #000000; }
+
+.ctx-board {
+  container-type: inline-size;
+  margin-top: 44px;
+}
+.ctx-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
+  grid-template-areas:
+    "lead   hub player"
+    "ltasks hub ptasks";
+}
+.ctx-role--lead   { grid-area: lead; }
+.ctx-role--player { grid-area: player; }
+.ctx-tasks--lead  { grid-area: ltasks; }
+.ctx-tasks--player { grid-area: ptasks; }
+.ctx-hub { grid-area: hub; }
+
+.ctx-role {
+  position: relative;
+  height: 253px;
+}
+.ctx-role__face {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.ctx-role--lead .ctx-role__face   { left: 0;     top: 0; }
+.ctx-role--player .ctx-role__face { left: -26px; top: 19px; }
+.ctx-role__label {
+  position: absolute;
+  top: 134px;
+  width: 257px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+.ctx-role--lead .ctx-role__label   { left: 180px; }
+.ctx-role--player .ctx-role__label { left: 144px; }
+.ctx-role__name {
+  font-family: "Pretendard", var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+}
+.ctx-role__job {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+
+.ctx-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ctx-task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  border: 1px solid #F5F5F5;
+  border-radius: 9999px;
+  background: #FAFAFA;
+}
+.ctx-task__icon {
+  flex: none;
+  display: flex;
+  padding: 10px;
+  border-radius: 50%;
+  background: #FFFFFF;
+}
+.ctx-task__text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ctx-task__title {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+}
+.ctx-task__desc {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+
+.ctx-hub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 60px;
+}
+.ctx-hub__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.ctx-hub__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #F5F5F5;
+  border-radius: 50%;
+  background: #FAFAFA;
+}
+.ctx-hub__title {
+  font-family: "Pretendard", var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+}
+.ctx-hub__desc {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+.ctx-hub__line { flex: none; }
+/* The pill and the two dotted runs out to the task lists. The runs are
+   the frame's own stroke (4 wide, 4 on 4 off, #E2DDDA) drawn in CSS,
+   because unlike the hub's 48 steps they have to stretch with the board. */
+.ctx-hub__core {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+}
+.ctx-hub__core::before,
+.ctx-hub__core::after {
+  content: "";
+  flex: 1;
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #E2DDDA 0 4px, transparent 4px 8px);
+}
+.ctx-hub__pill {
+  padding: 12px 48px;
+  border-radius: 9999px;
+  background: #222D3A;
+  font-family: "Pretendard", var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+  text-align: center;
+  color: #F8F9FA;
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .ctx-head { grid-template-columns: minmax(0, 1fr); }
+  .ctx-head__lede { grid-column: 1; grid-row: 3; margin-top: 24px; }
+}
+@container (max-width: 999px) {
+  .ctx-map {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "lead" "ltasks" "hub" "player" "ptasks";
+    row-gap: 24px;
+  }
+  .ctx-role {
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .ctx-role__face,
+  .ctx-role__label { position: static; }
+  .ctx-role__face { width: 120px; height: 120px; flex: none; }
+  .ctx-role__label { width: auto; text-align: left; }
+  .ctx-hub { padding: 24px 0; }
+  .ctx-hub__core::before,
+  .ctx-hub__core::after { display: none; }
+  .ctx-hub__core { justify-content: center; }
+}
+
 /* ---- 3-1 Why system, from Figma (frame 91:1209) ------------------------
    The lede and the screens share a row at the frame's 647 : 671 split,
    24 apart, both starting 24 under the title. The two paragraphs keep
@@ -3504,6 +3720,27 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   transform: translateY(0);
 }
 
+/* 2-1's dotted lines grow out of the hub's pill when the hub reaches the
+   reading line: the upper step upward, the lower one downward, the two
+   runs out toward the task lists. Each is drawn from the edge touching
+   the pill, so the system reads as the source of both sides. The hub is
+   its own [data-reveal] target, as 1-1's panels are. */
+.ctx-hub.will-reveal .ctx-hub__line,
+.ctx-hub.will-reveal .ctx-hub__core::before,
+.ctx-hub.will-reveal .ctx-hub__core::after {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ctx-hub.will-reveal .ctx-hub__line { transform: scaleY(0); }
+.ctx-hub.will-reveal .ctx-hub__line--up   { transform-origin: 50% 100%; }
+.ctx-hub.will-reveal .ctx-hub__line--down { transform-origin: 50% 0; }
+.ctx-hub.will-reveal .ctx-hub__core::before { transform: scaleX(0); transform-origin: 100% 50%; }
+.ctx-hub.will-reveal .ctx-hub__core::after  { transform: scaleX(0); transform-origin: 0 50%; }
+.ctx-hub.will-reveal.is-visible .ctx-hub__line,
+.ctx-hub.will-reveal.is-visible .ctx-hub__core::before,
+.ctx-hub.will-reveal.is-visible .ctx-hub__core::after { transform: none; }
+.ctx-hub.will-reveal.is-visible .ctx-hub__core::before,
+.ctx-hub.will-reveal.is-visible .ctx-hub__core::after { transition-delay: 0.15s; }
+
 /* 1-1's three panels come in one after another, on the sheet's rise and
    curve. The list is its own [data-reveal] target, triggered when it
    reaches 80% of the viewport: on the sheet's trigger the panels were
@@ -3537,6 +3774,12 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
   .spec-card.will-reveal {
     opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .ctx-hub.will-reveal .ctx-hub__line,
+  .ctx-hub.will-reveal .ctx-hub__core::before,
+  .ctx-hub.will-reveal .ctx-hub__core::after {
     transform: none;
     transition: none;
   }

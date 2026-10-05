@@ -258,24 +258,165 @@
     </section>
 
     <!-- ============================================================
-         03 — Context. The whole product in one screen: what the week
-         used to cost, what the loop replaced it with, and the line that
-         hands over to the system. No product screenshots — every screen
-         that exists predates the system this page argues for.
+         03 — Context. The 2-1 sheet, from the Figma frame (93:1742): the
+         two users either side, the one system between them. It replaces
+         the heading and two paragraphs that stood here; the lede keeps
+         their argument, and the diagram draws it — each user's jobs as a
+         list, both wired to the same hub.
+
+         Laid out in flow rather than at the frame's coordinates: the page
+         gives the board 1104 to the frame's 1342, so the hub column is
+         held at 300 and the two task columns take the rest, which keeps
+         every task on one line at the page's 16. The board stacks when
+         it is narrower than 1000.
          ============================================================ -->
     <section class="section ctx" id="product">
-      <div class="wrap">
-        <h2 class="h2" data-lang-content="ko">두 사용자의 다른 작업을<br />하나의 UI 기준으로 연결했습니다</h2>
-        <h2 class="h2" data-lang-content="en">Two users, two different jobs,<br />joined by one UI standard</h2>
+      <div class="spec-band" id="context">
+        <article class="spec-card">
+          <div class="ctx-head">
+            <div class="ctx-head__main">
+              <div class="spec-card__runner">
+                <span class="spec-card__num">2-1</span>
+                <span class="spec-chip">context</span>
+              </div>
 
-        <div class="ds-prose">
-          <p class="lead" data-lang-content="ko">Shoot Shoot Penguin은 팀 리드의 게스트 모집과 플레이어의 경기 탐색을 연결하는 농구 앱입니다.<br class="only-desktop" /> 팀 리드는 출석과 모집 인원을 관리하고, 플레이어는 지도에서 참여할 경기를 찾습니다.</p>
-          <p class="lead" data-lang-content="en">Shoot Shoot Penguin is a basketball app that joins a team lead&rsquo;s guest recruiting to a player&rsquo;s search for a game. Team leads manage attendance and how many guests they need; players find a game to join on a map.</p>
+              <h3 class="spec-card__title" data-lang-content="ko">두 사용자의 다른 목표를<br />하나의 UI 시스템으로 연결했습니다</h3>
+              <h3 class="spec-card__title" data-lang-content="en">Two users, two different goals<br />connected by one UI system</h3>
+            </div>
 
-          <p class="lead" data-lang-content="ko">같은 경기 정보도 관리하는 화면에서는 비교하기 쉽게, 탐색 화면에서는 빠르게 구별되게 보여야 합니다.<br class="only-desktop" /> 이번 시스템은 공통 컴포넌트를 기반으로 각 작업에 맞는 정보 위계와 상태 표현을 정의했습니다.</p>
-          <p class="lead" data-lang-content="en">The same game information has to be easy to compare on a screen you manage from, and quick to tell apart on a screen you search from. This system defines the information hierarchy and the state expression each job needs, on top of one shared set of components.</p>
-        </div>
+            <div class="ctx-head__lede">
+              <p class="ctx-lede" data-lang-content="ko">Shoot Shoot Penguin은 서로 다른 목표를 가진 두 사용자를 연결합니다.<br class="only-desktop" /> <strong>경기를 관리하는 팀 리드와, 참여할 경기를 찾는 플레이어입니다.</strong> 같은 경기 정보도 관리 화면에서는 비교하기 쉽게, 탐색 화면에서는 빠르게 구별되게 보여야 합니다. 공통 UI 시스템으로 경험의 일관성을 유지하면서, 각 쓰임에 맞게 정보 위계와 상태 표현을 조정했습니다.</p>
+              <p class="ctx-lede" data-lang-content="en">Shoot Shoot Penguin connects two users with different goals:<br class="only-desktop" /> <strong>team leads managing games and players searching for games to join.</strong> The same game information needs different priorities: easy comparison for management and quick recognition for exploration. A shared UI system was built to keep the experience consistent while adapting information hierarchy and state representation to each use case.</p>
+            </div>
+          </div>
 
+          <div class="ctx-board">
+            <div class="ctx-map">
+              <div class="ctx-role ctx-role--lead">
+                <img class="ctx-role__face" src="assets/img/ssp-ctx-penguin-lead.png" width="1254" height="1254" loading="lazy" decoding="async"
+                     alt="The team lead penguin, holding a clipboard checklist" />
+                <div class="ctx-role__label">
+                  <span class="ctx-role__name" data-lang-content="ko">팀 리드</span>
+                  <span class="ctx-role__name" data-lang-content="en">TEAM LEAD</span>
+                  <span class="ctx-role__job" data-lang-content="ko">출석과 게스트 모집 인원을 확인하고,<br />경기 정보를 관리합니다</span>
+                  <span class="ctx-role__job" data-lang-content="en">Take attendance and guest needs,<br />and manage game details</span>
+                </div>
+              </div>
+
+              <ul class="ctx-tasks ctx-tasks--lead">
+              <li class="ctx-task">
+                <span class="ctx-task__icon"><img src="assets/img/ssp-ctx-icon-group.svg" width="48" height="48" alt="" /></span>
+                <span class="ctx-task__text">
+                  <span class="ctx-task__title" data-lang-content="ko">출석</span>
+                  <span class="ctx-task__title" data-lang-content="en">Attendance</span>
+                  <span class="ctx-task__desc" data-lang-content="ko">확정 · 예상 인원 확인</span>
+                  <span class="ctx-task__desc" data-lang-content="en">Check confirmed and expected players</span>
+                </span>
+              </li>
+              <li class="ctx-task">
+                <span class="ctx-task__icon"><img src="assets/img/ssp-ctx-icon-person-add.svg" width="48" height="48" alt="" /></span>
+                <span class="ctx-task__text">
+                  <span class="ctx-task__title" data-lang-content="ko">게스트 모집</span>
+                  <span class="ctx-task__title" data-lang-content="en">Guest needs</span>
+                  <span class="ctx-task__desc" data-lang-content="ko">필요한 게스트 수 확인</span>
+                  <span class="ctx-task__desc" data-lang-content="en">See how many guests are needed</span>
+                </span>
+              </li>
+              <li class="ctx-task">
+                <span class="ctx-task__icon"><img src="assets/img/ssp-ctx-icon-edit-calendar.svg" width="48" height="48" alt="" /></span>
+                <span class="ctx-task__text">
+                  <span class="ctx-task__title" data-lang-content="ko">경기 정보</span>
+                  <span class="ctx-task__title" data-lang-content="en">Game details</span>
+                  <span class="ctx-task__desc" data-lang-content="ko">시간 · 장소 · 규칙 관리</span>
+                  <span class="ctx-task__desc" data-lang-content="en">Manage time, location, and rules</span>
+                </span>
+              </li>
+              <li class="ctx-task">
+                <span class="ctx-task__icon"><img src="assets/img/ssp-ctx-icon-settings.svg" width="48" height="48" alt="" /></span>
+                <span class="ctx-task__text">
+                  <span class="ctx-task__title" data-lang-content="ko">팀 관리</span>
+                  <span class="ctx-task__title" data-lang-content="en">Team management</span>
+                  <span class="ctx-task__desc" data-lang-content="ko">경기 정보 수정 · 공유</span>
+                  <span class="ctx-task__desc" data-lang-content="en">Edit and share game information</span>
+                </span>
+              </li>
+              </ul>
+
+              <div class="ctx-hub" data-reveal="0.75">
+            <div class="ctx-hub__block">
+              <span class="ctx-hub__icon"><img src="assets/img/ssp-ctx-icon-data-table.svg" width="40" height="40" alt="" /></span>
+              <span class="ctx-hub__title" data-lang-content="ko">같은 경기 데이터</span>
+              <span class="ctx-hub__title" data-lang-content="en">Same game data</span>
+              <span class="ctx-hub__desc" data-lang-content="ko">색상 · 타이포그래피 · 간격<br />컴포넌트 · 상태 체계</span>
+              <span class="ctx-hub__desc" data-lang-content="en">Colors · Typography · Spacing<br />Components · State system</span>
+            </div>
+                <img class="ctx-hub__line ctx-hub__line--up" src="assets/img/ssp-ctx-line-v.svg" width="4" height="48" alt="" />
+                <div class="ctx-hub__core">
+                  <span class="ctx-hub__pill" data-lang-content="ko">공통<br />UI 시스템</span>
+                  <span class="ctx-hub__pill" data-lang-content="en">Shared<br />UI System</span>
+                </div>
+                <img class="ctx-hub__line ctx-hub__line--down" src="assets/img/ssp-ctx-line-v.svg" width="4" height="48" alt="" />
+            <div class="ctx-hub__block">
+              <span class="ctx-hub__icon"><img src="assets/img/ssp-ctx-icon-database.svg" width="40" height="40" alt="" /></span>
+              <span class="ctx-hub__title" data-lang-content="ko">하나의 컴포넌트 세트</span>
+              <span class="ctx-hub__title" data-lang-content="en">One set of components</span>
+              <span class="ctx-hub__desc" data-lang-content="ko">색상 · 타이포그래피 · 간격<br />컴포넌트 · 상태 체계</span>
+              <span class="ctx-hub__desc" data-lang-content="en">Colors · Typography · Spacing<br />Components · State system</span>
+            </div>
+              </div>
+
+              <div class="ctx-role ctx-role--player">
+                <img class="ctx-role__face" src="assets/img/ssp-ctx-penguin-player.png" width="1254" height="1254" loading="lazy" decoding="async"
+                     alt="The player penguin, dribbling a basketball" />
+                <div class="ctx-role__label">
+                  <span class="ctx-role__name" data-lang-content="ko">플레이어</span>
+                  <span class="ctx-role__name" data-lang-content="en">PLAYER</span>
+                  <span class="ctx-role__job" data-lang-content="ko">지도에서 참여할 경기를 찾고<br />빠르게 비교합니다</span>
+                  <span class="ctx-role__job" data-lang-content="en">Find games to join on a map<br />and quickly compare options.</span>
+                </div>
+              </div>
+
+              <ul class="ctx-tasks ctx-tasks--player">
+              <li class="ctx-task">
+                <span class="ctx-task__icon"><img src="assets/img/ssp-ctx-icon-distance.svg" width="48" height="48" alt="" /></span>
+                <span class="ctx-task__text">
+                  <span class="ctx-task__title" data-lang-content="ko">경기 위치</span>
+                  <span class="ctx-task__title" data-lang-content="en">Game location</span>
+                  <span class="ctx-task__desc" data-lang-content="ko">지도에서 가까운 경기 찾기</span>
+                  <span class="ctx-task__desc" data-lang-content="en">Find nearby games on a map</span>
+                </span>
+              </li>
+              <li class="ctx-task">
+                <span class="ctx-task__icon"><img src="assets/img/ssp-ctx-icon-search.svg" width="48" height="48" alt="" /></span>
+                <span class="ctx-task__text">
+                  <span class="ctx-task__title" data-lang-content="ko">경기 상태</span>
+                  <span class="ctx-task__title" data-lang-content="en">Game status</span>
+                  <span class="ctx-task__desc" data-lang-content="ko">모집 중인 경기 빠르게 구별</span>
+                  <span class="ctx-task__desc" data-lang-content="en">Quickly identify open games</span>
+                </span>
+              </li>
+              <li class="ctx-task">
+                <span class="ctx-task__icon"><img src="assets/img/ssp-ctx-icon-sort.svg" width="48" height="48" alt="" /></span>
+                <span class="ctx-task__text">
+                  <span class="ctx-task__title" data-lang-content="ko">핵심 정보</span>
+                  <span class="ctx-task__title" data-lang-content="en">Key information</span>
+                  <span class="ctx-task__desc" data-lang-content="ko">시간 · 거리 · 게스트 자리 확인</span>
+                  <span class="ctx-task__desc" data-lang-content="en">Check time, distance, and guest spots</span>
+                </span>
+              </li>
+              <li class="ctx-task">
+                <span class="ctx-task__icon"><img src="assets/img/ssp-ctx-icon-bookmark.svg" width="48" height="48" alt="" /></span>
+                <span class="ctx-task__text">
+                  <span class="ctx-task__title" data-lang-content="ko">비교</span>
+                  <span class="ctx-task__title" data-lang-content="en">Compare options</span>
+                  <span class="ctx-task__desc" data-lang-content="ko">경기 둘러보고 저장하기</span>
+                  <span class="ctx-task__desc" data-lang-content="en">Browse and save games</span>
+                </span>
+              </li>
+              </ul>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
