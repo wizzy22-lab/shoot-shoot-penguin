@@ -126,7 +126,7 @@
                and its two lines are the name, not a width accident. -->
           <h1 class="hero-title">Shoot Shoot Penguin<br /><span class="acc">Design System</span></h1>
 
-          <p class="hero-body" data-lang-content="ko">Shoot Shoot Penguin의 초기 화면을 검토하며, 반복 요소의 스타일과<br class="only-desktop" /> 색의 의미가 화면마다 달라지는 문제를 발견했습니다.<br class="only-desktop" /> 조작 요소와 경기 상태의 표현을 분리하고, 토큰과 컴포넌트를 정리해<br class="only-desktop" /> 두 사용자 화면에 적용할 공통 기준을 만들었습니다.</p>
+          <p class="hero-body" data-lang-content="ko">Shoot Shoot Penguin은 농구 경기의<br class="only-desktop" /> 게스트 모집과 운영을 돕는 서비스입니다.<br class="only-desktop" /> 모집과 입금 확인이 여러 채널에 흩어져 있던 문제에서 출발했고,<br class="only-desktop" /> 이 케이스스터디에서는 그중 디자인 시스템을 다룹니다.</p>
           <p class="hero-body" data-lang-content="en">Reviewing the first screens of Shoot Shoot Penguin, I found that repeated elements were styled differently from screen to screen, and that colour meant something different in each one.<br class="only-desktop" /> Separating how controls and game state were expressed, then settling the tokens and components, gave one standard both sides of the app could be built on.</p>
 
           <div class="tagrow">
@@ -1874,80 +1874,199 @@
     </section>
 
     <!-- ============================================================
-         08 — Enforcement. The rules stop being prose here.
+         08 — Enforcement, from the Figma frame (40:127). The split
+         layout that stood here — prose beside one export of the
+         checker's output — is four sheets now, stacked the way Colour's
+         and Foundations' rows are: why the check exists, what it looks
+         for, what it caught, and what running it taught.
+
+         The chips are the page's one grey, not the frame's #FF8C42, for
+         the reason 6-1 gives. The BEFORE / AFTER frames in 8-3 still
+         carry the frame's placeholder fill; the screenshots replace it.
          ============================================================ -->
-    <section class="section split" id="ds-script">
-      <div class="wrap split-inner">
-        <div class="split-text">
-          <div class="runner">
-            <span class="runner-name">08 / Enforcement</span>
+    <section class="section" id="ds-script">
+      <div class="wrap">
+        <div class="runner">
+          <span class="runner-name">08 / Enforcement</span>
+        </div>
+      </div>
+
+      <div class="spec-band spec-band--stack" id="enf-why">
+        <article class="spec-card">
+          <div class="spec-card__runner">
+            <span class="spec-card__num">8-1</span>
+            <span class="spec-chip">enforcement</span>
           </div>
 
-          <h2 class="h2" data-lang-content="ko">문서의 규칙을<br />코드에서도 확인했습니다</h2>
-          <h2 class="h2" data-lang-content="en">The rules in the document,<br />checked in the code as well</h2>
+          <h3 class="spec-card__title" data-lang-content="ko">디자인 시스템의 규칙이<br />실제 코드에서도 지켜지는지 확인했습니다</h3>
+          <h3 class="spec-card__title" data-lang-content="en">I verified that the design system rules<br />were followed in the actual code.</h3>
 
-          <div class="ds-prose">
-            <p class="lead" data-lang-content="ko">HTML/CSS로 제작한 시안에 검사 스크립트를 적용해, 다음 항목을 확인했습니다.</p>
-            <p class="lead" data-lang-content="en">A checking script runs over the mockups built in HTML and CSS, looking for the following.</p>
+          <h4 class="spec-card__sub" data-lang-content="ko">왜 검증이 필요했나요?</h4>
+          <h4 class="spec-card__sub" data-lang-content="en">Why was validation necessary?</h4>
+
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="ko">디자인 토큰과 컴포넌트를 정의하는 것만으로는 구현 과정에서도 같은 기준이 유지된다고 보장할 수 없습니다.<br class="only-desktop" /> HTML/CSS 구현에 검사 스크립트를 적용해,<br class="only-desktop" /> 디자인 시스템에서 정의한 규칙이 코드에서도 지켜지는지 확인했습니다.</p>
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="en">Defining design tokens and components alone does not guarantee that the same standards are maintained during implementation.<br class="only-desktop" /> I applied a validation script to the HTML/CSS implementation to check<br class="only-desktop" /> whether the rules defined in the design system were also being followed in code.</p>
+        </article>
+      </div>
+
+      <!-- The four checks are chrome-labelled the way the sheet runners
+           are: the label stays English in either locale, the question
+           beside it swaps. Order is the frame's, read row by row. -->
+      <div class="spec-band spec-band--stack" id="enf-checks">
+        <article class="spec-card">
+          <div class="spec-card__runner">
+            <span class="spec-card__num">8-2</span>
+            <span class="spec-chip">what I checked</span>
           </div>
 
-          <ul class="pain-list">
-            <li><span data-lang-content="ko">허용 목록에 없는 색상과 크기</span><span data-lang-content="en">Colours and sizes that are not on the allowed list</span></li>
-            <li><span data-lang-content="ko">사용이 금지된 효과</span><span data-lang-content="en">Effects the system forbids</span></li>
-            <li><span data-lang-content="ko">아직 남아 있는 임시 문구</span><span data-lang-content="en">Placeholder text still left in place</span></li>
+          <h4 class="spec-card__sub spec-card__sub--opens" data-lang-content="ko">일관되게 지켜야 하는 규칙은 자동으로 검사했습니다.</h4>
+          <h4 class="spec-card__sub spec-card__sub--opens" data-lang-content="en">I automated checks for rules that needed to be consistently enforced.</h4>
+
+          <p class="spec-card__lead spec-card__lead--short" data-lang-content="ko">주요 버튼이 화면마다 네 가지 색으로 쓰였습니다. 같은 기능의 버튼이 색에 따라 서로 다른 중요도를 가진 것처럼 보일 수 있었습니다.</p>
+          <p class="spec-card__lead spec-card__lead--short" data-lang-content="en">The main buttons used four different colors across the interface. This could make buttons with the same function appear to have different levels of importance based on their color.</p>
+
+          <ul class="checks">
+            <li class="check">
+              <span class="check__k">Color</span>
+              <span class="check__q" data-lang-content="ko">디자인 시스템에 정의되지 않은 색상을 쓰고 있지 않은가?</span>
+              <span class="check__q" data-lang-content="en">Were any colors outside the defined design system being used?</span>
+            </li>
+            <li class="check">
+              <span class="check__k">Effect</span>
+              <span class="check__q" data-lang-content="ko">의도적으로 제외한 효과가 적용되어 있지 않은가?</span>
+              <span class="check__q" data-lang-content="en">Were any effects that were intentionally excluded being applied?</span>
+            </li>
+            <li class="check">
+              <span class="check__k">Size</span>
+              <span class="check__q" data-lang-content="ko">정의된 크기 단계 밖의 값을 쓰고 있지 않은가?</span>
+              <span class="check__q" data-lang-content="en">Were any values outside the defined size scale being used?</span>
+            </li>
+            <li class="check">
+              <span class="check__k">Copy</span>
+              <span class="check__q" data-lang-content="ko">임시 문구가 코드에 남아 있지 않은가?</span>
+              <span class="check__q" data-lang-content="en">Were any placeholder texts left in the code?</span>
+            </li>
           </ul>
+        </article>
+      </div>
 
-          <div class="ds-prose">
-            <p class="lead" data-lang-content="ko">반복해서 확인해야 하는 항목은 자동화해 수정 과정에서 규칙이 빠지는 일을 줄였습니다.<br class="only-desktop" /> 다만 이 검사는 코드에 정의된 규칙을 지켰는지만 확인했습니다.</p>
-            <p class="lead" data-lang-content="en">Automating the checks that have to run again and again means that fewer rules go missing while a screen is being changed.<br class="only-desktop" /> The check only confirms that the rules written into the code were kept.</p>
+      <div class="spec-band spec-band--stack" id="enf-fix">
+        <article class="spec-card">
+          <div class="spec-card__runner">
+            <span class="spec-card__num">8-3</span>
+            <span class="spec-chip">violation &amp; fix</span>
           </div>
-        </div>
 
-        <div class="slot slot--1x1 slot--filled">
-          <img class="slot-img" src="assets/img/ssp-enforcement.png"
-               width="2400" height="2400" loading="lazy" decoding="async"
-               alt="The checker's output: each rule listed with the places it flagged in the HTML and CSS" />
-        </div>
+          <h4 class="spec-card__sub spec-card__sub--opens" data-lang-content="ko">구현에서 두 건의 규칙 위반을 발견했습니다.</h4>
+          <h4 class="spec-card__sub spec-card__sub--opens" data-lang-content="en">The implementation revealed two rule violations.</h4>
+
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="ko">구현 코드에서 정의되지 않은 색상 하나와 크기 하나가 발견됐습니다.</p>
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="en">One undefined color and one undefined size were found in the implementation.</p>
+
+          <!-- Side by side, so the two states compare in one view: stacked
+               they ran the sheet past the stack point and 8-4 covered the
+               AFTER frame before it was ever on screen whole. -->
+          <div class="fix-pair">
+            <figure class="fix-shot">
+              <img class="fix-shot__img" src="assets/img/ssp-ds-8-shot-placeholder.png"
+                   width="256" height="256" alt="" />
+              <figcaption class="fix-shot__tag">BEFORE : violation 2</figcaption>
+            </figure>
+            <figure class="fix-shot">
+              <img class="fix-shot__img" src="assets/img/ssp-ds-8-shot-placeholder.png"
+                   width="256" height="256" alt="" />
+              <figcaption class="fix-shot__tag">after : violation 0</figcaption>
+            </figure>
+          </div>
+
+          <p class="spec-card__lead spec-card__lead--wide fix-note" data-lang-content="ko">이 값들을 새 토큰으로 추가하지 않고, 기존 색상 · 크기 단계의 값으로 교체했습니다.<br class="only-desktop" /> 정의되지 않은 값이 나올 때마다 예외를 추가하면 디자인 시스템의 일관성이 점점 약해지기 때문입니다.</p>
+          <p class="spec-card__lead spec-card__lead--wide fix-note" data-lang-content="en">Instead of adding these values as new tokens, I replaced them with values from the existing color and size scales.<br class="only-desktop" /> Adding a new exception every time an undefined value is found would gradually weaken the consistency of the design system.</p>
+        </article>
+      </div>
+
+      <div class="spec-band spec-band--stack" id="enf-result">
+        <article class="spec-card">
+          <div class="spec-card__runner">
+            <span class="spec-card__num">8-4</span>
+            <span class="spec-chip">implementation validation</span>
+          </div>
+
+          <h3 class="spec-card__title" data-lang-content="ko">규칙을 정의하는 데서 그치지 않고<br />구현으로 검증했습니다</h3>
+          <h3 class="spec-card__title" data-lang-content="en">I went beyond defining rules and<br />validated them through implementation.</h3>
+
+          <div class="enf-close">
+            <p class="enf-close__body" data-lang-content="ko">검사 스크립트 자체를 시험하기 위해, 더 다양한 값이 쓰인 코드에도 적용해 보았습니다.<br class="only-desktop" /> 그 결과 색상은 정의된 27개 값 안에서 일관되게 관리되고 있었지만,<br class="only-desktop" /> 크기는 51개 값으로 늘어나 있어 속성별로 더 세분화된 단계가 필요하다는 것을 확인했습니다.</p>
+            <p class="enf-close__body" data-lang-content="en">To test the validator itself, I also applied it to code containing a wider range of values.<br class="only-desktop" /> The results showed that colors were consistently managed within the defined set of 27 values,<br class="only-desktop" /> while sizes had expanded to 51 values, revealing the need for more granular scales by property.</p>
+
+            <p class="enf-close__claim" data-lang-content="ko">디자인 시스템은 규칙을 정의하는 데서 그치지 않고,<br class="only-desktop" /> 그 규칙이 실제 코드에서 유지되는지 확인할 방법까지 제공해야 한다는 것을 알게 되었습니다.</p>
+            <p class="enf-close__claim" data-lang-content="en">I found that a design system should not only define rules,<br class="only-desktop" /> but also provide a way to verify that those rules are maintained in actual code.</p>
+
+            <p class="enf-close__body" data-lang-content="ko">HTML/CSS를 직접 점검하고 구현 오류를 고치면서,<br class="only-desktop" /> 디자인 기준이 개발 과정에서 어떻게 적용되고 유지되는지도 실제로 이해하게 되었습니다.</p>
+            <p class="enf-close__body" data-lang-content="en">By directly inspecting HTML/CSS and fixing implementation errors,<br class="only-desktop" /> I also gained a practical understanding of how design standards are applied and maintained throughout the development process.</p>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- ============================================================
          09 — What the system taught me. Closes the design-system act.
+
+         The 9-1 sheet, from the Figma frame (85:1015): the next step on
+         a dark panel, the state of the work beside it as three numbered
+         items. It replaces the heading, lede and status list that stood
+         here; the status rows keep their copy. The items borrow the
+         problems sheet's numbered head (.prob__head) so the two lists
+         read as one family. The chip is the page's grey, as on 6-1.
          ============================================================ -->
     <section class="section status" id="status">
       <div class="wrap">
         <div class="runner">
           <span class="runner-name">09 / What I Learned</span>
         </div>
+      </div>
 
-        <div class="closing">
-          <div class="closing__left">
-            <h2 class="h2" data-lang-content="ko">규칙을 만드는 것만큼<br />적용하며 확인하는 과정이 중요했습니다</h2>
-            <h2 class="h2" data-lang-content="en">Applying the rules mattered as much as writing them</h2>
+      <div class="spec-band" id="next">
+        <article class="spec-card next-card">
+          <div class="next-card__lede">
+            <div class="spec-card__runner">
+              <span class="spec-card__num">9-1</span>
+              <span class="spec-chip">next validation</span>
+            </div>
 
-            <p class="lead" data-lang-content="ko">초기 화면을 검토하며 버튼과 상태 표현의 충돌을 발견했고, 공통 규칙을 실제 화면에 적용하며 빠진 정의와 잘못된 연결을 확인했습니다. 문서, 컴포넌트, 코드가 같은 기준을 따르는지 점검하는 과정까지 시스템 설계에 포함된다는 것을 배웠습니다.</p>
-            <p class="lead" data-lang-content="en">Reviewing the early screens surfaced a collision between buttons and state. Applying the shared rules to real screens then exposed missing definitions and wrong connections. Checking that the document, the components and the code follow one standard turned out to be part of designing the system, not a step after it.</p>
+            <h2 class="next-card__title" data-lang-content="ko">시스템의 일관성을 넘어<br class="only-desktop" /> 실제 사용자 경험까지<br class="only-desktop" /> 검증을 넓혀 갑니다</h2>
+            <h2 class="next-card__title" data-lang-content="en">Extending validation<br class="only-desktop" /> beyond system<br class="only-desktop" /> consistency to the actual<br class="only-desktop" /> user experience.</h2>
           </div>
 
-          <dl class="closing__status">
-            <div class="closing__row">
-              <dt class="closing__k">Done</dt>
-              <dd class="closing__v" data-lang-content="ko">토큰 · 컴포넌트 · 브랜드 자산을 정의하고, 검사 스크립트로 규칙 준수를 확인했습니다.</dd>
-              <dd class="closing__v" data-lang-content="en">Tokens, components and brand assets defined; rule compliance checked by the validator.</dd>
-            </div>
-            <div class="closing__row">
-              <dt class="closing__k">In progress</dt>
-              <dd class="closing__v" data-lang-content="ko">디자인 시스템 v1.5.0을 기준으로 화면 개편을 진행하고 있습니다.</dd>
-              <dd class="closing__v" data-lang-content="en">Rebuilding the screens against design system v1.5.0.</dd>
-            </div>
-            <div class="closing__row">
-              <dt class="closing__k">Next to validate</dt>
-              <dd class="closing__v" data-lang-content="ko">개발 구현과 디자인의 차이를 점검하고, 실제 사용자가 경기 상태와 예측 정보를 구별할 수 있는지 확인합니다.</dd>
-              <dd class="closing__v" data-lang-content="en">Check the gap between build and design, then whether real users can tell game state from predicted numbers.</dd>
-            </div>
-          </dl>
-        </div>
+          <ol class="next-list">
+            <li class="next-item">
+              <div class="prob__head">
+                <span class="prob__num">01</span>
+                <h3 class="prob__title">Done</h3>
+              </div>
+              <p class="prob__body" data-lang-content="ko">토큰 · 컴포넌트 · 브랜드 자산을 정의하고,<br class="only-desktop" /> 검사 스크립트로 규칙 준수를 확인했습니다.</p>
+              <p class="prob__body" data-lang-content="en">Tokens, components and brand assets defined;<br class="only-desktop" /> rule compliance checked through the validator.</p>
+            </li>
+            <li class="next-item">
+              <div class="prob__head">
+                <span class="prob__num">02</span>
+                <h3 class="prob__title">In progress</h3>
+              </div>
+              <p class="prob__body" data-lang-content="ko">디자인 시스템 v1.5.0을 기준으로 화면 개편을 진행하고 있습니다.</p>
+              <p class="prob__body" data-lang-content="en">Rebuilding the screens against Design System v1.5.0.</p>
+            </li>
+            <li class="next-item">
+              <div class="prob__head">
+                <span class="prob__num">03</span>
+                <h3 class="prob__title">Next to Validate</h3>
+              </div>
+              <p class="prob__body" data-lang-content="ko">개발 구현과 디자인의 차이를 점검하고, 실제 사용자가 경기 상태와 예측 정보를 구별할 수 있는지 확인합니다.</p>
+              <p class="prob__body" data-lang-content="en">Check the gap between design and implementation, then validate whether users can clearly distinguish game states from predicted numbers.</p>
+            </li>
+          </ol>
+        </article>
+      </div>
 
+      <div class="wrap">
         <div class="closing__foot">
           <img class="closing__mark" src="assets/brand/ssp-mark-inverse.svg" width="34" height="34"
                alt="Shoot Shoot Penguin mark" />

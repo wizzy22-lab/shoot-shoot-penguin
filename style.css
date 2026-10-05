@@ -1103,6 +1103,143 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   color: #6E7884;
 }
 
+/* ---- Enforcement sheets, from Figma (frame 40:127) ---------------------
+   8-1 to 8-4 add one step to the sheet chrome: a 20px subhead that either
+   follows the title (8-1, 24 under it) or stands in for it (8-2, 8-3, at
+   the title's own 10 under the runner). The lede then sits 12 under it.
+
+   The frame sets these ledes on hand-broken lines longer than 779, so
+   the measure is lifted for them; 8-2's is the frame's 682. ------------ */
+.spec-card__sub {
+  margin: 24px 0 0;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000000;
+}
+/* ~ rather than +: both locales sit in the DOM, so the second copy of
+   a pair never directly follows the element it is spaced from. */
+.spec-card__sub--opens { margin-top: 10px; }
+.spec-card__sub ~ .spec-card__lead { margin-top: 12px; }
+.spec-card__lead--wide { max-width: none; }
+.spec-card__lead--short { max-width: 682px; }
+
+/* Enforcement opens its row the way 6-1 opens Foundations': clear of the
+   runner, and at its own height rather than the stack's floor. */
+#enf-why { margin-top: 72px; }
+#enf-why .spec-card { min-height: 0; }
+
+/* 8-2's four checks: the problems sheet's panel (#FAFAFA, #F5F5F5 rule,
+   16 radius, 24 inset) two-up, 24 between rows and 30 between columns
+   as drawn. The label is chrome and keeps Pretendard, as the frame sets it. */
+.checks {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 30px;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  border: 1px solid #F5F5F5;
+  border-radius: 16px;
+  background: #FAFAFA;
+}
+.check__k {
+  flex: none;
+  font-family: "Pretendard", var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  color: #000000;
+}
+.check__q {
+  min-width: 0;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+
+/* 8-3's BEFORE / AFTER frames: 202 tall (the frame's 288, cut by 30%),
+   full measure, the tag pinned to the top-right corner over whatever the
+   frame holds. */
+.fix-shot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  height: 202px;
+  margin: 0;
+  padding: 24px;
+  border: 1px solid #F5F5F5;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.fix-shot__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+}
+.fix-shot__tag {
+  position: relative;
+  padding: 7px 8px;
+  border-radius: 999px;
+  background: #A9AFB7;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--fs-body);
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #000000;
+  white-space: nowrap;
+}
+/* The pair takes 8-2's grid gaps, and the note follows it at the
+   lede-to-content 32, so the sheet fits under the stack point. */
+.fix-pair {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 30px;
+}
+.spec-card__lead.fix-note { margin-top: 32px; }
+
+/* 8-4's close: 48 under the title, then three paragraphs 12 apart, the
+   middle one promoted to the subhead step because it is the claim. */
+.enf-close {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.enf-close__body {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+.enf-close__claim {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #000000;
+}
+
+@media (max-width: 900px) {
+  .checks { grid-template-columns: minmax(0, 1fr); }
+  .check { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .fix-pair { grid-template-columns: minmax(0, 1fr); }
+  .fix-shot { height: 140px; }
+}
+
 /* ---- The AS-IS / TO-BE comparison, from Figma (frame 2075:3418) ----
    Two columns, each a screen beside the components that screen is being
    judged on. The frame lays them out at absolute coordinates inside a
@@ -2466,6 +2603,56 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   line-height: 1.6;
   color: var(--text-dim);
 }
+
+/* ---- 9-1, from Figma (frame 85:1015) ----------------------------------
+   A white sheet inset by 24 rather than 48: the dark lede panel and the
+   three items are surfaces of their own, so the sheet is only their
+   mount. Columns keep the frame's 742 : 624 split with its 24 gutter;
+   below 1024 they stack, lede first.
+
+   The lede panel's 26 under the runner is the frame's; the items are
+   the problems sheet's numbered head on #FAFAFA, 36 apart as drawn. */
+.next-card {
+  display: grid;
+  grid-template-columns: minmax(0, 742fr) minmax(0, 624fr);
+  gap: 24px;
+  padding: 24px;
+}
+.next-card__lede {
+  padding: clamp(24px, 3.4vw, 48px);
+  border-radius: 32px;
+  background: #141414;
+  container-type: inline-size;
+}
+.next-card__title {
+  margin-top: 26px;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  /* Sized to the panel, not the viewport: the frame sets 48 on a 646
+     measure, so the hand-broken lines hold at any panel width. */
+  font-size: clamp(28px, 7.4cqi, 48px);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+.next-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.next-item {
+  padding: 24px;
+  border-radius: 32px;
+  background: #FAFAFA;
+}
+
+@media (max-width: 1023px) {
+  .next-card { grid-template-columns: minmax(0, 1fr); }
+  .next-list { gap: 24px; }
+}
+
+/* The sheet's own bottom margin already sets the foot off from it. */
+#next + .wrap .closing__foot { margin-top: 0; }
 
 .closing__foot {
   display: flex;
