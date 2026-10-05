@@ -490,9 +490,12 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    handles that with an inset() on the image (-13.81% -38.89% -50.63%
    -38.89%, relative to a 36x43.456 box): .hero-pin__glyph reproduces that
    exactly, so the visible pin fills .hero-pin edge to edge instead of
-   floating, undersized, inside its own padding. The count sits at the
-   frame's own 50%/calc(50%-12px) of the 36x44 box — converted to 22.7%
-   from top here — which is the circle's centre, not the wrapper's. */
+   floating, undersized, inside its own padding. The count is centred on
+   the circle, not the wrapper: the circle's centre is y=24 in the SVG's
+   viewBox, and the box starts 6.0 units down (the -13.81% inset of a
+   43.456 box), so (24 - 6.0) / 43.456 = 41.4% from the top. It was
+   22.7% — the frame's calc(50%-12px), which is the text box's top edge,
+   then translated up by half again — and sat 8px high. */
 .hero-pin {
   position: absolute;
   width: 11%;
@@ -518,8 +521,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 .hero-pin__count {
   position: absolute;
   left: 50%;
-  top: 22.7%;
+  top: 41.4%;
   transform: translate(-50%, -50%);
+  line-height: 1;
   font-family: var(--font-sans);
   font-weight: 600;
   font-size: 0.75rem;
@@ -2603,6 +2607,46 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   font-size: var(--fs-body);
   line-height: 1.6;
   color: var(--text-dim);
+}
+
+/* ---- 1-1 Why system, from Figma (frame 91:1209) ------------------------
+   The lede and the screens share a row at the frame's 647 : 671 split,
+   24 apart, both starting 24 under the title. The two paragraphs keep
+   the frame's one blank line (25.6) between them. The screenshot is
+   cropped to its top-left corner at the frame's own overscale, so the
+   first rows of screens fill the box as drawn. Below 1024 they stack. */
+.why-body {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 647fr) minmax(0, 671fr);
+  gap: 24px;
+  align-items: start;
+}
+.why-text__p {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: #6E7884;
+}
+/* Both locales sit in the DOM (ko, en, ko, en), so the second paragraph
+   of either is the third or fourth <p>. */
+.why-text__p:nth-of-type(n+3) { margin-top: 1.6em; }
+.why-shot {
+  position: relative;
+  aspect-ratio: 671 / 443;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.why-shot img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 137.6%;
+  max-width: none;
+  height: auto;
+}
+
+@media (max-width: 1023px) {
+  .why-body { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* ---- 01 Summary, from Figma (frame 90:1157) ---------------------------
