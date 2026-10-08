@@ -78,8 +78,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   --fs-label: 0.8125rem;
   --fs-label-sm: 0.6875rem;  /* sub-runners only, one step under a label */
 
-  --wrap: 1280px;
-  --gutter: 20px;
+  /* The main portfolio's container, verbatim — max-w-[1920px] with
+     px-6 md:px-16 xl:px-[180px] 2xl:px-[360px] — for the chrome and the
+     content alike, so the case study starts on the line of the site it is
+     opened from. 64 at 768 is in the TABLET block; 180 and 360 close
+     the file, after every breakpoint block, so nothing later resets them. */
+  --wrap: 1920px;
+  --gutter: 24px;
 }
 
 /* ---- Locale switching ------------------------------------------------
@@ -3473,7 +3478,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    TABLET  (>= 768px)
    ============================================================ */
 @media (min-width: 768px) {
-  :root { --gutter: 40px; }
+  :root { --gutter: 64px; }
 
   /* Chrome container — main's `md:px-16`. */
   .ds-nav__right,
@@ -3686,15 +3691,32 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   }
 }
 
-/* ============================================================
-   COLOUR SHEET WIDE  (>= 1360px)
-   All five specimens in one row, as drawn. Below this a card would be
-   narrower than its own tile stack and the hex values would clip.
-   ============================================================ */
 @media (min-width: 1360px) {
   .spec-band { margin-block: 80px; }
   .spec-band--stack { margin-block: 0; }
+}
+
+/* ============================================================
+   COLOUR SHEET WIDE  (>= 1920px)
+   All five specimens in one row, as drawn. The row needs the 1200
+   card, and on main's gutter (180 from 1280, 360 from 1536) the card
+   is 1200 only from 1920 — at 1536 it is 816 and the hex values clip.
+   Below this the sheet keeps the three-across layout.
+   ============================================================ */
+@media (min-width: 120rem) {
   .state-cards { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+/* AS-IS / TO-BE goes two-up at 1024, but main's gutter jumps from 180 to
+   360 at 1536, which drops the comparison row to 720 and leaves each
+   column's notes beside its screen about 105 wide — too narrow for the
+   buttons they hold, which then clip. Until the row is back above ~800,
+   the two sides stack, as they do below 1024. */
+@media (min-width: 96rem) and (max-width: 99.99rem) {
+  .cmp {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 56px;
+  }
 }
 
 /* ============================================================
@@ -3842,3 +3864,10 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 
   .typo-group__head::after { transition: none; }
 }
+
+/* ============================================================
+   PAGE GUTTER — main's xl / 2xl steps (see :root). Last in the
+   file so no breakpoint block above can reset them.
+   ============================================================ */
+@media (min-width: 80rem) { :root { --gutter: 180px; } }
+@media (min-width: 96rem) { :root { --gutter: 360px; } }
