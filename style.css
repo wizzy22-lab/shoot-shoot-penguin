@@ -178,7 +178,9 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .section {
   position: relative;
-  padding: 72px 0;
+  /* the sheet gap (.spec-band 64/80), so sections sit exactly twice as
+     far apart as the sheets within one — the Operator case study matches */
+  padding: 64px 0;
 }
 
 .eyebrow {
@@ -3484,7 +3486,8 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .ds-nav__right,
   .ds-nav__links { gap: 52px; }
 
-  .section { padding: 96px 0; }
+  /* restated so it still outranks .hero / .tldr / .seemore's own tops, as before */
+  .section { padding: 64px 0; }
   .coreq { padding: 112px 0; }
 
   .tldr-card { padding: 12px 32px; }
@@ -3565,7 +3568,6 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   .closing__left { width: 60%; flex: 0 0 auto; }
   .closing__status { flex: 1; padding-top: 6px; }
 
-  .section { padding: 120px 0; }
   .coreq { padding: 140px 0; }
 
   .eyebrow { margin-bottom: 24px; }
@@ -3692,6 +3694,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 
 @media (min-width: 1360px) {
+  .section { padding: 80px 0; }
   .spec-band { margin-block: 80px; }
   .spec-band--stack { margin-block: 0; }
 }
