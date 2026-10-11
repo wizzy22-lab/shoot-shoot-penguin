@@ -332,9 +332,62 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   text-transform: lowercase;
   color: var(--text-dim);       /* #8B8B88 */
   white-space: nowrap;
-  transition: color 0.15s ease;
+  transition: opacity 0.15s ease;
 }
-.ds-nav__links a:hover { color: var(--text); }
+.ds-nav__links a:hover { opacity: 0.7; }
+
+/* Below 1024px the four links and the toggle don't fit beside the mark
+   (531px in the widest locale), so — as on main — they fold behind a
+   button and the bar keeps only the mark and that button. */
+.ds-nav__right { display: none; }
+.ds-nav__mobile { display: block; }
+@media (min-width: 1024px) {
+  .ds-nav__right { display: flex; }
+  .ds-nav__mobile { display: none; }
+}
+
+/* Wider than the glyph so the tap target clears 44px; the negative
+   margin keeps the glyph itself on the bar's right edge. */
+.ds-nav__menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -12px;
+  padding: 0;
+  color: var(--text-dim);
+  transition: opacity 0.15s ease;
+}
+.ds-nav__menu-btn:hover { opacity: 0.7; }
+.ds-nav__menu-btn [data-icon="close"] { display: none; }
+.ds-nav__menu-btn[aria-expanded="true"] [data-icon="open"] { display: none; }
+.ds-nav__menu-btn[aria-expanded="true"] [data-icon="close"] { display: inline; }
+
+/* Drops from under the 70px bar, against the fixed chrome. Opaque rather
+   than the chrome's translucent fill, so the list stays readable over
+   whatever is behind it — the anchor row included. */
+.ds-nav__panel {
+  position: absolute;
+  inset-inline: 0;
+  top: 70px;
+  z-index: 1;
+  padding: 8px 24px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+.ds-nav__panel[hidden] { display: none; }
+.ds-nav__links.ds-nav__panel-links {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+.ds-nav__panel-links a { padding-block: 12px; }
+.ds-nav__panel-lang {
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
 
 .ds-lang {
   display: flex;
