@@ -2198,8 +2198,8 @@
           <h4 class="spec-card__sub" data-lang-content="ko">왜 검증이 필요했나요?</h4>
           <h4 class="spec-card__sub" data-lang-content="en">Why was validation necessary?</h4>
 
-          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="ko">디자인 토큰과 컴포넌트를 정의하는 것만으로는 구현 과정에서도 같은 기준이 유지된다고 보장할 수 없습니다.<br class="only-desktop" /> HTML/CSS 구현에 검사 스크립트를 적용해,<br class="only-desktop" /> 디자인 시스템에서 정의한 규칙이 코드에서도 지켜지는지 확인했습니다.</p>
-          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="en">Defining design tokens and components alone does not guarantee that the same standards are maintained during implementation.<br class="only-desktop" /> I applied a validation script to the HTML/CSS implementation to check<br class="only-desktop" /> whether the rules defined in the design system were also being followed in code.</p>
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="ko">디자인 토큰과 컴포넌트를 정의하는 것만으로는 구현 과정에서도 같은 기준이 유지된다고 보장할 수 없습니다.<br class="only-desktop" /> 실제 구현 화면에서 시스템과 다른 부분을 발견한 뒤, 디자인 시스템을 MD 파일로 정리해 이를 기준으로 코드를 점검하도록 검사 스크립트를 만들었습니다.<br class="only-desktop" /> HTML/CSS 구현에 검사 스크립트를 적용해,<br class="only-desktop" /> 디자인 시스템에서 정의한 규칙이 코드에서도 지켜지는지 확인했습니다.</p>
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="en">Defining design tokens and components alone does not guarantee that the same standards are maintained during implementation.<br class="only-desktop" /> After spotting parts of the live screens that differed from the system, I documented the design system in an MD file and built a validation script that checks the code against it.<br class="only-desktop" /> I applied a validation script to the HTML/CSS implementation to check<br class="only-desktop" /> whether the rules defined in the design system were also being followed in code.</p>
         </article>
       </div>
 
@@ -2254,8 +2254,8 @@
           <h4 class="spec-card__sub spec-card__sub--opens" data-lang-content="ko">구현에서 두 건의 규칙 위반을 발견했습니다.</h4>
           <h4 class="spec-card__sub spec-card__sub--opens" data-lang-content="en">The implementation revealed two rule violations.</h4>
 
-          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="ko">구현 코드에서 정의되지 않은 색상 하나와 크기 하나가 발견됐습니다.</p>
-          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="en">One undefined color and one undefined size were found in the implementation.</p>
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="ko">샘플 코드로 검사를 실행한 결과, 정의되지 않은 색상 하나와 크기 하나를 찾아냈습니다.</p>
+          <p class="spec-card__lead spec-card__lead--wide" data-lang-content="en">Running the check on sample code turned up one undefined color and one undefined size.</p>
 
           <!-- Side by side, so the two states compare in one view: stacked
                they ran the sheet past the stack point and 7-4 covered the
@@ -2291,8 +2291,8 @@
           <h3 class="spec-card__title" data-lang-content="en">I went beyond defining rules and<br />validated them through implementation.</h3>
 
           <div class="enf-close">
-            <p class="enf-close__body" data-lang-content="ko">검사 스크립트 자체를 시험하기 위해, 더 다양한 값이 쓰인 코드에도 적용해 보았습니다.<br class="only-desktop" /> 그 결과 색상은 정의된 27개 값 안에서 일관되게 관리되고 있었지만,<br class="only-desktop" /> 크기는 51개 값으로 늘어나 있어 속성별로 더 세분화된 단계가 필요하다는 것을 확인했습니다.</p>
-            <p class="enf-close__body" data-lang-content="en">To test the validator itself, I also applied it to code containing a wider range of values.<br class="only-desktop" /> The results showed that colors were consistently managed within the defined set of 27 values,<br class="only-desktop" /> while sizes had expanded to 51 values, revealing the need for more granular scales by property.</p>
+            <p class="enf-close__body" data-lang-content="ko">검사 스크립트 자체를 시험하기 위해, 더 다양한 값이 쓰인 코드에도 적용해 보았습니다.<br class="only-desktop" /> 샘플 코드로 범위를 넓혀 실행해 보니, 색상은 정의된 27개 값 안에서 일관되게 관리되고 있었지만,<br class="only-desktop" /> 크기는 51개 값으로 늘어나 있어 속성별로 더 세분화된 단계가 필요하다는 것을 확인했습니다.</p>
+            <p class="enf-close__body" data-lang-content="en">To test the validator itself, I also applied it to code containing a wider range of values.<br class="only-desktop" /> Widening the run with sample code showed that colors were consistently managed within the defined set of 27 values,<br class="only-desktop" /> while sizes had expanded to 51 values, revealing the need for more granular scales by property.</p>
 
             <p class="enf-close__claim" data-lang-content="ko">디자인 시스템은 규칙을 정의하는 데서 그치지 않고,<br class="only-desktop" /> 그 규칙이 실제 코드에서 유지되는지 확인할 방법까지 제공해야 한다는 것을 알게 되었습니다.</p>
             <p class="enf-close__claim" data-lang-content="en">I found that a design system should not only define rules,<br class="only-desktop" /> but also provide a way to verify that those rules are maintained in actual code.</p>
