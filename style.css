@@ -2685,7 +2685,15 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
    frame's 253 tall; the penguin and its label overlap as drawn (label 180
    in on the lead side, 144 on the player side, both 134 down). The hub
    starts 60 down and steps 64 between its parts, a 48 dotted line in
-   each step. Below a 1000 board the columns stack. */
+   each step.
+
+   The page's gutter (main's 180 / 360) only gives the board that 1104
+   from 1920, so the sheet keeps three columns on narrower boards too:
+   under 1080 each role stands its penguin over its label rather than
+   overlapping them, and the hub column eases down to 208. Only under
+   720 do the columns stack. The head goes by the card's width, not the
+   viewport's, since the gutter can squeeze the card on a wide screen. */
+.ctx .spec-card { container: ctx-card / inline-size; }
 .ctx-head {
   display: grid;
   /* The title takes the width its two set lines need and the lede the
@@ -2712,7 +2720,7 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
 }
 .ctx-map {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) clamp(208px, 27.2cqi, 300px) minmax(0, 1fr);
   grid-template-areas:
     "lead   hub player"
     "ltasks hub ptasks";
@@ -2880,21 +2888,38 @@ html[data-lang="ko"] [data-lang-content="en"] { display: none; }
   white-space: nowrap;
 }
 
-@media (max-width: 1023px) {
+/* Under 1060 the set title leaves the lede less than ~360, so it drops
+   under the title instead of folding into a narrow column. */
+@container ctx-card (max-width: 1059px) {
   .ctx-head { grid-template-columns: minmax(0, 1fr); }
   .ctx-head__lede { grid-column: 1; grid-row: 3; margin-top: 24px; }
 }
-@container (max-width: 999px) {
+@container (max-width: 1079px) {
+  .ctx-role {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 24px;
+  }
+  .ctx-role__face,
+  .ctx-role__label { position: static; }
+  .ctx-role__face { width: 160px; height: 160px; }
+  .ctx-role__label { width: auto; }
+  .ctx-hub__pill { padding-inline: 24px; }
+  .ctx-task__icon { padding: 6px; }
+}
+@container (max-width: 719px) {
   .ctx-map {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas: "lead" "ltasks" "hub" "player" "ptasks";
     row-gap: 24px;
   }
   .ctx-role {
-    height: auto;
-    display: flex;
-    align-items: center;
+    flex-direction: row;
     gap: 16px;
+    padding-bottom: 0;
   }
   .ctx-role__face,
   .ctx-role__label { position: static; }
